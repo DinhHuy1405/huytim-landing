@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nghiên cứu sản phẩm ngách cùng Huy Tim</title>
+<meta name="description" content="Tải bộ tài liệu nghiên cứu sản phẩm ngách miễn phí, hoặc mời mình 1 ly cà phê để được nghiên cứu riêng theo ý tưởng của bạn.">
+<meta property="og:title" content="Nghiên cứu sản phẩm ngách cùng Huy Tim">
+<meta property="og:description" content="Bộ tài liệu FREE + nghiên cứu riêng theo ý tưởng của bạn. Chỉ từ một ly cà phê.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f7f7f6;--ink:#0b0b0b;--muted:#4a4a48;--line:#0b0b0b;--soft:#ececea}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);
+       line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;border-top:2px solid #111}
+  a{color:inherit;text-decoration:none}
+  .serif{text-wrap:balance;font-family:Fraunces,Georgia,serif;font-weight:800;letter-spacing:-.045em;line-height:.98}
+  .mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+  /* Nav pill */
+  .nav{position:relative;z-index:5;display:flex;justify-content:center;padding-top:30px}
+  .pill{display:flex;align-items:center;gap:6px;background:#fff;border-radius:16px;padding:8px 10px;
+        box-shadow:0 1px 2px rgba(0,0,0,.06),0 6px 22px rgba(0,0,0,.06)}
+  .pill .dot{width:34px;height:34px;display:grid;place-items:center;font-size:20px}
+  .pill a{font-size:.95rem;font-weight:500;color:#333;padding:8px 10px;border-radius:10px}
+  .pill a:hover{background:var(--soft)}
+
+  /* Hero */
+  .hero{position:relative;text-align:center;padding:74px 0 70px}
+  .hero h1{font-size:clamp(2.6rem,8.2vw,5.6rem);max-width:900px;margin:0 auto 26px}
+  .hero p.sub{font-size:clamp(1.05rem,2.3vw,1.4rem);color:#222;max-width:680px;margin:0 auto 34px;line-height:1.55}
+  .btn{display:inline-block;background:var(--ink);color:#fff;font-weight:500;font-size:1.05rem;
+       padding:18px 32px;border-radius:16px;transition:.18s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.25)}
+  .btn.light{background:#fff;color:var(--ink);border:2px solid var(--ink)}
+  .px{position:absolute;color:#0b0b0b;pointer-events:none}
+  .px svg{display:block;width:100%;height:auto;shape-rendering:crispEdges}
+  @media(max-width:1000px){.px{display:none}}
+
+  /* Browser mock */
+  .stage{position:relative;max-width:1150px;margin:0 auto;padding:0 22px}
+  .browser{background:linear-gradient(#f0f0ee,#e6e6e3);border:1px solid #dcdcd8;border-radius:16px 16px 0 0;
+           height:190px;position:relative;overflow:hidden}
+  .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;overflow:hidden}
+  .lights{display:flex;gap:6px;margin-right:8px}
+  .lights i{width:10px;height:10px;border-radius:50%;background:#d7d7d3}
+  .tab{font-size:.68rem;white-space:nowrap;padding:7px 12px;border-radius:9px;color:#444;background:transparent}
+  .tab.on{background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+  @media(max-width:700px){.browser{display:none}}
+
+  /* Cards */
+  .cards{display:grid;gap:18px;margin-top:-70px;position:relative;padding-bottom:20px;max-width:900px;margin-left:auto;margin-right:auto}
+  @media(min-width:700px){.cards{grid-template-columns:1fr 1fr;align-items:start;margin-top:-100px}
+    .cards>*:nth-child(1){margin-top:0}.cards>*:nth-child(2){margin-top:48px}}
+  @media(max-width:699px){.cards{margin-top:10px}}
+  .card{display:flex;flex-direction:column;background:#fff;border:2.5px solid var(--line);border-radius:20px;
+        padding:20px 20px 22px;transition:.2s;min-height:300px}
+  .card:hover{transform:translateY(-6px)}
+  .card .tags{display:grid;gap:8px;margin-bottom:auto;padding-bottom:22px}
+  .tag{display:inline-flex;align-items:center;gap:9px;background:#f1f1ef;border-radius:10px;padding:8px 12px;
+       font-size:.86rem;width:fit-content;max-width:100%}
+  .card h3{font-family:Fraunces,serif;font-weight:800;letter-spacing:-.05em;font-size:2rem;margin:12px 0 10px;line-height:1}
+  .card p{font-family:"JetBrains Mono",monospace;font-size:.82rem;line-height:1.7;color:#222}
+  .card .go{margin-top:16px;font-family:"JetBrains Mono",monospace;font-size:.8rem;font-weight:500;text-decoration:underline;text-underline-offset:4px}
+  .card.grad{border-color:#111;box-shadow:-6px 6px 0 #111;
+             background:linear-gradient(180deg,#ff2d6f 0%,#ff8a1e 45%,#f7b733 55%,#3a7bff 85%,#1e46ff 100%);color:#fff}
+  .card.grad .tag{background:rgba(0,0,0,.28);color:#fff}
+  .card.grad p,.card.grad .go{color:#fff}
+  .price{font-family:Fraunces,serif;font-weight:800;font-size:1.05rem;letter-spacing:-.02em}
+
+  /* About */
+  section.block{padding:96px 0 30px}
+  .about{display:grid;gap:40px;align-items:center}
+  .who{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+  .who .avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2.5px solid var(--ink);flex:none}
+  .who b{font-family:Fraunces,serif;font-weight:800;font-size:1.15rem;letter-spacing:-.02em;display:block}
+  .who span{font-family:"JetBrains Mono",monospace;font-size:.78rem;color:#555}
+  @media(min-width:900px){.about{grid-template-columns:1.15fr .85fr}}
+  .about h2{font-size:clamp(2.1rem,5vw,3.4rem);margin-bottom:20px}
+  .about p{font-size:1.1rem;color:#222;margin-bottom:16px;max-width:600px}
+  .about p b{font-weight:600;background:#fff2b8;padding:0 4px;border-radius:4px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:.82rem;border:2px solid var(--ink);border-radius:12px;padding:10px 14px;background:#fff}
+  .chip:hover{background:var(--ink);color:#fff}
+  .facts{display:grid;gap:14px}
+  .fact{border:2.5px solid var(--ink);border-radius:18px;background:#fff;padding:18px 20px}
+  .fact b{font-family:Fraunces,serif;font-size:1.6rem;letter-spacing:-.04em;display:block;line-height:1.1;margin-bottom:6px}
+  .fact span{font-family:"JetBrains Mono",monospace;font-size:.8rem;color:#333}
+
+  /* Steps */
+  .steps{display:grid;gap:16px;margin-top:34px}
+  @media(min-width:800px){.steps{grid-template-columns:repeat(3,1fr)}}
+  .step{border:2.5px solid var(--ink);border-radius:18px;background:#fff;padding:22px}
+  .step .n{font-family:Fraunces,serif;font-weight:800;font-size:2.4rem;letter-spacing:-.05em}
+  .step p{font-family:"JetBrains Mono",monospace;font-size:.82rem;margin-top:6px;color:#222}
+  .center{text-align:center}
+  .center h2{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:18px}
+
+  /* Final */
+  .final{text-align:center;padding:100px 0 60px}
+  .final h2{font-size:clamp(2.4rem,7vw,4.6rem);margin-bottom:26px}
+  .final .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  footer{text-align:center;color:#555;font-size:.88rem;padding:30px 0 60px}
+  footer .l{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
+  footer a{font-weight:600;color:#111}
+
+  .ic{display:inline-block;width:1.2em;height:1.2em;vertical-align:-.22em;flex:none}
+  .ic svg{display:block;width:100%;height:100%;shape-rendering:crispEdges}
+  .chip{display:inline-flex;align-items:center;gap:8px}
+  .tag .ic{width:1.1em;height:1.1em}
+  .pill .dot .ic{width:24px;height:24px}
+  .promo{display:grid;gap:36px;align-items:center}
+  @media(min-width:900px){.promo{grid-template-columns:1.1fr .9fr}}
+  .promo h2{font-size:clamp(2.1rem,5vw,3.4rem);margin-bottom:18px}
+  .promo p{font-size:1.1rem;color:#222;max-width:600px}
+  .promo p b{font-weight:600;background:#fff2b8;padding:0 4px;border-radius:4px}
+  .code-card{border:2.5px solid var(--ink);border-radius:22px;background:#fff;padding:26px;box-shadow:-6px 6px 0 #111;text-align:center}
+  .tag.brand{display:inline-flex;align-items:center;gap:8px}
+  .brand-ic{width:22px;height:22px;object-fit:contain;border-radius:5px;flex:none}
+  .code-card .tag{margin:0 auto 14px}
+  .code-card .code{font-size:clamp(2.2rem,6vw,3.2rem);margin-bottom:12px}
+  .code-card p{font-family:"JetBrains Mono",monospace;font-size:.82rem;margin:0 auto 18px}
+  .code-card .btn{border:0;cursor:pointer;font-family:inherit}
+  .chan{display:grid;gap:16px;margin-top:34px;grid-template-columns:1fr 1fr;text-align:left}
+  @media(min-width:900px){.chan{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  .card.mini{min-height:0;padding:20px;gap:2px}
+  .card.mini .ic{width:38px;height:38px;margin-bottom:10px}
+  .card.mini h3{font-size:1.5rem;margin:0 0 6px}
+  .card.mini p{font-size:.8rem}
+  @media(max-width:520px){.pill a{font-size:.82rem;padding:8px 6px}}
+  .codes{display:grid;gap:18px;margin-top:34px;align-items:stretch}
+  @media(min-width:900px){.codes{grid-template-columns:repeat(3,1fr)}}
+  .codes .code-card{display:flex;flex-direction:column;padding:24px 22px;text-align:left}
+  .codes .code-card .tag{margin:0 0 16px}
+  .codes .code{font-size:clamp(1.9rem,4.2vw,2.5rem);margin-bottom:12px;word-break:break-all}
+  .codes .code.soon{font-size:1.6rem;color:#8a8a86}
+  .codes .code-card p{margin:0 0 18px;flex:1}
+  .codes .btn{width:100%;padding:15px 20px}
+  .codes .btn:disabled{background:#d9d9d6;color:#777;cursor:not-allowed;transform:none;box-shadow:none}
+  .codes .links{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px;font-family:"JetBrains Mono",monospace;font-size:.78rem}
+  .codes .links a{text-decoration:underline;text-underline-offset:4px}
+  .codes .links:empty{display:none}
+  .chan{grid-template-columns:repeat(2,minmax(0,1fr))}
+  @media(min-width:900px){.chan{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media(max-width:400px){.pill{gap:0;padding:6px 8px}.pill .dot{display:none}.pill a{font-size:.8rem;padding:8px 6px;white-space:nowrap}}
+  @media(min-width:900px){.codes .code{font-size:clamp(1.5rem,2.7vw,2.4rem);white-space:nowrap}}
+  .consult{display:grid;gap:18px;margin:34px auto 0;max-width:860px}
+  @media(min-width:640px){.consult{grid-template-columns:1fr 1fr}}
+  .consult.three{max-width:1180px}
+  @media(min-width:900px){.consult.three{grid-template-columns:repeat(3,1fr)}}
+  .consult .card{min-height:0}
+  .chan .card.mini{flex-direction:row;align-items:center;gap:14px}
+  .chan .card.mini h3{margin:0 0 4px}
+  .chan .card.mini>div{min-width:0}
+  .chan .card.mini p{overflow-wrap:anywhere}
+  @media(max-width:520px){.chan{grid-template-columns:1fr}.chan .card.mini{padding:16px;gap:14px}}
+  .chan .lg{width:40px;height:40px;object-fit:contain;flex:none;border-radius:8px}
+  .marquee{overflow:hidden;margin-top:34px;padding:6px 0 10px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+  .track{display:flex;width:max-content;animation:ltr 55s linear infinite}
+  .marquee:hover .track{animation-play-state:paused}
+  .grp{display:flex;gap:18px;padding-right:18px}
+  .fb{width:min(340px,82vw);flex:none;background:#fff;border:2.5px solid var(--ink);border-radius:20px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:18px}
+  .fb blockquote{font-size:.98rem;line-height:1.65;color:#222}
+  .fb blockquote::before{content:"\201C";font-family:Fraunces,serif;font-weight:800;font-size:2.4rem;line-height:.5;display:block;margin-bottom:10px}
+  .fb figcaption b{display:block;font-family:Fraunces,serif;font-size:1.1rem;letter-spacing:-.02em}
+  .fb figcaption span{font-family:"JetBrains Mono",monospace;font-size:.76rem;color:#555}
+  /* Drink photos: package = a cup of coffee */
+  .cup{background:#f0eada;border-radius:14px;height:176px;display:flex;justify-content:center;align-items:flex-end;gap:2px;overflow:hidden;margin-bottom:12px}
+  .cup img{height:100%;width:auto;max-width:50%;object-fit:contain;display:block}
+  .cup.one img{max-width:100%}
+  .cupname{font-family:"JetBrains Mono",monospace;font-size:.76rem;color:#555;margin-bottom:12px}
+  .cupname b{color:var(--ink);font-weight:500}
+  .vibe{font-family:Fraunces,serif;font-style:italic;font-size:1.02rem;letter-spacing:-.01em;margin:0 0 4px}
+
+  /* Example report */
+  .ex-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:34px;text-align:left}
+  @media(min-width:800px){.ex-stats{grid-template-columns:repeat(4,1fr)}}
+  .ex-stat{background:#fff;border:2.5px solid var(--ink);border-radius:18px;padding:16px 18px}
+  .ex-stat b{font-family:Fraunces,serif;font-weight:800;font-size:clamp(1.8rem,5vw,2.6rem);letter-spacing:-.05em;line-height:1;display:block}
+  .ex-stat span{font-family:"JetBrains Mono",monospace;font-size:.76rem;color:#333;display:block;margin-top:8px;line-height:1.5}
+  .ex-more{overflow:hidden}
+  .ex-more[hidden]{display:none}
+  .ex-grid{display:grid;gap:18px;margin-top:18px;text-align:left}
+  @media(min-width:800px){.ex-grid{grid-template-columns:1fr 1fr}.ex-grid .wide{grid-column:1/-1}}
+  .ex-card{background:#fff;border:2.5px solid var(--ink);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+  .ex-card h3{font-family:Fraunces,serif;font-weight:800;font-size:1.35rem;letter-spacing:-.04em;line-height:1.1}
+  .ex-card p{font-family:"JetBrains Mono",monospace;font-size:.78rem;line-height:1.6;color:#333}
+  .ex-card a.zoom{display:block;border-radius:12px;overflow:hidden;border:1.5px solid #dcdcd8;background:#fbfbf9}
+  .ex-card a.zoom img{display:block;width:100%;height:auto}
+  .ex-card .hint{font-family:"JetBrains Mono",monospace;font-size:.7rem;color:#777}
+  .bars{display:grid;gap:9px}
+  .bar-row{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1.6fr);gap:10px;align-items:center;font-size:.86rem}
+  .bar-row .nm{line-height:1.25}
+  .bar-row .tr{position:relative;height:22px;background:#f1f1ef;border-radius:7px}
+  .bar-row .fill{position:absolute;inset:0 auto 0 0;border-radius:7px;background:#b9b9b4;display:flex;align-items:center;justify-content:flex-start;padding-left:9px;font-family:"JetBrains Mono",monospace;font-size:.74rem;font-weight:500;white-space:nowrap;overflow:visible;z-index:1}
+  .bar-row.pick .fill{background:#7fd6a4}
+  .bar-row .fill.c1{background:#a9c4ff}
+  .bar-row .fill.c2{background:#f5b9b3}
+  .bar-row .fill.c3{background:#a9e0c0}
+  .chart-svg{width:100%;height:auto;display:block;background:#fbfbf9;border:1.5px solid #e6e6e2;border-radius:12px;padding:8px 0}
+  .chart-legend{display:flex;flex-wrap:wrap;gap:12px 18px;font-family:"JetBrains Mono",monospace;font-size:.72rem;color:#444}
+  .chart-legend span{display:inline-flex;align-items:center;gap:6px}
+  .chart-legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+  .bars.score .bar-row .tr{position:relative}
+  .bars.score .bar-row .tr::after{content:"";position:absolute;left:65%;top:-3px;bottom:-3px;border-left:2px dashed #e0473b}
+  .bars-lab{font-family:"JetBrains Mono",monospace;font-size:.68rem;color:#e0473b}
+  .prod{display:flex;gap:14px;align-items:center;border-top:1.5px dashed #ccc;padding-top:12px}
+  .prod img{width:84px;height:84px;object-fit:cover;border-radius:12px;flex:none;border:1.5px solid #dcdcd8}
+  .prod div{min-width:0;font-size:.86rem;line-height:1.45}
+  .prod b{font-weight:600}
+  @keyframes ltr{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+  @media(prefers-reduced-motion:reduce){.track{animation:none}.marquee{overflow-x:auto}}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="pill">
+  
+  <a href="#ve-minh">Về mình</a><a href="#goi">Gói</a><a href="#du-lieu">Dữ liệu</a><a href="#vi-du">Ví dụ</a><a href="#uu-dai">Ưu đãi</a><a href="#kenh">Kênh</a>
+</div></nav>
+
+<header class="hero wrap">
+  <h1 class="serif">Tìm ngách, vận hành shop, đừng mò mẫm một mình.</h1>
+  <p class="sub">Mình là Huy Tim, giúp bạn tìm đúng sản phẩm ngách và giữ shop chạy đúng hướng bằng dữ liệu thật, không đoán mò. Bắt đầu miễn phí, hoặc mời mình 1 ly cà phê để nghiên cứu riêng cho bạn.</p>
+  <a class="btn" href="#goi">Tải tài liệu FREE</a>
+</header>
+
+<section class="block" id="ve-minh">
+  <div class="wrap about">
+    <div>
+      <div class="who">
+        <img class="avatar" src="img/profile.jpg" alt="Huy Tim" width="64" height="64">
+        <div><b>Huy Tim</b><span>Nghiên cứu sản phẩm ngách &amp; dữ liệu TikTok Shop</span></div>
+      </div>
+      <h2 class="serif">Chào bạn, mình là Huy Tim.</h2>
+      <p>Mình là <b>Thạc sĩ Khoa học Dữ liệu và Trí tuệ Nhân tạo</b> (Erasmus MSc, Université Côte d'Azur, Pháp).</p>
+      <p>Hơn <b>5 năm kinh doanh trên thị trường Hoa Kỳ</b>, hỗ trợ các doanh nghiệp vận hành thương mại điện tử trên Shopify, Amazon, eBay, TikTok Shop và Faire.</p>
+      <p>Mình nghiên cứu bằng dữ liệu thật, kinh nghiệm bán hàng thực tế và các công cụ trả phí, để bạn không tốn thời gian và công sức.</p>
+      <div class="chips">
+        <a class="chip" href="https://portfolio.huytim.com" target="_blank" rel="noopener">portfolio.huytim.com ↗</a>
+      </div>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>Thạc sĩ Data Science &amp; AI</b><span>Université Côte d'Azur, Pháp (học bổng Erasmus)</span></div>
+      <div class="fact"><b>5 năm thị trường Hoa Kỳ</b><span>Vận hành và tối ưu kinh doanh thương mại điện tử</span></div>
+      <div class="fact"><b>Dữ liệu + thực chiến</b><span>Phân tích số liệu kết hợp kinh nghiệm bán hàng thật</span></div>
+    </div>
+  </div>
+</section>
+
+
+<div class="stage">
+  <div class="browser"><div class="bar">
+    <div class="lights"><i></i><i></i><i></i></div>
+    <span class="tab on">Nghiên cứu ngách</span><span class="tab on">Kalodata</span>
+    <span class="tab">TikTok Shop</span><span class="tab">Amazon</span><span class="tab">Shopify</span>
+    <span class="tab">eBay</span><span class="tab">Faire</span><span class="tab">Google Trends</span>
+  </div></div>
+
+  <div class="cards" id="goi">
+    <a class="card grad" href="https://drive.google.com/drive/folders/1WUuCkiOCzZK_r09vhz2hTQImztf_HeYT?usp=sharing" target="_blank" rel="noopener">
+      <div class="tags"><span class="tag">Folder tài liệu</span><span class="tag">Data &amp; số liệu</span></div>
+      <h3>/Miễn Phí</h3>
+      <p>Bộ tài liệu nghiên cứu ngách mình đã làm sẵn. Xem và tải về ngay, không cần điền gì.</p>
+      <span class="go">Mở folder →</span>
+    </a>
+
+    <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
+      <div class="cup one"><img src="img/menu/xiu-vani.png" alt="Ly Phê Xỉu Vani" loading="lazy"></div>
+      <div class="cupname">Mời mình <b>1 ly Phê Xỉu Vani</b> · 50K</div>
+      <div class="tags"><span class="tag">Khuyến nghị chuyên sâu</span><span class="tag">Nhận qua email</span></div>
+      <h3>/Chuyên Sâu</h3>
+      <p class="vibe">Cảm giác: nhẹ nhàng, bắt đầu đúng hướng.</p>
+      <p><span class="price">49.000đ</span><br>Bộ nghiên cứu nâng cao theo đúng ý tưởng của bạn: data, số liệu và khuyến nghị chuyên sâu.</p>
+      <span class="go">Chọn gói 49K →</span>
+    </a>
+
+  </div>
+</div>
+
+
+<section class="block" id="tu-van">
+  <div class="wrap center">
+    <h2 class="serif">Tư vấn meeting support.</h2>
+    <p class="lead">Cần người đồng hành cho bất kỳ câu hỏi nào — nghiên cứu sản phẩm ngách, công việc, học tập, định hướng, hay một câu hỏi số liệu khác? Đặt một buổi meeting riêng, phân tích làm mới hoàn toàn cho đúng câu hỏi của bạn.</p>
+    <div class="consult" style="text-align:left">
+      <a class="card" href="mailto:nguyendinhhuy14052000@gmail.com?subject=%C4%90%E1%BA%B7t%20l%E1%BB%8Bch%20Combo%20129K" target="_blank" rel="noopener">
+        <div class="cup"><img src="img/menu/lua-dao.png" alt="Ly Lụa Đào" loading="lazy"><img src="img/menu/matcha-coco.png" alt="Ly Matcha Coco Latte" loading="lazy"></div>
+        <div class="cupname">Mời mình <b>Lụa Đào + Matcha Coco Latte</b> · 130K</div>
+        <div class="tags"><span class="tag">Riêng 45-60 phút</span><span class="tag">Phân tích làm mới, không dùng mẫu</span></div>
+        <h3>/Combo</h3>
+        <p class="vibe">Cảm giác: có người ngồi tính riêng cho câu hỏi của mình, không phải bản dựng sẵn.</p>
+        <p><span class="price">129.000đ</span><br>Buổi meeting riêng 45-60 phút về bất kỳ chủ đề nào bạn cần — nghiên cứu sản phẩm ngách, công việc, học tập, định hướng, hoặc một câu hỏi số liệu khác. Mình phân tích làm mới hoàn toàn ngay trong buổi theo đúng câu hỏi đó, không dùng lại báo cáo mẫu, rồi trao đổi trực tiếp.</p>
+        <span class="go">Đặt lịch gói 129K →</span>
+      </a>
+      <a class="card" href="mailto:nguyendinhhuy14052000@gmail.com?subject=%C4%90%E1%BA%B7t%20l%E1%BB%8Bch%20-%20G%C3%B3i%20Setup%20full%20t%E1%BB%AB%20A-Z" target="_blank" rel="noopener">
+        <div class="cup one"><img src="img/menu/xiu-vani.png" alt="Ly Phê Xỉu Vani" loading="lazy"></div>
+        <div class="cupname">Làm cùng nhau <b>từ ly đầu tiên tới lúc lên đơn</b></div>
+        <div class="tags"><span class="tag">Chọn ngách</span><span class="tag">Nguồn hàng</span><span class="tag">Listing &amp; nội dung</span></div>
+        <h3>/Trọn Gói</h3>
+        <p class="vibe">Cảm giác: giao việc, chỉ cần lên hàng.</p>
+        <p><span class="price">1.500.000đ – 3.000.000đ</span><br>Làm trọn gói từ đầu đến cuối: chọn ngách, tìm nguồn hàng/nhà cung cấp, gợi ý giá bán &amp; biên lợi nhuận, soạn bản nháp listing và kế hoạch 5–10 video đầu tiên. Giá cụ thể tùy phạm vi, báo giá sau khi trao đổi.</p>
+        <span class="go">Liên hệ báo giá →</span>
+      </a>
+    </div>
+    <p class="note" style="margin-top:22px;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:#555">Bấm nút để gửi email đặt lịch, mình sẽ liên hệ xác nhận thời gian và thanh toán.</p>
+  </div>
+</section>
+
+<section class="block" id="du-lieu">
+  <div class="wrap center">
+    <h2 class="serif">Dữ liệu vận hành cho shop đang bán.</h2>
+    <p class="lead">Đã có shop, không cần tìm ngách mới? Mình gửi báo cáo dữ liệu theo đúng nhu cầu vận hành, làm một lần hoặc định kỳ.</p>
+    <div class="consult three" style="text-align:left">
+      <a class="card" href="mailto:nguyendinhhuy14052000@gmail.com?subject=%C4%90%E1%BA%B7t%20g%C3%B3i%20-%20So%20s%C3%A1nh%20gi%C3%A1%20%26%20ph%C3%A2n%20t%C3%ADch%20%C4%91%E1%BB%91i%20th%E1%BB%A7" target="_blank" rel="noopener">
+        <div class="cup one"><img src="img/menu/olong-daohong.png" alt="Ly Ô Long Đào Hồng" loading="lazy"></div>
+        <div class="tags"><span class="tag">So sánh giá</span><span class="tag">Phân tích đối thủ</span></div>
+        <h3>/Soi Giá</h3>
+        <p class="vibe">Cảm giác: biết mình đang đứng đâu so với đối thủ.</p>
+        <p><span class="price">350.000đ – 700.000đ</span><br>So sánh giá bán, khuyến mãi và giá vốn tối đa theo biên lợi nhuận mục tiêu; xếp hạng các đối thủ chính theo doanh số, quy mô shop và nguồn hàng khả dụng. Giá theo số đối thủ &amp; ngành hàng cần soi.</p>
+        <span class="go">Đặt gói →</span>
+      </a>
+      <a class="card" href="mailto:nguyendinhhuy14052000@gmail.com?subject=%C4%90%E1%BA%B7t%20g%C3%B3i%20-%20Ph%C3%A2n%20t%C3%ADch%20store" target="_blank" rel="noopener">
+        <div class="cup one"><img src="img/menu/matcha-coco.png" alt="Ly Matcha Coco Latte" loading="lazy"></div>
+        <div class="tags"><span class="tag">Phân tích store</span><span class="tag">Sức khỏe shop</span></div>
+        <h3>/Khám Shop</h3>
+        <p class="vibe">Cảm giác: nhìn lại shop mình bằng con số, không phải cảm tính.</p>
+        <p><span class="price">350.000đ – 700.000đ</span><br>Soi shop của bạn hoặc một shop muốn tham khảo: doanh số theo thời gian, tồn kho hiển thị, review khen chê lặp lại, video và creator đang bán tốt nhất. Giá theo quy mô shop &amp; số SKU.</p>
+        <span class="go">Đặt gói →</span>
+      </a>
+      <a class="card" href="mailto:nguyendinhhuy14052000@gmail.com?subject=%C4%90%E1%BA%B7t%20g%C3%B3i%20-%20Setup%20quy%20tr%C3%ACnh%20d%E1%BB%AF%20li%E1%BB%87u" target="_blank" rel="noopener">
+        <div class="cup"><img src="img/menu/olong-sua.png" alt="Ly Ô Long Sữa Phê-La" loading="lazy"><img src="img/menu/bong-buoi.png" alt="Ly Bòng Bưởi" loading="lazy"></div>
+        <div class="tags"><span class="tag">Quy trình dữ liệu</span><span class="tag">Định kỳ</span></div>
+        <h3>/Nhịp Dữ Liệu</h3>
+        <p class="vibe">Cảm giác: không phải tự tổng hợp số tay mỗi tuần.</p>
+        <p><span class="price">500.000đ khởi tạo<br>+ 400.000–800.000đ/tháng</span><br>Setup một quy trình theo dõi giá, đối thủ, tồn kho và review theo lịch cố định (tuần/tháng), gửi bạn bản tóm tắt sẵn dùng thay vì phải tự lọc dữ liệu thô. Phí duy trì theo tần suất tuần/tháng.</p>
+        <span class="go">Đăng ký duy trì →</span>
+      </a>
+      <a class="card" href="mailto:nguyendinhhuy14052000@gmail.com?subject=%C4%90%E1%BA%B7t%20g%C3%B3i%20-%20T%C3%ACm%20creator%20ph%C3%B9%20h%E1%BB%A3p" target="_blank" rel="noopener">
+        <div class="cup one"><img src="img/menu/lua-dao.png" alt="Ly Lụa Đào" loading="lazy"></div>
+        <div class="tags"><span class="tag">Chọn creator</span><span class="tag">Gửi mẫu affiliate</span></div>
+        <h3>/Tìm Creator</h3>
+        <p class="vibe">Cảm giác: gửi mẫu đúng người, đỡ phí hàng mẫu.</p>
+        <p><span class="price">300.000đ – 600.000đ</span><br>Lọc &amp; xếp hạng creator/KOC phù hợp ngách của bạn theo follower, tỉ lệ bán và video đang chạy tốt, kèm gợi ý cách tiếp cận gửi mẫu affiliate. Giá theo số lượng creator cần lọc.</p>
+        <span class="go">Đặt gói →</span>
+      </a>
+      <a class="card" href="mailto:nguyendinhhuy14052000@gmail.com?subject=%C4%90%E1%BA%B7t%20g%C3%B3i%20-%20Theo%20d%C3%B5i%20t%E1%BB%93n%20kho" target="_blank" rel="noopener">
+        <div class="cup one"><img src="img/menu/matcha-coco.png" alt="Ly Matcha Coco Latte" loading="lazy"></div>
+        <div class="tags"><span class="tag">Tồn kho</span><span class="tag">Dự báo nhập hàng</span></div>
+        <h3>/Canh Tồn Kho</h3>
+        <p class="vibe">Cảm giác: nhập hàng đúng lúc, không đứt hàng giữa đợt bán chạy.</p>
+        <p><span class="price">300.000đ – 600.000đ</span><br>Theo dõi tốc độ bán theo từng SKU, cảnh báo SKU sắp hết hàng và gợi ý thời điểm, số lượng nhập tiếp theo. Giá theo số SKU cần theo dõi.</p>
+        <span class="go">Đặt gói →</span>
+      </a>
+      <a class="card" href="mailto:nguyendinhhuy14052000@gmail.com?subject=%C4%90%E1%BA%B7t%20Combo%20d%E1%BB%AF%20li%E1%BB%87u%20v%E1%BA%ADn%20h%C3%A0nh" target="_blank" rel="noopener">
+        <div class="tags"><span class="tag">Ghép nhiều gói</span><span class="tag">Tiết kiệm hơn mua lẻ</span></div>
+        <h3>/Combo Vận Hành</h3>
+        <p class="vibe">Cảm giác: gom hết nhu cầu vào một lần đặt, đỡ mua lẻ từng gói.</p>
+        <p><span class="price">Liên hệ báo giá</span><br>Ghép 2-3 gói bất kỳ ở trên (ví dụ Soi Giá + Khám Shop + Canh Tồn Kho) trong một lần đặt, giá tốt hơn mua lẻ từng gói. Nhắn mình các gói bạn cần để ghép combo.</p>
+        <span class="go">Liên hệ ghép combo →</span>
+      </a>
+      <a class="card" href="mailto:nguyendinhhuy14052000@gmail.com?subject=%C4%90%E1%BA%B7t%20g%C3%B3i%20-%20D%E1%BB%AF%20li%E1%BB%87u%20theo%20y%C3%AAu%20c%E1%BA%A7u" target="_blank" rel="noopener">
+        <div class="tags"><span class="tag">Theo yêu cầu</span><span class="tag">Mọi loại dữ liệu</span></div>
+        <h3>/Theo Yêu Cầu</h3>
+        <p class="vibe">Cảm giác: không cần biết gọi tên gói gì, cứ nói vấn đề đang gặp.</p>
+        <p><span class="price">Liên hệ báo giá</span><br>Không thấy đúng gói mình cần? Mô tả câu hỏi, ngành hàng và mục tiêu, mình báo phạm vi công việc và giá phù hợp trước khi bắt đầu.</p>
+        <span class="go">Liên hệ tư vấn →</span>
+      </a>
+    </div>
+    <p class="note" style="margin-top:22px;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:#555">Giá tham khảo, có thể thay đổi theo phạm vi thực tế — nhắn mình chủ đề + ngành hàng để chốt báo giá cuối.</p>
+  </div>
+</section>
+
+<section class="block" id="vi-du">
+  <div class="wrap center">
+    <h2 class="serif">Ví dụ bạn sẽ nhận được.</h2>
+    <p class="lead">Trích từ một báo cáo thật: ngách Gia dụng trên TikTok Shop Việt Nam, dùng dữ liệu FastMoss. Đã lược bỏ thông tin khách hàng. Đây chỉ là một phần — báo cáo đầy đủ còn phân tích rủi ro, đối thủ, nguồn hàng và các loại thông tin khác tùy theo ngách bạn chọn.</p>
+    <div class="ex-stats">
+      <div class="ex-stat"><b>236</b><span>dòng sản phẩm được quét từ 14 bảng xếp hạng</span></div>
+      <div class="ex-stat"><b>148</b><span>sản phẩm sạch sau khi lọc rác, quà tặng, hàng cần giấy phép</span></div>
+      <div class="ex-stat"><b>18 → 2</b><span>ngách được chấm điểm, chọn ra 2 ngách vượt ngưỡng 65</span></div>
+      <div class="ex-stat"><b>89/100</b><span>điểm cao nhất: Kệ &amp; móc dán tường, giá chủ đạo 25–46K</span></div>
+    </div>
+    <div class="ex-grid">
+      <div class="ex-card wide">
+        <h3>Chấm điểm ngách trên thang 100</h3>
+        <p>Mỗi ngách được chấm theo 6 tiêu chí: nhu cầu, tính bền, cạnh tranh, biên lợi nhuận, khả năng nhập hàng và nội dung. Xanh lá là ngách được chọn.</p>
+        <div class="bars score">
+          <div class="bar-row pick"><span class="nm">Kệ &amp; móc dán tường</span><span class="tr"><span class="fill" style="width:89%">89</span></span></div>
+          <div class="bar-row pick"><span class="nm">Rổ chậu/thau rửa rau củ</span><span class="tr"><span class="fill" style="width:81%">81</span></span></div>
+          <div class="bar-row"><span class="nm">Vỉ/rổ/giá hấp inox &amp; khăn hấp</span><span class="tr"><span class="fill" style="width:74%">74</span></span></div>
+          <div class="bar-row"><span class="nm">Nồi lẩu điện mini / nồi điện đa năng</span><span class="tr"><span class="fill" style="width:72%">72</span></span></div>
+          <div class="bar-row"><span class="nm">Nạo/dụng cụ sơ chế</span><span class="tr"><span class="fill" style="width:64%">64</span></span></div>
+          <div class="bar-row"><span class="nm">Nồi inox mini / nồi mì</span><span class="tr"><span class="fill" style="width:62%">62</span></span></div>
+        </div>
+        <span class="bars-lab">┆ vạch đỏ: ngưỡng 65 điểm</span>
+      </div>
+    </div>
+    <div class="ex-more" id="exMore" hidden>
+    <div class="ex-grid">
+      <div class="ex-card">
+        <h3>Quy mô nhóm con &amp; độ tập trung</h3>
+        <p>Nhóm nào lớn, nhóm nào còn phân mảnh để biết chỗ nào còn dễ vào. Đơn vị: triệu units, tháng 08/2026.</p>
+        <div class="bars">
+          <div class="bar-row"><span class="nm">Home Care Supplies</span><span class="tr"><span class="fill c1" style="width:100%">10,89tr</span></span></div>
+          <div class="bar-row"><span class="nm">Home Organizers</span><span class="tr"><span class="fill c1" style="width:32%">3,53tr</span></span></div>
+          <div class="bar-row"><span class="nm">Home Decor</span><span class="tr"><span class="fill c1" style="width:26%">2,80tr</span></span></div>
+          <div class="bar-row"><span class="nm">Kitchen Utensils &amp; Gadgets</span><span class="tr"><span class="fill c2" style="width:18%">1,91tr</span></span></div>
+          <div class="bar-row"><span class="nm">Home Appliances</span><span class="tr"><span class="fill c3" style="width:16%">1,74tr</span></span></div>
+          <div class="bar-row"><span class="nm">Bathroom Supplies</span><span class="tr"><span class="fill c1" style="width:14%">1,48tr</span></span></div>
+          <div class="bar-row"><span class="nm">Festive &amp; Party Supplies</span><span class="tr"><span class="fill c1" style="width:12%">1,32tr</span></span></div>
+          <div class="bar-row"><span class="nm">Drinkware</span><span class="tr"><span class="fill c2" style="width:11%">1,23tr</span></span></div>
+        </div>
+        <div class="chart-legend">
+          <span><i style="background:#3a7bff"></i>Đồ dùng gia đình</span>
+          <span><i style="background:#e0473b"></i>Đồ dùng nhà bếp</span>
+          <span><i style="background:#1f9d55"></i>Thiết bị gia dụng</span>
+        </div>
+      </div>
+      <div class="ex-card wide">
+        <h3>Xu hướng bán 90 ngày của từng SKU</h3>
+        <p>Ngách Kệ &amp; móc dán tường: nhìn được sản phẩm nào bán đều quanh năm, sản phẩm nào chỉ sống nhờ đợt deal ngắn (hình minh hoạ lại theo hình dạng đường gốc).</p>
+        <svg class="chart-svg" viewBox="0 0 320 154" role="img" aria-label="Xu hướng bán 90 ngày của 3 SKU trong ngách Kệ và móc dán tường">
+          <line x1="20" y1="140" x2="310" y2="140" stroke="#ccc" stroke-width="1"/>
+          <polyline points="20.0,84.4 60.0,91.8 100.0,114.1 140.0,115.9 180.0,95.5 220.0,43.6 260.0,21.4 300.0,91.8" fill="none" stroke="#e0473b" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+          <polyline points="20.0,121.5 60.0,122.2 100.0,123.0 140.0,122.6 180.0,121.5 220.0,120.7 260.0,119.2 300.0,115.9" fill="none" stroke="#3a7bff" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+          <polyline points="20.0,127.0 60.0,128.1 100.0,128.9 140.0,128.5 180.0,127.8 220.0,127.0 260.0,127.4 300.0,126.7" fill="none" stroke="#1f9d55" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+          <text x="20" y="150" font-family="JetBrains Mono,monospace" font-size="8" fill="#777">28/06</text>
+          <text x="280" y="150" font-family="JetBrains Mono,monospace" font-size="8" fill="#777">25/09</text>
+        </svg>
+        <div class="chart-legend">
+          <span><i style="background:#e0473b"></i>Combo 20 móc inox (NTT)</span>
+          <span><i style="background:#3a7bff"></i>Kệ nhà tắm JYoohome</span>
+          <span><i style="background:#1f9d55"></i>Kệ rửa chén TOP GĐ HĐ</span>
+        </div>
+        <div class="prod"><img src="img/report/sp-ke.jpg" alt="Sản phẩm mẫu: kệ đựng đồ nhà tắm dán tường" loading="lazy"><div><b>Sản phẩm dẫn đầu được phân tích chi tiết</b><br>Giá, số đơn 28/90 ngày, review khen chê lặp lại, video và creator bán tốt nhất.</div></div>
+      </div>
+      <div class="ex-card">
+        <h3>Giá bán &amp; biên lợi nhuận đề xuất</h3>
+        <p>Từ giá đối thủ, suy ngược giá vốn tối đa (COGS_max) để đạt biên mục tiêu 25%, theo phí sàn thực tế của shop bạn.</p>
+        <div class="bars">
+          <div class="bar-row"><span class="nm">Kệ nhà tắm/bếp dán tường</span><span class="tr"><span class="fill" style="width:45%">49K bán · 22.050đ vốn tối đa</span></span></div>
+          <div class="bar-row"><span class="nm">Kệ bồn rửa chén có khay nghiêng</span><span class="tr"><span class="fill" style="width:45%">49K bán · 22.050đ vốn tối đa</span></span></div>
+          <div class="bar-row"><span class="nm">Combo 20 móc inox dán tường</span><span class="tr"><span class="fill" style="width:26%">29K bán · 12.760đ vốn tối đa</span></span></div>
+          <div class="bar-row"><span class="nm">Set 6 rổ + chậu nhựa PP</span><span class="tr"><span class="fill" style="width:45%">49K bán · 22.050đ vốn tối đa</span></span></div>
+          <div class="bar-row"><span class="nm">Bộ 6 chậu rổ loại dày</span><span class="tr"><span class="fill" style="width:90%">99K bán · 47.520đ vốn tối đa</span></span></div>
+        </div>
+        <span class="bars-lab">Công thức: giá vốn tối đa = giá bán × (1 − phí sàn − hoa hồng affiliate − quảng cáo − biên mục tiêu)</span>
+      </div>
+      <div class="ex-card">
+        <h3>Lô test đề xuất &amp; vốn hàng</h3>
+        <p>Không nhập lớn ngay: test 40–60 đơn vị mỗi SKU, tổng 200 đơn vị cho 2 ngách, vốn hàng tối đa khoảng <b style="font-family:inherit">4,8 triệu đồng</b>. Ngân sách còn lại dồn cho gửi mẫu creator (20–30 người, 1k–50k follower) và quảng cáo video.</p>
+        <p style="margin:0">Ngưỡng dừng nếu test không đạt: tỉ lệ review 1–2 sao dưới 3%, hoàn trả thực tế thấp hơn, ACOS (chi phí quảng cáo/doanh thu) dưới 15%.</p>
+      </div>
+      <div class="ex-card">
+        <h3>3 rủi ro lớn nhất cần lường trước</h3>
+        <p><b style="font-family:inherit">Chiến giá &amp; flash-deal</b> — nhiều SKU chỉ sống nhờ đợt "trợ giá" rồi tụt về 0.</p>
+        <p><b style="font-family:inherit">Chất lượng &amp; vận chuyển</b> — hàng nhựa rẻ dễ móp méo, vỡ; phí hoàn trả có thể gần bằng giá sản phẩm.</p>
+        <p style="margin:0"><b style="font-family:inherit">Đối thủ lớn chiếm thị phần</b> — 1–2 shop đầu ngành đã nắm phần lớn đơn và mạng lưới creator riêng.</p>
+      </div>
+      <div class="ex-card">
+        <h3>Đối thủ đang dẫn đầu ngách</h3>
+        <p>Xếp hạng theo tổng units, quy mô shop và nguồn hàng khả dụng (có thể là đại lý/nhà cung cấp) để biết nên cạnh tranh trực tiếp hay tìm khe hở.</p>
+        <div class="bars">
+          <div class="bar-row"><span class="nm">TT79.Store<br><span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#666">Shop lớn, 6 ngành</span></span><span class="tr"><span class="fill" style="width:100%">9,48tr units</span></span></div>
+          <div class="bar-row"><span class="nm">NTT Store HN<br><span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#666">Shop lớn</span></span><span class="tr"><span class="fill" style="width:70%">6,67tr units</span></span></div>
+          <div class="bar-row"><span class="nm">JYoohome Store<br><span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#666">Thương hiệu riêng</span></span><span class="tr"><span class="fill" style="width:33%">3,18tr units</span></span></div>
+          <div class="bar-row"><span class="nm">Gia Dụng Khánh Thảo<br><span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#666">Có thể là đại lý, bán sỉ</span></span><span class="tr"><span class="fill" style="width:12%">114,8k units</span></span></div>
+        </div>
+      </div>
+      <div class="ex-card wide">
+        <h3>5–10 ý tưởng video đầu tiên, dựa trên mẫu đang bán tốt</h3>
+        <p>Không cần đoán mò content: soi lại video của các creator đang bán chạy trong ngách để rút ra công thức, rồi biến tấu theo sản phẩm của bạn.</p>
+        <div class="bars" style="gap:12px">
+          <div class="bar-row" style="grid-template-columns:1fr"><span class="nm">1. Before/after góc nhà tắm bừa bộn → gọn gàng trong 40 giây</span></div>
+          <div class="bar-row" style="grid-template-columns:1fr"><span class="nm">2. Test chịu lực: treo 5–10kg lên kệ/móc suốt 24 giờ, quay cận keo dán</span></div>
+          <div class="bar-row" style="grid-template-columns:1fr"><span class="nm">3. Góc bồn rửa chén: nước tự chảy về bồn nhờ khay nghiêng</span></div>
+          <div class="bar-row" style="grid-template-columns:1fr"><span class="nm">4. "Mua 3 tặng 3" hoặc combo 2 kệ: nhấn vào giá trị</span></div>
+          <div class="bar-row" style="grid-template-columns:1fr"><span class="nm">5. Unbox set 6 món: xếp lồng, đổ nước qua rổ 2 lớp</span></div>
+          <div class="bar-row" style="grid-template-columns:1fr"><span class="nm">6. So sánh độ dày nhựa/thép: bẻ thử, thả rơi, trả lời thẳng vào lỗi hay bị chê</span></div>
+        </div>
+      </div>
+    </div>
+    <p style="max-width:760px;margin:26px auto 0;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#555">Đây là bản rút gọn từ một báo cáo thật mình đã làm cho khách (dữ liệu FastMoss, chốt kỳ 08/2026). Báo cáo bạn nhận được sẽ theo đúng ngách và ngân sách của bạn, không phải bản này.</p>
+    </div>
+    <button class="btn light" id="exToggle" type="button" style="margin-top:26px" aria-expanded="false" aria-controls="exMore">Xem thêm ví dụ ↓</button>
+  </div>
+</section>
+
+<section class="block" id="feedback">
+  <div class="wrap center">
+    <h2 class="serif">Khách hàng nói gì.</h2>
+    <p class="lead">Một vài chia sẻ từ những người đã trao đổi và làm việc cùng mình.</p>
+  </div>
+  <div class="marquee" aria-label="Feedback từ khách hàng">
+    <div class="track" id="track">
+      <div class="grp">
+        <figure class="fb"><blockquote>Mình đang làm Finance và rất phân vân có nên chuyển sang BA hay Data Science. Mình gửi trước danh sách câu hỏi về lộ trình, kỹ năng nhà tuyển dụng cần và chứng chỉ. Anh Huy phân tích kỹ rồi hỗ trợ ngay trong buổi meeting nên mình nắm rõ hướng đi hơn hẳn.</blockquote><figcaption><b>Khách hàng gói tư vấn</b><span>Đang chuyển ngành từ Finance sang Data</span></figcaption></figure>
+        <figure class="fb"><blockquote>Anh nhiệt tình thật sự! Ngoài phần trả lời câu hỏi, anh còn chia sẻ thêm blog và kinh nghiệm học tập, làm việc để mình đọc thêm. Cảm ơn anh rất nhiều.</blockquote><figcaption><b>Khách hàng gói tư vấn</b><span>Hỏi về học thuật và định hướng nghề nghiệp</span></figcaption></figure>
+        <figure class="fb"><blockquote>Xưởng mình đang xuất khẩu số lượng lớn nhưng muốn bán lẻ. Mình nhờ anh Huy hỗ trợ tìm dữ liệu và insight để bán thử. Hai bên đặt lịch, chuẩn bị bộ câu hỏi trước nên buổi trao đổi đi vào trọng tâm và mình được hỗ trợ rất rõ ràng.</blockquote><figcaption><b>Chủ xưởng sản phẩm thú cưng</b><span>Nghiên cứu dữ liệu để bán lẻ</span></figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="uu-dai">
+  <div class="wrap center">
+    <h2 class="serif">Mã ưu đãi công cụ.</h2>
+    <p class="lead">Các công cụ dữ liệu mình dùng để nghiên cứu sản phẩm. Dùng mã bên dưới khi đăng ký để được ưu đãi.</p>
+    <div class="codes" style="text-align:left">
+      <div class="code-card">
+        <div class="tag brand"><img class="brand-ic" src="img/tools/kalodata.png" alt="" loading="lazy">Kalodata</div>
+        <div class="code serif">HUYTIM2000</div>
+        <p>Giảm 10-15%. Phân tích dữ liệu TikTok Shop: nghiên cứu sản phẩm, ngành và cửa hàng. Nhập mã khi thanh toán.</p>
+        <button class="btn copy" type="button" data-code="HUYTIM2000">Sao chép mã</button>
+        <div class="links">
+          <a href="https://www.kalodata.com/pricing" target="_blank" rel="noopener">Bảng giá ↗</a>
+          <a href="https://www.kalodata.com/pilot/share/file?task_id=8b02c7fb3b264bc4b5e276e932249380&tool_call_id=toolu_c71f0a66de5c40c5b08da803" target="_blank" rel="noopener">Cách tìm ngách ↗</a>
+          <a href="https://www.kalodata.com/pilot/share/file?task_id=8b02c7fb3b264bc4b5e276e932249380&tool_call_id=toolu_8dcd7cf0d1674aaca7886ae0" target="_blank" rel="noopener">Ngách trong ngách ↗</a>
+        </div>
+      </div>
+      <div class="code-card">
+        <div class="tag brand"><img class="brand-ic" src="img/tools/fastmoss.png" alt="" loading="lazy">FastMoss</div>
+        <div class="code serif">HT2000</div>
+        <p>Công cụ phân tích dữ liệu TikTok Shop. Nhập mã khi đăng ký để nhận ưu đãi.</p>
+        <button class="btn copy" type="button" data-code="HT2000">Sao chép mã</button>
+        <div class="links"><a href="https://www.fastmoss.com" target="_blank" rel="noopener">fastmoss.com ↗</a></div>
+      </div>
+      <div class="code-card">
+        <div class="tag brand"><img class="brand-ic" src="img/tools/collanote.jpg" alt="" loading="lazy">CollaNote</div>
+        <div class="code serif">HUYTIM50</div>
+        <p>Giảm 50%. Ứng dụng ghi chú có đánh dấu PDF, công cụ AI và flashcard. Nhập mã khi thanh toán.</p>
+        <button class="btn copy" type="button" data-code="HUYTIM50">Sao chép mã</button>
+        <div class="links"><a href="https://collanote.com" target="_blank" rel="noopener">collanote.com ↗</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="quy-trinh">
+  <div class="wrap center">
+    <h2 class="serif">Quy trình đơn giản.</h2>
+    <div class="steps" style="text-align:left">
+      <div class="step"><div class="n">01</div><b>Chọn gói</b><p>Chuyên Sâu (báo cáo) hoặc Combo (báo cáo + meeting), tùy bạn cần gì.</p></div>
+      <div class="step"><div class="n">02</div><b>Điền form &amp; chuyển khoản</b><p>Mô tả ý tưởng, ngân sách, khách hàng mục tiêu, rồi quét mã QR.</p></div>
+      <div class="step"><div class="n">03</div><b>Nhận kết quả</b><p>Mình nghiên cứu và gửi tài liệu, kèm meeting 1:1 nếu chọn Combo.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="block" id="kenh">
+  <div class="wrap center">
+    <h2 class="serif">Các kênh của mình.</h2>
+    <div class="chan">
+      <a class="card mini" href="https://portfolio.huytim.com" target="_blank" rel="noopener"><img class="lg" src="img/portfolio.png" alt="portfolio" width="40" height="40"><div><h3>/portfolio</h3><p>portfolio.huytim.com</p></div></a>
+      <a class="card mini" href="https://www.tiktok.com/@huytimdata" target="_blank" rel="noopener"><img class="lg" src="img/tiktok-icon.svg" alt="tiktok" width="40" height="40"><div><h3>/tiktok</h3><p>@huytimdata</p></div></a>
+      <a class="card mini" href="https://www.youtube.com/@huytim1405" target="_blank" rel="noopener"><img class="lg" src="img/youtube-icon.svg" alt="youtube" width="40" height="40"><div><h3>/youtube</h3><p>@huytim1405</p></div></a>
+      <a class="card mini" href="https://www.facebook.com/profile.php?id=100010185792295" target="_blank" rel="noopener"><img class="lg" src="img/facebook.svg" alt="facebook" width="40" height="40"><div><h3>/facebook</h3><p>Huy Tim</p></div></a>
+      <a class="card mini" href="https://www.threads.com/@dh.timm" target="_blank" rel="noopener"><img class="lg" src="img/threads-icon.svg" alt="threads" width="40" height="40"><div><h3>/threads</h3><p>@dh.timm</p></div></a>
+      <a class="card mini" href="https://medium.com/@HuyTimBlog" target="_blank" rel="noopener"><img class="lg" src="img/medium-icon.svg" alt="medium" width="40" height="40"><div><h3>/medium</h3><p>@HuyTimBlog</p></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="final wrap">
+  <h2 class="serif">Bạn không cần làm một mình.</h2>
+  <div class="row">
+    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">Mời mình 1 ly cà phê</a>
+    <a class="btn light" href="https://drive.google.com/drive/folders/1WUuCkiOCzZK_r09vhz2hTQImztf_HeYT?usp=sharing" target="_blank" rel="noopener">Tải tài liệu FREE</a>
+  </div>
+</section>
+
+<footer>
+  <div class="l">
+    <a href="https://portfolio.huytim.com" target="_blank" rel="noopener">Portfolio</a>
+    <a href="mailto:nguyendinhhuy14052000@gmail.com">Email</a>
+  </div>
+  © <span id="y"></span> Huy Tim
+</footer>
+
+<script>
+  document.getElementById('y').textContent=new Date().getFullYear();
+  document.querySelectorAll('.copy[data-code]').forEach(b=>b.addEventListener('click',()=>{
+    navigator.clipboard.writeText(b.dataset.code).then(()=>{const t=b.textContent;b.textContent='Đã sao chép!';setTimeout(()=>b.textContent=t,1800)})}));
+  (function(){const t=document.getElementById('track');if(!t)return;const g=t.querySelector('.grp');
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    let c=g.cloneNode(true);c.setAttribute('aria-hidden','true');t.appendChild(c);
+    // ensure each group is wide enough to cover the viewport, then repeat so the loop is seamless
+    while(g.offsetWidth<innerWidth*1.1){[...g.children].slice(0,3).forEach(n=>{const k=n.cloneNode(true);g.appendChild(k);c.appendChild(k.cloneNode(true))});}
+  })();
+  (function(){const btn=document.getElementById('exToggle'),more=document.getElementById('exMore');if(!btn||!more)return;
+    btn.addEventListener('click',()=>{const open=more.hidden;more.hidden=!open;btn.setAttribute('aria-expanded',String(open));
+      btn.textContent=open?'Thu gọn ví dụ ↑':'Xem thêm ví dụ ↓';
+      if(open)more.scrollIntoView({behavior:'smooth',block:'nearest'});});
+  })();
+</script>
+</body>
+</html>
