@@ -216,6 +216,11 @@
   .prod img{width:84px;height:84px;object-fit:cover;border-radius:12px;flex:none;border:1.5px solid #dcdcd8}
   .prod div{min-width:0;font-size:.86rem;line-height:1.45}
   .prod b{font-weight:600}
+  .logo-marquee{overflow:hidden;margin:34px auto 0;max-width:640px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+  .logo-track{display:flex;width:max-content;animation:ltr 26s linear infinite}
+  .logo-marquee:hover .logo-track{animation-play-state:paused}
+  .logo-grp{display:flex;align-items:center;gap:40px;padding-right:40px}
+  .logo-grp img{height:22px;width:auto;object-fit:contain;opacity:.8}
   @keyframes ltr{from{transform:translateX(-50%)}to{transform:translateX(0)}}
   @media(prefers-reduced-motion:reduce){.track{animation:none}.marquee{overflow-x:auto}}
 </style>
@@ -231,6 +236,20 @@
   <h1 class="serif">Dùng dữ liệu để vận hành thương mại điện tử, cùng Huy Tim.</h1>
   <p class="sub">Thạc sĩ Data Science &amp; AI, 5 năm dựng shop trên thị trường Hoa Kỳ. Từ chọn sản phẩm ngách tới vận hành shop đang bán, mình dùng dữ liệu thật, không đoán mò. Tải tài liệu miễn phí, hoặc mời mình 1 ly cà phê để làm riêng cho bạn.</p>
   <a class="btn" href="#goi">Tải tài liệu FREE</a>
+  <div class="logo-marquee" aria-label="Các sàn thương mại điện tử">
+    <div class="logo-track" id="logoTrack">
+      <div class="logo-grp">
+        <img src="img/marketplaces/tiktokshop.png" alt="TikTok Shop">
+        <img src="img/marketplaces/amazon.webp" alt="Amazon">
+        <img src="img/marketplaces/shopify.png" alt="Shopify">
+        <img src="img/marketplaces/ebay.svg" alt="eBay">
+        <img src="img/marketplaces/etsy.webp" alt="Etsy">
+        <img src="img/marketplaces/shopee.webp" alt="Shopee">
+        <img src="img/marketplaces/aliexpress.png" alt="AliExpress">
+        <img src="img/marketplaces/taobao.webp" alt="Taobao">
+      </div>
+    </div>
+  </div>
 </header>
 
 <section class="block" id="ve-minh">
@@ -242,7 +261,7 @@
       </div>
       <h2 class="serif">Chào bạn, mình là Huy Tim.</h2>
       <p>Mình là <b>Thạc sĩ Khoa học Dữ liệu và Trí tuệ Nhân tạo</b>, đào tạo bài bản tại châu Âu theo diện học bổng.</p>
-      <p>Hơn <b>5 năm trực tiếp vận hành thương mại điện tử trên thị trường Hoa Kỳ</b> — tự tay làm sản phẩm, giá bán, quảng cáo, không chỉ tư vấn từ xa.</p>
+      <p>Hơn <b>5 năm trực tiếp vận hành thương mại điện tử trên thị trường Hoa Kỳ</b>, tự tay làm sản phẩm, giá bán, quảng cáo, không chỉ tư vấn từ xa.</p>
       <p>Mình nghiên cứu bằng dữ liệu thật, kinh nghiệm bán hàng thực tế và các công cụ trả phí, để bạn không tốn thời gian và công sức.</p>
       <div class="chips">
         <a class="chip" href="https://portfolio.huytim.com" target="_blank" rel="noopener">portfolio.huytim.com ↗</a>
@@ -285,7 +304,7 @@
       <h3>/Chưa Biết Bán Gì</h3>
       <span class="price">49.000đ</span>
       <p class="vibe">Có ý tưởng nhưng chưa biết ngách này có tiềm năng không, đối thủ ra sao.</p>
-      <p><i>Ví dụ: bạn muốn bán túi đeo chéo cho dân văn phòng nhưng chưa rõ ngách này có ai làm, bán được không.</i> Bạn nhận: báo cáo nghiên cứu ngách qua email — data, số liệu và khuyến nghị cụ thể theo đúng ý tưởng của bạn.</p>
+      <p><i>Ví dụ: bạn muốn bán túi đeo chéo cho dân văn phòng nhưng chưa rõ ngách này có ai làm, bán được không.</i> Bạn nhận: báo cáo nghiên cứu ngách qua email, data, số liệu và khuyến nghị cụ thể theo đúng ý tưởng của bạn.</p>
       <span class="go">Mời mình 1 ly Xỉu Vani →</span>
     </a>
 
@@ -313,7 +332,7 @@
         <div class="tags"><span class="tag">Làm trọn A-Z</span><span class="tag">Ghép nhiều gói</span><span class="tag">Theo dõi định kỳ</span></div>
         <h3>/Quá Nhiều Việc Cùng Lúc</h3>
         <span class="price">Liên hệ báo giá</span>
-        <p class="vibe">Cần làm trọn từ A-Z, ghép nhiều nhu cầu, hoặc theo dõi dữ liệu định kỳ — không muốn tự gom nhiều gói lẻ.</p>
+        <p class="vibe">Cần làm trọn từ A-Z, ghép nhiều nhu cầu, hoặc theo dõi dữ liệu định kỳ, không muốn tự gom nhiều gói lẻ.</p>
         <p><i>Ví dụ: bạn có 5 sản phẩm đang chạy và cần báo cáo giá + tồn kho mỗi tuần, hoặc mới có ý tưởng và cần làm trọn từ chọn ngách tới kế hoạch 10 video đầu tiên.</i> Mô tả rõ nhu cầu trong form, mình báo phạm vi và giá phù hợp.</p>
         <span class="go">Điền form, nhận báo giá →</span>
       </a>
@@ -482,7 +501,7 @@
       <div class="code-card">
         <div class="tag brand"><img class="brand-ic" src="img/tools/fastmoss.png" alt="" loading="lazy">FastMoss</div>
         <div class="code serif">HT2000</div>
-        <p>Công cụ phân tích dữ liệu TikTok Shop. Nhập mã khi đăng ký để nhận ưu đãi.</p>
+        <p>Giảm 10-15%. Công cụ phân tích dữ liệu TikTok Shop. Nhập mã khi đăng ký để nhận ưu đãi.</p>
         <button class="btn copy" type="button" data-code="HT2000">Sao chép mã</button>
         <div class="links"><a href="https://www.fastmoss.com" target="_blank" rel="noopener">fastmoss.com ↗</a></div>
       </div>
@@ -548,6 +567,10 @@
     let c=g.cloneNode(true);c.setAttribute('aria-hidden','true');t.appendChild(c);
     // ensure each group is wide enough to cover the viewport, then repeat so the loop is seamless
     while(g.offsetWidth<innerWidth*1.1){[...g.children].slice(0,3).forEach(n=>{const k=n.cloneNode(true);g.appendChild(k);c.appendChild(k.cloneNode(true))});}
+  })();
+  (function(){const t=document.getElementById('logoTrack');if(!t)return;const g=t.querySelector('.logo-grp');
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    const c=g.cloneNode(true);c.setAttribute('aria-hidden','true');t.appendChild(c);
   })();
   (function(){const btn=document.getElementById('exToggle'),more=document.getElementById('exMore');if(!btn||!more)return;
     btn.addEventListener('click',()=>{const open=more.hidden;more.hidden=!open;btn.setAttribute('aria-expanded',String(open));
