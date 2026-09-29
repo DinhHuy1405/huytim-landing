@@ -17,7 +17,7 @@
   body{font-family:Inter,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);
        line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;border-top:2px solid #111}
   a{color:inherit;text-decoration:none}
-  .serif{text-wrap:balance;font-family:Fraunces,Georgia,serif;font-weight:800;letter-spacing:-.045em;line-height:.98}
+  .serif{text-wrap:balance;font-family:Fraunces,Georgia,serif;font-weight:800;letter-spacing:-.002em;line-height:1.12}
   .mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace}
   .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
 
@@ -48,8 +48,10 @@
   .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;overflow:hidden}
   .lights{display:flex;gap:6px;margin-right:8px}
   .lights i{width:10px;height:10px;border-radius:50%;background:#d7d7d3}
-  .tab{font-size:.68rem;white-space:nowrap;padding:7px 12px;border-radius:9px;color:#444;background:transparent}
+  .tab{display:inline-flex;align-items:center;gap:6px;font-size:.68rem;white-space:nowrap;padding:7px 12px;border-radius:9px;color:#444;background:transparent}
   .tab.on{background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+  .tab .mp-ic{width:16px;height:16px;border-radius:4px;background:#fff;display:grid;place-items:center;flex:none;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
+  .tab .mp-ic img{width:100%;height:100%;object-fit:contain}
   @media(max-width:700px){.browser{display:none}}
 
   /* Cards */
@@ -72,7 +74,7 @@
              background:linear-gradient(180deg,#ff2d6f 0%,#ff8a1e 45%,#f7b733 55%,#3a7bff 85%,#1e46ff 100%);color:#fff}
   .card.grad .tag{background:rgba(0,0,0,.28);color:#fff}
   .card.grad p,.card.grad .go{color:#fff}
-  .price{font-family:Fraunces,serif;font-weight:800;font-size:1.05rem;letter-spacing:-.02em}
+  .price{font-family:Fraunces,serif;font-weight:800;font-size:clamp(1.9rem,4.5vw,2.5rem);letter-spacing:-.03em;display:block;margin-bottom:6px}
 
   /* About */
   section.block{padding:96px 0 30px}
@@ -90,7 +92,7 @@
   .chip:hover{background:var(--ink);color:#fff}
   .facts{display:grid;gap:14px}
   .fact{border:2.5px solid var(--ink);border-radius:18px;background:#fff;padding:18px 20px}
-  .fact b{font-family:Fraunces,serif;font-size:1.6rem;letter-spacing:-.04em;display:block;line-height:1.1;margin-bottom:6px}
+  .fact b{font-family:Fraunces,serif;font-size:1.6rem;letter-spacing:-.015em;display:block;line-height:1.15;margin-bottom:6px}
   .fact span{font-family:"JetBrains Mono",monospace;font-size:.8rem;color:#333}
 
   /* Steps */
@@ -239,17 +241,17 @@
         <div><b>Huy Tim</b><span>Nghiên cứu sản phẩm ngách &amp; dữ liệu TikTok Shop</span></div>
       </div>
       <h2 class="serif">Chào bạn, mình là Huy Tim.</h2>
-      <p>Mình là <b>Thạc sĩ Khoa học Dữ liệu và Trí tuệ Nhân tạo</b> (Erasmus MSc, Université Côte d'Azur, Pháp).</p>
-      <p>Hơn <b>5 năm kinh doanh trên thị trường Hoa Kỳ</b>, hỗ trợ các doanh nghiệp vận hành thương mại điện tử trên Shopify, Amazon, eBay, TikTok Shop và Faire.</p>
+      <p>Mình là <b>Thạc sĩ Khoa học Dữ liệu và Trí tuệ Nhân tạo</b>, đào tạo bài bản tại châu Âu theo diện học bổng.</p>
+      <p>Hơn <b>5 năm trực tiếp vận hành thương mại điện tử trên thị trường Hoa Kỳ</b> — tự tay làm sản phẩm, giá bán, quảng cáo, không chỉ tư vấn từ xa.</p>
       <p>Mình nghiên cứu bằng dữ liệu thật, kinh nghiệm bán hàng thực tế và các công cụ trả phí, để bạn không tốn thời gian và công sức.</p>
       <div class="chips">
         <a class="chip" href="https://portfolio.huytim.com" target="_blank" rel="noopener">portfolio.huytim.com ↗</a>
       </div>
     </div>
     <div class="facts">
-      <div class="fact"><b>Thạc sĩ Data Science &amp; AI</b><span>Université Côte d'Azur, Pháp (học bổng Erasmus)</span></div>
-      <div class="fact"><b>5 năm thị trường Hoa Kỳ</b><span>Vận hành và tối ưu kinh doanh thương mại điện tử</span></div>
-      <div class="fact"><b>Dữ liệu + thực chiến</b><span>Phân tích số liệu kết hợp kinh nghiệm bán hàng thật</span></div>
+      <div class="fact"><b>Université Côte d'Azur, Pháp</b><span>Học bổng Erasmus, chuyên ngành Data Science &amp; AI</span></div>
+      <div class="fact"><b>Shopify, Amazon, eBay, TikTok Shop, Faire</b><span>Các sàn mình trực tiếp vận hành shop</span></div>
+      <div class="fact"><b>Kalodata, Fastmoss, Google Trends</b><span>Công cụ trả phí dùng để nghiên cứu ngách</span></div>
     </div>
   </div>
 </section>
@@ -258,9 +260,14 @@
 <div class="stage">
   <div class="browser"><div class="bar">
     <div class="lights"><i></i><i></i><i></i></div>
-    <span class="tab on">Nghiên cứu ngách</span><span class="tab on">Kalodata</span>
-    <span class="tab">TikTok Shop</span><span class="tab">Amazon</span><span class="tab">Shopify</span>
-    <span class="tab">eBay</span><span class="tab">Faire</span><span class="tab">Google Trends</span>
+    <span class="tab on"><span class="mp-ic"><img src="img/marketplaces/tiktokshop.png" alt=""></span>TikTok Shop</span>
+    <span class="tab on"><span class="mp-ic"><img src="img/marketplaces/amazon.webp" alt=""></span>Amazon</span>
+    <span class="tab"><span class="mp-ic"><img src="img/marketplaces/shopify.png" alt=""></span>Shopify</span>
+    <span class="tab"><span class="mp-ic"><img src="img/marketplaces/ebay.svg" alt=""></span>eBay</span>
+    <span class="tab"><span class="mp-ic"><img src="img/marketplaces/etsy.webp" alt=""></span>Etsy</span>
+    <span class="tab"><span class="mp-ic"><img src="img/marketplaces/shopee.webp" alt=""></span>Shopee</span>
+    <span class="tab"><span class="mp-ic"><img src="img/marketplaces/aliexpress.png" alt=""></span>AliExpress</span>
+    <span class="tab"><span class="mp-ic"><img src="img/marketplaces/taobao.webp" alt=""></span>Taobao</span>
   </div></div>
 
   <div class="cards" id="goi">
@@ -275,9 +282,10 @@
       <div class="cup one"><img src="img/menu/xiu-vani.png" alt="Ly Phê Xỉu Vani" loading="lazy"></div>
       <div class="cupname">Mời mình <b>1 ly Phê Xỉu Vani</b> · 50K</div>
       <div class="tags"><span class="tag">Tìm ngách</span><span class="tag">Nhận qua email, không meeting</span></div>
-      <h3>/Chuyên Sâu</h3>
-      <p class="vibe">Cảm giác: nhẹ nhàng, bắt đầu đúng hướng.</p>
-      <p><span class="price">49.000đ</span><br>Bạn có ý tưởng sản phẩm nhưng chưa biết ngách này có tiềm năng không, đối thủ ra sao, nên bắt đầu từ đâu. <i>Ví dụ: bạn muốn bán túi đeo chéo cho dân văn phòng nhưng chưa rõ ngách này có ai làm, bán được không.</i> Mình gửi báo cáo nghiên cứu ngách qua email: data, số liệu và khuyến nghị cụ thể theo đúng ý tưởng của bạn.</p>
+      <h3>/Chưa Biết Bán Gì</h3>
+      <span class="price">49.000đ</span>
+      <p class="vibe">Có ý tưởng nhưng chưa biết ngách này có tiềm năng không, đối thủ ra sao.</p>
+      <p><i>Ví dụ: bạn muốn bán túi đeo chéo cho dân văn phòng nhưng chưa rõ ngách này có ai làm, bán được không.</i> Bạn nhận: báo cáo nghiên cứu ngách qua email — data, số liệu và khuyến nghị cụ thể theo đúng ý tưởng của bạn.</p>
       <span class="go">Mời mình 1 ly Xỉu Vani →</span>
     </a>
 
@@ -285,9 +293,10 @@
       <div class="cup"><img src="img/menu/lua-dao.png" alt="Ly Lụa Đào" loading="lazy"><img src="img/menu/matcha-coco.png" alt="Ly Matcha Coco Latte" loading="lazy"></div>
       <div class="cupname">Mời mình <b>Lụa Đào + Matcha Coco Latte</b> · 150K</div>
       <div class="tags"><span class="tag">Data toàn diện + Meeting riêng 45-60p</span><span class="tag">Giá, đối thủ, shop, creator, tồn kho</span></div>
-      <h3>/Combo</h3>
-      <p class="vibe">Cảm giác: có báo cáo trong tay, lại có người ngồi tính riêng cho câu hỏi của mình.</p>
-      <p><span class="price">149.000đ</span><br>Bạn đã có sản phẩm/shop đang chạy nhưng gặp vấn đề cụ thể: giá bán chưa hợp lý so với đối thủ, shop tăng trưởng chậm không rõ vì sao, chưa biết chọn creator nào, hoặc sợ hết hàng/nhập dư. <i>Ví dụ: shop giảm doanh số 2 tháng liền, không biết nên tăng giá hay tìm creator mới quảng cáo.</i> Mình phân tích toàn diện (giá, đối thủ, sức khỏe shop, creator phù hợp, dự báo tồn kho) + meeting riêng 45-60 phút bàn hướng đi, làm mới hoàn toàn theo đúng câu hỏi của bạn.</p>
+      <h3>/Shop Đang Gặp Vấn Đề</h3>
+      <span class="price">149.000đ</span>
+      <p class="vibe">Giá chưa hợp lý, tăng trưởng chậm không rõ vì sao, chưa biết chọn creator nào, hoặc sợ hết hàng.</p>
+      <p><i>Ví dụ: shop giảm doanh số 2 tháng liền, không biết nên tăng giá hay tìm creator mới quảng cáo.</i> Bạn nhận: phân tích toàn diện (giá, đối thủ, sức khỏe shop, creator phù hợp, dự báo tồn kho) + meeting riêng 45-60 phút bàn hướng đi, làm mới hoàn toàn theo đúng câu hỏi của bạn.</p>
       <span class="go">Mời mình 2 ly, chọn gói 149K →</span>
     </a>
   </div>
@@ -302,17 +311,19 @@
       <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
         <div class="cup one"><img src="img/menu/xiu-vani.png" alt="Ly Phê Xỉu Vani" loading="lazy"></div>
         <div class="tags"><span class="tag">Làm trọn A-Z</span><span class="tag">Ghép nhiều gói</span><span class="tag">Theo dõi định kỳ</span></div>
-        <h3>/Vận Hành &amp; Tổ Chức Dữ Liệu</h3>
-        <p class="vibe">Cảm giác: giao việc, không cần tự gom nhiều gói lẻ.</p>
-        <p><span class="price">Liên hệ báo giá</span><br>Bạn cần làm trọn từ A đến Z (chọn ngách, nguồn hàng, giá bán, kế hoạch nội dung), ghép nhiều nhu cầu nghiên cứu cùng lúc, cần theo dõi dữ liệu định kỳ, hoặc có nhu cầu khác chưa khớp gói nào ở trên. <i>Ví dụ: bạn có 5 sản phẩm đang chạy và cần báo cáo giá + tồn kho mỗi tuần, hoặc mới có ý tưởng và cần làm trọn từ chọn ngách tới kế hoạch 10 video đầu tiên.</i> Mô tả rõ nhu cầu trong form, mình báo phạm vi và giá phù hợp.</p>
+        <h3>/Quá Nhiều Việc Cùng Lúc</h3>
+        <span class="price">Liên hệ báo giá</span>
+        <p class="vibe">Cần làm trọn từ A-Z, ghép nhiều nhu cầu, hoặc theo dõi dữ liệu định kỳ — không muốn tự gom nhiều gói lẻ.</p>
+        <p><i>Ví dụ: bạn có 5 sản phẩm đang chạy và cần báo cáo giá + tồn kho mỗi tuần, hoặc mới có ý tưởng và cần làm trọn từ chọn ngách tới kế hoạch 10 video đầu tiên.</i> Mô tả rõ nhu cầu trong form, mình báo phạm vi và giá phù hợp.</p>
         <span class="go">Điền form, nhận báo giá →</span>
       </a>
       <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
         <div class="cup one"><img src="img/menu/olong-sua.png" alt="Ly Ô Long Sữa Phê-La" loading="lazy"></div>
         <div class="tags"><span class="tag">Website &amp; phần mềm</span><span class="tag">Tự động hoá dữ liệu</span></div>
-        <h3>/Xây Dựng Hệ Thống</h3>
-        <p class="vibe">Cảm giác: không phải tự tra cứu, tổng hợp số tay mỗi ngày.</p>
-        <p><span class="price">Liên hệ báo giá</span><br>Bạn cần công cụ, website hoặc phần mềm riêng để tự động thu thập, kết nối và theo dõi dữ liệu thương mại điện tử thay vì làm thủ công mỗi lần. <i>Ví dụ: bạn muốn 1 dashboard tự cập nhật giá đối thủ mỗi ngày, hoặc cần hệ thống kết nối dữ liệu từ nhiều sàn TMĐT về một chỗ để quản lý tập trung.</i> Mô tả nhu cầu, mình báo phạm vi kỹ thuật và giá phù hợp.</p>
+        <h3>/Làm Thủ Công Mỗi Ngày</h3>
+        <span class="price">Liên hệ báo giá</span>
+        <p class="vibe">Cứ phải tự tra cứu, tổng hợp số tay lặp đi lặp lại mỗi ngày.</p>
+        <p><i>Ví dụ: bạn muốn 1 dashboard tự cập nhật giá đối thủ mỗi ngày, hoặc cần hệ thống kết nối dữ liệu từ nhiều sàn TMĐT về một chỗ để quản lý tập trung.</i> Bạn nhận: công cụ, website hoặc phần mềm riêng để tự động thu thập, kết nối và theo dõi dữ liệu thương mại điện tử. Mô tả nhu cầu, mình báo phạm vi kỹ thuật và giá phù hợp.</p>
         <span class="go">Điền form, nhận báo giá →</span>
       </a>
     </div>
