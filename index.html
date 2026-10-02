@@ -78,6 +78,11 @@
 
   /* About */
   section.block{padding:96px 0 30px}
+  .picks{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:8px}
+  .pick{font-family:Inter,sans-serif;text-align:left;background:#fff;border:2px solid #111;border-radius:16px;padding:14px 18px;cursor:pointer;display:flex;flex-direction:column;gap:3px;min-width:220px;color:#111}
+  .pick b{font-weight:600;font-size:1rem}.pick span{font-size:.8rem;color:#555}
+  .pick:hover{background:#fafaf7}.pick.on{background:#fff2b8}
+  section.grp{display:none;padding-top:34px}section.grp.open{display:block}
   .about{display:grid;gap:40px;align-items:center}
   .who{display:flex;align-items:center;gap:14px;margin-bottom:22px}
   .who .avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2.5px solid var(--ink);flex:none}
@@ -313,7 +318,15 @@
 </div>
 
 
-<section class="block" id="du-lieu">
+<section class="block" id="chon-nhom">
+  <div class="wrap center">
+    <h2 class="serif">Cần hỗ trợ nhiều hơn?</h2>
+    <p class="lead">Chọn nhóm dịch vụ bạn quan tâm để xem các gói chi tiết.</p>
+    <div class="picks"><button type="button" class="pick" data-t="du-lieu" aria-expanded="false"><b>Ghép gói &amp; theo dõi định kỳ</b><span>Nghiên cứu nhiều sản phẩm, báo cáo hàng tháng</span></button><button type="button" class="pick" data-t="cong-nghe" aria-expanded="false"><b>Công nghệ &amp; ứng dụng data</b><span>Dashboard, luồng data, tool riêng</span></button><button type="button" class="pick" data-t="setup-vn" aria-expanded="false"><b>Setup bán hàng Việt Nam</b><span>TikTok Shop, Shopee, nhập hàng TQ</span></button><button type="button" class="pick" data-t="setup-us" aria-expanded="false"><b>Setup bán hàng sang Mỹ</b><span>Đa sàn, fulfillment VN sang Mỹ</span></button><button type="button" class="pick" data-t="mentor" aria-expanded="false"><b>Mentor sinh viên &amp; người đi làm</b><span>Định hướng nghề Data</span></button></div>
+  </div>
+</section>
+
+<section class="block grp" id="du-lieu">
   <div class="wrap center">
     <h2 class="serif">Cần nhiều hơn 1 gói nghiên cứu?</h2>
     <p class="lead">Nếu cần nghiên cứu nhiều sản phẩm cùng lúc, hoặc muốn nhận báo cáo định kỳ mà không phải họp, chọn gói ghép bên dưới.</p>
@@ -331,7 +344,7 @@
   </div>
 </section>
 
-<section class="block" id="cong-nghe">
+<section class="block grp" id="cong-nghe">
   <div class="wrap center">
     <h2 class="serif">Công nghệ &amp; ứng dụng data cho vận hành.</h2>
     <p class="lead">Không chỉ phân tích, mình còn dựng luôn phần kỹ thuật: dashboard, luồng data tự động và ứng dụng riêng để shop vận hành nhẹ hơn.</p>
@@ -373,7 +386,7 @@
   </div>
 </section>
 
-<section class="block" id="setup-vn">
+<section class="block grp" id="setup-vn">
   <div class="wrap center">
     <h2 class="serif">Setup vận hành bán hàng Việt Nam.</h2>
     <p class="lead">Không chỉ nghiên cứu, mình đã tự nhập hàng từ Trung Quốc về và setup bán trên TikTok Shop, Shopee. Chọn gói theo đúng tình trạng của bạn: mới bắt đầu hay đã có kinh nghiệm, ít vốn hay sẵn sàng đầu tư.</p>
@@ -414,7 +427,7 @@
   </div>
 </section>
 
-<section class="block" id="setup-us">
+<section class="block grp" id="setup-us">
   <div class="wrap center">
     <h2 class="serif">Setup vận hành bán hàng Mỹ.</h2>
     <p class="lead">5 năm mình trực tiếp đưa hàng từ Việt Nam sang Mỹ, setup đa sàn (Shopify, Amazon, eBay, Faire) và vận hành fulfillment thật. Chọn gói theo đúng tình trạng của bạn.</p>
@@ -455,7 +468,7 @@
   </div>
 </section>
 
-<section class="block" id="mentor">
+<section class="block grp" id="mentor">
   <div class="wrap center">
     <h2 class="serif">Mentor định hướng cho sinh viên &amp; người đi làm.</h2>
     <p class="lead">Ngoài vận hành shop, mình cũng nhận mentor 1-1 về định hướng nghề nghiệp, chuyển ngành sang Data, dành cho sinh viên và người đi làm.</p>
@@ -586,6 +599,15 @@
     if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
     const c=g.cloneNode(true);c.setAttribute('aria-hidden','true');t.appendChild(c);
   })();
+</script>
+<script>
+document.querySelectorAll('.pick').forEach(function(b){b.addEventListener('click',function(){
+  var id=b.dataset.t,sec=document.getElementById(id),was=sec.classList.contains('open');
+  document.querySelectorAll('section.grp').forEach(function(x){x.classList.remove('open')});
+  document.querySelectorAll('.pick').forEach(function(x){x.classList.remove('on');x.setAttribute('aria-expanded','false')});
+  if(!was){sec.classList.add('open');b.classList.add('on');b.setAttribute('aria-expanded','true');
+    setTimeout(function(){sec.scrollIntoView({behavior:'smooth',block:'start'})},30)}
+})});
 </script>
 </body>
 </html>
