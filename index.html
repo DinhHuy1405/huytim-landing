@@ -80,6 +80,13 @@
 
   /* About */
   section.block{padding:96px 0 30px}
+  .card{position:relative}
+  .rec{display:inline-flex;align-items:center;background:#fff2b8;border:1.5px solid #111;border-radius:999px;padding:3px 10px;font-size:.72rem;font-weight:600;font-family:"JetBrains Mono",monospace;margin-right:2px}
+  .pick.help{text-decoration:none;background:#111;color:#fff}.pick.help span{color:#ddd}.pick.help:hover{background:#222}
+  .seg{display:inline-flex;gap:6px;background:#efefec;padding:5px;border-radius:999px;margin:6px 0 4px}
+  .seg button{font-family:Inter,sans-serif;font-weight:600;font-size:.95rem;border:0;background:transparent;border-radius:999px;padding:9px 22px;cursor:pointer;color:#555}
+  .seg button.on{background:#111;color:#fff}
+  .mk[hidden]{display:none}
   .picks{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:8px}
   .pick{font-family:Inter,sans-serif;text-align:left;background:#fff;border:2px solid #111;border-radius:16px;padding:14px 18px;cursor:pointer;display:flex;flex-direction:column;gap:3px;min-width:220px;color:#111}
   .pick b{font-weight:600;font-size:1rem}.pick span{font-size:.8rem;color:#555}
@@ -315,7 +322,7 @@
   <div class="wrap center">
     <h2 class="serif">Chọn dịch vụ phù hợp với bạn.</h2>
     <p class="lead">Bấm vào tình huống của bạn để xem các gói phù hợp.</p>
-    <div class="picks"><button type="button" class="pick" data-t="du-lieu" aria-expanded="false"><b>Mình cần nghiên cứu sản phẩm &amp; dữ liệu</b><span>Chưa biết bán gì, shop gặp vấn đề, nhiều sản phẩm</span><i class="arr" aria-hidden="true">▾</i></button><button type="button" class="pick" data-t="cong-nghe" aria-expanded="false"><b>Mình cần dashboard, tự động hóa, tool riêng</b><span>Công nghệ &amp; ứng dụng data vận hành</span><i class="arr" aria-hidden="true">▾</i></button><button type="button" class="pick" data-t="setup-vn" aria-expanded="false"><b>Mình muốn bán hàng ở Việt Nam</b><span>TikTok Shop, Shopee, nhập hàng Trung Quốc</span><i class="arr" aria-hidden="true">▾</i></button><button type="button" class="pick" data-t="setup-us" aria-expanded="false"><b>Mình muốn bán hàng sang Mỹ</b><span>Đa sàn, fulfillment từ Việt Nam sang Mỹ</span><i class="arr" aria-hidden="true">▾</i></button><button type="button" class="pick" data-t="mentor" aria-expanded="false"><b>Mình cần định hướng nghề Data</b><span>Dành cho sinh viên &amp; người đi làm</span><i class="arr" aria-hidden="true">▾</i></button></div>
+    <div class="picks"><button type="button" class="pick" data-t="du-lieu" aria-expanded="false"><b>Mình cần nghiên cứu sản phẩm &amp; dữ liệu</b><span>Chưa biết bán gì, shop gặp vấn đề, nhiều sản phẩm</span><i class="arr" aria-hidden="true">▾</i></button><button type="button" class="pick" data-t="cong-nghe" aria-expanded="false"><b>Mình cần dashboard, tự động hóa, tool riêng</b><span>Công nghệ &amp; ứng dụng data vận hành</span><i class="arr" aria-hidden="true">▾</i></button><button type="button" class="pick" data-t="setup" aria-expanded="false"><b>Mình muốn setup bán hàng</b><span>Việt Nam hoặc Mỹ: TikTok Shop, Shopee, Shopify, Amazon</span><i class="arr" aria-hidden="true">▾</i></button><button type="button" class="pick" data-t="mentor" aria-expanded="false"><b>Mình cần định hướng nghề Data</b><span>Dành cho sinh viên &amp; người đi làm</span><i class="arr" aria-hidden="true">▾</i></button><a class="pick help" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener"><b>Mình chưa biết chọn gói nào</b><span>Điền form, Huy tư vấn giúp bạn chọn, không tính phí</span></a></div>
   </div>
 </section>
 
@@ -334,7 +341,7 @@
       </a>
 
       <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="tag">Data toàn diện + Meeting riêng 45p</span><span class="tag">Giá, đối thủ, shop, creator, tồn kho</span></div>
+        <div class="tags"><span class="rec">Gợi ý</span><span class="tag">Data toàn diện + Meeting riêng 45p</span><span class="tag">Giá, đối thủ, shop, creator, tồn kho</span></div>
         <h3>Shop Đang Gặp Vấn Đề</h3>
         <span class="price">149.000đ</span>
         <p class="vibe">Giá chưa hợp lý, tăng trưởng chậm, chưa biết chọn <b>creator nào</b>, hoặc sợ hết hàng.</p>
@@ -358,7 +365,7 @@
   <div class="wrap center">
     <h2 class="serif">Công nghệ &amp; ứng dụng data cho vận hành.</h2>
     <p class="lead">Không chỉ phân tích, mình còn dựng luôn phần kỹ thuật: dashboard, luồng data tự động và ứng dụng riêng để shop vận hành nhẹ hơn.</p>
-    <div class="consult" style="text-align:left">
+    <div class="consult three" style="text-align:left">
       <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
         <div class="tags"><span class="tag">Dashboard</span><span class="tag">Looker Studio / Power BI</span></div>
         <h3>Dashboard Vận Hành</h3>
@@ -368,7 +375,7 @@
         <span class="go">Điền form, nhận báo giá →</span>
       </a>
       <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="tag">Pipeline dữ liệu</span><span class="tag">Tự động hóa</span></div>
+        <div class="tags"><span class="rec">Gợi ý</span><span class="tag">Pipeline dữ liệu</span><span class="tag">Tự động hóa</span></div>
         <h3>Setup Luồng Data</h3>
         <span class="price">Chỉ từ 1.490.000đ</span>
         <p class="vibe">Dữ liệu nằm rải rác trên Shopee, TikTok Shop, Amazon, <b>không có 1 nơi tập trung</b>.</p>
@@ -383,100 +390,77 @@
         <p>Bạn nhận: ứng dụng nội bộ theo đúng quy trình của shop, như tính giá, cảnh báo tồn kho, đối soát đơn, đồng bộ đa sàn.</p>
         <span class="go">Điền form, nhận báo giá →</span>
       </a>
-      <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="tag">Theo tháng</span><span class="tag">Hỗ trợ kỹ thuật</span></div>
-        <h3>Bảo Trì &amp; Mở Rộng Hàng Tháng</h3>
-        <span class="price">Chỉ từ 490.000đ/tháng</span>
-        <p class="vibe">Đã có luồng data hoặc ứng dụng, cần <b>người sửa lỗi và thêm tính năng</b> khi shop lớn dần.</p>
-        <p>Bạn nhận: sửa lỗi, thêm tính năng nhỏ, hỗ trợ khi luồng data hoặc ứng dụng gặp sự cố.</p>
-        <span class="go">Điền form, nhận báo giá →</span>
-      </a>
     </div>
-    <p class="note" style="margin-top:22px;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:#555">Điền form để mình biết bạn chọn gói nào, sau đó liên hệ trao đổi phạm vi, báo giá và thời gian.</p>
+    <p class="note" style="margin-top:22px;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:#555">Cần bảo trì, sửa lỗi, thêm tính năng sau khi hoàn thành: từ 490.000đ/tháng. Điền form để mình liên hệ trao đổi phạm vi và báo giá.</p>
   </div>
 </section>
 
-<section class="block grp" id="setup-vn">
+<section class="block grp" id="setup">
   <div class="wrap center">
-    <h2 class="serif">Setup vận hành bán hàng Việt Nam.</h2>
-    <p class="lead">Không chỉ nghiên cứu, mình đã tự nhập hàng từ Trung Quốc về và setup bán trên TikTok Shop, Shopee. Chọn gói theo đúng tình trạng của bạn: mới bắt đầu hay đã có kinh nghiệm, ít vốn hay sẵn sàng đầu tư.</p>
-    <div class="consult" style="text-align:left">
-      <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="tag">1 vấn đề cụ thể</span><span class="tag">45 phút</span></div>
-        <h3>VN – Gỡ Vướng Nhanh</h3>
-        <span class="price">99.000đ/buổi</span>
-        <p class="vibe">Đã biết làm, chỉ đang bị <b>vướng đúng 1 chỗ</b>.</p>
-        <p>Bạn nhận: 1 buổi 45 phút giải quyết đúng vấn đề đang gặp.</p>
-        <span class="go">Điền form, đặt lịch →</span>
-      </a>
-      <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="tag">Roadmap từng bước</span><span class="tag">Tư vấn 45 phút</span></div>
-        <h3>VN – Tự Làm Có Hướng Dẫn</h3>
-        <span class="price">149.000đ</span>
-        <p class="vibe">Muốn <b>tự làm</b> nhưng chưa biết bắt đầu từ đâu, chưa sẵn sàng chi nhiều.</p>
-        <p>Bạn nhận: checklist từng bước cụ thể + 1 buổi tư vấn 45 phút giải đáp thắc mắc.</p>
-        <span class="go">Điền form, nhận roadmap →</span>
-      </a>
-      <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="tag">Họp hàng tuần</span><span class="tag">Hỗ trợ nhắn tin liên tục</span></div>
-        <h3>VN – Đồng Hành Mở Rộng</h3>
-        <span class="price">Chỉ từ 690.000đ/tháng</span>
-        <p class="vibe">Đang bán ổn, muốn <b>mở rộng quy mô</b> nhưng cần người đồng hành sát sao.</p>
-        <p>Bạn nhận: họp hàng tuần + nhắn tin hỗ trợ liên tục, mình trực tiếp xử lý vấn đề phát sinh cùng bạn.</p>
-        <span class="go">Điền form, đăng ký →</span>
-      </a>
-      <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="tag">Làm hộ toàn bộ</span><span class="tag">Nhập hàng TQ + TikTok Shop/Shopee</span></div>
-        <h3>VN – Setup Trọn Gói</h3>
-        <span class="price">Chỉ từ 1.500.000đ</span>
-        <p class="vibe">Có ngân sách, muốn người có kinh nghiệm <b>làm hộ</b>, không muốn tự mày mò.</p>
-        <p>Bạn nhận: mình trực tiếp setup toàn bộ, từ kết nối nguồn hàng Trung Quốc tới cấu hình gian hàng TikTok Shop/Shopee.</p>
-        <span class="go">Điền form, đặt gói →</span>
-      </a>
+    <h2 class="serif">Setup vận hành bán hàng.</h2>
+    <p class="lead">Mình đã tự làm cả hai thị trường. Chọn thị trường bạn muốn bán, rồi chọn gói theo đúng tình trạng của bạn.</p>
+    <div class="seg" role="tablist"><button type="button" class="on" data-m="vn">Việt Nam</button><button type="button" data-m="us">Mỹ</button></div>
+    <div class="mk" id="mk-vn">
+      <p class="lead">Mình đã tự nhập hàng từ Trung Quốc về và setup bán trên TikTok Shop, Shopee.</p>
+      <div class="consult three" style="text-align:left">
+        <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
+          <div class="tags"><span class="tag">1 vấn đề cụ thể</span><span class="tag">45 phút</span></div>
+          <h3>VN – Gỡ Vướng Nhanh</h3>
+          <span class="price">99.000đ/buổi</span>
+          <p class="vibe">Đã biết làm, chỉ đang bị <b>vướng đúng 1 chỗ</b>.</p>
+          <p>Bạn nhận: 1 buổi 45 phút giải quyết đúng vấn đề đang gặp.</p>
+          <span class="go">Điền form, đặt lịch →</span>
+        </a>
+        <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
+          <div class="tags"><span class="rec">Gợi ý</span><span class="tag">Họp hàng tuần</span><span class="tag">Hỗ trợ nhắn tin liên tục</span></div>
+          <h3>VN – Đồng Hành Mở Rộng</h3>
+          <span class="price">Chỉ từ 690.000đ/tháng</span>
+          <p class="vibe">Đang bán ổn, muốn <b>mở rộng quy mô</b> nhưng cần người đồng hành sát sao.</p>
+          <p>Bạn nhận: họp hàng tuần + nhắn tin hỗ trợ liên tục, mình trực tiếp xử lý vấn đề phát sinh cùng bạn.</p>
+          <span class="go">Điền form, đăng ký →</span>
+        </a>
+        <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
+          <div class="tags"><span class="tag">Làm hộ toàn bộ</span><span class="tag">Nhập hàng TQ + TikTok Shop/Shopee</span></div>
+          <h3>VN – Setup Trọn Gói</h3>
+          <span class="price">Chỉ từ 1.500.000đ</span>
+          <p class="vibe">Có ngân sách, muốn người có kinh nghiệm <b>làm hộ</b>, không muốn tự mày mò.</p>
+          <p>Bạn nhận: mình trực tiếp setup toàn bộ, từ kết nối nguồn hàng Trung Quốc tới cấu hình gian hàng TikTok Shop/Shopee.</p>
+          <span class="go">Điền form, đặt gói →</span>
+        </a>
+      </div>
+    </div>
+    <div class="mk" id="mk-us" hidden>
+      <p class="lead">5 năm mình trực tiếp đưa hàng từ Việt Nam sang Mỹ, setup đa sàn (Shopify, Amazon, eBay, Faire) và vận hành fulfillment thật.</p>
+      <div class="consult three" style="text-align:left">
+        <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
+          <div class="tags"><span class="tag">1 vấn đề cụ thể</span><span class="tag">45 phút</span></div>
+          <h3>US – Gỡ Vướng Nhanh</h3>
+          <span class="price">199.000đ/buổi</span>
+          <p class="vibe">Đã bán ở Mỹ, chỉ đang bị <b>vướng đúng 1 chỗ</b>.</p>
+          <p>Bạn nhận: 1 buổi 45 phút giải quyết đúng vấn đề đang gặp.</p>
+          <span class="go">Điền form, đặt lịch →</span>
+        </a>
+        <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
+          <div class="tags"><span class="rec">Gợi ý</span><span class="tag">Họp hàng tuần</span><span class="tag">Hỗ trợ nhắn tin liên tục</span></div>
+          <h3>US – Đồng Hành Mở Rộng</h3>
+          <span class="price">Chỉ từ 1.290.000đ/tháng</span>
+          <p class="vibe">Đang bán ở Mỹ, muốn <b>mở rộng quy mô</b> nhưng cần người đồng hành sát sao.</p>
+          <p>Bạn nhận: họp hàng tuần + nhắn tin hỗ trợ liên tục.</p>
+          <span class="go">Điền form, đăng ký →</span>
+        </a>
+        <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
+          <div class="tags"><span class="tag">Làm hộ toàn bộ</span><span class="tag">Đa sàn + Fulfillment</span></div>
+          <h3>US – Setup Trọn Gói</h3>
+          <span class="price">Chỉ từ 4.000.000đ</span>
+          <p class="vibe">Có ngân sách, muốn người đã tự làm thật việc này <b>setup hộ toàn bộ</b>.</p>
+          <p>Bạn nhận: mình trực tiếp setup toàn bộ đa sàn + cấu hình fulfillment dựa trên kinh nghiệm 5 năm thật đã làm.</p>
+          <span class="go">Điền form, đặt gói →</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="block grp" id="setup-us">
-  <div class="wrap center">
-    <h2 class="serif">Setup vận hành bán hàng Mỹ.</h2>
-    <p class="lead">5 năm mình trực tiếp đưa hàng từ Việt Nam sang Mỹ, setup đa sàn (Shopify, Amazon, eBay, Faire) và vận hành fulfillment thật. Chọn gói theo đúng tình trạng của bạn.</p>
-    <div class="consult" style="text-align:left">
-      <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="tag">1 vấn đề cụ thể</span><span class="tag">45 phút</span></div>
-        <h3>US – Gỡ Vướng Nhanh</h3>
-        <span class="price">199.000đ/buổi</span>
-        <p class="vibe">Đã bán ở Mỹ, chỉ đang bị <b>vướng đúng 1 chỗ</b>.</p>
-        <p>Bạn nhận: 1 buổi 45 phút giải quyết đúng vấn đề đang gặp.</p>
-        <span class="go">Điền form, đặt lịch →</span>
-      </a>
-      <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="tag">Roadmap VN → Mỹ</span><span class="tag">Tư vấn 45 phút</span></div>
-        <h3>US – Tự Làm Có Hướng Dẫn</h3>
-        <span class="price">299.000đ</span>
-        <p class="vibe">Muốn bán sang Mỹ nhưng <b>chưa biết bắt đầu từ đâu</b>.</p>
-        <p>Bạn nhận: checklist A-Z từ Việt Nam sang Mỹ + 1 buổi tư vấn 45 phút.</p>
-        <span class="go">Điền form, nhận roadmap →</span>
-      </a>
-      <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="tag">Họp hàng tuần</span><span class="tag">Hỗ trợ nhắn tin liên tục</span></div>
-        <h3>US – Đồng Hành Mở Rộng</h3>
-        <span class="price">Chỉ từ 1.290.000đ/tháng</span>
-        <p class="vibe">Đang bán ở Mỹ, muốn <b>mở rộng quy mô</b> nhưng cần người đồng hành sát sao.</p>
-        <p>Bạn nhận: họp hàng tuần + nhắn tin hỗ trợ liên tục.</p>
-        <span class="go">Điền form, đăng ký →</span>
-      </a>
-      <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="tag">Làm hộ toàn bộ</span><span class="tag">Đa sàn + Fulfillment</span></div>
-        <h3>US – Setup Trọn Gói</h3>
-        <span class="price">Chỉ từ 4.000.000đ</span>
-        <p class="vibe">Có ngân sách, muốn người đã tự làm thật việc này <b>setup hộ toàn bộ</b>.</p>
-        <p>Bạn nhận: mình trực tiếp setup toàn bộ đa sàn + cấu hình fulfillment dựa trên kinh nghiệm 5 năm thật đã làm.</p>
-        <span class="go">Điền form, đặt gói →</span>
-      </a>
-    </div>
-  </div>
-</section>
 
 <section class="block grp" id="mentor">
   <div class="wrap center">
@@ -492,7 +476,7 @@
         <span class="go">Điền form, đặt lịch →</span>
       </a>
       <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="tag">Đồng hành 4-5 buổi</span><span class="tag">Roadmap cá nhân hóa</span></div>
+        <div class="tags"><span class="rec">Gợi ý</span><span class="tag">Đồng hành 4-5 buổi</span><span class="tag">Roadmap cá nhân hóa</span></div>
         <h3>Mentor 4-5 Buổi</h3>
         <span class="price">399.000đ</span>
         <p class="vibe">Cần <b>đồng hành sát hơn</b> qua nhiều buổi: roadmap học tập, chuẩn bị hồ sơ, luyện phỏng vấn.</p>
@@ -560,9 +544,9 @@
   <div class="wrap center">
     <h2 class="serif">Quy trình đơn giản.</h2>
     <div class="steps" style="text-align:left">
-      <div class="step"><div class="n">01</div><b>Chọn gói</b><p>Chưa Biết Bán Gì (báo cáo) hoặc Shop Đang Gặp Vấn Đề (báo cáo + meeting), tùy bạn cần gì.</p></div>
+      <div class="step"><div class="n">01</div><b>Chọn gói</b><p>Chọn tình huống của bạn rồi chọn gói phù hợp. Chưa biết chọn gì thì bấm "Mình chưa biết chọn gói nào", mình tư vấn giúp.</p></div>
       <div class="step"><div class="n">02</div><b>Điền form</b><p>Mô tả ý tưởng, thông tin liên hệ, rồi bấm Gửi. Mình sẽ liên hệ hướng dẫn chuyển khoản.</p></div>
-      <div class="step"><div class="n">03</div><b>Nhận kết quả</b><p>Mình nghiên cứu và gửi tài liệu, kèm meeting 1:1 nếu chọn gói có meeting.</p></div>
+      <div class="step"><div class="n">03</div><b>Nhận kết quả</b><p>Mình làm việc theo gói bạn chọn: gửi báo cáo, họp 1:1 hoặc trực tiếp setup cho bạn.</p></div>
     </div>
   </div>
 </section>
@@ -620,6 +604,12 @@ document.querySelectorAll('.pick').forEach(function(b){b.addEventListener('click
   document.querySelectorAll('.pick').forEach(function(x){x.classList.remove('on');x.setAttribute('aria-expanded','false')});
   if(!was){sec.classList.add('open');b.classList.add('on');b.setAttribute('aria-expanded','true');
     setTimeout(function(){sec.scrollIntoView({behavior:'smooth',block:'start'})},30)}
+})});
+</script>
+<script>
+document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener('click',function(){
+  document.querySelectorAll('.seg button').forEach(function(x){x.classList.toggle('on',x===b)});
+  document.getElementById('mk-vn').hidden=b.dataset.m!=='vn';document.getElementById('mk-us').hidden=b.dataset.m!=='us';
 })});
 </script>
 </body>
