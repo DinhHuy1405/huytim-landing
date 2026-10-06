@@ -88,6 +88,17 @@
   .seg button{font-family:Inter,sans-serif;font-weight:600;font-size:.95rem;border:0;background:transparent;border-radius:999px;padding:9px 22px;cursor:pointer;color:#555}
   .seg button.on{background:#111;color:#fff}
   .mk[hidden]{display:none}
+  .docs{display:grid;gap:14px;max-width:760px;margin:26px auto 0;text-align:left}
+  .doc{background:#fff;border:2px solid #111;border-radius:18px;padding:18px 20px}
+  .doc>button.dh{all:unset;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%}
+  .doc h3{font-family:Fraunces,serif;font-size:1.25rem;margin:0}.doc p.d{margin:4px 0 0;font-size:.88rem;color:#555}
+  .doc .ar{font-size:1.1rem;transition:transform .2s}.doc.open .ar{transform:rotate(180deg)}
+  .doc .pan{display:none;margin-top:14px}.doc.open .pan{display:block}
+  .doc form{display:flex;gap:8px;flex-wrap:wrap}
+  .doc input{flex:1;min-width:150px;font:500 1rem "JetBrains Mono",monospace;border:2px solid #111;border-radius:12px;padding:11px 14px;text-transform:uppercase;background:#fafaf7}
+  .doc .go2{font:600 .95rem Inter,sans-serif;background:#111;color:#fff;border:0;border-radius:12px;padding:11px 20px;cursor:pointer}
+  .doc .msg{margin-top:8px;font-size:.85rem;color:#b3261e;min-height:1.2em}
+  .doc .ok{display:inline-block;margin-top:2px;background:#fff2b8;border:2px solid #111;border-radius:12px;padding:11px 20px;font-weight:600;color:#111;text-decoration:none}
   .picks{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:8px}
   .pick{font-family:Inter,sans-serif;text-align:left;background:#fff;border:2px solid #111;border-radius:16px;padding:14px 18px;cursor:pointer;display:flex;flex-direction:column;gap:3px;min-width:220px;color:#111}
   .pick b{font-weight:600;font-size:1rem}.pick span{font-size:.8rem;color:#555}
@@ -252,7 +263,7 @@
 <header class="hero wrap">
   <h1 class="serif">Dùng dữ liệu để vận hành thương mại điện tử, cùng Huy Tim.</h1>
   <p class="sub">Thạc sĩ Data Science &amp; AI, 5 năm dựng shop trên thị trường Hoa Kỳ. Từ chọn sản phẩm ngách tới vận hành shop đang bán, mình dùng dữ liệu thật, không đoán mò. Tải tài liệu miễn phí, hoặc mời mình 1 ly cà phê để làm riêng cho bạn.</p>
-  <a class="btn" href="#goi">Tải tài liệu FREE</a>
+  <a class="btn" href="#tai-lieu">Nhận tài liệu FREE</a>
   <div class="logo-marquee" aria-label="Các sàn thương mại điện tử">
     <div class="logo-track" id="logoTrack">
       <div class="logo-grp">
@@ -293,10 +304,10 @@
 <div class="stage">
 
   <div class="cards two" id="goi">
-    <a class="card grad" href="https://drive.google.com/drive/folders/1WUuCkiOCzZK_r09vhz2hTQImztf_HeYT?usp=sharing" target="_blank" rel="noopener">
+    <a class="card grad" href="#tai-lieu">
       <h3>Miễn Phí</h3>
-      <p>Bộ tài liệu nghiên cứu ngách mình đã làm sẵn. Xem và tải về ngay, không cần điền gì.</p>
-      <span class="go">Mở folder →</span>
+      <p>Bộ tài liệu nghiên cứu ngách mình đã làm sẵn. Nhập mã mình gửi để nhận link.</p>
+      <span class="go">Nhập mã nhận tài liệu ↓</span>
     </a>
 
     <a class="card" href="#chon-nhom">
@@ -307,6 +318,15 @@
   </div>
 </div>
 
+
+<section class="block" id="tai-lieu">
+  <div class="wrap center">
+    <h2 class="serif">Tài liệu miễn phí.</h2>
+    <p class="lead">Chọn bộ tài liệu, nhập mã mình gửi trong video hoặc tin nhắn để nhận link.</p>
+    <div class="docs" id="docs"></div>
+    <p class="note" style="margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:#555">Chưa có mã? Nhắn mình qua <a href="https://zalo.me/0796796492" target="_blank" rel="noopener">Zalo</a> để nhận.</p>
+  </div>
+</section>
 
 <section class="block" id="chon-nhom">
   <div class="wrap center">
@@ -571,7 +591,7 @@
   <h2 class="serif">Bạn không cần làm một mình.</h2>
   <div class="row">
     <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">Mời mình 1 ly cà phê</a>
-    <a class="btn light" href="https://drive.google.com/drive/folders/1WUuCkiOCzZK_r09vhz2hTQImztf_HeYT?usp=sharing" target="_blank" rel="noopener">Tải tài liệu FREE</a>
+    <a class="btn light" href="#tai-lieu">Nhận tài liệu FREE</a>
   </div>
 </section>
 
@@ -613,6 +633,38 @@ document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener(
   document.querySelectorAll('.seg button').forEach(function(x){x.classList.toggle('on',x===b)});
   document.getElementById('mk-vn').hidden=b.dataset.m!=='vn';document.getElementById('mk-us').hidden=b.dataset.m!=='us';
 })});
+</script>
+<script>
+(function(){
+  var DOCS=[
+    {"name": "Bộ tài liệu nghiên cứu ngách", "desc": "Folder tài liệu và số liệu mình đã làm sẵn", "salt": "c75UhXUAOHRNqMgDGTC+jg==", "iv": "byFLhMsJgoiWBbqu", "ct": "2Y3EOu7QOB3WrYs1ianZw15cSoUZYpb88dqbxNy8BPTO9UTojGlexQQ8MDVzRX45WGRirgMvhpG+7AqTDjF+a9IofvQtmE+lD5i9f2U5xznlz8GVHY5wrxL7JixdJ9ZSJEOSBg=="}
+  ];
+  var wrap=document.getElementById('docs');if(!wrap)return;
+  var b64=function(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})};
+  function open(d,code){
+    var enc=new TextEncoder();
+    return crypto.subtle.importKey('raw',enc.encode(code.trim().toLowerCase()),'PBKDF2',false,['deriveKey']).then(function(k){
+      return crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:200000,hash:'SHA-256'},k,{name:'AES-GCM',length:256},false,['decrypt']);
+    }).then(function(key){return crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},key,b64(d.ct))}).then(function(buf){return new TextDecoder().decode(buf)});
+  }
+  DOCS.forEach(function(d,i){
+    var el=document.createElement('div');el.className='doc';
+    el.innerHTML='<button type="button" class="dh" aria-expanded="false"><span><h3></h3><p class="d"></p></span><span class="ar" aria-hidden="true">▾</span></button><div class="pan"><form><input type="text" autocomplete="off" autocapitalize="characters" placeholder="Nhập mã" aria-label="Mã tài liệu"><button class="go2" type="submit">Mở khóa</button></form><div class="msg" role="status"></div></div>';
+    el.querySelector('h3').textContent=d.name;el.querySelector('.d').textContent=d.desc||'';
+    var head=el.querySelector('.dh'),form=el.querySelector('form'),inp=el.querySelector('input'),msg=el.querySelector('.msg');
+    head.addEventListener('click',function(){var o=el.classList.toggle('open');head.setAttribute('aria-expanded',o);if(o)setTimeout(function(){inp.focus()},50)});
+    form.addEventListener('submit',function(e){e.preventDefault();if(!inp.value.trim()){msg.textContent='Bạn chưa nhập mã.';return}
+      msg.style.color='#555';msg.textContent='Đang kiểm tra...';
+      open(d,inp.value).then(function(link){
+        if(!/^https:\/\//.test(link))throw 0;
+        form.style.display='none';msg.textContent='';
+        var a=document.createElement('a');a.className='ok';a.href=link;a.target='_blank';a.rel='noopener';a.textContent='Mở tài liệu →';
+        el.querySelector('.pan').insertBefore(a,msg);
+      }).catch(function(){msg.style.color='#b3261e';msg.textContent='Mã chưa đúng. Nhắn Huy qua Zalo để nhận mã nhé.'});
+    });
+    wrap.appendChild(el);
+  });
+})();
 </script>
 </body>
 </html>
