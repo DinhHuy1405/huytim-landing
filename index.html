@@ -88,6 +88,18 @@
   .seg button{font-family:Inter,sans-serif;font-weight:600;font-size:.95rem;border:0;background:transparent;border-radius:999px;padding:9px 22px;cursor:pointer;color:#555}
   .seg button.on{background:#111;color:#fff}
   .mk[hidden]{display:none}
+  .modal{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.55);display:flex;align-items:flex-start;justify-content:center;padding:4vh 14px;overflow:auto}
+  .modal[hidden]{display:none}
+  .mbox{position:relative;background:#f8f8f5;border:2px solid #111;border-radius:22px;width:100%;max-width:640px;padding:30px 24px 24px;margin:auto 0;outline:none}
+  .mbox h2{font-size:clamp(1.7rem,5vw,2.2rem);margin:0 0 16px;text-align:left}
+  .mclose{position:absolute;top:10px;right:12px;width:38px;height:38px;border-radius:50%;border:2px solid #111;background:#fff;font-size:1.4rem;line-height:1;cursor:pointer}
+  .mentor-cta{background:#fff2b8;border:2px solid #111;border-radius:16px;padding:16px 18px;margin-bottom:18px}
+  .mentor-cta b{font-family:Fraunces,serif;font-size:1.2rem}.mentor-cta p{margin:6px 0 12px;font-size:.95rem}
+  .mgo{font:600 .95rem Inter,sans-serif;background:#111;color:#fff;border:0;border-radius:12px;padding:11px 18px;cursor:pointer}
+  .mlead{margin:0 0 12px;font-size:.92rem;color:#444}.mnote{margin:16px 0 0;font:.8rem "JetBrains Mono",monospace;color:#555}
+  .mbox .docs{margin:0;max-width:none}
+  .nudge{margin:12px 0 0;font-size:.88rem}.nudge a{font-weight:600;color:#111}
+  body.mopen{overflow:hidden}
   .docs{display:grid;gap:14px;max-width:760px;margin:26px auto 0;text-align:left}
   .doc{background:#fff;border:2px solid #111;border-radius:18px;padding:18px 20px}
   .doc>button.dh{all:unset;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%}
@@ -306,8 +318,8 @@
   <div class="cards two" id="goi">
     <a class="card grad" href="#tai-lieu">
       <h3>Miễn Phí</h3>
-      <p>Bộ tài liệu nghiên cứu ngách mình đã làm sẵn. Nhập mã mình gửi để nhận link.</p>
-      <span class="go">Nhập mã nhận tài liệu ↓</span>
+      <p>Các bộ tài liệu mình đã làm sẵn. Chọn bộ bạn cần để nhận.</p>
+      <span class="go">Chọn tài liệu →</span>
     </a>
 
     <a class="card" href="#chon-nhom">
@@ -318,15 +330,6 @@
   </div>
 </div>
 
-
-<section class="block" id="tai-lieu">
-  <div class="wrap center">
-    <h2 class="serif">Tài liệu miễn phí.</h2>
-    <p class="lead">Chọn bộ tài liệu, nhập mã mình gửi trong video hoặc tin nhắn để nhận link.</p>
-    <div class="docs" id="docs"></div>
-    <p class="note" style="margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:#555">Chưa có mã? Nhắn mình qua <a href="https://zalo.me/0796796492" target="_blank" rel="noopener">Zalo</a> để nhận.</p>
-  </div>
-</section>
 
 <section class="block" id="chon-nhom">
   <div class="wrap center">
@@ -634,6 +637,21 @@ document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener(
   document.getElementById('mk-vn').hidden=b.dataset.m!=='vn';document.getElementById('mk-us').hidden=b.dataset.m!=='us';
 })});
 </script>
+<div class="modal" id="docModal" hidden>
+  <div class="mbox" role="dialog" aria-modal="true" aria-labelledby="docTitle" tabindex="-1">
+    <button type="button" class="mclose" aria-label="Đóng">×</button>
+    <h2 class="serif" id="docTitle">Tài liệu miễn phí.</h2>
+    <div class="mentor-cta">
+      <b>Muốn bán hàng từ con số 0?</b>
+      <p>Chọn 1 gói Mentor, mình sẽ giúp bạn setup từ đầu tới cuối cho tới khi ra đơn.</p>
+      <button type="button" class="mgo" data-mentor>Xem các gói Mentor →</button>
+    </div>
+    <p class="mlead">Hoặc chọn bộ tài liệu bạn cần, rồi nhập mã mình gửi trong video hoặc tin nhắn:</p>
+    <div class="docs" id="docs"></div>
+    <p class="mnote">Chưa có mã? Nhắn mình qua <a href="https://zalo.me/0796796492" target="_blank" rel="noopener">Zalo</a> để nhận.</p>
+  </div>
+</div>
+
 <script>
 (function(){
   var DOCS=[
@@ -661,10 +679,24 @@ document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener(
         form.style.display='none';msg.textContent='';
         var a=document.createElement('a');a.className='ok';a.href=link;a.target='_blank';a.rel='noopener';a.textContent='Mở tài liệu →';
         el.querySelector('.pan').insertBefore(a,msg);
+        var n=document.createElement('p');n.className='nudge';n.innerHTML='Muốn có người đi cùng từ đầu tới khi ra đơn? <a href="#" data-mentor>Xem gói Mentor</a>';el.querySelector('.pan').appendChild(n);
       }).catch(function(){msg.style.color='#b3261e';msg.textContent='Mã chưa đúng. Nhắn Huy qua Zalo để nhận mã nhé.'});
     });
     wrap.appendChild(el);
   });
+})();
+</script>
+<script>
+(function(){
+  var m=document.getElementById('docModal');if(!m)return;var box=m.querySelector('.mbox'),last=null;
+  function show(){last=document.activeElement;m.hidden=false;document.body.classList.add('mopen');box.focus()}
+  function hide(){m.hidden=true;document.body.classList.remove('mopen');if(last&&last.focus)last.focus()}
+  document.querySelectorAll('a[href="#tai-lieu"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();show()})});
+  m.querySelector('.mclose').addEventListener('click',hide);
+  m.addEventListener('click',function(e){if(e.target===m)hide()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden)hide()});
+  m.addEventListener('click',function(e){var t=e.target.closest('[data-mentor]');if(!t)return;e.preventDefault();hide();
+    var p=document.querySelector('.pick[data-t="mentor"]');if(p){var sec=document.getElementById('mentor');if(!sec.classList.contains('open'))p.click();else sec.scrollIntoView({behavior:'smooth',block:'start'})}});
 })();
 </script>
 </body>
