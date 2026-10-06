@@ -268,9 +268,8 @@
   .prod img{width:84px;height:84px;object-fit:cover;border-radius:12px;flex:none;border:1.5px solid #dcdcd8}
   .prod div{min-width:0;font-size:.86rem;line-height:1.45}
   .prod b{font-weight:600}
-  .logo-marquee{overflow:hidden;margin:34px auto 0;max-width:1000px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-  .logo-track{display:flex;width:max-content;animation:ltr 26s linear infinite}
-  .logo-marquee:hover .logo-track{animation-play-state:paused}
+  .logo-marquee{overflow:hidden;margin:34px 0 0;width:100vw;position:relative;left:50%;margin-left:-50vw;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+  .logo-track{display:flex;width:max-content;animation:ltr 40s linear infinite;will-change:transform}
   .logo-grp{display:flex;align-items:center;gap:64px;padding-right:64px}
   .logo-grp img{height:56px;width:auto;object-fit:contain;opacity:.92}
   .logo-grp img[alt="TikTok Shop"]{height:96px}.logo-grp img[alt="Shopify"]{height:60px}.logo-grp img[alt="AliExpress"]{height:48px}.logo-grp img[alt="Amazon"]{height:54px}.logo-grp img[alt="Taobao"]{height:54px}
@@ -598,8 +597,18 @@
     while(g.offsetWidth<innerWidth*1.1){[...g.children].slice(0,3).forEach(n=>{const k=n.cloneNode(true);g.appendChild(k);c.appendChild(k.cloneNode(true))});}
   })();
   (function(){const t=document.getElementById('logoTrack');if(!t)return;const g=t.querySelector('.logo-grp');
-    if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-    const c=g.cloneNode(true);c.setAttribute('aria-hidden','true');t.appendChild(c);
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches){t.style.animation='none';t.parentElement.style.overflowX='auto';return}
+    const base=[...g.children].map(n=>n.cloneNode(true));
+    function build(){
+      t.querySelectorAll('.logo-grp[aria-hidden]').forEach(x=>x.remove());
+      g.innerHTML='';base.forEach(n=>g.appendChild(n.cloneNode(true)));
+      let guard=0;
+      while(g.offsetWidth<innerWidth*1.2&&guard++<10){base.forEach(n=>{const k=n.cloneNode(true);k.alt='';g.appendChild(k)})}
+      const c=g.cloneNode(true);c.setAttribute('aria-hidden','true');t.appendChild(c);
+      t.style.animationDuration=Math.max(24,Math.round(g.offsetWidth/70))+'s';
+    }
+    build();addEventListener('load',build);
+    let to;addEventListener('resize',function(){clearTimeout(to);to=setTimeout(build,200)});
   })();
 </script>
 <script>
