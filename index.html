@@ -55,7 +55,8 @@
   @media(max-width:700px){.browser{display:none}}
 
   /* Cards */
-  .cards.two{max-width:820px}
+  .cards.two{max-width:820px;margin-top:36px}
+  @media(min-width:900px){.cards.two{margin-top:36px}.cards.two>*:nth-child(n){margin-top:0}}
   @media(min-width:900px){.cards.two{grid-template-columns:repeat(2,1fr)}}
   .cards{display:grid;gap:18px;margin-top:-70px;position:relative;padding-bottom:20px;max-width:1150px;margin-left:auto;margin-right:auto}
   @media(min-width:900px){.cards{grid-template-columns:repeat(3,1fr);align-items:start;margin-top:-100px}
@@ -273,50 +274,35 @@
     <div>
       <div class="who">
         <img class="avatar" src="img/profile.jpg" alt="Huy Tim" width="64" height="64">
-        <div><b>Huy Tim</b><span>Nghiên cứu sản phẩm ngách &amp; dữ liệu TikTok Shop</span></div>
+        <div><b>Huy Tim</b><span>Dữ liệu &amp; vận hành thương mại điện tử</span></div>
       </div>
       <h2 class="serif">Chào bạn, mình là Huy Tim.</h2>
       <p>Mình là <b>Thạc sĩ Khoa học Dữ liệu và Trí tuệ Nhân tạo</b>.</p>
-      <p>Hơn <b>5 năm trực tiếp vận hành thương mại điện tử trên thị trường Hoa Kỳ</b>, tự tay làm sản phẩm, giá bán, quảng cáo, không chỉ tư vấn từ xa.</p>
-      <p>Mình nghiên cứu bằng dữ liệu thật, kinh nghiệm bán hàng thực tế và các công cụ trả phí, để bạn không tốn thời gian và công sức.</p>
+      <p>Hơn <b>5 năm trực tiếp vận hành thương mại điện tử trên thị trường Hoa Kỳ</b>, tự tay làm sản phẩm, giá bán, quảng cáo và nghiên cứu bằng dữ liệu thật.</p>
       <div class="chips">
         <a class="chip" href="https://portfolio.huytim.com" target="_blank" rel="noopener">portfolio.huytim.com ↗</a>
       </div>
     </div>
     <div class="facts">
       <div class="fact"><b>Université Côte d'Azur, Pháp</b><span>Học bổng Erasmus, chuyên ngành Data Science &amp; AI</span></div>
-      <div class="fact"><b>Shopify, Amazon, eBay, TikTok Shop, Faire</b><span>Các sàn mình trực tiếp vận hành shop</span></div>
     </div>
   </div>
 </section>
 
 
 <div class="stage">
-  <div class="browser"><div class="bar">
-    <div class="lights"><i></i><i></i><i></i></div>
-    <span class="tab on"><span class="mp-ic"><img src="img/marketplaces/tiktokshop.png" alt=""></span>TikTok Shop</span>
-    <span class="tab on"><span class="mp-ic"><img src="img/marketplaces/amazon.webp" alt=""></span>Amazon</span>
-    <span class="tab"><span class="mp-ic"><img src="img/marketplaces/shopify-c.png" alt=""></span>Shopify</span>
-    <span class="tab"><span class="mp-ic"><img src="img/marketplaces/ebay.svg" alt=""></span>eBay</span>
-    <span class="tab"><span class="mp-ic"><img src="img/marketplaces/etsy-c.webp" alt=""></span>Etsy</span>
-    <span class="tab"><span class="mp-ic"><img src="img/marketplaces/shopee.webp" alt=""></span>Shopee</span>
-    <span class="tab"><span class="mp-ic"><img src="img/marketplaces/aliexpress-c.png" alt=""></span>AliExpress</span>
-    <span class="tab"><span class="mp-ic"><img src="img/marketplaces/taobao-c.webp" alt=""></span>Taobao</span>
-  </div></div>
 
   <div class="cards two" id="goi">
     <a class="card grad" href="https://drive.google.com/drive/folders/1WUuCkiOCzZK_r09vhz2hTQImztf_HeYT?usp=sharing" target="_blank" rel="noopener">
-      <div class="tags"><span class="tag">Folder tài liệu</span><span class="tag">Data &amp; số liệu</span></div>
       <h3>Miễn Phí</h3>
       <p>Bộ tài liệu nghiên cứu ngách mình đã làm sẵn. Xem và tải về ngay, không cần điền gì.</p>
       <span class="go">Mở folder →</span>
     </a>
 
     <a class="card" href="#chon-nhom">
-      <div class="tags"><span class="tag">Nghiên cứu, setup, công nghệ, mentor</span><span class="tag">Từ 79.000đ</span></div>
       <h3>Xem Các Gói Dịch Vụ</h3>
-      <p class="vibe">Chưa biết bắt đầu từ đâu? <b>Chọn theo nhu cầu của bạn</b> để xem gói và giá phù hợp.</p>
-      <span class="go">Chọn gói bên dưới ↓</span>
+      <p class="vibe">Từ 79.000đ. <b>Chọn theo nhu cầu của bạn</b> để xem gói phù hợp.</p>
+      <span class="go">Xem gói bên dưới ↓</span>
     </a>
   </div>
 </div>
