@@ -107,32 +107,38 @@
   .doc>button.dh{all:unset;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%}
   .doc h3{font-family:Fraunces,serif;font-size:1.25rem;margin:0}.doc p.d{margin:4px 0 0;font-size:.88rem;color:#555}
   .doc .ar{font-size:1.1rem;transition:transform .2s}.doc.open .ar{transform:rotate(180deg)}
+  a.doc.dl{display:flex;justify-content:space-between;align-items:center;gap:12px;text-decoration:none;color:#111;transition:.15s}
+  a.doc.dl:hover{background:#fff2b8}a.doc.dl .ar{font-size:1.3rem}
   .doc .pan{display:none;margin-top:14px}.doc.open .pan{display:block}
   .doc form{display:flex;gap:8px;flex-wrap:wrap}
   .doc input{flex:1;min-width:150px;font:500 1rem "JetBrains Mono",monospace;border:2px solid #111;border-radius:12px;padding:11px 14px;text-transform:uppercase;background:#fafaf7}
   .doc .go2{font:600 .95rem Inter,sans-serif;background:#111;color:#fff;border:0;border-radius:12px;padding:11px 20px;cursor:pointer}
   .doc .msg{margin-top:8px;font-size:.85rem;color:#b3261e;min-height:1.2em}
   .doc .ok{display:inline-block;margin-top:2px;background:#fff2b8;border:2px solid #111;border-radius:12px;padding:11px 20px;font-weight:600;color:#111;text-decoration:none}
-  .picks{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:8px}
+  .picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:820px;margin:24px auto 0}
+  @media(max-width:600px){.picks{grid-template-columns:1fr}}
+  .picks .pick{min-width:0;justify-content:center;min-height:78px}
+  .pick.help{grid-column:1/-1;align-items:center;text-align:center}
+  #chon-nhom .lead{margin-bottom:0}
   .pick{font-family:Inter,sans-serif;text-align:left;background:#fff;border:2px solid #111;border-radius:16px;padding:14px 18px;cursor:pointer;display:flex;flex-direction:column;gap:3px;min-width:220px;color:#111}
   .pick b{font-weight:600;font-size:1rem}.pick span{font-size:.8rem;color:#555}
   .pick{position:relative;padding-right:40px}.pick .arr{position:absolute;right:16px;top:50%;margin-top:-10px;font-style:normal;font-size:1.1rem;transition:transform .2s}.pick.on .arr{transform:rotate(180deg)}
   section#chon-nhom{padding-top:44px}
   .pick:hover{background:#fafaf7}.pick.on{background:#fff2b8}
   section.grp{display:none;padding-top:34px}section.grp.open{display:block}
-  .about{display:grid;gap:40px;align-items:center}
-  .who{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+  .about{display:block;max-width:760px;margin:0 auto;text-align:center}
+  .who{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:22px;text-align:left}
   .who .avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2.5px solid var(--ink);flex:none}
   .who b{font-family:Fraunces,serif;font-weight:800;font-size:1.15rem;letter-spacing:-.02em;display:block}
   .who span{font-family:"JetBrains Mono",monospace;font-size:.78rem;color:#555}
-  @media(min-width:900px){.about{grid-template-columns:1.15fr .85fr}}
   .about h2{font-size:clamp(2.1rem,5vw,3.4rem);margin-bottom:20px}
-  .about p{font-size:1.1rem;color:#222;margin-bottom:16px;max-width:600px}
+  .about p{font-size:1.1rem;color:#222;margin:0 auto 16px;max-width:640px}
   .about p b{font-weight:600;background:#fff2b8;padding:0 4px;border-radius:4px}
   .card p b,.card .vibe b{font-weight:600;background:#fff2b8;padding:0 3px;border-radius:4px}
-  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;justify-content:center}
   .chip{font-family:"JetBrains Mono",monospace;font-size:.82rem;border:2px solid var(--ink);border-radius:12px;padding:10px 14px;background:#fff}
   .chip:hover{background:var(--ink);color:#fff}
+  span.chip:hover{background:#fff;color:inherit}
   .facts{display:grid;gap:14px}
   .fact{border:2.5px solid var(--ink);border-radius:18px;background:#fff;padding:18px 20px}
   .fact b{font-family:Fraunces,serif;font-size:1.6rem;letter-spacing:-.015em;display:block;line-height:1.15;margin-bottom:6px}
@@ -305,11 +311,9 @@
       <p>Mình là <b>Thạc sĩ Khoa học Dữ liệu và Trí tuệ Nhân tạo</b>.</p>
       <p>Hơn <b>5 năm trực tiếp vận hành thương mại điện tử trên thị trường Hoa Kỳ</b>, tự tay làm sản phẩm, giá bán, quảng cáo và nghiên cứu bằng dữ liệu thật.</p>
       <div class="chips">
+        <span class="chip" style="cursor:default">Université Côte d'Azur, Pháp · Học bổng Erasmus</span>
         <a class="chip" href="https://portfolio.huytim.com" target="_blank" rel="noopener">portfolio.huytim.com ↗</a>
       </div>
-    </div>
-    <div class="facts">
-      <div class="fact"><b>Université Côte d'Azur, Pháp</b><span>Học bổng Erasmus, chuyên ngành Data Science &amp; AI</span></div>
     </div>
   </div>
 </section>
@@ -622,43 +626,23 @@ document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener(
       <p>Chọn dịch vụ phù hợp với bạn, mình sẽ giúp bạn setup từ đầu tới cuối cho tới khi ra đơn.</p>
       <button type="button" class="mgo" data-goto>Chọn dịch vụ phù hợp ↓</button>
     </div>
-    <p class="mlead">Hoặc chọn bộ tài liệu bạn cần, rồi nhập mã mình gửi trong video hoặc tin nhắn:</p>
+    <p class="mlead">Hoặc chọn bộ tài liệu bạn cần:</p>
     <div class="docs" id="docs"></div>
-    <p class="mnote">Chưa có mã? Nhắn mình qua <a href="https://zalo.me/0796796492" target="_blank" rel="noopener">Zalo</a> để nhận.</p>
   </div>
 </div>
 
 <script>
 (function(){
   var DOCS=[
-    {"name": "Bộ tài liệu nghiên cứu ngách", "desc": "Tài liệu nghiên cứu ngách và số liệu mình đã làm sẵn", "salt": "HtkOwcN3Jijetd3tnJaqBw==", "iv": "DyJgkenES49Xu86Q", "ct": "2DU2Wj5CTVM3SNG+wI8ONhsdljACCfUOXqrDS+X3XsHTE3eJO8xJW7lGE2Rm0n5W1hpDFi+z80LVKYZNV2tdKDzyKOWuUa4EGoxCGE++1rhlaFpdsw2Pwytf1gfHKa5nHIj8ZA=="},
-    {"name": "Quy trình setup bán hàng", "desc": "Quy trình setup bán hàng từng bước", "salt": "xBjHhjN3/Pf+V6L/4xxJBQ==", "iv": "8kVqxwMhx/KQ+z1m", "ct": "BNQ/0bUxcjJM9IeqSK49HxHIBgEvxb4PduebyljebvjSpm0ag9F3UZ9xmD9vNBiRRS+1dp0Rd7Nm4YA8sayn4nKLjzReOL0xt+YmYnRT329GTPjoWpMWP/lNwUkbaesdAvuxgg=="}
+    {name:'Bộ tài liệu nghiên cứu ngách',desc:'Tài liệu nghiên cứu ngách và số liệu mình đã làm sẵn',url:'https://drive.google.com/drive/folders/1q9h1ihC-GDmQca4LIyxbL4M9LZblX5lj?usp=sharing'},
+    {name:'Quy trình setup bán hàng',desc:'Quy trình setup bán hàng từng bước',url:'https://drive.google.com/drive/folders/1JZYKJXnWd8y-QUe6U8SzXdBStjNvg5mc?usp=sharing'}
   ];
   var wrap=document.getElementById('docs');if(!wrap)return;
-  var b64=function(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})};
-  function open(d,code){
-    var enc=new TextEncoder();
-    return crypto.subtle.importKey('raw',enc.encode(code.trim().toLowerCase()),'PBKDF2',false,['deriveKey']).then(function(k){
-      return crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:200000,hash:'SHA-256'},k,{name:'AES-GCM',length:256},false,['decrypt']);
-    }).then(function(key){return crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},key,b64(d.ct))}).then(function(buf){return new TextDecoder().decode(buf)});
-  }
-  DOCS.forEach(function(d,i){
-    var el=document.createElement('div');el.className='doc';
-    el.innerHTML='<button type="button" class="dh" aria-expanded="false"><span><h3></h3><p class="d"></p></span><span class="ar" aria-hidden="true">▾</span></button><div class="pan"><form><input type="text" autocomplete="off" autocapitalize="characters" placeholder="Nhập mã" aria-label="Mã tài liệu"><button class="go2" type="submit">Mở khóa</button></form><div class="msg" role="status"></div></div>';
-    el.querySelector('h3').textContent=d.name;el.querySelector('.d').textContent=d.desc||'';
-    var head=el.querySelector('.dh'),form=el.querySelector('form'),inp=el.querySelector('input'),msg=el.querySelector('.msg');
-    head.addEventListener('click',function(){var o=el.classList.toggle('open');head.setAttribute('aria-expanded',o);if(o)setTimeout(function(){inp.focus()},50)});
-    form.addEventListener('submit',function(e){e.preventDefault();if(!inp.value.trim()){msg.textContent='Bạn chưa nhập mã.';return}
-      msg.style.color='#555';msg.textContent='Đang kiểm tra...';
-      open(d,inp.value).then(function(link){
-        if(!/^https:\/\//.test(link))throw 0;
-        form.style.display='none';msg.textContent='';
-        var a=document.createElement('a');a.className='ok';a.href=link;a.target='_blank';a.rel='noopener';a.textContent='Mở tài liệu →';
-        el.querySelector('.pan').insertBefore(a,msg);
-        var n=document.createElement('p');n.className='nudge';n.innerHTML='Muốn có người đi cùng từ đầu tới khi ra đơn? <a href="#" data-goto>Chọn dịch vụ phù hợp</a>';el.querySelector('.pan').appendChild(n);
-      }).catch(function(){msg.style.color='#b3261e';msg.textContent='Mã chưa đúng. Nhắn Huy qua Zalo để nhận mã nhé.'});
-    });
-    wrap.appendChild(el);
+  DOCS.forEach(function(d){
+    var a=document.createElement('a');a.className='doc dl';a.href=d.url;a.target='_blank';a.rel='noopener';
+    a.innerHTML='<span><h3></h3><p class="d"></p></span><span class="ar" aria-hidden="true">→</span>';
+    a.querySelector('h3').textContent=d.name;a.querySelector('.d').textContent=d.desc||'';
+    wrap.appendChild(a);
   });
 })();
 </script>
