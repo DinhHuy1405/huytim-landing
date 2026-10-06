@@ -146,6 +146,9 @@
   .code-card .code{font-size:clamp(2.2rem,6vw,3.2rem);margin-bottom:12px}
   .code-card p{font-family:"JetBrains Mono",monospace;font-size:.82rem;margin:0 auto 18px}
   .code-card .btn{border:0;cursor:pointer;font-family:inherit}
+  .chan.two{max-width:760px;margin-left:auto;margin-right:auto;grid-template-columns:repeat(2,minmax(0,1fr))}
+  @media(max-width:600px){.chan.two{grid-template-columns:1fr}}
+  .chan.two .card.mini p{word-break:break-all}
   .chan{display:grid;gap:16px;margin-top:34px;grid-template-columns:1fr 1fr;text-align:left}
   @media(min-width:900px){.chan{grid-template-columns:repeat(3,minmax(0,1fr))}}
   .card.mini{min-height:0;padding:20px;gap:2px}
@@ -567,6 +570,17 @@
   </div>
 </section>
 
+<section class="block" id="hop-tac">
+  <div class="wrap center">
+    <h2 class="serif">Liên hệ hợp tác.</h2>
+    <p class="lead">Muốn hợp tác, đặt bài, hoặc trao đổi công việc? Nhắn mình qua Zalo hoặc email.</p>
+    <div class="chan two">
+      <a class="card mini" href="https://zalo.me/0796796492" target="_blank" rel="noopener"><div><h3>Zalo</h3><p>0796 796 492</p></div></a>
+      <a class="card mini" href="mailto:nguyendinhhuy14052000@gmail.com"><div><h3>Email</h3><p>nguyendinhhuy14052000@gmail.com</p></div></a>
+    </div>
+  </div>
+</section>
+
 <section class="final wrap">
   <h2 class="serif">Bạn không cần làm một mình.</h2>
   <div class="row">
@@ -578,6 +592,7 @@
 <footer>
   <div class="l">
     <a href="https://portfolio.huytim.com" target="_blank" rel="noopener">Portfolio</a>
+    <a href="https://zalo.me/0796796492" target="_blank" rel="noopener">Zalo</a>
     <a href="mailto:nguyendinhhuy14052000@gmail.com">Email</a>
   </div>
   © <span id="y"></span> Huy Tim
