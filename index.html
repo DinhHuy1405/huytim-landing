@@ -56,6 +56,8 @@
 
   /* Cards */
   .cards.two{max-width:820px;margin-top:36px}
+  .cards.two .card{min-height:0}
+  @media(min-width:900px){.cards.two{align-items:stretch}}
   @media(min-width:900px){.cards.two{margin-top:36px}.cards.two>*:nth-child(n){margin-top:0}}
   @media(min-width:900px){.cards.two{grid-template-columns:repeat(2,1fr)}}
   .cards{display:grid;gap:18px;margin-top:-70px;position:relative;padding-bottom:20px;max-width:1150px;margin-left:auto;margin-right:auto}
@@ -643,8 +645,8 @@ document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener(
     <h2 class="serif" id="docTitle">Tài liệu miễn phí.</h2>
     <div class="mentor-cta">
       <b>Muốn bán hàng từ con số 0?</b>
-      <p>Chọn 1 gói Mentor, mình sẽ giúp bạn setup từ đầu tới cuối cho tới khi ra đơn.</p>
-      <button type="button" class="mgo" data-mentor>Xem các gói Mentor →</button>
+      <p>Chọn dịch vụ phù hợp với bạn, mình sẽ giúp bạn setup từ đầu tới cuối cho tới khi ra đơn.</p>
+      <button type="button" class="mgo" data-goto>Chọn dịch vụ phù hợp ↓</button>
     </div>
     <p class="mlead">Hoặc chọn bộ tài liệu bạn cần, rồi nhập mã mình gửi trong video hoặc tin nhắn:</p>
     <div class="docs" id="docs"></div>
@@ -655,7 +657,7 @@ document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener(
 <script>
 (function(){
   var DOCS=[
-    {"name": "Bộ tài liệu nghiên cứu ngách", "desc": "Folder tài liệu và số liệu mình đã làm sẵn", "salt": "c75UhXUAOHRNqMgDGTC+jg==", "iv": "byFLhMsJgoiWBbqu", "ct": "2Y3EOu7QOB3WrYs1ianZw15cSoUZYpb88dqbxNy8BPTO9UTojGlexQQ8MDVzRX45WGRirgMvhpG+7AqTDjF+a9IofvQtmE+lD5i9f2U5xznlz8GVHY5wrxL7JixdJ9ZSJEOSBg=="},
+    {"name": "Bộ tài liệu nghiên cứu ngách", "desc": "Tài liệu nghiên cứu ngách và số liệu mình đã làm sẵn", "salt": "HtkOwcN3Jijetd3tnJaqBw==", "iv": "DyJgkenES49Xu86Q", "ct": "2DU2Wj5CTVM3SNG+wI8ONhsdljACCfUOXqrDS+X3XsHTE3eJO8xJW7lGE2Rm0n5W1hpDFi+z80LVKYZNV2tdKDzyKOWuUa4EGoxCGE++1rhlaFpdsw2Pwytf1gfHKa5nHIj8ZA=="},
     {"name": "Quy trình setup bán hàng", "desc": "Quy trình setup bán hàng từng bước", "salt": "xBjHhjN3/Pf+V6L/4xxJBQ==", "iv": "8kVqxwMhx/KQ+z1m", "ct": "BNQ/0bUxcjJM9IeqSK49HxHIBgEvxb4PduebyljebvjSpm0ag9F3UZ9xmD9vNBiRRS+1dp0Rd7Nm4YA8sayn4nKLjzReOL0xt+YmYnRT329GTPjoWpMWP/lNwUkbaesdAvuxgg=="}
   ];
   var wrap=document.getElementById('docs');if(!wrap)return;
@@ -679,7 +681,7 @@ document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener(
         form.style.display='none';msg.textContent='';
         var a=document.createElement('a');a.className='ok';a.href=link;a.target='_blank';a.rel='noopener';a.textContent='Mở tài liệu →';
         el.querySelector('.pan').insertBefore(a,msg);
-        var n=document.createElement('p');n.className='nudge';n.innerHTML='Muốn có người đi cùng từ đầu tới khi ra đơn? <a href="#" data-mentor>Xem gói Mentor</a>';el.querySelector('.pan').appendChild(n);
+        var n=document.createElement('p');n.className='nudge';n.innerHTML='Muốn có người đi cùng từ đầu tới khi ra đơn? <a href="#" data-goto>Chọn dịch vụ phù hợp</a>';el.querySelector('.pan').appendChild(n);
       }).catch(function(){msg.style.color='#b3261e';msg.textContent='Mã chưa đúng. Nhắn Huy qua Zalo để nhận mã nhé.'});
     });
     wrap.appendChild(el);
@@ -695,8 +697,8 @@ document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener(
   m.querySelector('.mclose').addEventListener('click',hide);
   m.addEventListener('click',function(e){if(e.target===m)hide()});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden)hide()});
-  m.addEventListener('click',function(e){var t=e.target.closest('[data-mentor]');if(!t)return;e.preventDefault();hide();
-    var p=document.querySelector('.pick[data-t="mentor"]');if(p){var sec=document.getElementById('mentor');if(!sec.classList.contains('open'))p.click();else sec.scrollIntoView({behavior:'smooth',block:'start'})}});
+  m.addEventListener('click',function(e){var t=e.target.closest('[data-goto]');if(!t)return;e.preventDefault();hide();
+    var sec=document.getElementById('chon-nhom');if(sec)setTimeout(function(){sec.scrollIntoView({behavior:'smooth',block:'start'})},30)});
 })();
 </script>
 </body>
