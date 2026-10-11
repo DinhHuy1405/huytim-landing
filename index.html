@@ -116,6 +116,21 @@
   .doc .go2{font:600 .95rem Inter,sans-serif;background:#111;color:#fff;border:0;border-radius:12px;padding:11px 20px;cursor:pointer}
   .doc .msg{margin-top:8px;font-size:.85rem;color:#b3261e;min-height:1.2em}
   .doc .ok{display:inline-block;margin-top:2px;background:#fff2b8;border:2px solid #111;border-radius:12px;padding:11px 20px;font-weight:600;color:#111;text-decoration:none}
+  html{scroll-padding-top:76px}
+  .contactbar{position:sticky;top:0;z-index:40;background:#0b0b0b;color:#fff;border-bottom:1px solid #2a2a28}
+  .cb-in{max-width:1180px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .cb-text{display:flex;flex-direction:column;line-height:1.25;min-width:0}
+  .cb-text b{font-family:Fraunces,Georgia,serif;font-weight:800;font-size:1.1rem}
+  .cb-text span{font-size:.78rem;color:#bdbdb8}
+  .cb-btns{display:flex;gap:10px}
+  .cb-btn{display:flex;align-items:center;gap:10px;background:#fff;color:#0b0b0b;border-radius:12px;padding:7px 14px 7px 9px;transition:transform .15s,box-shadow .15s;min-width:0}
+  .cb-btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(255,255,255,.18)}
+  .cb-btn img{flex:none;border-radius:7px}
+  .cb-btn span{display:flex;flex-direction:column;line-height:1.2;min-width:0}
+  .cb-btn b{font-size:.92rem;font-weight:600}
+  .cb-btn i{font-style:normal;font-size:.74rem;color:#4a4a48;white-space:nowrap}
+  @media(max-width:760px){.cb-text{display:none}.cb-in{padding:8px 12px}.cb-btns{width:100%}.cb-btn{flex:1;justify-content:center;padding:8px 10px}.cb-btn i{display:none}.cb-btn b{font-size:.95rem}}
+  .chan.two .card.mini .cl{display:flex;align-items:center;gap:14px}.chan.two .card.mini .cl img{border-radius:9px;flex:none}
   .picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:820px;margin:24px auto 0}
   @media(max-width:600px){.picks{grid-template-columns:1fr}}
   .picks .pick{min-width:0;justify-content:center;min-height:78px}
@@ -279,6 +294,15 @@
 </style>
 </head>
 <body>
+<div class="contactbar" role="region" aria-label="Nhận tư vấn">
+  <div class="cb-in">
+    <p class="cb-text"><b>Nhận tư vấn miễn phí</b><span>Nhắn Huy, mình trả lời sớm nhất</span></p>
+    <div class="cb-btns">
+      <a class="cb-btn" href="https://zalo.me/0796796492" target="_blank" rel="noopener" aria-label="Nhắn Zalo 0796 796 492"><img src="img/zalo.svg" alt="" width="26" height="26"><span><b>Zalo</b><i>0796 796 492</i></span></a>
+      <a class="cb-btn" href="mailto:nguyendinhhuy14052000@gmail.com" aria-label="Gửi Gmail cho Huy Tim"><img src="img/gmail.svg" alt="" width="26" height="26"><span><b>Gmail</b><i>nguyendinhhuy14052000@gmail.com</i></span></a>
+    </div>
+  </div>
+</div>
 
 <header class="hero wrap">
   <h1 class="serif">Dùng dữ liệu để vận hành thương mại điện tử, cùng Huy Tim.</h1>
@@ -559,8 +583,8 @@
     <h2 class="serif">Liên hệ hợp tác.</h2>
     <p class="lead">Muốn hợp tác, đặt bài, hoặc trao đổi công việc? Nhắn mình qua Zalo hoặc email.</p>
     <div class="chan two">
-      <a class="card mini" href="https://zalo.me/0796796492" target="_blank" rel="noopener"><div><h3>Zalo</h3><p>0796 796 492</p></div></a>
-      <a class="card mini" href="mailto:nguyendinhhuy14052000@gmail.com"><div><h3>Email</h3><p>nguyendinhhuy14052000@gmail.com</p></div></a>
+      <a class="card mini" href="https://zalo.me/0796796492" target="_blank" rel="noopener"><div class="cl"><img src="img/zalo.svg" alt="" width="40" height="40"><div><h3>Zalo</h3><p>0796 796 492</p></div></div></a>
+      <a class="card mini" href="mailto:nguyendinhhuy14052000@gmail.com"><div class="cl"><img src="img/gmail.svg" alt="" width="40" height="40"><div><h3>Gmail</h3><p>nguyendinhhuy14052000@gmail.com</p></div></div></a>
     </div>
   </div>
 </section>
