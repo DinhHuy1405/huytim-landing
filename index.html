@@ -141,6 +141,9 @@
   .alert span{display:block;margin-top:6px;font-size:1rem;line-height:1.55;color:#141413}
   .inc{list-style:none;margin-top:12px;display:grid;gap:5px}
   .inc li{font-size:.84rem;padding-left:10px;border-left:2px solid #cfcdc6;color:#0b0b0b}
+  .goi-toggle{margin-top:26px;border:0;cursor:pointer;font-family:inherit}
+  #goiPanel{margin-top:6px}
+  #goiPanel[hidden]{display:none}
   .picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:820px;margin:24px auto 0}
   @media(max-width:600px){.picks{grid-template-columns:1fr}}
   .picks .pick{min-width:0;justify-content:center;min-height:78px}
@@ -356,6 +359,8 @@
   <div class="wrap center">
     <h2 class="serif">Chọn dịch vụ phù hợp với bạn.</h2>
     <p class="lead">Hai gói mentor thực chiến cho hai thị trường, hoặc nhắn Huy để được tư vấn chọn gói.</p>
+    <button type="button" class="btn goi-toggle" id="goiToggle" aria-expanded="false" aria-controls="goiPanel">Xem các gói mentor</button>
+    <div id="goiPanel" hidden>
     <div class="alert" role="note"><b>Đây không phải khóa học.</b><span>Đây là mentor: theo sát toàn bộ quy trình, bài tập thực chiến, support, và meeting 1 kèm 1 hàng tuần.</span></div>
     <div class="consult three" style="text-align:left">
       <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
@@ -386,6 +391,7 @@
         <p>Bạn nhận: mình hỏi nhanh tình hình của bạn và gợi ý gói phù hợp. Không bắt buộc mua.</p>
         <span class="go">Nhắn Zalo ngay →</span>
       </a>
+    </div>
     </div>
   </div>
 </section>
@@ -726,7 +732,16 @@ document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener(
   m.addEventListener('click',function(e){if(e.target===m)hide()});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden)hide()});
   m.addEventListener('click',function(e){var t=e.target.closest('[data-goto]');if(!t)return;e.preventDefault();hide();
-    var sec=document.getElementById('chon-nhom');if(sec)setTimeout(function(){sec.scrollIntoView({behavior:'smooth',block:'start'})},30)});
+    if(window.openGoi)window.openGoi();var sec=document.getElementById('chon-nhom');if(sec)setTimeout(function(){sec.scrollIntoView({behavior:'smooth',block:'start'})},30)});
+})();
+</script>
+<script>
+(function(){
+  var btn=document.getElementById('goiToggle'),panel=document.getElementById('goiPanel');if(!btn||!panel)return;
+  function set(open){panel.hidden=!open;btn.setAttribute('aria-expanded',String(open));btn.textContent=open?'Ẩn các gói mentor':'Xem các gói mentor'}
+  btn.addEventListener('click',function(){set(panel.hidden)});
+  window.openGoi=function(){set(true)};
+  if(location.hash==='#chon-nhom')set(true);
 })();
 </script>
 </body>
