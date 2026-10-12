@@ -141,7 +141,15 @@
   .alert span{display:block;margin-top:6px;font-size:1rem;line-height:1.55;color:#141413}
   .inc{list-style:none;margin-top:12px;display:grid;gap:5px}
   .inc li{font-size:.84rem;padding-left:10px;border-left:2px solid #cfcdc6;color:#0b0b0b}
-  .goi-toggle{margin-top:26px;border:0;cursor:pointer;font-family:inherit}
+  .goi-toggle{margin-top:30px;cursor:pointer;font-family:inherit;background:#fff2b8;color:var(--ink);border:2px solid var(--ink);
+       font-size:1.2rem;font-weight:600;padding:20px 44px;min-width:min(100%,360px);box-shadow:5px 5px 0 var(--ink)}
+  .goi-toggle:hover{background:#ffe978;transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+  .goi-toggle:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
+  .goi-toggle:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
+  .goi-toggle .cv{display:inline-block;margin-left:10px;transition:transform .2s}
+  .goi-toggle[aria-expanded="true"] .cv{transform:rotate(180deg)}
+  .goi-hint{margin-top:14px;font-size:.92rem;color:var(--muted)}
+  .goi-hint[hidden]{display:none}
   #goiPanel{margin-top:6px}
   #goiPanel[hidden]{display:none}
   .picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:820px;margin:24px auto 0}
@@ -359,7 +367,8 @@
   <div class="wrap center">
     <h2 class="serif">Chọn dịch vụ phù hợp với bạn.</h2>
     <p class="lead">Hai gói mentor thực chiến cho hai thị trường, hoặc nhắn Huy để được tư vấn chọn gói.</p>
-    <button type="button" class="btn goi-toggle" id="goiToggle" aria-expanded="false" aria-controls="goiPanel">Xem các gói mentor</button>
+    <button type="button" class="btn goi-toggle" id="goiToggle" aria-expanded="false" aria-controls="goiPanel"><span class="lb">Xem các gói mentor</span><span class="cv" aria-hidden="true">&#8595;</span></button>
+    <p class="goi-hint" id="goiHint">Bấm để xem nội dung và giá từng gói</p>
     <div id="goiPanel" hidden>
     <div class="alert" role="note"><b>Đây không phải khóa học.</b><span>Đây là mentor: theo sát toàn bộ quy trình, bài tập thực chiến, support, và meeting 1 kèm 1 hàng tuần.</span></div>
     <div class="consult three" style="text-align:left">
@@ -738,7 +747,7 @@ document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener(
 <script>
 (function(){
   var btn=document.getElementById('goiToggle'),panel=document.getElementById('goiPanel');if(!btn||!panel)return;
-  function set(open){panel.hidden=!open;btn.setAttribute('aria-expanded',String(open));btn.textContent=open?'Ẩn các gói mentor':'Xem các gói mentor'}
+  function set(open){panel.hidden=!open;btn.setAttribute('aria-expanded',String(open));btn.querySelector('.lb').textContent=open?'Ẩn các gói mentor':'Xem các gói mentor';var h=document.getElementById('goiHint');if(h)h.hidden=open}
   btn.addEventListener('click',function(){set(panel.hidden)});
   window.openGoi=function(){set(true)};
   if(location.hash==='#chon-nhom')set(true);
