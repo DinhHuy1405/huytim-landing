@@ -718,12 +718,13 @@ document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener(
 <script>
 (function(){
   var DOCS=[
-    {name:'Bộ tài liệu nghiên cứu ngách',desc:'Tài liệu nghiên cứu ngách và số liệu mình đã làm sẵn',url:'https://drive.google.com/drive/folders/1q9h1ihC-GDmQca4LIyxbL4M9LZblX5lj?usp=sharing'},
-    {name:'Quy trình setup bán hàng',desc:'Quy trình setup bán hàng từng bước',url:'https://drive.google.com/drive/folders/1JZYKJXnWd8y-QUe6U8SzXdBStjNvg5mc?usp=sharing'},
-    {name:'Tính toán giá bán',desc:'Bộ tài liệu tính giá bán và lợi nhuận',url:'https://drive.google.com/drive/folders/1HSVhob_B3JGfYj8THcvGzUH0eZMn87Ix?usp=sharing'},
+    {name:'Bộ tài liệu nghiên cứu ngách',desc:'Tài liệu nghiên cứu ngách và số liệu mình đã làm sẵn. Nhập mã do Huy gửi để mở',code:'X5LJ',url:'https://drive.google.com/drive/folders/1q9h1ihC-GDmQca4LIyxbL4M9LZblX5lj?usp=sharing'},
+    {name:'Quy trình setup bán hàng',desc:'Quy trình setup bán hàng từng bước. Nhập mã do Huy gửi để mở',code:'G5MC',url:'https://drive.google.com/drive/folders/1JZYKJXnWd8y-QUe6U8SzXdBStjNvg5mc?usp=sharing'},
+    {name:'Tính toán giá bán',desc:'Bộ tài liệu tính giá bán và lợi nhuận. Nhập mã do Huy gửi để mở',code:'87IX',url:'https://drive.google.com/drive/folders/1HSVhob_B3JGfYj8THcvGzUH0eZMn87Ix?usp=sharing'},
     {name:'Tài liệu setup bán hàng tại Mỹ',desc:'Nhập mã do Huy gửi để mở tài liệu',code:'NKXY',url:'https://drive.google.com/file/d/1cYPJt4DayN2M8p8HrRvSrMogd8noXNKy/view?usp=sharing'}
   ];
   var wrap=document.getElementById('docs');if(!wrap)return;
+  function nm(v){return v.trim().toUpperCase().replace(/[IL1]/g,'1')}
   DOCS.forEach(function(d){
     if(d.code){
       var c=document.createElement('div');c.className='doc';
@@ -732,7 +733,7 @@ document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener(
       var hb=c.querySelector('.dh'),inp=c.querySelector('input'),msg=c.querySelector('.msg');
       hb.addEventListener('click',function(){var o=c.classList.toggle('open');hb.setAttribute('aria-expanded',String(o));if(o)inp.focus()});
       c.querySelector('form').addEventListener('submit',function(e){e.preventDefault();
-        if(inp.value.trim().toUpperCase()===d.code){msg.style.color='#111';msg.innerHTML='';var l=document.createElement('a');l.className='ok';l.href=d.url;l.target='_blank';l.rel='noopener';l.textContent='Mở tài liệu →';msg.appendChild(l)}
+        if(nm(inp.value)===nm(d.code)){msg.style.color='#111';msg.innerHTML='';var l=document.createElement('a');l.className='ok';l.href=d.url;l.target='_blank';l.rel='noopener';l.textContent='Mở tài liệu →';msg.appendChild(l)}
         else{msg.style.color='#b3261e';msg.textContent='Mã chưa đúng. Nhắn Huy để nhận mã.'}});
       wrap.appendChild(c);return;
     }
