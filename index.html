@@ -145,6 +145,21 @@
   .stp{list-style:none;counter-reset:st;margin-top:8px;display:grid;gap:5px}
   .stp li{counter-increment:st;display:flex;gap:10px;font-size:.84rem;line-height:1.4;color:#0b0b0b}
   .stp li::before{content:counter(st);flex:0 0 auto;width:20px;font-family:"JetBrains Mono",monospace;font-size:.78rem;color:#4a4a48}
+  .hs-toggle{margin-top:22px;cursor:pointer;font-family:inherit;font-size:1rem;padding:14px 26px}
+  .hs-toggle .cv{display:inline-block;margin-left:10px;transition:transform .2s}
+  .hs-toggle[aria-expanded="true"] .cv{transform:rotate(180deg)}
+  .hs-toggle:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+  .hs-panel{margin:26px auto 0;max-width:760px;text-align:left}
+  .hs-panel[hidden]{display:none}
+  .hs-h{font-family:Fraunces,serif;font-size:1.25rem;font-weight:800;margin:30px 0 4px;padding-bottom:8px;border-bottom:1px solid #d9d7d0}
+  .hs-list{list-style:none;display:grid}
+  .hs-row{display:grid;grid-template-columns:132px 1fr;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid #e6e4de}
+  .hs-row.nophoto{grid-template-columns:1fr}
+  .hs-ph{display:block;border-radius:8px;overflow:hidden;border:1px solid #d9d7d0;aspect-ratio:4/3;background:#ececea}
+  .hs-ph img{width:100%;height:100%;object-fit:cover;display:block}
+  .hs-tx b{display:block;font-weight:600;font-size:1rem;line-height:1.4;color:#0b0b0b}
+  .hs-tx span{display:block;margin-top:4px;font-size:.88rem;color:#4a4a48}
+  @media(max-width:520px){.hs-row{grid-template-columns:96px 1fr;gap:12px}.hs-tx b{font-size:.95rem}}
   .goi-toggle{margin-top:30px;cursor:pointer;font-family:inherit;background:#fff2b8;color:var(--ink);border:2px solid var(--ink);
        font-size:1.2rem;font-weight:600;padding:20px 44px;min-width:min(100%,360px);box-shadow:5px 5px 0 var(--ink)}
   .goi-toggle:hover{background:#ffe978;transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
@@ -362,6 +377,10 @@
       <div class="chips">
         <a class="chip" href="https://portfolio.huytim.com" target="_blank" rel="noopener">portfolio.huytim.com ↗</a>
       </div>
+    <button type="button" class="btn light hs-toggle" id="hsToggle" aria-expanded="false" aria-controls="hsPanel"><span class="lb">Xem hồ sơ khởi nghiệp của mình</span><span class="cv" aria-hidden="true">&#8595;</span></button>
+    <div id="hsPanel" class="hs-panel" hidden>
+      <h3 class="hs-h">Giải thưởng khởi nghiệp và công nghệ</h3><ul class="hs-list"><li class="hs-row"><a class="hs-ph" href="img/hoso/uavs.jpg" target="_blank" rel="noopener"><img src="img/hoso/uavs.jpg" alt="Giải nhất cuộc thi lập trình quốc tế và khởi nghiệp UAVS Hackatrix Australia" loading="lazy" style="object-position:50% 15%"></a><div class="hs-tx"><b>Giải nhất cuộc thi lập trình quốc tế và khởi nghiệp UAVS Hackatrix Australia</b><span>2021</span></div></li><li class="hs-row"><a class="hs-ph" href="img/hoso/inte.jpg" target="_blank" rel="noopener"><img src="img/hoso/inte.jpg" alt="Giải nhì cuộc thi Khởi nghiệp Công nghệ trong Sinh viên lần thứ nhất" loading="lazy" style="object-position:50% 70%"></a><div class="hs-tx"><b>Giải nhì cuộc thi Khởi nghiệp Công nghệ trong Sinh viên lần thứ nhất</b><span>2021, Đà Nẵng</span></div></li><li class="hs-row"><a class="hs-ph" href="img/hoso/hult.jpg" target="_blank" rel="noopener"><img src="img/hoso/hult.jpg" alt="Giải nhì cuộc thi khởi nghiệp Hult Prize" loading="lazy" style="object-position:50% 70%"></a><div class="hs-tx"><b>Giải nhì cuộc thi khởi nghiệp Hult Prize</b><span>Runner-up</span></div></li><li class="hs-row"><a class="hs-ph" href="img/hoso/runway.jpg" target="_blank" rel="noopener"><img src="img/hoso/runway.jpg" alt="Giải nhất cuộc thi Startup Runway" loading="lazy" style="object-position:50% 35%"></a><div class="hs-tx"><b>Giải nhất cuộc thi Startup Runway</b><span>2021, Đà Nẵng</span></div></li><li class="hs-row"><a class="hs-ph" href="img/hoso/bachkhoa.jpg" target="_blank" rel="noopener"><img src="img/hoso/bachkhoa.jpg" alt="Giải nhì Khoa học Công nghệ, Đại học Bách Khoa Đà Nẵng" loading="lazy" style="object-position:50% 30%"></a><div class="hs-tx"><b>Giải nhì Khoa học Công nghệ, Đại học Bách Khoa Đà Nẵng</b><span>Giải báo cáo và giải công nghệ, 2022</span></div></li></ul><h3 class="hs-h">Sản phẩm</h3><ul class="hs-list"><li class="hs-row"><a class="hs-ph" href="img/hoso/sanpham.jpg" target="_blank" rel="noopener"><img src="img/hoso/sanpham.jpg" alt="Các sản phẩm công nghệ thực tế khác" loading="lazy" style="object-position:50% 40%"></a><div class="hs-tx"><b>Các sản phẩm công nghệ thực tế khác</b></div></li></ul><h3 class="hs-h">Học vấn</h3><ul class="hs-list"><li class="hs-row"><a class="hs-ph" href="img/profile.jpg" target="_blank" rel="noopener"><img src="img/profile.jpg" alt="Huy Tim" loading="lazy" style="object-position:50% 25%"></a><div class="hs-tx"><b>Học bổng Erasmus, Khoa học Dữ liệu và Trí tuệ Nhân tạo tại Université Côte d'Azur, Pháp</b></div></li></ul><h3 class="hs-h">Thương mại điện tử</h3><ul class="hs-list"><li class="hs-row nophoto"><div class="hs-tx"><b>Từ 2021: bắt đầu bán hàng thương mại điện tử US đa nền tảng, thu về gần 400.000$ cho business trong 1 năm</b><span>Tái cấu trúc hệ thống, chi phí và vận hành</span></div></li><li class="hs-row nophoto"><div class="hs-tx"><b>Hơn 5 năm bán các loại hàng hóa đặc trưng Việt Nam tại US</b><span>Năm 2026: kinh doanh tại thị trường Việt Nam</span></div></li></ul>
+    </div>
     </div>
   </div>
 </section>
@@ -770,6 +789,12 @@ document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener(
   btn.addEventListener('click',function(){set(panel.hidden)});
   window.openGoi=function(){set(true)};
   if(location.hash==='#chon-nhom')set(true);
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('hsToggle'),p=document.getElementById('hsPanel');if(!b||!p)return;
+  b.addEventListener('click',function(){var o=p.hidden;p.hidden=!o;b.setAttribute('aria-expanded',String(o));b.querySelector('.lb').textContent=o?'Ẩn hồ sơ khởi nghiệp':'Xem hồ sơ khởi nghiệp của mình'});
 })();
 </script>
 </body>
