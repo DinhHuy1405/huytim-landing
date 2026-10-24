@@ -44,6 +44,8 @@
     $('dimHelp').textContent = isUS ? 'Hàng nhẹ mà cồng kềnh sẽ bị tính cước theo thể tích.' : 'Có thể để trống nếu không cần.';
     $('vnLogLabel').textContent = isUS ? 'Vận chuyển trong Việt Nam (từ nhà cung cấp tới nơi gom hàng)' : 'Vận chuyển về kho của bạn';
     $('vnLogHelp').textContent = isUS ? 'Bằng USD mỗi đơn.' : 'Bằng đồng (VND) mỗi đơn.';
+    $('vnLogUnit').textContent = isUS ? 'USD' : 'đ'; $('packUnit').textContent = isUS ? 'USD' : 'đ'; $('priceUnit').textContent = isUS ? 'USD' : 'đ';
+    $('qtyReq').hidden = !isUS; $('wReq').hidden = !isUS;
     $('fulfillment').value = '0'; $('last_mile').value = '0'; $('vn_logistics').value = '0'; $('packing').value = '0';
     fillAdvanced(m);
     var sel = $('group'); sel.innerHTML = '';
@@ -52,12 +54,20 @@
     list.forEach(function (s, i) { var o = document.createElement('option'); o.value = String(i); o.textContent = s.group_label + (Object.keys(multi[s.group_key]).length > 1 ? ' [' + srcName(s.source) + ']' : ''); sel.appendChild(o); });
     var o2 = document.createElement('option'); o2.value = 'none'; o2.textContent = 'Nhóm khác (chưa có dữ liệu thị trường)'; sel.appendChild(o2);
     updateGroupHelp();
-    $('result').hidden = true; $('err').hidden = true;
+    $('result').hidden = true; $('err').hidden = true; document.body.classList.remove('show-result');
+    if (window.TG_UI) window.TG_UI.refresh();
   }
   function srcName(x) { return x === 'kalodata' ? 'Kalodata' : 'FastMoss'; }
   function currentStats() { var v = $('group').value; if (v === 'none') return null; return statsFor(market())[Number(v)] || null; }
   function updateGroupHelp() {
-    var s = currentStats();
+    var s = currentStats(), m = market(), mm = $('miniMarket');
+    if (s) {
+      mm.hidden = false;
+      mm.innerHTML = '<div><div class="k">Giá trung vị</div><div class="v">' + esc(TG.money(s.price_p50, m)) + '</div></div>' +
+        '<div><div class="k">Vùng giá chính</div><div class="v">' + esc(TG.money(s.price_p10, m)) + ' đến ' + esc(TG.money(s.price_p90, m)) + '</div></div>' +
+        '<div><div class="k">Bán tốt nhất, 28 ngày</div><div class="v">' + esc(TG.intFmt(s.top_product_units_28d)) + ' cái</div></div>';
+    } else mm.hidden = true;
+    if (window.TG_UI) window.TG_UI.refresh();
     $('groupHelp').textContent = s ? ('Dữ liệu ' + srcName(s.source) + ' ngày ' + s.period_end + ', mẫu ' + s.n_listings + ' listing bán chạy nhất (bản thử nghiệm).') : 'Chưa có dữ liệu: bạn nhập giá bán dự kiến, kết luận cao nhất chỉ là "Cân nhắc".';
   }
 
@@ -105,7 +115,7 @@
 
   function render(r, ctx) {
     var m = ctx.m, e = r.unit_economics;
-    $('result').hidden = false;
+    $('result').hidden = false; document.body.classList.add('show-result'); window.scrollTo(0, 0);
     var v = $('verdict'); v.className = 'verdict ' + r.verdict;
     v.innerHTML = '<div class="k">Kết luận của công cụ</div><div class="v">' + esc(r.verdict_label) + '</div><div class="s">' + esc(r.verdict === 'CHO' ? r.reasons[0] : SUMMARY[r.verdict]) + '</div>' +
       '<div class="meta"><span class="chip">Thị trường: ' + (m === 'US' ? 'Mỹ' : 'Việt Nam') + '</span><span class="chip">Độ tin cậy dữ liệu thị trường: ' + esc(r.confidence) + '</span></div>';
@@ -117,7 +127,7 @@
 
     // Bảng lợi nhuận
     var tb = $('econ');
-    if (e.landed_cost === null || e.price === null) { tb.innerHTML = ''; $('keys').innerHTML = ''; }
+    if (e.landed_cost === null || e.price === null) { tb.innerHTML = ''; $('keys').innerHTML = ''; $('tiles').innerHTML = ''; $('splitBar').innerHTML = ''; }
     else {
       var P = e.price, neg = function (x) { return x < 0 ? ' class="neg"' : ''; };
       var adsCost = P * ctx.p.ads_pct;
@@ -133,6 +143,17 @@
         '<tr><td>Quảng cáo</td><td></td><td></td>' + cell(adsCost, 1) + '</tr>' +
         '<tr class="total"><td>Lợi nhuận mỗi đơn</td>' + prof(e.profit_organic) + prof(e.profit_affiliate) + prof(e.profit_ads) + '</tr>' +
         '<tr><td>Biên lợi nhuận</td><td' + neg(e.profit_organic) + '>' + TG.pctShow(e.profit_organic / P) + '</td><td' + neg(e.profit_affiliate) + '>' + TG.pctShow(e.profit_affiliate / P) + '</td><td' + neg(e.profit_ads) + '>' + TG.pctShow(e.profit_ads / P) + '</td></tr></tbody>';
+      var tg0 = TG.pctShow(ctx.p.target_margin), po = e.profit_organic;
+      $('tiles').innerHTML =
+        '<div class="tile"><div class="k">Lãi mỗi đơn (đơn tự nhiên)</div><div class="v ' + (po < 0 ? 'neg' : 'pos') + '">' + mny(po, m) + '</div><div class="d">Biên ' + TG.pctShow(po / P) + ' trên giá bán</div></div>' +
+        '<div class="tile"><div class="k">Giá nhập tối đa để đạt lãi ' + tg0 + '</div><div class="v">' + mny(e.max_unit_cost, m) + '</div><div class="d">Bạn đang nhập ' + mny(num(ctx.inp.unit_cost), m) + '</div></div>' +
+        '<div class="tile"><div class="k">Giá bán đề xuất để đạt lãi ' + tg0 + '</div><div class="v">' + (e.recommended_feasible ? mny(e.recommended_price, m) : 'Không khả thi') + '</div><div class="d">' + (e.price_source === 'trung vị thị trường' ? 'Bạn dùng giá trung vị thị trường' : 'Giá bạn nhập ' + mny(P, m)) + '</div></div>';
+      var segs = [['Giá vốn về tới khách', e.landed_cost, '#111'], ['Phí sàn', e.platform_fee, '#6f6a5d'], ['Vận hành, marketing', e.H, '#aaa393'], ['Hoàn, hủy, hỏng', e.returns, '#e3b4ad']];
+      var costSum = segs.reduce(function (a, x) { return a + x[1]; }, 0), base = Math.max(P, costSum);
+      if (po > 0) segs.push(['Lãi', po, '#1d7a47']);
+      $('splitBar').innerHTML = '<div class="split">' + segs.map(function (x) { return '<i style="width:' + (x[1] / base * 100) + '%;background:' + x[2] + '" title="' + esc(x[0]) + '"></i>'; }).join('') + '</div>' +
+        '<div class="split-leg">' + segs.map(function (x) { return '<span><em style="background:' + x[2] + '"></em>' + esc(x[0]) + ' ' + TG.pctShow(x[1] / P) + '</span>'; }).join('') + '</div>' +
+        (po < 0 ? '<p class="hint">Tổng chi phí vượt giá bán, nên đơn tự nhiên bị lỗ ' + esc(mny(-po, m)) + '.</p>' : '<p class="hint">Mỗi 100 đồng giá bán chia ra như thanh trên (đơn tự nhiên).</p>');
       var parts = ['giá nhập ' + mny(num(ctx.inp.unit_cost), m)];
       if (m === 'US') parts.push('ship quốc tế ' + mny(e.ship.ship_each, m) + (e.ship.carrier ? ' (' + (e.ship.carrier === 'VPS' ? 'VPS' : 'AM') + ', ' + (Math.round(e.ship.lot_kg * 10) / 10).toString().replace('.', ',') + ' kg cả lô)' : ''));
       if (num(ctx.inp.fulfillment)) parts.push('fulfillment ' + mny(num(ctx.inp.fulfillment), m));
@@ -169,7 +190,6 @@
     var wl = $('warns'); wl.innerHTML = '';
     r.warnings.forEach(function (w) { var li = document.createElement('li'); li.textContent = w; wl.appendChild(li); });
     $('warnCard').hidden = !r.warnings.length;
-    $('result').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
   function num(x) { var n = Number(x); return isFinite(n) ? n : 0; }
 
@@ -212,5 +232,12 @@
       render(r, ctx); pushHist(r, ctx);
     } catch (e) { err.textContent = e.message; err.hidden = false; err.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
   });
+  $('editBtn').addEventListener('click', function () { document.body.classList.remove('show-result'); $('result').hidden = true; window.scrollTo(0, 0); });
+  $('newBtn').addEventListener('click', function () {
+    document.body.classList.remove('show-result'); $('result').hidden = true;
+    ['unit_cost', 'qty', 'weight_kg', 'L', 'W', 'H', 'price', 'ship_per_kg'].forEach(function (id) { $(id).value = ''; });
+    applyMarket(); if (window.TG_UI) window.TG_UI.go(1); window.scrollTo(0, 0);
+  });
+  window.TG_APP = { collect: collect, market: market, currentStats: currentStats, parseNum: parseNum, fmtIn: fmtIn, mny: mny };
   applyMarket(); renderHist();
 })();

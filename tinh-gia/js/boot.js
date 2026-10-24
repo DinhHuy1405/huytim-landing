@@ -7,7 +7,9 @@
   var started = false;
   function start() {
     if (started) return; started = true;
-    var s = document.createElement('script'); s.src = 'js/app.js'; document.body.appendChild(s);
+    var s = document.createElement('script'); s.src = 'js/app.js';
+    s.onload = function () { var u = document.createElement('script'); u.src = 'js/ui.js'; document.body.appendChild(u); };
+    document.body.appendChild(s);
   }
   var timer = setTimeout(start, 4000);
   fetch(URL + '/rest/v1/price_stats?select=*&order=market.asc,group_key.asc,source.asc', { headers: { apikey: KEY, Authorization: 'Bearer ' + KEY } })

@@ -12,117 +12,173 @@
 </head>
 <body>
 <header class="top">
-  <div class="wrap">
+  <div class="wrap bar">
     <a class="brand" href="https://huytim.com" rel="noopener"><b>Huy Tim</b><span>Dữ liệu và vận hành thương mại điện tử</span></a>
+    <a class="back-home" href="https://huytim.com">Về trang chủ</a>
   </div>
 </header>
 
 <main class="wrap">
   <section class="hero">
     <h1 class="serif">Sản phẩm này nên nhập hay không nhập?</h1>
-    <p class="lead">Điền thông tin sản phẩm. Công cụ tính lợi nhuận thật của từng đơn và so với dữ liệu thị trường, rồi cho bạn kết luận kèm lý do.</p>
-    <div class="beta" role="note"><b>Bản thử nghiệm.</b> Phí sàn trong công cụ là số mẫu, dữ liệu thị trường mới có vài nhóm sản phẩm. Bạn nên thay phí sàn bằng mức thật ở mục "Cài đặt nâng cao" trước khi quyết định.</div>
+    <p class="lead">Điền 3 bước ngắn. Công cụ tính lợi nhuận thật của từng đơn, so với dữ liệu thị trường, rồi cho kết luận kèm lý do.</p>
+    <p class="beta" role="note"><b>Bản thử nghiệm.</b> Phí sàn là số mẫu và dữ liệu thị trường mới có 16 nhóm sản phẩm. Hãy thay phí sàn bằng mức thật ở bước 3 trước khi quyết định.</p>
   </section>
 
-  <form id="form" novalidate>
-    <!-- BƯỚC 1 -->
-    <section class="card" id="s1">
-      <h2><span class="n">1</span> Bạn bán ở đâu?</h2>
-      <div class="seg" role="radiogroup" aria-label="Thị trường">
-        <label class="seg-opt"><input type="radio" name="market" value="VN"><span><b>Việt Nam</b><small>Bán trong nước, tính bằng đồng</small></span></label>
-        <label class="seg-opt"><input type="radio" name="market" value="US" checked><span><b>Mỹ (US)</b><small>Bán sang Mỹ, tính bằng USD</small></span></label>
-      </div>
-      <div class="grid2">
-        <div class="field">
-          <label for="platform">Sàn bán</label>
-          <select id="platform"><option value="tiktok">TikTok Shop</option></select>
-          <p class="help">Hiện hỗ trợ TikTok Shop. Các sàn khác (Shopee, Lazada, Amazon...) sẽ thêm sau.</p>
-        </div>
-        <div class="field">
-          <label for="group">Nhóm sản phẩm</label>
-          <select id="group"></select>
-          <p class="help" id="groupHelp"></p>
-        </div>
-      </div>
-    </section>
+  <div id="wizard" class="wizard">
+    <ol class="stepper" id="stepper" aria-label="Các bước">
+      <li><button type="button" data-go="1" class="on"><span class="num">1</span><span class="lbl">Thị trường</span></button></li>
+      <li><button type="button" data-go="2"><span class="num">2</span><span class="lbl">Hàng và vận chuyển</span></button></li>
+      <li><button type="button" data-go="3"><span class="num">3</span><span class="lbl">Giá bán và lãi</span></button></li>
+    </ol>
 
-    <!-- BƯỚC 2 -->
-    <section class="card" id="s2">
-      <h2><span class="n">2</span> Thông tin hàng</h2>
-      <div class="grid2">
-        <div class="field">
-          <label for="unit_cost">Giá nhập mỗi cái</label>
-          <div class="inline"><input id="unit_cost" inputmode="decimal" autocomplete="off" placeholder="Ví dụ 4,5"><select id="cost_cur" aria-label="Đơn vị tiền"><option value="VND">VND</option><option value="CNY">NDT (tệ)</option><option value="USD">USD</option></select></div>
-          <p class="help">Số tiền bạn trả cho nhà cung cấp cho một cái.</p>
-        </div>
-        <div class="field">
-          <label for="qty">Số lượng nhập thử</label>
-          <input id="qty" inputmode="numeric" autocomplete="off" placeholder="Ví dụ 300" value="">
-          <p class="help" id="qtyHelp">Lô thử bạn định nhập. Lô càng lớn thì cước mỗi cái càng rẻ.</p>
-        </div>
-        <div class="field">
-          <label for="weight_kg">Cân nặng mỗi cái (kg)</label>
-          <input id="weight_kg" inputmode="decimal" autocomplete="off" placeholder="Ví dụ 0,08">
-          <p class="help">Cân cả hộp đóng gói. 100 gram nhập là 0,1.</p>
-        </div>
-        <div class="field">
-          <label>Kích thước hộp (cm): dài, rộng, cao</label>
-          <div class="triple"><input id="L" inputmode="decimal" placeholder="Dài" aria-label="Dài"><input id="W" inputmode="decimal" placeholder="Rộng" aria-label="Rộng"><input id="H" inputmode="decimal" placeholder="Cao" aria-label="Cao"></div>
-          <p class="help" id="dimHelp">Hàng nhẹ mà cồng kềnh sẽ bị tính cước theo thể tích.</p>
-        </div>
-        <div class="field">
-          <label for="price">Giá bán dự kiến <span class="opt">(để trống nếu chưa biết)</span></label>
-          <input id="price" inputmode="decimal" autocomplete="off" placeholder="Để trống: dùng giá trung vị thị trường">
-          <p class="help" id="priceHelp">Giá bạn định bán cho khách, cùng đơn vị tiền của thị trường.</p>
-        </div>
-        <div class="field">
-          <label for="margin">Lãi mong muốn (% giá bán)</label>
-          <div class="inline"><input id="margin" inputmode="decimal" value="20"><span class="suffix">%</span></div>
-          <p class="help">Mặc định 20%. Nghĩa là bán 100 thì lãi ròng 20.</p>
-        </div>
-      </div>
+    <div class="layout">
+      <form id="form" novalidate class="panel">
 
-      <h3>Chi phí khác cho mỗi đơn <span class="opt">(để 0 nếu chưa có)</span></h3>
-      <div class="grid2">
-        <div class="field" data-for="US"><label for="fulfillment">Fulfillment (kho Mỹ lấy hàng, đóng gói)</label><input id="fulfillment" inputmode="decimal" placeholder="0" value="0"><p class="help">Bằng USD mỗi đơn.</p></div>
-        <div class="field" data-for="US"><label for="last_mile">Giao hàng cuối tại Mỹ</label><input id="last_mile" inputmode="decimal" placeholder="0" value="0"><p class="help">Bằng USD mỗi đơn.</p></div>
-        <div class="field"><label for="vn_logistics" id="vnLogLabel">Vận chuyển trong Việt Nam</label><input id="vn_logistics" inputmode="decimal" placeholder="0" value="0"><p class="help" id="vnLogHelp">Cùng đơn vị tiền của thị trường.</p></div>
-        <div class="field"><label for="packing">Đóng gói</label><input id="packing" inputmode="decimal" placeholder="0" value="0"><p class="help">Hộp, túi, băng dính cho một đơn.</p></div>
-        <div class="field" data-for="US"><label for="ship_per_kg">Giá ship mỗi kg <span class="opt">(để trống: tự tính theo bảng cước)</span></label><input id="ship_per_kg" inputmode="decimal" placeholder="Tự tính"><p class="help">Chỉ nhập nếu bạn đã có báo giá riêng. Bằng USD mỗi kg.</p></div>
-      </div>
+        <!-- BƯỚC 1 -->
+        <section class="step" data-step="1">
+          <h2>Bạn bán ở đâu, nhóm hàng nào?</h2>
+          <div class="seg" role="radiogroup" aria-label="Thị trường">
+            <label class="seg-opt"><input type="radio" name="market" value="VN"><span><b>Việt Nam</b><small>Bán trong nước, tính bằng đồng</small></span></label>
+            <label class="seg-opt"><input type="radio" name="market" value="US" checked><span><b>Mỹ (US)</b><small>Bán sang Mỹ, tính bằng USD</small></span></label>
+          </div>
+          <div class="field">
+            <label for="platform">Sàn bán</label>
+            <select id="platform"><option value="tiktok">TikTok Shop</option></select>
+            <p class="hint">Hiện hỗ trợ TikTok Shop. Shopee, Lazada, Amazon sẽ thêm sau.</p>
+          </div>
+          <div class="field">
+            <label for="group">Nhóm sản phẩm</label>
+            <select id="group"></select>
+            <p class="hint" id="groupHelp"></p>
+          </div>
+          <div class="mini-market" id="miniMarket" hidden></div>
+          <div class="actions"><span></span><button type="button" class="btn" data-next>Tiếp tục</button></div>
+        </section>
 
-      <details class="adv">
-        <summary>Cài đặt nâng cao (phí sàn, quảng cáo, hoàn hủy, tỷ giá)</summary>
-        <div class="grid2">
-          <div class="field"><label for="ads_pct">Chi phí quảng cáo cho đơn chạy ads (% giá bán)</label><div class="inline"><input id="ads_pct" inputmode="decimal"><span class="suffix">%</span></div></div>
-          <div class="field"><label for="returns_pct">Hoàn, hủy, hỏng (% giá bán)</label><div class="inline"><input id="returns_pct" inputmode="decimal"><span class="suffix">%</span></div></div>
-          <div class="field"><label for="affiliate_pct">Hoa hồng affiliate (%)</label><div class="inline"><input id="affiliate_pct" inputmode="decimal" placeholder="Tự lấy từ thị trường"><span class="suffix">%</span></div><p class="help">Để trống: dùng mức trung bình của nhóm.</p></div>
-          <div class="field"><label for="other_marketing">Marketing khác mỗi đơn</label><input id="other_marketing" inputmode="decimal"></div>
-          <div class="field"><label for="variable_cost">Biến phí khác mỗi đơn (túi, thư cảm ơn...)</label><input id="variable_cost" inputmode="decimal"></div>
-          <div class="field"><label for="fixed_monthly">Chi phí cố định mỗi tháng</label><input id="fixed_monthly" inputmode="decimal"><p class="help">Lương, điện, thuê chỗ. Để 0 nếu chưa tính.</p></div>
-          <div class="field"><label for="orders_monthly">Số đơn dự kiến mỗi tháng</label><input id="orders_monthly" inputmode="decimal"></div>
-          <div class="field"><label for="fx">Tỷ giá (VND mỗi USD)</label><input id="fx" inputmode="decimal"></div>
-          <div class="field"><label for="cny_vnd">Tỷ giá (VND mỗi NDT)</label><input id="cny_vnd" inputmode="decimal" placeholder="Nhập nếu giá nhập bằng NDT"><p class="help">Bạn tự nhập theo tỷ giá hiện hành, công cụ không tự đoán.</p></div>
-          <div class="field" data-for="US"><label for="carrier">Hãng vận chuyển đi Mỹ</label><select id="carrier"><option>Rẻ nhất</option><option value="VPS">VPS Express</option><option value="AM">AM Express</option></select></div>
-        </div>
-        <h4>Phí sàn <span class="warn-tag" id="feeTag">số mẫu, chưa xác minh</span></h4>
-        <div class="grid2">
-          <div class="field"><label for="f_trans">Phí giao dịch (% giá bán)</label><div class="inline"><input id="f_trans" inputmode="decimal"><span class="suffix">%</span></div></div>
-          <div class="field"><label for="f_comm">Hoa hồng sàn theo ngành (% giá bán)</label><div class="inline"><input id="f_comm" inputmode="decimal"><span class="suffix">%</span></div></div>
-          <div class="field"><label for="f_proc">Phí xử lý mỗi đơn</label><input id="f_proc" inputmode="decimal"></div>
-          <div class="field"><label for="f_tax">Thuế (% giá bán)</label><div class="inline"><input id="f_tax" inputmode="decimal"><span class="suffix">%</span></div></div>
-        </div>
-        <label class="check"><input type="checkbox" id="fees_verified"> Tôi đã thay phí sàn ở trên bằng mức thật của sàn và ngành của tôi (tắt cảnh báo phí mẫu)</label>
-      </details>
+        <!-- BƯỚC 2 -->
+        <section class="step" data-step="2" hidden>
+          <h2>Hàng và vận chuyển</h2>
+          <div class="group">
+            <h3>Hàng bạn nhập</h3>
+            <div class="grid2">
+              <div class="field">
+                <label for="unit_cost">Giá nhập mỗi cái <span class="req">Bắt buộc</span></label>
+                <div class="ctl"><input id="unit_cost" inputmode="decimal" autocomplete="off" placeholder="Ví dụ 4,5"><select id="cost_cur" aria-label="Đơn vị tiền"><option value="VND">VND</option><option value="CNY">NDT (tệ)</option><option value="USD">USD</option></select></div>
+                <p class="hint">Số tiền bạn trả cho nhà cung cấp, cho một cái.</p>
+                <p class="msg" hidden></p>
+              </div>
+              <div class="field">
+                <label for="qty">Số lượng nhập thử <span class="req" id="qtyReq">Bắt buộc</span></label>
+                <div class="ctl"><input id="qty" inputmode="numeric" autocomplete="off" placeholder="Ví dụ 300"><span class="unit">cái</span></div>
+                <p class="hint" id="qtyHelp">Lô thử bạn định nhập. Lô càng lớn thì cước mỗi cái càng rẻ.</p>
+                <p class="msg" hidden></p>
+              </div>
+              <div class="field">
+                <label for="weight_kg">Cân nặng mỗi cái <span class="req" id="wReq">Bắt buộc</span></label>
+                <div class="ctl"><input id="weight_kg" inputmode="decimal" autocomplete="off" placeholder="Ví dụ 0,08"><span class="unit">kg</span></div>
+                <p class="hint">Cân cả hộp đóng gói. 100 gram nhập là 0,1.</p>
+                <p class="msg" hidden></p>
+              </div>
+              <div class="field">
+                <label>Kích thước hộp <span class="opt">Tùy chọn</span></label>
+                <div class="triple"><div class="ctl"><input id="L" inputmode="decimal" placeholder="Dài" aria-label="Dài (cm)"></div><div class="ctl"><input id="W" inputmode="decimal" placeholder="Rộng" aria-label="Rộng (cm)"></div><div class="ctl"><input id="H" inputmode="decimal" placeholder="Cao" aria-label="Cao (cm)"><span class="unit">cm</span></div></div>
+                <p class="hint" id="dimHelp">Hàng nhẹ mà cồng kềnh sẽ bị tính cước theo thể tích.</p>
+              </div>
+            </div>
+          </div>
 
-      <p id="err" class="err" role="alert" hidden></p>
-      <button type="submit" class="btn" id="go">Tính kết quả</button>
-    </section>
-  </form>
+          <div class="group">
+            <h3>Chi phí vận chuyển và đóng gói mỗi đơn <span class="opt">Tùy chọn, để 0 nếu chưa có</span></h3>
+            <div class="grid2">
+              <div class="field" data-for="US"><label for="fulfillment">Fulfillment (kho Mỹ lấy hàng, đóng gói)</label><div class="ctl"><input id="fulfillment" inputmode="decimal" placeholder="0" value="0"><span class="unit">USD</span></div></div>
+              <div class="field" data-for="US"><label for="last_mile">Giao hàng cuối tại Mỹ</label><div class="ctl"><input id="last_mile" inputmode="decimal" placeholder="0" value="0"><span class="unit">USD</span></div></div>
+              <div class="field"><label for="vn_logistics" id="vnLogLabel">Vận chuyển trong Việt Nam</label><div class="ctl"><input id="vn_logistics" inputmode="decimal" placeholder="0" value="0"><span class="unit" id="vnLogUnit">đ</span></div><p class="hint" id="vnLogHelp"></p></div>
+              <div class="field"><label for="packing">Đóng gói</label><div class="ctl"><input id="packing" inputmode="decimal" placeholder="0" value="0"><span class="unit" id="packUnit">đ</span></div><p class="hint">Hộp, túi, băng dính cho một đơn.</p></div>
+              <div class="field" data-for="US"><label for="ship_per_kg">Giá ship quốc tế mỗi kg</label><div class="ctl"><input id="ship_per_kg" inputmode="decimal" placeholder="Tự tính theo bảng cước"><span class="unit">USD/kg</span></div><p class="hint">Chỉ nhập nếu bạn đã có báo giá riêng.</p></div>
+            </div>
+          </div>
+          <p class="sample-line"><button type="button" class="link" id="fillSample">Điền số ví dụ để xem thử</button> <span class="hint">(số minh họa)</span></p>
+          <div class="actions"><button type="button" class="btn ghost" data-back>Quay lại</button><button type="button" class="btn" data-next>Tiếp tục</button></div>
+        </section>
+
+        <!-- BƯỚC 3 -->
+        <section class="step" data-step="3" hidden>
+          <h2>Giá bán và lãi mong muốn</h2>
+          <div class="grid2">
+            <div class="field">
+              <label for="price">Giá bán dự kiến <span class="opt">Tùy chọn</span></label>
+              <div class="ctl"><input id="price" inputmode="decimal" autocomplete="off" placeholder="Để trống: dùng giá trung vị thị trường"><span class="unit" id="priceUnit">USD</span></div>
+              <p class="hint" id="priceHelp"></p>
+              <p class="msg" hidden></p>
+            </div>
+            <div class="field">
+              <label for="margin">Lãi mong muốn <span class="req">Bắt buộc</span></label>
+              <div class="ctl"><input id="margin" inputmode="decimal"><span class="unit">% giá bán</span></div>
+              <p class="hint">Mặc định 20%. Bán 100 thì lãi ròng 20.</p>
+              <p class="msg" hidden></p>
+            </div>
+          </div>
+
+          <details class="adv">
+            <summary>Cài đặt nâng cao: phí sàn, quảng cáo, hoàn hủy, tỷ giá</summary>
+            <h4>Quảng cáo, hoàn hủy và chi phí khác</h4>
+            <div class="grid2">
+              <div class="field"><label for="ads_pct">Chi phí quảng cáo cho đơn chạy ads</label><div class="ctl"><input id="ads_pct" inputmode="decimal"><span class="unit">% giá bán</span></div></div>
+              <div class="field"><label for="returns_pct">Hoàn, hủy, hỏng</label><div class="ctl"><input id="returns_pct" inputmode="decimal"><span class="unit">% giá bán</span></div></div>
+              <div class="field"><label for="affiliate_pct">Hoa hồng affiliate</label><div class="ctl"><input id="affiliate_pct" inputmode="decimal" placeholder="Tự lấy từ thị trường"><span class="unit">%</span></div><p class="hint">Để trống: dùng mức trung bình của nhóm.</p></div>
+              <div class="field"><label for="other_marketing">Marketing khác mỗi đơn</label><div class="ctl"><input id="other_marketing" inputmode="decimal"></div></div>
+              <div class="field"><label for="variable_cost">Biến phí khác mỗi đơn (túi, thư cảm ơn...)</label><div class="ctl"><input id="variable_cost" inputmode="decimal"></div></div>
+              <div class="field"><label for="fixed_monthly">Chi phí cố định mỗi tháng</label><div class="ctl"><input id="fixed_monthly" inputmode="decimal"></div><p class="hint">Lương, điện, thuê chỗ. Để 0 nếu chưa tính.</p></div>
+              <div class="field"><label for="orders_monthly">Số đơn dự kiến mỗi tháng</label><div class="ctl"><input id="orders_monthly" inputmode="decimal"><span class="unit">đơn</span></div></div>
+              <div class="field" data-for="US"><label for="carrier">Hãng vận chuyển đi Mỹ</label><select id="carrier"><option>Rẻ nhất</option><option value="VPS">VPS Express</option><option value="AM">AM Express</option></select></div>
+            </div>
+            <h4>Tỷ giá</h4>
+            <div class="grid2">
+              <div class="field"><label for="fx">VND mỗi USD</label><div class="ctl"><input id="fx" inputmode="decimal"></div></div>
+              <div class="field"><label for="cny_vnd">VND mỗi NDT</label><div class="ctl"><input id="cny_vnd" inputmode="decimal" placeholder="Nhập nếu giá nhập bằng NDT"></div><p class="hint">Bạn tự nhập theo tỷ giá hiện hành, công cụ không tự đoán.</p></div>
+            </div>
+            <h4>Phí sàn <span class="warn-tag" id="feeTag">số mẫu, chưa xác minh</span></h4>
+            <div class="grid2">
+              <div class="field"><label for="f_trans">Phí giao dịch</label><div class="ctl"><input id="f_trans" inputmode="decimal"><span class="unit">% giá bán</span></div></div>
+              <div class="field"><label for="f_comm">Hoa hồng sàn theo ngành</label><div class="ctl"><input id="f_comm" inputmode="decimal"><span class="unit">% giá bán</span></div></div>
+              <div class="field"><label for="f_proc">Phí xử lý mỗi đơn</label><div class="ctl"><input id="f_proc" inputmode="decimal"></div></div>
+              <div class="field"><label for="f_tax">Thuế</label><div class="ctl"><input id="f_tax" inputmode="decimal"><span class="unit">% giá bán</span></div></div>
+            </div>
+            <label class="check"><input type="checkbox" id="fees_verified"> <span>Tôi đã thay phí sàn ở trên bằng mức thật của sàn và ngành của tôi (tắt cảnh báo phí mẫu)</span></label>
+          </details>
+
+          <p id="err" class="err" role="alert" hidden></p>
+          <div class="actions"><button type="button" class="btn ghost" data-back>Quay lại</button><button type="submit" class="btn primary" id="go">Tính kết quả</button></div>
+        </section>
+      </form>
+
+      <!-- KHUNG TẠM TÍNH -->
+      <aside class="live" id="live" aria-live="polite">
+        <div class="live-h">Tạm tính</div>
+        <div class="live-empty" id="liveEmpty">Nhập giá nhập ở bước 2, số tiền sẽ hiện ở đây ngay khi bạn gõ.</div>
+        <div id="liveBody" hidden>
+          <div class="live-big"><span class="k">Lãi mỗi đơn (đơn tự nhiên)</span><b id="liveProfit">-</b><span class="s" id="liveMargin"></span></div>
+          <dl class="live-rows">
+            <div><dt>Giá bán</dt><dd id="livePrice">-</dd></div>
+            <div><dt>Giá vốn hàng về tới khách</dt><dd id="liveLanded">-</dd></div>
+            <div><dt>Phí sàn</dt><dd id="liveFee">-</dd></div>
+          </dl>
+          <p class="live-note" id="liveNote"></p>
+        </div>
+        <p class="live-foot">Chỉ là tạm tính. Kết luận Nhập hay không nhập ở bước cuối.</p>
+      </aside>
+    </div>
+  </div>
 
   <!-- KẾT QUẢ -->
   <section id="result" hidden aria-live="polite">
+    <div class="res-top">
+      <button type="button" class="btn ghost" id="editBtn">Sửa thông tin</button>
+      <button type="button" class="btn ghost" id="newBtn">Tính sản phẩm khác</button>
+    </div>
     <div class="verdict" id="verdict"></div>
+    <div class="tiles" id="tiles"></div>
 
     <section class="card">
       <h2>Vì sao có kết luận này</h2>
@@ -132,6 +188,7 @@
 
     <section class="card">
       <h2>Mỗi đơn lãi hay lỗ bao nhiêu</h2>
+      <div id="splitBar"></div>
       <div class="scroll"><table class="tbl" id="econ"></table></div>
       <div class="keys" id="keys"></div>
     </section>
@@ -151,7 +208,7 @@
       <h2>File Excel đầy đủ <span class="tag">trả phí</span></h2>
       <p>File Excel đã điền sẵn thông tin của bạn, có công thức sống để chỉnh tham số và so sánh nhiều sản phẩm, kèm sheet dữ liệu thị trường.</p>
       <button type="button" class="btn ghost" disabled>Tải file Excel (sắp có)</button>
-      <p class="help">Tính năng này cần đăng nhập và thanh toán, đang được xây dựng.</p>
+      <p class="hint">Tính năng này cần đăng nhập và thanh toán, đang được xây dựng.</p>
     </section>
   </section>
 
@@ -166,6 +223,9 @@
     <p>Dữ liệu thị trường: FastMoss và Kalodata (TikTok Shop), tách riêng từng nguồn, chỉ hiển thị số liệu tổng hợp.</p>
   </footer>
 </main>
+
+<!-- thanh tạm tính trên điện thoại -->
+<div class="live-bar" id="liveBar" hidden><span>Lãi mỗi đơn (tạm tính)</span><b id="liveBarVal">-</b></div>
 
 <script src="data/data.js"></script>
 <script src="js/pricing.js"></script>
