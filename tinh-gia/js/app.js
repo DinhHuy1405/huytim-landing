@@ -51,7 +51,18 @@
     var sel = $('group'); sel.innerHTML = '';
     var list = statsFor(m);
     var multi = {}; list.forEach(function (s) { multi[s.group_key] = (multi[s.group_key] || {}); multi[s.group_key][s.source] = 1; });
-    list.forEach(function (s, i) { var o = document.createElement('option'); o.value = String(i); o.textContent = s.group_label + (Object.keys(multi[s.group_key]).length > 1 ? ' [' + srcName(s.source) + ']' : ''); sel.appendChild(o); });
+    var L1 = { 10: 'Đồ gia dụng', 11: 'Nhà bếp', 12: 'Chăn ga, vải', 13: 'Điện gia dụng', 3: 'Thời trang nam', 2: 'Thời trang nữ', 6: 'Giày dép', 7: 'Túi, vali', 14: 'Làm đẹp', 15: 'Máy tính, văn phòng', 16: 'Điện thoại, điện tử', 18: 'Mẹ và bé', 9: 'Thể thao, dã ngoại', 19: 'Đồ chơi', 20: 'Nội thất', 23: 'Ô tô, xe máy', 8: 'Phụ kiện thời trang', 21: 'Dụng cụ, ngũ kim', 4: 'Thời trang trẻ em', 22: 'Cải tạo nhà cửa', 17: 'Thú cưng', 24: 'Thực phẩm, đồ uống' };
+    var buckets = {}, order = [];
+    list.forEach(function (s, i) { var k = (s.category_path && L1[s.category_path[0]]) || 'Khác'; if (!buckets[k]) { buckets[k] = []; order.push(k); } buckets[k].push([s, i]); });
+    order.sort(function (a, b) { return a.localeCompare(b, 'vi'); });
+    order.forEach(function (k) {
+      var g = document.createElement('optgroup'); g.label = k;
+      buckets[k].sort(function (a, b) { return a[0].group_label.localeCompare(b[0].group_label, 'vi'); }).forEach(function (x) {
+        var s = x[0], o = document.createElement('option'); o.value = String(x[1]);
+        o.textContent = s.group_label + (Object.keys(multi[s.group_key]).length > 1 ? ' [' + srcName(s.source) + ']' : ''); g.appendChild(o);
+      });
+      sel.appendChild(g);
+    });
     var o2 = document.createElement('option'); o2.value = 'none'; o2.textContent = 'Nhóm khác (chưa có dữ liệu thị trường)'; sel.appendChild(o2);
     updateGroupHelp();
     $('result').hidden = true; $('err').hidden = true; document.body.classList.remove('show-result');
@@ -68,7 +79,7 @@
         '<div><div class="k">Bán tốt nhất, 28 ngày</div><div class="v">' + esc(TG.intFmt(s.top_product_units_28d)) + ' cái</div></div>';
     } else mm.hidden = true;
     if (window.TG_UI) window.TG_UI.refresh();
-    $('groupHelp').textContent = s ? ('Dữ liệu ' + srcName(s.source) + ' ngày ' + s.period_end + ', mẫu ' + s.n_listings + ' listing bán chạy nhất (bản thử nghiệm).') : 'Chưa có dữ liệu: bạn nhập giá bán dự kiến, kết luận cao nhất chỉ là "Cân nhắc".';
+    $('groupHelp').textContent = s ? ('Dữ liệu ' + srcName(s.source) + ' ngày ' + s.period_end + ', mẫu ' + s.n_listings + ' listing bán chạy nhất (bản thử nghiệm).' + (s.category_path && s.category_path.length === 2 ? ' Đây là nhóm rộng (cả ngành con), mức giá có thể trải dài hơn nhóm hẹp.' : '')) : 'Chưa có dữ liệu: bạn nhập giá bán dự kiến, kết luận cao nhất chỉ là "Cân nhắc".';
   }
 
   /* ---------- Thu thập dữ liệu từ form ---------- */
