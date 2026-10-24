@@ -22,7 +22,7 @@
   <section class="hero">
     <h1 class="serif">Sản phẩm này nên nhập hay không nhập?</h1>
     <p class="lead">Điền 3 bước ngắn. Công cụ tính lợi nhuận thật của từng đơn, so với dữ liệu thị trường, rồi cho kết luận kèm lý do.</p>
-    <p class="beta" role="note"><b>Bản thử nghiệm.</b> Phí sàn là số mẫu và dữ liệu thị trường mới có 16 nhóm sản phẩm. Hãy thay phí sàn bằng mức thật ở bước 3 trước khi quyết định.</p>
+    <p class="beta" role="note"><b>Bản thử nghiệm.</b> Hiện chỉ có thị trường Mỹ. Phí sàn là số mẫu và dữ liệu thị trường mới có 16 nhóm sản phẩm. Hãy thay phí sàn bằng mức thật ở bước 3 trước khi quyết định.</p>
   </section>
 
   <div id="wizard" class="wizard">
@@ -37,9 +37,9 @@
 
         <!-- BƯỚC 1 -->
         <section class="step" data-step="1">
-          <h2>Bạn bán ở đâu, nhóm hàng nào?</h2>
+          <h2>Bạn bán nhóm hàng nào?</h2>
           <div class="seg" role="radiogroup" aria-label="Thị trường">
-            <label class="seg-opt"><input type="radio" name="market" value="VN"><span><b>Việt Nam</b><small>Bán trong nước, tính bằng đồng</small></span></label>
+            <!-- Thị trường Việt Nam tạm ẩn (bỏ hidden để bật lại) --><label class="seg-opt" hidden><input type="radio" name="market" value="VN"><span><b>Việt Nam</b><small>Bán trong nước, tính bằng đồng</small></span></label>
             <label class="seg-opt"><input type="radio" name="market" value="US" checked><span><b>Mỹ (US)</b><small>Bán sang Mỹ, tính bằng USD</small></span></label>
           </div>
           <div class="field">
@@ -220,7 +220,7 @@
 
   <footer class="foot">
     <p>Kết quả chỉ là ước tính từ số liệu bạn nhập và dữ liệu mẫu, không phải lời khuyên tài chính hay pháp lý. Luôn kiểm tra phí hiện hành của sàn, cước vận chuyển, thuế nhập khẩu và quy định riêng của từng mặt hàng.</p>
-    <p>Dữ liệu thị trường: FastMoss và Kalodata (TikTok Shop), tách riêng từng nguồn, chỉ hiển thị số liệu tổng hợp.</p>
+    <p>Dữ liệu thị trường Mỹ: FastMoss và Kalodata (TikTok Shop), tách riêng từng nguồn, chỉ hiển thị số liệu tổng hợp.</p>
   </footer>
 </main>
 

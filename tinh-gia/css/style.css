@@ -66,7 +66,7 @@ select#platform:focus,select#group:focus,select#carrier:focus{outline:0;border-c
 .grid2 .field+.field{margin-top:0}
 
 /* Chọn thị trường */
-.seg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+.seg{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:18px}
 .seg-opt{display:block;cursor:pointer}
 .seg-opt input{position:absolute;opacity:0;pointer-events:none}
 .seg-opt span{display:block;border:1.5px solid #8b887f;border-radius:13px;padding:15px 17px;background:#fff;transition:.12s;height:100%}
