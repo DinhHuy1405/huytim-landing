@@ -9,7 +9,7 @@
 <meta property="og:description" content="Mentor thực chiến bán hàng Việt Nam và Mỹ, meeting 1 kèm 1 hàng tuần. Nhắn Huy để được tư vấn miễn phí.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{--bg:#f7f7f6;--ink:#0b0b0b;--muted:#4a4a48;--line:#0b0b0b;--soft:#ececea}
   *{box-sizing:border-box;margin:0;padding:0}
@@ -350,6 +350,137 @@
   .logo-grp img[alt="TikTok Shop"]{height:96px}.logo-grp img[alt="Shopify"]{height:60px}.logo-grp img[alt="AliExpress"]{height:48px}.logo-grp img[alt="Amazon"]{height:54px}.logo-grp img[alt="Taobao"]{height:54px}
   @keyframes ltr{from{transform:translateX(-50%)}to{transform:translateX(0)}}
   @media(prefers-reduced-motion:reduce){.track{animation:none}.marquee{overflow-x:auto}}
+
+  /* ===== Theme: SaaS tối giản (tham khảo Dribbble, Orix Creative) ===== */
+  :root{--bg:#fefefe;--ink:#111;--muted:#5d5d5d;--line:rgba(17,17,17,.09);--soft:#f3f5f9;--blue:#b4cce7;--blue-soft:#eef4fb;--violet:#726eb2;--green:#344e29;
+        --shadow:0 1px 2px rgba(17,17,17,.04),0 14px 44px -14px rgba(114,110,178,.22)}
+  html body,html body *{font-family:Inter,-apple-system,"Segoe UI",Roboto,sans-serif!important}
+  body{background:var(--bg);border-top:0;color:var(--ink)}
+  .px{display:none}
+  .serif,.card h3,.price,.fact b,.step .n,.hs-h,.doc h3,.fb figcaption b,.ex-stat b,.ex-card h3,.cb-text b,.alert b,.vibe,.mentor-cta b,.who b{font-weight:600!important;letter-spacing:-.03em;font-style:normal}
+  .serif{line-height:1.1;letter-spacing:-.03em}
+  .card .tags{display:flex;flex-wrap:wrap;gap:6px;padding-bottom:12px}
+  section.block{padding:110px 0 24px}
+  section#ve-minh{padding-top:70px}
+  .center h2,.final h2,.about h2{font-size:clamp(2rem,4.6vw,3.2rem);margin-bottom:16px}
+  .lead{color:var(--muted);max-width:620px;margin:0 auto 26px;font-size:1.05rem}
+  .about p{color:var(--muted)}
+  .about p b,.card p b,.card .vibe b,.promo p b{background:none;padding:0;color:var(--ink);font-weight:600}
+
+  /* Thanh liên hệ + nút */
+  .contactbar{background:rgba(254,254,254,.82);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);color:var(--ink);border-bottom:1px solid var(--line)}
+  .cb-text span{color:var(--muted)}
+  .cb-btn{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 16px 6px 8px;box-shadow:none}
+  .cb-btn:hover{box-shadow:var(--shadow);transform:none}
+  .cb-btn i{color:var(--muted)}
+  .btn{background:var(--ink);border-radius:999px;padding:14px 28px;font-size:.98rem;font-weight:500}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 10px 26px -8px rgba(17,17,17,.4)}
+  .btn.light{background:#fff;color:var(--ink);border:1px solid var(--line)}
+  .btn.light:hover{box-shadow:var(--shadow)}
+  .btn.ghost{background:transparent;color:var(--ink);border:0;padding:14px 18px}
+  .btn.ghost:hover{box-shadow:none;background:var(--soft);transform:none}
+  .goi-toggle{background:var(--ink);color:#fff;border:0;box-shadow:none;font-size:.98rem;font-weight:500;padding:14px 28px;min-width:0}
+  .goi-toggle:hover{background:#2a2a2a;transform:translateY(-1px);box-shadow:0 10px 26px -8px rgba(17,17,17,.4)}
+  .goi-toggle:active{transform:none;box-shadow:none}
+  .goi-hint{color:var(--muted)}
+
+  /* Hero */
+  .hero{isolation:isolate;padding:92px 0 10px}
+  .hero::before{content:"";position:absolute;z-index:-1;left:50%;top:-40px;width:min(1100px,100vw);height:460px;transform:translateX(-50%);pointer-events:none;
+    background:radial-gradient(50% 55% at 38% 0%,rgba(180,204,231,.6),transparent 72%),radial-gradient(40% 50% at 68% 6%,rgba(114,110,178,.2),transparent 72%)}
+  .hero h1{font-size:clamp(2.3rem,5.4vw,4rem);max-width:900px;margin:0 auto 22px}
+  .hero p.sub{color:var(--muted);font-size:clamp(1rem,2vw,1.2rem);max-width:600px}
+  .hero-cta{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+  .logo-marquee{margin-top:56px}
+  .logo-grp img{opacity:.8;filter:grayscale(.2)}
+
+  /* Hàng số liệu */
+  .stats{max-width:1000px;margin:0 auto;padding:46px 22px 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 20px;text-align:left}
+  @media(min-width:800px){.stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+  .stats div{border-top:1px solid var(--line);padding-top:16px}
+  .stats b{display:block;font-size:clamp(1.6rem,3.2vw,2.2rem);font-weight:600;letter-spacing:-.03em;line-height:1}
+  .stats span{display:block;margin-top:10px;font-size:.88rem;line-height:1.45;color:var(--muted)}
+
+  /* Card, ô, bảng: viền mảnh, bóng nhẹ ánh xanh */
+  .card,.doc,.pick,.fact,.step,.ex-stat,.ex-card,.fb,.code-card,.mbox,.fb{border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);background:#fff}
+  .card{padding:24px 24px 26px}
+  .card:hover{transform:translateY(-3px)}
+  .card.grad{background:linear-gradient(180deg,var(--blue-soft),#fff);color:var(--ink);box-shadow:var(--shadow);border-color:var(--line)}
+  .card.grad .tag{background:#fff;color:var(--muted)}
+  .card.grad p,.card.grad .go,.card.grad .scope{color:var(--ink)}
+  .card h3{font-size:1.45rem;line-height:1.15;margin:10px 0 8px}
+  .card p{font-size:.9rem;line-height:1.65;color:var(--muted)}
+  .card .go{font-size:.9rem;font-weight:500;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);align-self:flex-start;padding-bottom:1px}
+  .card .scope{border-top:1px solid var(--line);color:var(--muted)}
+  .card .scope b{color:var(--ink)}
+  .tag,.rec{background:var(--soft);color:var(--muted);border:0;border-radius:999px;padding:6px 12px;font-size:.78rem;font-weight:500}
+  .price{font-size:clamp(1.6rem,3.6vw,2.1rem)}
+  .vibe{font-size:1rem;color:var(--ink)!important;line-height:1.5}
+  .stl{color:var(--ink)}
+  .inc li{border-left:2px solid var(--blue);color:var(--muted)}
+  .stp li{color:var(--muted)}
+  .stp li::before{color:var(--violet);font-weight:600}
+  .alert{background:var(--blue-soft);border:1px solid #dbe6f3;border-left:1px solid #dbe6f3;border-radius:16px;padding:18px 24px}
+  .alert b{color:var(--ink);font-size:1.15rem}
+  .alert span{color:var(--muted)}
+  .vh-price{background:var(--blue-soft);border:1px solid #dbe6f3;border-radius:16px}
+  .vh-logos{background:var(--soft);border:0}
+  .chip{border:1px solid var(--line);border-radius:999px;background:#fff;font-size:.85rem}
+  .chip:hover{background:var(--ink);color:#fff}
+  .pick{font-family:inherit}.pick.on{background:var(--blue-soft)}
+  .pick.help{background:var(--ink);color:#fff}
+  a.doc.dl:hover{background:var(--blue-soft)}
+  .doc input{border:1px solid var(--line);border-radius:999px;text-transform:uppercase}
+  .doc .go2,.mgo{border-radius:999px}
+  .doc .ok,.mentor-cta{background:var(--blue-soft);border:1px solid #dbe6f3;border-radius:16px}
+
+  /* Tab kiểu viên thuốc */
+  .seg{background:var(--soft);border:1px solid var(--line);padding:4px;margin:8px 0 6px}
+  .seg button{color:var(--muted);font-weight:500;font-size:.9rem;padding:8px 22px}
+  .seg button.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(17,17,17,.12)}
+
+  /* Avatar, hồ sơ, modal, trích dẫn */
+  .who .avatar{border:1px solid var(--line);box-shadow:var(--shadow)}
+  .who span{color:var(--muted)}
+  .hs-h{border-bottom:1px solid var(--line)}
+  .hs-row{border-bottom:1px solid var(--line)}
+  .hs-ph{border:1px solid var(--line)}
+  .modal{background:rgba(17,17,17,.4);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+  .mbox{background:#fff}
+  .mclose{border:1px solid var(--line);box-shadow:none}
+  .fb blockquote{color:var(--muted)}
+  .fb blockquote::before{color:var(--violet)}
+  .ex-stat span,.ex-card p,.fact span{color:var(--muted)}
+  .bar-row .fill.c1{background:var(--blue)}
+  footer{color:var(--muted)}
+  footer a{color:var(--ink)}
+
+  /* Thẻ nổi quy trình (giống khối mock của mẫu) */
+  .showcase{max-width:760px;margin:38px auto 0;padding:0 22px;text-align:center}
+  .sc-card{position:relative;margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px 24px 14px;text-align:left;box-shadow:var(--shadow)}
+  .sc-card::before{content:"";position:absolute;z-index:-1;inset:-26px 8% -34px;background:radial-gradient(60% 60% at 50% 60%,rgba(180,204,231,.55),transparent 75%);filter:blur(18px)}
+  .sc-t{font-size:.9rem;color:var(--muted);margin-bottom:8px}
+  .sc-list{list-style:none;display:grid}
+  .sc-list[hidden]{display:none}
+  .sc-list li{display:flex;align-items:center;gap:14px;padding:13px 0;border-top:1px solid var(--line);font-size:.98rem;font-weight:500}
+  .sc-list li:first-child{border-top:0}
+  .sc-list i{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:.8rem;font-weight:600}
+  .sc-list i.c1{background:var(--blue-soft);color:#3f6a9c}
+  .sc-list i.c2{background:#efeef8;color:var(--violet)}
+  .sc-list i.c0{background:#eaf0e6;color:var(--green)}
+
+  /* Khối tính năng (giống "Simplify task management") */
+  .feat{max-width:1000px;margin:90px auto 0;padding:0 22px;text-align:center}
+  .feat h2{font-size:clamp(1.8rem,4vw,2.8rem);max-width:640px;margin:0 auto 14px}
+  .feat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:36px;text-align:left;border-top:1px solid var(--line)}
+  @media(max-width:600px){.feat-grid{grid-template-columns:1fr}}
+  .feat-grid>div{padding:28px 26px 30px 0;border-bottom:1px solid var(--line)}
+  @media(min-width:601px){.feat-grid>div:nth-child(odd){border-right:1px solid var(--line)}.feat-grid>div:nth-child(even){padding-left:30px}}
+  .fi{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;margin-bottom:16px}
+  .fi svg{width:20px;height:20px}
+  .fi.c0{background:#eaf0e6;color:var(--green)}.fi.c1{background:var(--blue-soft);color:#3f6a9c}.fi.c2{background:#efeef8;color:var(--violet)}
+  .feat-grid b{display:block;font-size:1.1rem;font-weight:600;letter-spacing:-.02em}
+  .feat-grid p{margin-top:6px;font-size:.92rem;line-height:1.6;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -366,7 +497,10 @@
 <header class="hero wrap">
   <h1 class="serif">Dùng dữ liệu để vận hành thương mại điện tử, cùng Huy Tim.</h1>
   <p class="sub">Mentor thực chiến bán hàng Việt Nam và Mỹ. Mình ngồi cùng bạn làm từ khâu đầu tới khi đơn đầu tiên được giao cho khách, bằng dữ liệu thật, không đoán mò.</p>
-  <a class="btn" href="#tai-lieu">Nhận tài liệu FREE</a>
+  <div class="hero-cta">
+    <a class="btn" href="#tai-lieu">Nhận tài liệu FREE</a>
+    <a class="btn ghost" href="https://zalo.me/0796796492" target="_blank" rel="noopener">Nhắn Zalo tư vấn →</a>
+  </div>
   <div class="logo-marquee" aria-label="Các sàn thương mại điện tử">
     <div class="logo-track" id="logoTrack">
       <div class="logo-grp">
@@ -382,6 +516,29 @@
     </div>
   </div>
 </header>
+
+
+<section class="showcase" aria-label="Quy trình mentor">
+  <div class="seg" role="tablist" id="scSeg"><button type="button" class="on" data-sc="vn">Việt Nam</button><button type="button" data-sc="us">Mỹ</button></div>
+  <div class="sc-card">
+    <p class="sc-t">Mình đi cùng bạn từng bước, từ ý tưởng tới đơn đầu tiên</p>
+    <ol class="sc-list" id="sc-vn"><li><i class="c1">1</i><span>Bắt keyword ngách, đăng ký TikTok Shop</span></li><li><i class="c2">2</i><span>Phân tích dữ liệu, tìm nguồn hàng</span></li><li><i class="c0">3</i><span>Chọn sản phẩm, đặt hàng</span></li><li><i class="c1">4</i><span>Setup listing lên store</span></li><li><i class="c2">5</i><span>Chờ hàng về, packing</span></li><li><i class="c0">6</i><span>Bán hàng, đơn đầu tiên</span></li></ol>
+    <ol class="sc-list" id="sc-us" hidden><li><i class="c1">1</i><span>Phân tích keyword và thị trường US</span></li><li><i class="c2">2</i><span>Tìm nhà cung cấp, sản phẩm, mẫu mã</span></li><li><i class="c0">3</i><span>Nhập hàng, packing, dán barcode</span></li><li><i class="c1">4</i><span>Đăng ký LLC, hoàn thiện giấy tờ</span></li><li><i class="c2">5</i><span>Đăng ký đơn vị fulfillment</span></li><li><i class="c0">6</i><span>Liên kết logistics gửi hàng sang US</span></li><li><i class="c1">7</i><span>Đăng ký tài khoản bán, list sản phẩm</span></li><li><i class="c2">8</i><span>Bán hàng, đơn đầu tiên</span></li></ol>
+  </div>
+</section>
+
+<section class="feat" aria-label="Bạn nhận được gì">
+  <h2 class="serif">Đồng hành thực chiến, không học suông.</h2>
+  <p class="lead">Những gì bạn nhận được khi làm việc cùng mình.</p>
+  <div class="feat-grid"><div><span class="fi c0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h9"/></svg></span><b>Bài tập thực chiến hằng tuần</b><p>Làm trên dữ liệu và shop thật của bạn, không học lý thuyết suông.</p></div><div><span class="fi c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><b>Meeting 1 kèm 1 mỗi tuần</b><p>Cùng xem lại tiến độ, gỡ vướng và chốt việc cho tuần tới.</p></div><div><span class="fi c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><b>Support khi bạn vướng</b><p>Nhắn mình khi gặp khó, không phải tự mày mò một mình.</p></div><div><span class="fi c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><b>Báo giá trong 24 giờ</b><p>Nhắn Zalo, mình hỏi nhanh tình hình và báo giá theo đúng phạm vi.</p></div></div>
+</section>
+
+<div class="stats" aria-label="Điểm nổi bật">
+  <div><b>5+ năm</b><span>Trực tiếp vận hành thương mại điện tử trên thị trường Hoa Kỳ</span></div>
+  <div><b>2 thị trường</b><span>Mentor và vận hành cho Việt Nam và Mỹ</span></div>
+  <div><b>1 kèm 1</b><span>Meeting hằng tuần cùng bài tập thực chiến</span></div>
+  <div><b>Thạc sĩ</b><span>Khoa học Dữ liệu và Trí tuệ Nhân tạo, Université Côte d'Azur</span></div>
+</div>
 
 <section class="block" id="ve-minh">
   <div class="wrap about">
@@ -893,6 +1050,11 @@ document.querySelectorAll('#vhSeg button').forEach(function(b){b.addEventListene
   var b=document.getElementById('hsToggle'),p=document.getElementById('hsPanel');if(!b||!p)return;
   b.addEventListener('click',function(){var o=p.hidden;p.hidden=!o;b.setAttribute('aria-expanded',String(o));b.querySelector('.lb').textContent=o?'Ẩn hồ sơ khởi nghiệp':'Xem hồ sơ khởi nghiệp của mình'});
 })();
+</script>
+<script>
+  (function(){var seg=document.getElementById('scSeg');if(!seg)return;seg.addEventListener('click',function(e){var b=e.target.closest('button[data-sc]');if(!b)return;
+    seg.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});
+    ['vn','us'].forEach(function(k){document.getElementById('sc-'+k).hidden=(k!==b.dataset.sc)})})})();
 </script>
 </body>
 </html>
