@@ -3,832 +3,536 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Huy Tim · Dữ liệu &amp; vận hành thương mại điện tử</title>
-<meta name="description" content="Mentor thực chiến bán hàng Việt Nam và Mỹ cùng Huy Tim: theo sát toàn bộ quy trình, bài tập thực chiến, meeting 1 kèm 1 hàng tuần. Tư vấn chọn gói miễn phí.">
-<meta property="og:title" content="Huy Tim · Dữ liệu &amp; vận hành thương mại điện tử">
-<meta property="og:description" content="Mentor thực chiến bán hàng Việt Nam và Mỹ, meeting 1 kèm 1 hàng tuần. Nhắn Huy để được tư vấn miễn phí.">
+<title>Huy Tim · Mentor và vận hành thương mại điện tử</title>
+<meta name="description" content="Mentor 1 kèm 1 cho người mới bán hàng và nhận vận hành shop cho doanh nghiệp, Việt Nam và Mỹ. Bằng dữ liệu thật, không đoán mò. Nhắn Huy để được tư vấn miễn phí.">
+<meta property="og:title" content="Huy Tim · Mentor và vận hành thương mại điện tử">
+<meta property="og:description" content="Mentor 1 kèm 1 và nhận vận hành shop, Việt Nam và Mỹ. Nhắn Huy để được tư vấn miễn phí.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,700..800,100,1&family=Mansalva&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#f7f7f6;--ink:#0b0b0b;--muted:#4a4a48;--line:#0b0b0b;--soft:#ececea}
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:Inter,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);
-       line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;border-top:2px solid #111}
-  a{color:inherit;text-decoration:none}
-  .serif{text-wrap:balance;font-family:Fraunces,Georgia,serif;font-weight:800;letter-spacing:-.002em;line-height:1.12}
-  .mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+:root{--bg:#f7f3f0;--ink:#100c04;--soft:#55524c;--white:#fff;--orange:#fa7c43;--yellow:#fbc408;--green:#b8e986;--blue:#8fb4f5;--purple:#8864a4;--slate:#3b4e65;--line:rgba(16,12,4,.14);
+  --serif:Fraunces,Georgia,"Times New Roman",serif;--hand:Mansalva,"Comic Sans MS",cursive;--body:"Be Vietnam Pro",-apple-system,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--body);background:var(--white);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.mopen{overflow:hidden}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:3px solid var(--purple);outline-offset:3px}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 28px}
+.sf{font-family:var(--serif);font-weight:800;letter-spacing:-.018em;line-height:1.1;font-variation-settings:"SOFT" 100,"WONK" 1}
+.hand{font-family:var(--hand);font-weight:400;line-height:1.3}
+h2.sf{font-size:clamp(2.2rem,4.6vw,3.6rem)}
+.eye{display:flex;align-items:center;gap:12px;font-family:var(--hand);font-size:1.3rem;margin-bottom:14px}
+.eye svg{width:44px;height:22px;flex:none}
+.lead{color:var(--soft);font-size:1.08rem;max-width:520px;margin-top:16px}
+.rely{font-size:.85rem;color:var(--soft);margin-top:12px}
 
-  /* Nav pill */
-  .nav{position:relative;z-index:5;display:flex;justify-content:center;padding-top:30px}
-  .pill{display:flex;align-items:center;gap:6px;background:#fff;border-radius:16px;padding:8px 10px;
-        box-shadow:0 1px 2px rgba(0,0,0,.06),0 6px 22px rgba(0,0,0,.06)}
-  .pill .dot{width:34px;height:34px;display:grid;place-items:center;font-size:20px}
-  .pill a{font-size:.95rem;font-weight:500;color:#333;padding:8px 10px;border-radius:10px}
-  .pill a:hover{background:var(--soft)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:12px;padding:15px 26px;font-weight:600;line-height:1.25;text-align:center;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.o{background:var(--orange);color:var(--ink)}
+.btn.o:hover{background:var(--yellow)}
+.btn.k{background:var(--ink);color:var(--white)}
+.btn.k:hover{background:var(--slate)}
+.btn.w{background:var(--white);color:var(--ink)}
 
-  /* Hero */
-  .hero{position:relative;text-align:center;padding:74px 0 20px}
-  .hero h1{font-size:clamp(2.6rem,8.2vw,5.6rem);max-width:900px;margin:0 auto 26px}
-  .hero p.sub{font-size:clamp(1.05rem,2.3vw,1.4rem);color:#222;max-width:680px;margin:0 auto 34px;line-height:1.55}
-  .btn{display:inline-block;background:var(--ink);color:#fff;font-weight:500;font-size:1.05rem;
-       padding:18px 32px;border-radius:16px;transition:.18s}
-  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.25)}
-  .btn.light{background:#fff;color:var(--ink);border:2px solid var(--ink)}
-  .px{position:absolute;color:#0b0b0b;pointer-events:none}
-  .px svg{display:block;width:100%;height:auto;shape-rendering:crispEdges}
-  @media(max-width:1000px){.px{display:none}}
+/* Thanh trên */
+.top{position:sticky;top:0;z-index:50;background:var(--bg)}
+.top-in{display:flex;align-items:center;gap:26px;height:72px}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-weight:800;font-size:1.4rem;letter-spacing:-.02em;margin-right:auto}
+.brand i{position:relative;width:28px;height:23px;background:var(--orange);border-radius:6px}
+.brand i::after{content:"";position:absolute;left:6px;bottom:-6px;width:9px;height:9px;background:var(--orange);clip-path:polygon(0 0,100% 0,0 100%)}
+.nav{display:flex;gap:24px;font-size:.93rem;font-weight:500;color:var(--soft)}
+.nav a:hover{color:var(--ink)}
+.top .btn{padding:10px 18px;font-size:.92rem}
+.menu-b{display:none;border:1.5px solid var(--ink);border-radius:10px;padding:7px 13px;font-weight:600;font-size:.88rem}
 
-  /* Browser mock */
-  .stage{position:relative;max-width:1150px;margin:0 auto;padding:0 22px}
-  .browser{background:linear-gradient(#f0f0ee,#e6e6e3);border:1px solid #dcdcd8;border-radius:16px 16px 0 0;
-           height:190px;position:relative;overflow:hidden}
-  .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;overflow:hidden}
-  .lights{display:flex;gap:6px;margin-right:8px}
-  .lights i{width:10px;height:10px;border-radius:50%;background:#d7d7d3}
-  .tab{display:inline-flex;align-items:center;gap:6px;font-size:.68rem;white-space:nowrap;padding:7px 12px;border-radius:9px;color:#444;background:transparent}
-  .tab.on{background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08)}
-  .tab .mp-ic{width:16px;height:16px;border-radius:4px;background:#fff;display:grid;place-items:center;flex:none;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
-  .tab .mp-ic img{width:100%;height:100%;object-fit:contain}
-  @media(max-width:700px){.browser{display:none}}
+/* Hero */
+.hero{background:var(--bg);padding:32px 0 150px;clip-path:polygon(0 0,100% 0,100% calc(100% - 60px),6% 100%,0 calc(100% - 26px));position:relative}
+.hero-g{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:40px;align-items:center}
+.hero h1{font-size:clamp(2.7rem,5.6vw,4.7rem);line-height:1.08}
+.hero h1 em{display:block;font-family:var(--hand);font-style:normal;font-weight:400;font-size:1.14em;line-height:1.3;letter-spacing:0;color:var(--ink)}
+.hero .sub{font-size:1.12rem;color:var(--soft);max-width:520px;margin:14px 0 24px}
+.doors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:600px}
+.door{position:relative;display:flex;flex-direction:column;border-radius:18px;padding:18px 18px 16px;min-height:164px;transition:transform .15s}
+.door:hover{transform:translateY(-4px) rotate(-.6deg)}
+.door.m{background:var(--orange)}.door.v{background:var(--yellow)}
+.door small{font-size:.84rem;font-weight:600;line-height:1.35}
+.door b{font-family:var(--serif);font-weight:800;font-size:1.5rem;line-height:1.14;margin-top:7px;letter-spacing:-.015em}
+.door span{margin-top:auto;padding-top:10px;padding-right:38px;font-family:var(--serif);font-weight:800;font-size:1.12rem;line-height:1.2}
+.door i{position:absolute;right:13px;bottom:13px;width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--white);display:grid;place-items:center;font-style:normal}
+.col{position:relative;height:560px}
+.shot{position:absolute;overflow:hidden}
+.shot img{width:100%;height:100%;object-fit:cover}
+.s1{right:0;top:6px;width:66%;height:262px;background:var(--blue);padding:12px;clip-path:polygon(7% 7%,100% 0,96% 90%,44% 93%,34% 100%,31% 93%,0 96%)}
+.s1 img{object-position:50% 26%;clip-path:polygon(7% 7%,100% 0,96% 90%,0 96%)}
+.s2{left:0;top:236px;width:52%;height:288px;background:var(--orange);padding:12px;clip-path:polygon(0 4%,96% 0,100% 94%,30% 91%,12% 100%,14% 92%,5% 92%)}
+.s2 img{object-position:88% 40%;clip-path:polygon(0 4%,96% 0,100% 94%,5% 92%)}
+.s3{right:2%;top:318px;width:39%;height:222px;background:var(--yellow);padding:10px;clip-path:polygon(4% 0,100% 5%,94% 100%,0 93%)}
+.s3 img{object-position:50% 24%;clip-path:polygon(4% 0,100% 5%,94% 100%,0 93%)}
+.stk{position:absolute;z-index:3;background:var(--white);border:2.5px solid var(--ink);border-radius:10px;padding:5px 11px;font-weight:700;font-size:.8rem;line-height:1.2;box-shadow:3px 3px 0 var(--ink);transform:rotate(-4deg);white-space:nowrap}
+.sk1{right:5%;top:190px;transform:rotate(3deg)}
+.sk2{left:3%;top:502px}
+.sk3{right:1%;top:520px;transform:rotate(-3deg);background:var(--green)}
+.bub{position:absolute;z-index:3;left:21%;top:52px;width:64px;height:54px;background:var(--orange);border:3px solid var(--ink);border-radius:26px;display:grid;place-items:center;font-weight:800;letter-spacing:.06em;transform:rotate(-6deg)}
+.bub::after{content:"";position:absolute;left:9px;bottom:-14px;width:18px;height:15px;background:var(--ink);clip-path:polygon(0 0,100% 0,0 100%)}
+.dr{position:absolute;z-index:2;fill:none;stroke:var(--ink);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+.dr1{left:41%;top:262px;width:96px;height:84px}
+.dr2{left:7%;top:150px;width:56px;height:56px;stroke-width:2.6}
+.dr3{right:39%;top:476px;width:64px;height:64px;stroke-width:2.6}
 
-  /* Cards */
-  .cards.two{max-width:820px;margin-top:36px}
-  .cards.two .card{min-height:0}
-  @media(min-width:900px){.cards.two{align-items:stretch}}
-  @media(min-width:900px){.cards.two{margin-top:36px}.cards.two>*:nth-child(n){margin-top:0}}
-  @media(min-width:900px){.cards.two{grid-template-columns:repeat(2,1fr)}}
-  .cards{display:grid;gap:18px;margin-top:-70px;position:relative;padding-bottom:20px;max-width:1150px;margin-left:auto;margin-right:auto}
-  @media(min-width:900px){.cards{grid-template-columns:repeat(3,1fr);align-items:start;margin-top:-100px}
-    .cards>*:nth-child(1){margin-top:40px}.cards>*:nth-child(2){margin-top:0}.cards>*:nth-child(3){margin-top:64px}}
-  @media(min-width:600px) and (max-width:899px){.cards{grid-template-columns:1fr 1fr;margin-top:30px}
-    .cards>*:nth-child(1){grid-column:1/-1}}
-  @media(max-width:599px){.cards{margin-top:10px}}
-  .card{display:flex;flex-direction:column;background:#fff;border:2.5px solid var(--line);border-radius:20px;
-        padding:20px 20px 22px;transition:.2s;min-height:300px}
-  .card:hover{transform:translateY(-6px)}
-  .card .tags{display:grid;gap:8px;margin-bottom:auto;padding-bottom:22px}
-  .tag{display:inline-flex;align-items:center;gap:9px;background:#f1f1ef;border-radius:10px;padding:8px 12px;
-       font-size:.86rem;width:fit-content;max-width:100%}
-  .card h3{font-family:Fraunces,serif;font-weight:800;letter-spacing:-.05em;font-size:2rem;margin:12px 0 10px;line-height:1}
-  .card p{font-family:"JetBrains Mono",monospace;font-size:.82rem;line-height:1.7;color:#222}
-  .card .go{margin-top:16px;font-family:"JetBrains Mono",monospace;font-size:.8rem;font-weight:500;text-decoration:underline;text-underline-offset:4px}
-  .card.grad{border-color:#111;box-shadow:-6px 6px 0 #111;
-             background:linear-gradient(180deg,#ff2d6f 0%,#ff8a1e 45%,#f7b733 55%,#3a7bff 85%,#1e46ff 100%);color:#fff}
-  .card.grad .tag{background:rgba(0,0,0,.28);color:#fff}
-  .card.grad p,.card.grad .go{color:#fff}
-  .price{font-family:Fraunces,serif;font-weight:800;font-size:clamp(1.9rem,4.5vw,2.5rem);letter-spacing:-.03em;display:block;margin-bottom:6px}
+/* Logo */
+.trust{margin-top:-96px;position:relative;z-index:3}
+.logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 34px;background:var(--white);border-radius:18px;padding:26px 36px;box-shadow:0 18px 50px -20px rgba(16,12,4,.26)}
+.logos img{height:27px;width:auto;max-width:96px;object-fit:contain}
+.logos img[alt="TikTok Shop"]{height:50px;margin:-11px 0}
 
-  /* About */
-  section.block{padding:96px 0 30px}
-  section#ve-minh{padding-top:40px}
-  .card{position:relative}
-  .rec{display:inline-flex;align-items:center;background:#fff2b8;border:1.5px solid #111;border-radius:999px;padding:3px 10px;font-size:.72rem;font-weight:600;font-family:"JetBrains Mono",monospace;margin-right:2px}
-  .pick.help{text-decoration:none;background:#111;color:#fff}.pick.help span{color:#ddd}.pick.help:hover{background:#222}
-  .seg{display:inline-flex;gap:6px;background:#efefec;padding:5px;border-radius:999px;margin:6px 0 4px}
-  .seg button{font-family:Inter,sans-serif;font-weight:600;font-size:.95rem;border:0;background:transparent;border-radius:999px;padding:9px 22px;cursor:pointer;color:#555}
-  .seg button.on{background:#111;color:#fff}
-  .mk[hidden]{display:none}
-  .modal{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.55);display:flex;align-items:flex-start;justify-content:center;padding:4vh 14px;overflow:auto}
-  .modal[hidden]{display:none}
-  .mbox{position:relative;background:#f8f8f5;border:2px solid #111;border-radius:22px;width:100%;max-width:640px;padding:30px 24px 24px;margin:auto 0;outline:none}
-  .mbox h2{font-size:clamp(1.7rem,5vw,2.2rem);margin:0 0 16px;text-align:left}
-  .mclose{position:absolute;top:10px;right:12px;width:38px;height:38px;border-radius:50%;border:2px solid #111;background:#fff;font-size:1.4rem;line-height:1;cursor:pointer}
-  .mentor-cta{background:#fff2b8;border:2px solid #111;border-radius:16px;padding:16px 18px;margin-bottom:18px}
-  .mentor-cta b{font-family:Fraunces,serif;font-size:1.2rem}.mentor-cta p{margin:6px 0 12px;font-size:.95rem}
-  .mgo{font:600 .95rem Inter,sans-serif;background:#111;color:#fff;border:0;border-radius:12px;padding:11px 18px;cursor:pointer}
-  .mlead{margin:0 0 12px;font-size:.92rem;color:#444}.mnote{margin:16px 0 0;font:.8rem "JetBrains Mono",monospace;color:#555}
-  .mbox .docs{margin:0;max-width:none}
-  .nudge{margin:12px 0 0;font-size:.88rem}.nudge a{font-weight:600;color:#111}
-  body.mopen{overflow:hidden}
-  .docs{display:grid;gap:14px;max-width:760px;margin:26px auto 0;text-align:left}
-  .doc{background:#fff;border:2px solid #111;border-radius:18px;padding:18px 20px}
-  .doc>button.dh{all:unset;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%}
-  .doc h3{font-family:Fraunces,serif;font-size:1.25rem;margin:0}.doc p.d{margin:4px 0 0;font-size:.88rem;color:#555}
-  .doc .ar{font-size:1.1rem;transition:transform .2s}.doc.open .ar{transform:rotate(180deg)}
-  a.doc.dl{display:flex;justify-content:space-between;align-items:center;gap:12px;text-decoration:none;color:#111;transition:.15s}
-  a.doc.dl:hover{background:#fff2b8}a.doc.dl .ar{font-size:1.3rem}
-  .doc .pan{display:none;margin-top:14px}.doc.open .pan{display:block}
-  .doc form{display:flex;gap:8px;flex-wrap:wrap}
-  .doc input{flex:1;min-width:150px;font:500 1rem "JetBrains Mono",monospace;border:2px solid #111;border-radius:12px;padding:11px 14px;text-transform:uppercase;background:#fafaf7}
-  .doc .go2{font:600 .95rem Inter,sans-serif;background:#111;color:#fff;border:0;border-radius:12px;padding:11px 20px;cursor:pointer}
-  .doc .msg{margin-top:8px;font-size:.85rem;color:#b3261e;min-height:1.2em}
-  .doc .ok{display:inline-block;margin-top:2px;background:#fff2b8;border:2px solid #111;border-radius:12px;padding:11px 20px;font-weight:600;color:#111;text-decoration:none}
-  html{scroll-padding-top:76px}
-  .contactbar{position:sticky;top:0;z-index:40;background:#0b0b0b;color:#fff;border-bottom:1px solid #2a2a28}
-  .cb-in{max-width:1180px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-  .cb-text{display:flex;flex-direction:column;line-height:1.25;min-width:0}
-  .cb-text b{font-family:Fraunces,Georgia,serif;font-weight:800;font-size:1.1rem}
-  .cb-text span{font-size:.78rem;color:#bdbdb8}
-  .cb-btns{display:flex;gap:10px}
-  .cb-btn{display:flex;align-items:center;gap:10px;background:#fff;color:#0b0b0b;border-radius:12px;padding:7px 14px 7px 9px;transition:transform .15s,box-shadow .15s;min-width:0}
-  .cb-btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(255,255,255,.18)}
-  .cb-btn img{flex:none;border-radius:7px}
-  .cb-btn span{display:flex;flex-direction:column;line-height:1.2;min-width:0}
-  .cb-btn b{font-size:.92rem;font-weight:600}
-  .cb-btn i{font-style:normal;font-size:.74rem;color:#4a4a48;white-space:nowrap}
-  @media(max-width:760px){.cb-text{display:none}.cb-in{padding:8px 12px}.cb-btns{width:100%}.cb-btn{flex:1;justify-content:center;padding:8px 10px}.cb-btn i{display:none}.cb-btn b{font-size:.95rem}}
-  .chan.two .card.mini .cl{display:flex;align-items:center;gap:14px}.chan.two .card.mini .cl img{border-radius:9px;flex:none}
-  .card .scope{margin-top:10px;padding-top:10px;border-top:1px dashed #cfcdc6;font-size:.78rem;line-height:1.5;color:#4a4a48}
-  .card .scope b{color:#0b0b0b;font-weight:600}
-  .card.grad .scope{color:#fff;border-top-color:rgba(255,255,255,.4)}
-  #chon-nhom .card .tags{margin-bottom:0}
-  #chon-nhom .card .go{margin-top:auto;padding-top:18px}
-  #van-hanh .card.vh{max-width:1100px;margin:30px auto 0;text-align:left;padding:30px 30px 26px;min-height:0}
-  .vh .tags{display:flex;margin:0 0 12px;padding:0}
-  .vh h3{font-family:Fraunces,serif;font-weight:800;font-size:clamp(1.5rem,3.2vw,2rem);letter-spacing:-.02em;margin:0 0 6px}
-  .vh-top{display:grid;gap:18px;grid-template-columns:1fr;align-items:start}
-  @media(min-width:900px){.vh-top{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)}}
-  .vh-logos{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;padding:14px 16px;background:#f7f7f6;border-radius:14px;border:1px solid #e4e2dc}
-  .vh-logos img{height:30px;width:auto;max-width:118px;object-fit:contain}
-  .vh-logos img[alt="TikTok Shop"]{height:46px;margin:-6px 0}
-  .vh-intro{margin:14px 0 0;font-size:.95rem;line-height:1.6;color:#26241f}
-  .vh-price{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between;margin:20px 0 4px;padding:18px 20px;border:2px solid #0b0b0b;border-radius:16px;background:#fff2b8}
-  .vh-price .price{font-size:clamp(1.6rem,3.6vw,2.2rem);margin:0}
-  .vh-per{margin:2px 0 0;font-size:.85rem;color:#4a4a48}
-  .vh-price .btn{margin:0}
-  .vh .scope{margin-top:14px}
-  .vh-cols{display:grid;gap:22px;grid-template-columns:1fr;margin-top:6px}
-  @media(min-width:900px){.vh-cols{grid-template-columns:repeat(3,minmax(0,1fr))}}
-  .vh-cols .stl{margin-top:16px}
-  .vh-steps{margin-bottom:0}
-  #van-hanh .vhp[hidden]{display:none}
-  .alert{max-width:1180px;margin:26px auto 0;background:#fff;border:1px solid #d9d7d0;border-left:5px solid #b3261e;border-radius:6px;padding:16px 22px 17px;text-align:left}
-  .alert b{display:block;font-family:Fraunces,Georgia,serif;font-weight:800;font-size:1.35rem;line-height:1.2;color:#b3261e;letter-spacing:-.005em}
-  .alert span{display:block;margin-top:6px;font-size:1rem;line-height:1.55;color:#141413}
-  .inc{list-style:none;margin-top:12px;display:grid;gap:5px}
-  .inc li{font-size:.84rem;padding-left:10px;border-left:2px solid #cfcdc6;color:#0b0b0b}
-  .stl{margin-top:14px;font-size:.8rem;font-weight:600;color:#0b0b0b}
-  .stp{list-style:none;counter-reset:st;margin-top:8px;display:grid;gap:5px}
-  .stp li{counter-increment:st;display:flex;gap:10px;font-size:.84rem;line-height:1.4;color:#0b0b0b}
-  .stp li::before{content:counter(st);flex:0 0 auto;width:20px;font-family:"JetBrains Mono",monospace;font-size:.78rem;color:#4a4a48}
-  .hs-toggle{margin-top:22px;cursor:pointer;font-family:inherit;font-size:1rem;padding:14px 26px}
-  .hs-toggle .cv{display:inline-block;margin-left:10px;transition:transform .2s}
-  .hs-toggle[aria-expanded="true"] .cv{transform:rotate(180deg)}
-  .hs-toggle:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
-  .hs-panel{margin:26px auto 0;max-width:760px;text-align:left}
-  .hs-panel[hidden]{display:none}
-  .hs-h{font-family:Fraunces,serif;font-size:1.25rem;font-weight:800;margin:30px 0 4px;padding-bottom:8px;border-bottom:1px solid #d9d7d0}
-  .hs-list{list-style:none;display:grid}
-  .hs-row{display:grid;grid-template-columns:132px 1fr;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid #e6e4de}
-  .hs-row.nophoto{grid-template-columns:1fr}
-  .hs-ph{display:block;border-radius:8px;overflow:hidden;border:1px solid #d9d7d0;aspect-ratio:4/3;background:#ececea}
-  .hs-ph img{width:100%;height:100%;object-fit:cover;display:block}
-  .hs-tx b{display:block;font-weight:600;font-size:1rem;line-height:1.4;color:#0b0b0b}
-  .hs-tx span{display:block;margin-top:4px;font-size:.88rem;color:#4a4a48}
-  @media(max-width:520px){.hs-row{grid-template-columns:96px 1fr;gap:12px}.hs-tx b{font-size:.95rem}}
-  .goi-toggle{margin-top:30px;cursor:pointer;font-family:inherit;background:#fff2b8;color:var(--ink);border:2px solid var(--ink);
-       font-size:1.2rem;font-weight:600;padding:20px 44px;min-width:min(100%,360px);box-shadow:5px 5px 0 var(--ink)}
-  .goi-toggle:hover{background:#ffe978;transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
-  .goi-toggle:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
-  .goi-toggle:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
-  .goi-toggle .cv{display:inline-block;margin-left:10px;transition:transform .2s}
-  .goi-toggle[aria-expanded="true"] .cv{transform:rotate(180deg)}
-  .goi-hint{margin-top:14px;font-size:.92rem;color:var(--muted)}
-  .goi-hint[hidden]{display:none}
-  #goiPanel{margin-top:6px}
-  #goiPanel[hidden]{display:none}
-  .picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:820px;margin:24px auto 0}
-  @media(max-width:600px){.picks{grid-template-columns:1fr}}
-  .picks .pick{min-width:0;justify-content:center;min-height:78px}
-  .pick.help{grid-column:1/-1;align-items:center;text-align:center}
-  #chon-nhom .lead{margin-bottom:0}
-  .pick{font-family:Inter,sans-serif;text-align:left;background:#fff;border:2px solid #111;border-radius:16px;padding:14px 18px;cursor:pointer;display:flex;flex-direction:column;gap:3px;min-width:220px;color:#111}
-  .pick b{font-weight:600;font-size:1rem}.pick span{font-size:.8rem;color:#555}
-  .pick{position:relative;padding-right:40px}.pick .arr{position:absolute;right:16px;top:50%;margin-top:-10px;font-style:normal;font-size:1.1rem;transition:transform .2s}.pick.on .arr{transform:rotate(180deg)}
-  section#chon-nhom{padding-top:44px}
-  .pick:hover{background:#fafaf7}.pick.on{background:#fff2b8}
-  section.grp{display:none;padding-top:34px}section.grp.open{display:block}
-  .about{display:block;max-width:760px;margin:0 auto;text-align:center}
-  .who{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:22px;text-align:left}
-  .who .avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2.5px solid var(--ink);flex:none}
-  .who b{font-family:Fraunces,serif;font-weight:800;font-size:1.15rem;letter-spacing:-.02em;display:block}
-  .who span{font-family:"JetBrains Mono",monospace;font-size:.78rem;color:#555}
-  .about h2{font-size:clamp(2.1rem,5vw,3.4rem);margin-bottom:20px}
-  .about p{font-size:1.1rem;color:#222;margin:0 auto 16px;max-width:640px}
-  .about p b{font-weight:600;background:#fff2b8;padding:0 4px;border-radius:4px}
-  .card p b,.card .vibe b{font-weight:600;background:#fff2b8;padding:0 3px;border-radius:4px}
-  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;justify-content:center}
-  .chip{font-family:"JetBrains Mono",monospace;font-size:.82rem;border:2px solid var(--ink);border-radius:12px;padding:10px 14px;background:#fff}
-  .chip:hover{background:var(--ink);color:#fff}
-  span.chip:hover{background:#fff;color:inherit}
-  .facts{display:grid;gap:14px}
-  .fact{border:2.5px solid var(--ink);border-radius:18px;background:#fff;padding:18px 20px}
-  .fact b{font-family:Fraunces,serif;font-size:1.6rem;letter-spacing:-.015em;display:block;line-height:1.15;margin-bottom:6px}
-  .fact span{font-family:"JetBrains Mono",monospace;font-size:.8rem;color:#333}
+/* Mentor */
+.sec{padding:96px 0}
+.m-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.32fr);gap:50px;align-items:center}
+.feat{margin-top:24px;border-left:1.5px solid var(--line)}
+.feat details{padding:12px 0 12px 22px;margin-left:-1.5px;border-left:3px solid transparent}
+.feat details[open]{border-left-color:var(--orange)}
+.feat summary{list-style:none;cursor:pointer;display:flex;gap:12px;align-items:center;font-weight:600}
+.feat summary::-webkit-details-marker{display:none}
+.feat summary i{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-style:normal;font-size:.95rem}
+.feat details[open] summary i{background:var(--yellow)}
+.feat p{margin:8px 0 0 42px;font-size:.93rem;color:var(--soft)}
+.blob{position:relative;background:var(--green);padding:44px 44px 62px;clip-path:polygon(3% 3%,100% 0,100% 92%,46% 93%,40% 100%,35% 93%,5% 95%,0 34%)}
+.tab{background:var(--white);border:9px solid var(--ink);border-radius:24px;overflow:hidden}
+.tab-h{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.tab-h b{font-family:var(--serif);font-weight:800;font-size:1.1rem}
+.seg{display:inline-flex;gap:3px;background:var(--bg);border-radius:10px;padding:3px}
+.seg button{border-radius:8px;padding:6px 14px;font-size:.86rem;font-weight:600;color:var(--soft)}
+.seg button.on{background:var(--ink);color:var(--white)}
+.tab-b{padding:18px 20px 20px}
+.tab-b[hidden]{display:none}
+.pr{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.pr small{font-size:.84rem;color:var(--soft)}
+.pr b{font-family:var(--serif);font-weight:800;font-size:2rem;line-height:1.15}
+.vb{font-weight:600;font-size:.93rem;margin-top:6px;line-height:1.45}
+.num{counter-reset:s;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 16px;margin-top:14px}
+.num li{counter-increment:s;display:flex;gap:9px;font-size:.85rem;line-height:1.35}
+.num li::before{content:counter(s);flex:none;width:22px;height:22px;border-radius:50%;background:var(--yellow);display:grid;place-items:center;font-size:.72rem;font-weight:700}
+.tab-b .btn{width:100%;margin-top:16px}
+.tab-b .rely{margin-top:9px;line-height:1.45}
 
-  /* Steps */
-  .steps{display:grid;gap:16px;margin-top:34px}
-  @media(min-width:800px){.steps{grid-template-columns:repeat(3,1fr)}}
-  .step{border:2.5px solid var(--ink);border-radius:18px;background:#fff;padding:22px}
-  .step .n{font-family:Fraunces,serif;font-weight:800;font-size:2.4rem;letter-spacing:-.05em}
-  .step p{font-family:"JetBrains Mono",monospace;font-size:.82rem;margin-top:6px;color:#222}
-  .center{text-align:center}
-  .center h2{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:18px}
+/* Hàng số */
+.nums{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:22px 30px;margin-top:80px}
+.nums div small{display:block;font-size:.86rem;color:var(--soft)}
+.nums b{font-family:var(--serif);font-weight:800;font-size:clamp(2.2rem,4.8vw,3.7rem);line-height:1.15}
+.nums em{font-family:var(--hand);font-style:normal;font-size:clamp(2rem,4.3vw,3.3rem);margin-left:6px}
+.nums svg{width:66px;height:34px;fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;margin-bottom:18px}
 
-  /* Final */
-  .final{text-align:center;padding:100px 0 60px}
-  .final h2{font-size:clamp(2.4rem,7vw,4.6rem);margin-bottom:26px}
-  .final .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-  footer{text-align:center;color:#555;font-size:.88rem;padding:30px 0 60px}
-  footer .l{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
-  footer a{font-weight:600;color:#111}
+/* Trích dẫn lớn */
+.q{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:center;padding:12px 0 96px}
+.q-s{position:relative;min-height:330px;padding:36px;display:flex;flex-direction:column;justify-content:center;gap:4px;clip-path:polygon(0 0,92% 5%,100% 90%,30% 92%,10% 100%,12% 92%,6% 91%)}
+.q-s.p{background:var(--purple);color:var(--white)}
+.q-s.y{background:var(--yellow)}
+.q-s s{font-family:var(--hand);font-size:clamp(1.7rem,3vw,2.3rem);text-decoration-thickness:2px;opacity:.92}
+.q-s b{font-family:var(--serif);font-weight:800;font-size:clamp(2.4rem,4.6vw,3.5rem);line-height:1.08}
+.q-s small{margin-top:10px;font-size:.92rem}
+.q blockquote{font-family:var(--serif);font-weight:700;font-size:clamp(1.5rem,2.7vw,2.1rem);line-height:1.28;border-left:1.5px solid var(--line);padding-left:26px}
+.q figcaption{margin:18px 0 0 28px;font-size:.92rem}
+.q figcaption b{display:block;color:var(--orange);font-weight:700}
+.q figcaption span{color:var(--soft)}
 
-  .ic{display:inline-block;width:1.2em;height:1.2em;vertical-align:-.22em;flex:none}
-  .ic svg{display:block;width:100%;height:100%;shape-rendering:crispEdges}
-  .chip{display:inline-flex;align-items:center;gap:8px}
-  .tag .ic{width:1.1em;height:1.1em}
-  .pill .dot .ic{width:24px;height:24px}
-  .promo{display:grid;gap:36px;align-items:center}
-  @media(min-width:900px){.promo{grid-template-columns:1.1fr .9fr}}
-  .promo h2{font-size:clamp(2.1rem,5vw,3.4rem);margin-bottom:18px}
-  .promo p{font-size:1.1rem;color:#222;max-width:600px}
-  .promo p b{font-weight:600;background:#fff2b8;padding:0 4px;border-radius:4px}
-  .code-card{border:2.5px solid var(--ink);border-radius:22px;background:#fff;padding:26px;box-shadow:-6px 6px 0 #111;text-align:center}
-  .tag.brand{display:inline-flex;align-items:center;gap:8px}
-  .brand-ic{width:22px;height:22px;object-fit:contain;border-radius:5px;flex:none}
-  .code-card .tag{margin:0 auto 14px}
-  .code-card .code{font-size:clamp(2.2rem,6vw,3.2rem);margin-bottom:12px}
-  .code-card p{font-family:"JetBrains Mono",monospace;font-size:.82rem;margin:0 auto 18px}
-  .code-card .btn{border:0;cursor:pointer;font-family:inherit}
-  .chan.two{max-width:760px;margin-left:auto;margin-right:auto;grid-template-columns:repeat(2,minmax(0,1fr))}
-  @media(max-width:600px){.chan.two{grid-template-columns:1fr}}
-  .chan.two .card.mini p{word-break:break-all}
-  .chan{display:grid;gap:16px;margin-top:34px;grid-template-columns:1fr 1fr;text-align:left}
-  @media(min-width:900px){.chan{grid-template-columns:repeat(3,minmax(0,1fr))}}
-  .card.mini{min-height:0;padding:20px;gap:2px}
-  .card.mini .ic{width:38px;height:38px;margin-bottom:10px}
-  .card.mini h3{font-size:1.5rem;margin:0 0 6px}
-  .card.mini p{font-size:.8rem}
-  @media(max-width:520px){.pill a{font-size:.82rem;padding:8px 6px}}
-  .codes{display:grid;gap:18px;margin-top:34px;align-items:stretch}
-  @media(min-width:900px){.codes{grid-template-columns:repeat(3,1fr)}}
-  .codes .code-card{display:flex;flex-direction:column;padding:24px 22px;text-align:left}
-  .codes .code-card .tag{margin:0 0 16px}
-  .codes .code{font-size:clamp(1.9rem,4.2vw,2.5rem);margin-bottom:12px;word-break:break-all}
-  .codes .code.soon{font-size:1.6rem;color:#8a8a86}
-  .codes .code-card p{margin:0 0 18px;flex:1}
-  .codes .btn{width:100%;padding:15px 20px}
-  .codes .btn:disabled{background:#d9d9d6;color:#777;cursor:not-allowed;transform:none;box-shadow:none}
-  .codes .links{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px;font-family:"JetBrains Mono",monospace;font-size:.78rem}
-  .codes .links a{text-decoration:underline;text-underline-offset:4px}
-  .codes .links:empty{display:none}
-  .chan{grid-template-columns:repeat(2,minmax(0,1fr))}
-  @media(min-width:900px){.chan{grid-template-columns:repeat(3,minmax(0,1fr))}}
-  @media(max-width:400px){.pill{gap:0;padding:6px 8px}.pill .dot{display:none}.pill a{font-size:.8rem;padding:8px 6px;white-space:nowrap}}
-  @media(min-width:900px){.codes .code{font-size:clamp(1.5rem,2.7vw,2.4rem);white-space:nowrap}}
-  .consult{display:grid;gap:18px;margin:34px auto 0;max-width:860px}
-  @media(min-width:640px){.consult{grid-template-columns:1fr 1fr}}
-  .consult.three{max-width:1180px}
-  @media(min-width:900px){.consult.three{grid-template-columns:repeat(3,1fr)}}
-  .consult .card{min-height:0}
-  .chan .card.mini{flex-direction:row;align-items:center;gap:14px}
-  .chan .card.mini h3{margin:0 0 4px}
-  .chan .card.mini>div{min-width:0}
-  .chan .card.mini p{overflow-wrap:anywhere}
-  @media(max-width:520px){.chan{grid-template-columns:1fr}.chan .card.mini{padding:16px;gap:14px}}
-  .chan .lg{width:40px;height:40px;object-fit:contain;flex:none;border-radius:8px}
-  .marquee{overflow:hidden;margin-top:34px;padding:6px 0 10px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-  .track{display:flex;width:max-content;animation:ltr 55s linear infinite}
-  .marquee:hover .track{animation-play-state:paused}
-  .grp{display:flex;gap:18px;padding-right:18px}
-  .fb{width:min(340px,82vw);flex:none;background:#fff;border:2.5px solid var(--ink);border-radius:20px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:18px}
-  .fb blockquote{font-size:.98rem;line-height:1.65;color:#222}
-  .fb blockquote::before{content:"\201C";font-family:Fraunces,serif;font-weight:800;font-size:2.4rem;line-height:.5;display:block;margin-bottom:10px}
-  .fb figcaption b{display:block;font-family:Fraunces,serif;font-size:1.1rem;letter-spacing:-.02em}
-  .fb figcaption span{font-family:"JetBrains Mono",monospace;font-size:.76rem;color:#555}
-  /* Drink photos: package = a cup of coffee */
-  .cup{background:#f0eada;border-radius:14px;height:176px;display:flex;justify-content:center;align-items:flex-end;gap:2px;overflow:hidden;margin-bottom:12px}
-  .cup img{height:100%;width:auto;max-width:50%;object-fit:contain;display:block}
-  .cup.one img{max-width:100%}
-  .cupname{font-family:"JetBrains Mono",monospace;font-size:.76rem;color:#555;margin-bottom:12px}
-  .cupname b{color:var(--ink);font-weight:500}
-  .vibe{font-family:Fraunces,serif;font-style:italic;font-size:1.02rem;letter-spacing:-.01em;margin:0 0 4px}
+/* Vận hành */
+.ops{background:var(--orange);padding:150px 0 150px;clip-path:polygon(0 0,100% 76px,100% 100%,0 calc(100% - 60px))}
+.ops .eye{margin-bottom:12px}
+.ops hr{border:0;border-top:1.5px solid rgba(16,12,4,.3);margin:26px 0 36px}
+.o-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.48fr);gap:32px;align-items:start}
+.acc{display:grid;gap:12px}
+.ac{border:1.5px solid var(--ink);border-radius:16px;overflow:hidden}
+.ac>button{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;text-align:left;font-family:var(--serif);font-weight:800;font-size:1.34rem;letter-spacing:-.01em;line-height:1.2}
+.ac>button i{flex:none;width:28px;height:28px;border-radius:50%;background:var(--white);display:grid;place-items:center;font-style:normal;font-family:var(--body);font-size:1.1rem}
+.ac.on{background:var(--white);border-color:var(--white)}
+.ac.on>button i{background:var(--bg)}
+.ac-b{display:none;padding:0 18px 18px}
+.ac.on .ac-b{display:block}
+.ac-b .i{font-size:.92rem;color:var(--soft);margin-top:4px}
+.ac-b .pr{margin-top:12px}
+.ac-b small.per{display:block;font-size:.82rem;color:var(--soft)}
+.ac-b .btn{width:100%;margin-top:12px}
+.ac-b .rely{line-height:1.45}
+.o-m{min-width:0}
+.chk{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 22px}
+.chk li{position:relative;padding-left:26px;font-size:.88rem;line-height:1.42}
+.chk li::before{content:"✓";position:absolute;left:0;top:0;width:18px;height:18px;border-radius:50%;background:var(--green);display:grid;place-items:center;font-size:.68rem;font-weight:800}
+.lg{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px}
+.lg img{height:19px;width:auto;max-width:74px;object-fit:contain}
+.lg img[alt="TikTok Shop"]{height:32px;margin:-6px 0}
+.h5{font-weight:700;font-size:.9rem;margin-bottom:10px}
+.more{margin-top:14px;border-top:1px solid var(--line);padding-top:10px}
+.more summary{cursor:pointer;font-weight:600;font-size:.88rem;color:var(--purple)}
+.more-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:12px}
+.more ul li{font-size:.83rem;line-height:1.42;padding:5px 0;border-top:1px solid var(--line)}
+.more .note{font-size:.76rem;line-height:1.45;color:var(--soft);margin-top:8px}
+.st3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:34px}
+.st3 li{display:flex;gap:11px;font-size:.9rem;line-height:1.42}
+.st3 i{flex:none;font-family:var(--hand);font-style:normal;font-size:1.9rem;line-height:1}
+.st3[hidden]{display:none}
+.disc{margin-top:26px;font-size:.8rem;line-height:1.5;max-width:760px}
 
-  /* Example report */
-  .ex-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:34px;text-align:left}
-  @media(min-width:800px){.ex-stats{grid-template-columns:repeat(4,1fr)}}
-  .ex-stat{background:#fff;border:2.5px solid var(--ink);border-radius:18px;padding:16px 18px}
-  .ex-stat b{font-family:Fraunces,serif;font-weight:800;font-size:clamp(1.8rem,5vw,2.6rem);letter-spacing:-.05em;line-height:1;display:block}
-  .ex-stat span{font-family:"JetBrains Mono",monospace;font-size:.76rem;color:#333;display:block;margin-top:8px;line-height:1.5}
-  .ex-more{overflow:hidden}
-  .ex-more[hidden]{display:none}
-  .ex-grid{display:grid;gap:18px;margin-top:18px;text-align:left}
-  @media(min-width:800px){.ex-grid{grid-template-columns:1fr 1fr}.ex-grid .wide{grid-column:1/-1}}
-  .ex-card{background:#fff;border:2.5px solid var(--ink);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0}
-  .ex-card h3{font-family:Fraunces,serif;font-weight:800;font-size:1.35rem;letter-spacing:-.04em;line-height:1.1}
-  .ex-card p{font-family:"JetBrains Mono",monospace;font-size:.78rem;line-height:1.6;color:#333}
-  .ex-card a.zoom{display:block;border-radius:12px;overflow:hidden;border:1.5px solid #dcdcd8;background:#fbfbf9}
-  .ex-card a.zoom img{display:block;width:100%;height:auto}
-  .ex-card .hint{font-family:"JetBrains Mono",monospace;font-size:.7rem;color:#777}
-  .bars{display:grid;gap:9px}
-  .bar-row{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1.6fr);gap:10px;align-items:center;font-size:.86rem}
-  .bar-row .nm{line-height:1.25}
-  .bar-row .tr{position:relative;height:22px;background:#f1f1ef;border-radius:7px}
-  .bar-row .fill{position:absolute;inset:0 auto 0 0;border-radius:7px;background:#b9b9b4;display:flex;align-items:center;justify-content:flex-start;padding-left:9px;font-family:"JetBrains Mono",monospace;font-size:.74rem;font-weight:500;white-space:nowrap;overflow:visible;z-index:1}
-  .bar-row.pick .fill{background:#7fd6a4}
-  .bar-row .fill.c1{background:#a9c4ff}
-  .bar-row .fill.c2{background:#f5b9b3}
-  .bar-row .fill.c3{background:#a9e0c0}
-  .chart-svg{width:100%;height:auto;display:block;background:#fbfbf9;border:1.5px solid #e6e6e2;border-radius:12px;padding:8px 0}
-  .chart-legend{display:flex;flex-wrap:wrap;gap:12px 18px;font-family:"JetBrains Mono",monospace;font-size:.72rem;color:#444}
-  .chart-legend span{display:inline-flex;align-items:center;gap:6px}
-  .chart-legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
-  .bars.score .bar-row .tr{position:relative}
-  .bars.score .bar-row .tr::after{content:"";position:absolute;left:65%;top:-3px;bottom:-3px;border-left:2px dashed #e0473b}
-  .bars-lab{font-family:"JetBrains Mono",monospace;font-size:.68rem;color:#e0473b}
-  .prod{display:flex;gap:14px;align-items:center;border-top:1.5px dashed #ccc;padding-top:12px}
-  .prod img{width:84px;height:84px;object-fit:cover;border-radius:12px;flex:none;border:1.5px solid #dcdcd8}
-  .prod div{min-width:0;font-size:.86rem;line-height:1.45}
-  .prod b{font-weight:600}
-  .logo-marquee{overflow:hidden;margin:34px 0 0;width:100vw;position:relative;left:50%;margin-left:-50vw;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
-  .logo-track{display:flex;width:max-content;animation:ltr 40s linear infinite;will-change:transform}
-  .logo-grp{display:flex;align-items:center;gap:64px;padding-right:64px}
-  .logo-grp img{height:56px;width:auto;object-fit:contain;opacity:.92}
-  .logo-grp img[alt="TikTok Shop"]{height:96px}.logo-grp img[alt="Shopify"]{height:60px}.logo-grp img[alt="AliExpress"]{height:48px}.logo-grp img[alt="Amazon"]{height:54px}.logo-grp img[alt="Taobao"]{height:54px}
-  @keyframes ltr{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-  @media(prefers-reduced-motion:reduce){.track{animation:none}.marquee{overflow-x:auto}}
+/* Về Huy */
+.me-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.14fr);gap:56px;align-items:center}
+.me-t{border-left:1.5px solid var(--line);padding-left:28px}
+.me-t p{margin-top:14px;color:var(--soft)}
+.me-t b{color:var(--ink);font-weight:600}
+.me-t a.l{display:inline-block;margin-top:14px;font-weight:600;color:var(--purple)}
+.fr{position:relative;background:var(--yellow);padding:38px;aspect-ratio:1/.86}
+.fr img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;clip-path:polygon(3% 2%,100% 0,97% 98%,0 96%)}
+.tg{position:absolute;background:var(--white);border:3px solid var(--ink);border-radius:12px;padding:7px 13px;font-weight:700;font-size:.86rem;line-height:1.2;text-align:center;box-shadow:4px 4px 0 var(--ink)}
+.t1{left:-14px;top:13%;transform:rotate(-5deg)}.t2{right:-12px;top:5%;transform:rotate(4deg)}.t3{left:30%;top:47%;transform:rotate(-2deg);background:var(--green)}.t4{right:-10px;bottom:15%;transform:rotate(-4deg)}.t5{left:-8px;bottom:11%;transform:rotate(4deg)}
+.pf{margin-top:50px;border-top:1.5px solid var(--line);padding-top:12px}
+.pf summary{cursor:pointer;font-weight:600}
+.aws{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:18px}
+.aw{display:block;font-size:.78rem;line-height:1.35}
+.aw img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;margin-bottom:7px}
+.aw span{display:block;color:var(--soft)}
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:22px}
+.path b{display:block;font-family:var(--serif);font-weight:800}
+.path p{font-size:.86rem;color:var(--soft);line-height:1.45;margin-top:3px}
+
+/* Phản hồi */
+.fbk{background:var(--bg);padding:130px 0 120px;clip-path:polygon(0 60px,100% 0,100% 100%,0 100%)}
+.fbs{columns:2;column-gap:20px;margin-top:34px}
+.fb{position:relative;break-inside:avoid;background:var(--white);border-radius:18px;padding:22px 24px;margin-bottom:34px}
+.fb::after{content:"";position:absolute;left:30px;bottom:-15px;width:24px;height:16px;background:var(--white);clip-path:polygon(0 0,100% 0,16% 100%)}
+.fb blockquote{font-size:.97rem}
+.fb figcaption{margin-top:12px;font-size:.86rem}
+.fb b{font-weight:700}
+.fb span{color:var(--soft)}
+
+/* Chốt */
+.go{background:var(--bg);padding:0 0 130px}
+.go h2{text-align:center}
+.go h2 em{font-family:var(--hand);font-style:normal;font-weight:400;font-size:1.12em;letter-spacing:0}
+.go-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:36px}
+.gc{display:flex;flex-direction:column;align-items:flex-start;border-radius:22px;padding:30px}
+.gc.m{background:var(--orange)}.gc.v{background:var(--yellow)}
+.gc h3{font-family:var(--serif);font-weight:800;font-size:clamp(1.6rem,2.8vw,2.2rem);line-height:1.15}
+.gc p{margin:8px 0 18px}
+.gc .btn{margin-top:auto}
+.help{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;background:var(--white);border-radius:22px;padding:22px 30px;margin-top:16px}
+.help b{font-family:var(--serif);font-weight:800;font-size:1.3rem}
+.help p{font-size:.93rem;color:var(--soft);max-width:600px}
+.help div.c{display:flex;flex-wrap:wrap;gap:8px}
+.ci{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--ink);border-radius:12px;padding:9px 14px;font-weight:600;font-size:.9rem}
+.ci img{border-radius:5px}
+
+/* Chân trang */
+footer{background:#1a1a1a;color:var(--white);padding:110px 0 30px;margin-top:-76px;position:relative;clip-path:polygon(7% 0,100% 58px,100% 100%,0 100%,0 74px)}
+.f-h{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:30px}
+.f-h .brand{color:var(--white)}
+.f-t{font-family:var(--serif);font-weight:800;font-size:clamp(1.9rem,3.8vw,2.9rem);line-height:1.15}
+.f-t em{font-family:var(--hand);font-style:normal;font-weight:400}
+.f-c{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:46px}
+.f-c>div{padding:0 26px;border-left:1px solid rgba(255,255,255,.2)}
+.f-c b{display:block;font-family:var(--serif);font-weight:800;font-size:1.1rem;margin-bottom:9px}
+.f-c a{display:block;font-size:.88rem;padding:2px 0;opacity:.84;overflow-wrap:anywhere}
+.f-c a:hover{opacity:1}
+.f-l{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;border-top:1px solid rgba(255,255,255,.2);margin-top:40px;padding-top:16px;font-size:.8rem;opacity:.72}
+
+/* Thanh dưới điện thoại */
+.mbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;gap:8px;background:var(--white);padding:9px 12px calc(9px + env(safe-area-inset-bottom));box-shadow:0 -6px 24px rgba(16,12,4,.14)}
+.mbar .btn{flex:1;padding:12px 8px;font-size:.92rem}
+
+/* Cửa sổ tài liệu */
+.modal{position:fixed;inset:0;z-index:100;background:rgba(16,12,4,.62);display:flex;align-items:flex-start;justify-content:center;padding:4vh 14px;overflow:auto}
+.modal[hidden]{display:none}
+.mbox{position:relative;width:100%;max-width:620px;background:var(--bg);border-radius:22px;padding:30px 24px 24px;margin:auto 0;outline:none}
+.mbox h2{font-size:2rem;margin-bottom:14px;padding-right:44px}
+.mclose{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--white);font-size:1.3rem;line-height:1}
+.mentor-cta{background:var(--yellow);border-radius:16px;padding:16px 18px;margin-bottom:16px}
+.mentor-cta b{font-weight:700}
+.mentor-cta p{margin:4px 0 11px;font-size:.93rem}
+.mgo{background:var(--ink);color:var(--white);border-radius:10px;padding:10px 16px;font-weight:600;font-size:.9rem}
+.mlead{font-size:.9rem;margin-bottom:9px}
+.docs{display:grid;gap:9px}
+.doc{background:var(--white);border-radius:14px;padding:14px 16px}
+.doc>button.dh{all:unset;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%}
+.doc h3{font-size:1rem;font-weight:600}
+.doc p.d{font-size:.83rem;color:var(--soft);margin-top:2px}
+.doc .ar{transition:transform .2s}
+.doc.open .ar{transform:rotate(180deg)}
+.doc .pan{display:none;margin-top:11px}
+.doc.open .pan{display:block}
+.doc form{display:flex;gap:8px;flex-wrap:wrap}
+.doc input{flex:1;min-width:150px;font:500 1rem var(--body);border:1.5px solid var(--ink);border-radius:10px;padding:10px 14px;text-transform:uppercase;background:var(--white);color:var(--ink)}
+.doc .go2{background:var(--ink);color:var(--white);border-radius:10px;padding:10px 18px;font-weight:600}
+.doc .msg{margin-top:7px;font-size:.84rem;min-height:1.2em}
+.doc .ok{display:inline-block;background:var(--yellow);border-radius:10px;padding:9px 16px;font-weight:600;color:var(--ink)}
+
+@media(max-width:1040px){
+  .nav{display:none}
+  .menu-b{display:block}
+  .nav.open{display:flex;flex-direction:column;position:absolute;left:0;right:0;top:72px;background:var(--bg);padding:6px 28px 16px;box-shadow:0 14px 24px -14px rgba(16,12,4,.3)}
+  .nav.open a{padding:9px 0;color:var(--ink)}
+  .top-in{position:relative;gap:10px}
+  .aws{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .path{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:900px){
+  .hero{padding-bottom:128px}
+  .hero-g,.m-g,.o-g,.me-g,.q{grid-template-columns:1fr}
+  .col{height:500px;max-width:520px;width:100%;margin:0 auto}
+  .s2{top:210px}.s3{top:276px}.sk2{top:452px}.sk3{top:470px}.dr1{top:226px}.dr3{top:430px}
+  .q{gap:26px;padding-bottom:70px}
+  .q-s{min-height:0;padding:30px 34px 46px}
+  .sec{padding:76px 0}
+  .ops{padding:118px 0}
+}
+@media(max-width:640px){
+  html{scroll-padding-top:68px}
+  body{padding-bottom:66px}
+  .wrap{padding:0 18px}
+  .top .btn{display:none}
+  .mbar{display:flex}
+  .brand{font-size:1.25rem}
+  .hero{padding-top:18px;clip-path:polygon(0 0,100% 0,100% calc(100% - 34px),6% 100%,0 calc(100% - 16px))}
+  .door{min-height:172px;padding:15px 14px 14px}
+  .door b{font-size:1.28rem}
+  .door span{padding-right:0;font-size:.88rem}
+  .door i{display:none}
+  .seg{flex:none}
+  .seg button{white-space:nowrap;padding:6px 11px}
+  .tab-h{flex-wrap:wrap;padding:12px 14px}
+  .tab-h b{font-size:1rem}
+  .tab-b{padding:16px 14px 18px}
+  .tab{min-width:0}
+  .pr b{font-size:1.7rem}
+  .col{height:430px}
+  .s1{height:210px;width:72%}.s2{top:182px;height:232px;width:56%}.s3{top:232px;height:178px;width:42%}
+  .sk1{top:154px}.sk2{top:388px}.sk3{top:398px;right:0}.dr1{left:45%;top:186px;width:66px;height:58px}.dr2{left:2%;top:112px}.dr3{display:none}.bub{left:10%;top:38px;width:54px;height:46px}
+  .logos{padding:20px;justify-content:center;gap:14px 22px}
+  .logos img{height:22px}
+  .logos img[alt="TikTok Shop"]{height:42px;margin:-9px 0}
+  .blob{padding:18px 12px 44px;margin:0 -18px;clip-path:polygon(0 1%,100% 0,100% 96%,46% 96%,40% 100%,35% 96%,0 97%)}
+  .num,.chk,.more-g,.st3,.go-g{grid-template-columns:1fr}
+  .tab{border-width:7px}
+  .nums{flex-direction:column;align-items:flex-start;margin-top:56px}
+  .nums svg{display:none}
+  .ops{clip-path:polygon(0 0,100% 34px,100% 100%,0 calc(100% - 30px));padding:82px 0 90px}
+  .fr{padding:24px}
+  .t1,.t5{left:4px}.t2,.t4{right:4px}
+  .aws{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:18px -18px 0;padding:0 18px 4px;scrollbar-width:none}
+  .aw{flex:0 0 58%;scroll-snap-align:center}
+  .path{grid-template-columns:1fr}
+  .fbs{columns:1}
+  .fbk{clip-path:polygon(0 30px,100% 0,100% 100%,0 100%);padding:80px 0 70px}
+  .go{padding-bottom:110px}
+  .gc{padding:22px}
+  .help{padding:20px}
+  .f-h,.f-c{grid-template-columns:1fr}
+  .f-c>div{padding:12px 0;border-left:0;border-top:1px solid rgba(255,255,255,.2)}
+  footer{padding-top:96px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.door{transition:none}}
 </style>
 </head>
 <body>
-<div class="contactbar" role="region" aria-label="Nhận tư vấn">
-  <div class="cb-in">
-    <p class="cb-text"><b>Nhận tư vấn miễn phí</b><span>Nhắn Huy, mình trả lời sớm nhất</span></p>
-    <div class="cb-btns">
-      <a class="cb-btn" href="https://zalo.me/0796796492" target="_blank" rel="noopener" aria-label="Nhắn Zalo 0796 796 492"><img src="img/zalo.svg" alt="" width="26" height="26"><span><b>Zalo</b><i>0796 796 492</i></span></a>
-      <a class="cb-btn" href="mailto:nguyendinhhuy14052000@gmail.com" aria-label="Gửi Gmail cho Huy Tim"><img src="img/gmail.svg" alt="" width="26" height="26"><span><b>Gmail</b><i>nguyendinhhuy14052000@gmail.com</i></span></a>
-    </div>
-  </div>
-</div>
+<div class="top"><div class="wrap top-in">
+  <a class="brand" href="#top"><i aria-hidden="true"></i>Huy Tim</a>
+  <nav class="nav" id="nav" aria-label="Điều hướng"><a href="#mentor">Mentor</a><a href="#van-hanh">Vận hành</a><a href="#ve-huy">Về Huy</a><a href="#khach-hang">Khách hàng</a><a href="#tai-lieu">Tài liệu FREE</a></nav>
+  <a class="btn o" href="https://zalo.me/0796796492" target="_blank" rel="noopener">Nhắn Zalo</a>
+  <button type="button" class="menu-b" id="menuB" aria-expanded="false" aria-controls="nav">Menu</button>
+</div></div>
 
-<header class="hero wrap">
-  <h1 class="serif">Dùng dữ liệu để vận hành thương mại điện tử, cùng Huy Tim.</h1>
-  <p class="sub">Mentor thực chiến bán hàng Việt Nam và Mỹ. Mình ngồi cùng bạn làm từ khâu đầu tới khi đơn đầu tiên được giao cho khách, bằng dữ liệu thật, không đoán mò.</p>
-  <a class="btn" href="#tai-lieu">Nhận tài liệu FREE</a>
-  <div class="logo-marquee" aria-label="Các sàn thương mại điện tử">
-    <div class="logo-track" id="logoTrack">
-      <div class="logo-grp">
-        <img src="img/marketplaces/tiktokshop.png" alt="TikTok Shop">
-        <img src="img/marketplaces/amazon.webp" alt="Amazon">
-        <img src="img/marketplaces/shopify-c.png" alt="Shopify">
-        <img src="img/marketplaces/ebay.svg" alt="eBay">
-        <img src="img/marketplaces/etsy-c.webp" alt="Etsy">
-        <img src="img/marketplaces/shopee.webp" alt="Shopee">
-        <img src="img/marketplaces/aliexpress-c.png" alt="AliExpress">
-        <img src="img/marketplaces/taobao-c.webp" alt="Taobao">
-      </div>
+<header class="hero" id="top"><div class="wrap hero-g">
+  <div>
+    <h1 class="sf">Bán hàng bằng dữ liệu thật,<em>có Huy làm cùng</em></h1>
+    <p class="sub">Bạn muốn tự bán, hay đã có shop và cần người làm? Chọn đúng cửa của bạn.</p>
+    <div class="doors">
+      <a class="door m" href="#mentor"><small>Mình muốn tự bán được hàng</small><b>Mentor 1 kèm 1</b><span>Từ 2.000.000đ</span><i aria-hidden="true">→</i></a>
+      <a class="door v" href="#van-hanh"><small>Mình có shop, cần người vận hành</small><b>Vận hành shop</b><span>Từ 3.500.000đ<wbr>/tháng</span><i aria-hidden="true">→</i></a>
     </div>
+    <p class="rely">Tư vấn miễn phí qua Zalo, không bắt buộc mua. Báo giá trong 24 giờ.</p>
   </div>
-</header>
+  <div class="col">
+    <div class="bub" aria-hidden="true">···</div>
+    <figure class="shot s1"><img src="img/profile.jpg" alt="Huy Tim tại Paris" width="512" height="512"></figure>
+    <span class="stk sk1">THẠC SĨ AI &amp; DATA</span>
+    <figure class="shot s2"><img src="img/hoso/sanpham.jpg" alt="Huy Tim giới thiệu sản phẩm công nghệ" loading="eager"></figure>
+    <figure class="shot s3"><img src="img/hoso/bachkhoa.jpg" alt="Huy Tim nhận giải tại Đại học Bách Khoa Đà Nẵng" loading="eager"></figure>
+    <span class="stk sk2">5+ NĂM BÁN HÀNG MỸ</span>
+    <span class="stk sk3">5 GIẢI THƯỞNG</span>
+    <svg class="dr dr1" viewBox="0 0 96 84" aria-hidden="true"><path d="M6 66c14 8 34 6 44-8 7-10 0-22-9-16-8 6 2 20 17 14 13-5 22-20 26-38"/><path d="M73 22l11-6 5 12"/></svg>
+    <svg class="dr dr2" viewBox="0 0 56 56" aria-hidden="true"><path d="M28 5c2 15 7 21 23 23-16 2-21 8-23 23-2-15-7-21-23-23 16-2 21-8 23-23z"/></svg>
+    <svg class="dr dr3" viewBox="0 0 56 56" aria-hidden="true"><path d="M28 7c2 13 7 19 21 21-14 2-19 8-21 21-2-13-7-19-21-21 14-2 19-8 21-21z"/></svg>
+  </div>
+</div></header>
 
-<section class="block" id="ve-minh">
-  <div class="wrap about">
+<div class="trust"><div class="wrap"><p class="eye" style="color:var(--ink)">Các sàn mình vận hành <svg viewBox="0 0 44 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7c11 8 23 9 37 6"/><path d="M33 6l7 7-8 5"/></svg></p><div class="logos"><img src="img/marketplaces/shopee.webp" alt="Shopee"><img src="img/marketplaces/tiktokshop.png" alt="TikTok Shop"><img src="img/marketplaces/lazada.svg" alt="Lazada"><img src="img/marketplaces/amazon.webp" alt="Amazon"><img src="img/marketplaces/ebay.svg" alt="eBay"><img src="img/marketplaces/walmart.svg" alt="Walmart"><img src="img/marketplaces/shopify-c.png" alt="Shopify"><img src="img/marketplaces/temu.svg" alt="Temu"><img src="img/marketplaces/etsy-c.webp" alt="Etsy"></div></div></div>
+
+<section class="sec" id="mentor"><div class="wrap">
+  <div class="m-g">
     <div>
-      <div class="who">
-        <img class="avatar" src="img/profile.jpg" alt="Huy Tim" width="64" height="64">
-        <div><b>Huy Tim</b><span>Dữ liệu &amp; vận hành thương mại điện tử</span></div>
+      <p class="eye">Cho người muốn tự bán <svg viewBox="0 0 44 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7c11 8 23 9 37 6"/><path d="M33 6l7 7-8 5"/></svg></p>
+      <h2 class="sf">Không phải khóa học. Mình ngồi làm cùng bạn.</h2>
+      <div class="feat">
+        <details name="f" open><summary><i aria-hidden="true">1</i>Làm thực chiến toàn bộ các khâu</summary><p>Từ khâu đầu tới khi đơn từ sàn được giao thành công cho khách hàng.</p></details>
+        <details name="f"><summary><i aria-hidden="true">2</i>Meeting 1 kèm 1 mỗi tuần</summary><p>Theo sát toàn bộ quy trình, không học chung một lớp.</p></details>
+        <details name="f"><summary><i aria-hidden="true">3</i>Bài tập thực chiến hằng tuần</summary><p>Mỗi tuần có phần việc thực tế để bạn tự tay làm.</p></details>
+        <details name="f"><summary><i aria-hidden="true">4</i>Support khi bạn vướng</summary><p>Có người đã tự làm đi cùng, thay vì tự mày mò.</p></details>
       </div>
-      <h2 class="serif">Chào bạn, mình là Huy Tim.</h2>
+    </div>
+    <div class="blob"><div class="tab">
+      <div class="tab-h"><b>Lộ trình mentor</b><div class="seg" role="group" aria-label="Chọn thị trường mentor" id="mtSeg"><button type="button" class="on" data-k="vn" aria-pressed="true">Việt Nam</button><button type="button" data-k="us" aria-pressed="false">Mỹ</button></div></div>
+      <div class="tab-b" id="mt-vn">
+          <div class="pr"><small>Chỉ từ</small><b>2.000.000đ</b><small>Quy trình 6 bước</small></div>
+          <p class="vb">Muốn bán được hàng thật trên TikTok Shop, Shopee, có người đi cùng thay vì tự mày mò.</p>
+          <ol class="num"><li>Bắt keyword ngách, đăng ký TikTok Shop</li><li>Phân tích dữ liệu, tìm nguồn hàng</li><li>Chọn sản phẩm, đặt hàng</li><li>Setup listing lên store</li><li>Chờ hàng về, packing</li><li>Bán hàng, đơn đầu tiên</li></ol>
+          <a class="btn o" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">Đăng ký mentor</a>
+          <p class="rely"><b>Giá cuối tùy phạm vi.</b> Giá tăng theo số sàn, số sản phẩm và thời gian đồng hành. Mình báo giá trong 24 giờ.</p>
+        </div>
+      <div class="tab-b" id="mt-us" hidden>
+          <div class="pr"><small>Chỉ từ</small><b>5.000.000đ</b><small>Quy trình 8 bước</small></div>
+          <p class="vb">Muốn bán từ Việt Nam sang Mỹ bằng đa sàn và fulfillment thật, có người đã tự làm đi cùng.</p>
+          <ol class="num"><li>Phân tích keyword và thị trường US</li><li>Tìm nhà cung cấp, sản phẩm, mẫu mã</li><li>Nhập hàng, packing, dán barcode</li><li>Đăng ký LLC, hoàn thiện giấy tờ</li><li>Đăng ký đơn vị fulfillment</li><li>Liên kết logistics gửi hàng sang US</li><li>Đăng ký tài khoản bán, list sản phẩm</li><li>Bán hàng, đơn đầu tiên</li></ol>
+          <a class="btn o" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">Đăng ký mentor</a>
+          <p class="rely"><b>Giá cuối tùy phạm vi.</b> Giá tăng theo số sàn, số sản phẩm và thời gian đồng hành. Mình báo giá trong 24 giờ.</p>
+        </div>
+    </div></div>
+  </div>
+  <div class="nums">
+    <div><small>Làm việc</small><b>1</b><em>kèm 1</em></div><svg viewBox="0 0 66 34" aria-hidden="true"><path d="M3 19c8-11 17-13 21-7 3 5-3 10-6 6-3-5 8-11 19-10 9 1 16 5 23 13"/><path d="M50 21l11 1-3-11"/></svg>
+    <div><small>Gặp nhau</small><b>Mỗi</b><em>tuần</em></div><svg viewBox="0 0 66 34" aria-hidden="true"><path d="M3 19c8-11 17-13 21-7 3 5-3 10-6 6-3-5 8-11 19-10 9 1 16 5 23 13"/><path d="M50 21l11 1-3-11"/></svg>
+    <div><small>Đồng hành</small><b>Tới</b><em>đơn đầu tiên</em></div>
+  </div>
+</div></section>
+
+<div class="wrap"><figure class="q">
+  <div class="q-s p"><s>2 tháng tự tìm hiểu</s><b>1, 2 buổi cùng Huy</b></div>
+  <div><p class="eye">Học viên nói gì <svg viewBox="0 0 44 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7c11 8 23 9 37 6"/><path d="M33 6l7 7-8 5"/></svg></p><blockquote>Mình mất 2 tháng tự tìm hiểu mà vẫn chưa nắm hết. Sau 1, 2 buổi mentor cùng anh Huy, mình nắm được quy trình và toàn bộ các vấn đề cần triển khai.</blockquote><figcaption><b>Khách hàng gói mentor</b><span>Nắm quy trình chỉ sau 1-2 buổi</span></figcaption></div>
+</figure></div>
+
+<section class="ops" id="van-hanh"><div class="wrap">
+  <p class="eye">Cho shop và doanh nghiệp <svg viewBox="0 0 44 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7c11 8 23 9 37 6"/><path d="M33 6l7 7-8 5"/></svg></p>
+  <h2 class="sf">Bạn lo nguồn hàng. Việc vận hành để mình.</h2>
+  <hr>
+  <div class="o-g">
+    <div class="acc" id="acc">
+      <div class="ac on" data-ac="vn">
+          <button type="button" aria-expanded="true">Shop Việt Nam<i aria-hidden="true">–</i></button>
+          <div class="ac-b">
+            <p class="vb">Đã có shop, muốn giao việc hằng ngày cho người có kinh nghiệm.</p>
+            <p class="i">Mình vận hành gian hàng của bạn trên Shopee, TikTok Shop, Lazada, để bạn tập trung vào nguồn hàng và giao hàng.</p>
+            <div class="pr"><small>Chỉ từ</small><b>3.500.000đ/tháng</b></div>
+            <small class="per">Áp dụng cho 1 sàn</small>
+            <a class="btn k" href="https://zalo.me/0796796492" target="_blank" rel="noopener">Nhắn Zalo để được tư vấn</a>
+            <p class="rely"><b>Giá cuối tùy từng shop.</b> Mức "chỉ từ" áp dụng cho 1 sàn; giá thực tế phụ thuộc số sản phẩm, số sàn và mức độ vận hành. Mình khảo sát shop và báo giá trong 24 giờ.</p>
+          </div>
+        </div>
+      <div class="ac" data-ac="us">
+          <button type="button" aria-expanded="false">Shop Mỹ<i aria-hidden="true">+</i></button>
+          <div class="ac-b">
+            <p class="vb">Bán sang Mỹ, muốn có người vận hành đa sàn và theo dõi fulfillment thật.</p>
+            <p class="i">Mình vận hành gian hàng của bạn trên TikTok Shop, Amazon, eBay, Walmart, Shopify, Temu, Etsy, từ thiết lập tới quảng cáo, creator và theo dõi đơn với kho fulfillment.</p>
+            <div class="pr"><small>Chỉ từ</small><b>7.000.000đ/tháng</b></div>
+            <small class="per">Áp dụng cho 1 sàn</small>
+            <a class="btn k" href="https://zalo.me/0796796492" target="_blank" rel="noopener">Nhắn Zalo để được tư vấn</a>
+            <p class="rely"><b>Giá cuối tùy từng shop.</b> Mức "chỉ từ" áp dụng cho 1 sàn; giá thực tế phụ thuộc số sàn, số sản phẩm, số đơn và ngân sách quảng cáo. Mình khảo sát shop và báo giá trong 24 giờ.</p>
+          </div>
+        </div>
+    </div>
+    <div class="o-m"><div class="tab">
+      <div class="tab-h"><b id="opT">Vận hành gian hàng Việt Nam</b></div>
+      <div class="tab-b" id="op-vn">
+          <div class="lg" aria-label="Các sàn mình vận hành"><img src="img/marketplaces/shopee.webp" alt="Shopee"><img src="img/marketplaces/tiktokshop.png" alt="TikTok Shop"><img src="img/marketplaces/lazada.svg" alt="Lazada"></div>
+          <p class="h5" style="margin-top:14px">Mình làm những gì</p>
+          <ul class="chk"><li>Khảo sát hiện trạng shop: listing, ngành hàng, giá, tồn kho, chỉ số shop</li><li>Tối ưu tiêu đề, mô tả, thuộc tính, từ khóa, sắp xếp ảnh</li><li>Đề xuất giá, voucher, combo, chương trình của sàn theo giá vốn và biên lợi nhuận bạn cung cấp</li><li>Quảng cáo cơ bản, theo dõi và chỉnh hằng tuần</li><li>Mẫu trả lời chat, quy trình xử lý đơn hủy, hoàn trả, đánh giá thấp</li><li>Báo cáo định kỳ và họp trao đổi</li></ul>
+          <details class="more"><summary>Xem phạm vi và việc bạn cần chuẩn bị</summary>
+            <div class="more-g">
+              <div><p class="h5">Chưa nằm trong phạm vi</p><ul><li>Nhập hàng, đóng gói, giao hàng, xử lý đơn thay bạn</li><li>Chụp ảnh, quay video sản phẩm mới, livestream</li><li>Quảng cáo quy mô lớn cần ngân sách và đội riêng</li><li>Kế toán, thuế, hóa đơn</li></ul><p class="note">Phí sàn, vận chuyển, ngân sách quảng cáo và chi phí nguồn hàng do bạn chịu. Muốn mình làm thêm các việc trên? Nhắn mình, mình báo giá riêng.</p></div>
+              <div><p class="h5">Bạn cần chuẩn bị</p><ul><li>Quyền truy cập gian hàng phù hợp (tài khoản đứng tên bạn)</li><li>Giá vốn, tồn kho và báo cáo doanh thu hằng tháng</li><li>Một đầu mối ở shop xử lý hàng, đóng gói, giao hàng</li><li>Phản hồi trong 48 giờ với các việc cần bạn duyệt</li></ul></div>
+            </div>
+          </details>
+        </div>
+      <div class="tab-b" id="op-us" hidden>
+          <div class="lg" aria-label="Các sàn mình vận hành"><img src="img/marketplaces/tiktokshop.png" alt="TikTok Shop"><img src="img/marketplaces/amazon.webp" alt="Amazon"><img src="img/marketplaces/ebay.svg" alt="eBay"><img src="img/marketplaces/walmart.svg" alt="Walmart"><img src="img/marketplaces/shopify-c.png" alt="Shopify"><img src="img/marketplaces/temu.svg" alt="Temu"><img src="img/marketplaces/etsy-c.webp" alt="Etsy"></div>
+          <p class="h5" style="margin-top:14px">Mình làm những gì</p>
+          <ul class="chk"><li>Thiết lập hoặc chuẩn hóa gian hàng, viết listing chuẩn SEO, tối ưu hình ảnh bạn cung cấp</li><li>Chạy và tối ưu quảng cáo trong ngân sách bạn duyệt</li><li>Tìm, đề xuất và kết nối creator, affiliate, KOC tại Mỹ</li><li>Phân tích, đề xuất sản phẩm theo dữ liệu sàn; đề xuất định dạng và brief quảng cáo</li><li>Theo dõi đồng bộ đơn sang kho fulfillment, tồn kho, cảnh báo nhập hàng trước khi hết</li><li>Xử lý hoàn hủy, khiếu nại theo chính sách sàn, lập hồ sơ kháng nghị</li><li>Đăng ký chiến dịch khuyến mãi của sàn, báo cáo và đối soát định kỳ</li></ul>
+          <details class="more"><summary>Xem phạm vi và việc bạn cần chuẩn bị</summary>
+            <div class="more-g">
+              <div><p class="h5">Làm thêm theo nhu cầu</p><ul><li>Sản xuất hình ảnh, video gốc; hoa hồng, hàng mẫu gửi creator</li><li>Đăng ký pháp lý sản phẩm (FDA, nhãn mác, sở hữu trí tuệ), xuất nhập khẩu, vận chuyển quốc tế, vận hành kho</li><li>Khiếu nại, đòi bồi thường với kho và đơn vị vận chuyển</li><li>Phần mềm, công cụ bên thứ ba</li></ul><p class="note">Các phần làm thêm báo giá riêng theo từng shop. Ngân sách quảng cáo, phí kho, giá bán và quyết định sản phẩm do bạn quyết. Gian hàng đứng tên bạn, mình làm việc qua quyền phụ do sàn cho phép.</p></div>
+              <div><p class="h5">Bạn cần chuẩn bị</p><ul><li>Sản phẩm dự kiến bán, số sản phẩm và tình trạng giấy tờ (FDA, nhãn mác)</li><li>Các sàn muốn bán, gian hàng đã có hay cần mở mới</li><li>Kho fulfillment tại Mỹ và đơn vị vận chuyển đang dùng (nếu có)</li><li>Ngân sách quảng cáo, creator mỗi tháng và mục tiêu doanh số</li></ul></div>
+            </div>
+          </details>
+        </div>
+    </div></div>
+  </div>
+  <p class="eye" style="margin:40px 0 0">Bắt đầu thế nào <svg viewBox="0 0 44 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7c11 8 23 9 37 6"/><path d="M33 6l7 7-8 5"/></svg></p>
+  <ol class="st3" style="margin-top:14px" id="st-vn"><li><i>1.</i><span>Nhắn Zalo cho mình, gửi link shop và ngành hàng bạn đang bán.</span></li><li><i>2.</i><span>Mình rà soát shop, báo phạm vi và giá trong 24 giờ.</span></li><li><i>3.</i><span>Hai bên chốt phạm vi, ký hợp đồng, mình bắt đầu bằng khảo sát hiện trạng shop.</span></li></ol>
+  <ol class="st3" style="margin-top:14px" id="st-us" hidden><li><i>1.</i><span>Nhắn Zalo cho mình, gửi thông tin sản phẩm và các sàn bạn muốn bán.</span></li><li><i>2.</i><span>Hai bên trao đổi 30 đến 45 phút, mình báo phạm vi và giá trong 24 giờ.</span></li><li><i>3.</i><span>Chốt phạm vi, ký hợp đồng; gian hàng có thể mở bán sau khoảng 4 tuần thiết lập.</span></li></ol>
+  <p class="disc">Mình không cam kết doanh thu hay lợi nhuận cụ thể, kết quả còn phụ thuộc sản phẩm, giá, nguồn hàng và chính sách của sàn. Dịch vụ không thay thế tư vấn pháp lý, thuế, kế toán.</p>
+</div></section>
+
+<div class="wrap" style="padding-top:60px"><figure class="q" style="grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)">
+  <div><p class="eye">Doanh nghiệp nói gì <svg viewBox="0 0 44 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7c11 8 23 9 37 6"/><path d="M33 6l7 7-8 5"/></svg></p><blockquote>Xưởng mình đang xuất khẩu số lượng lớn nhưng muốn bán lẻ. Mình nhờ anh Huy hỗ trợ tìm dữ liệu và insight để bán thử. Hai bên đặt lịch, chuẩn bị bộ câu hỏi trước nên buổi trao đổi đi vào trọng tâm và mình được hỗ trợ rất rõ ràng.</blockquote><figcaption><b>Chủ xưởng sản phẩm thú cưng</b><span>Nghiên cứu dữ liệu để bán lẻ</span></figcaption></div>
+  <div class="q-s y"><s>Xuất khẩu số lượng lớn</s><b>Bán lẻ thử bằng dữ liệu</b></div>
+</figure></div>
+
+<section class="sec" id="ve-huy" style="padding-top:20px"><div class="wrap">
+  <div class="me-g">
+    <div><p class="eye">Người sẽ làm cùng bạn <svg viewBox="0 0 44 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7c11 8 23 9 37 6"/><path d="M33 6l7 7-8 5"/></svg></p>
+      <div class="me-t"><h2 class="sf">Chào bạn, mình là Huy Tim.</h2>
       <p>Mình là <b>Thạc sĩ Khoa học Dữ liệu và Trí tuệ Nhân tạo</b> tại Université Côte d'Azur (Pháp), học bổng Erasmus.</p>
       <p>Hơn <b>5 năm trực tiếp vận hành thương mại điện tử trên thị trường Hoa Kỳ</b>, tự tay làm sản phẩm, giá bán, quảng cáo và nghiên cứu bằng dữ liệu thật.</p>
-      <div class="chips">
-        <a class="chip" href="https://portfolio.huytim.com" target="_blank" rel="noopener">portfolio.huytim.com ↗</a>
-      </div>
-    <button type="button" class="btn light hs-toggle" id="hsToggle" aria-expanded="false" aria-controls="hsPanel"><span class="lb">Xem hồ sơ khởi nghiệp của mình</span><span class="cv" aria-hidden="true">&#8595;</span></button>
-    <div id="hsPanel" class="hs-panel" hidden>
-      <h3 class="hs-h">Giải thưởng khởi nghiệp và công nghệ</h3><ul class="hs-list"><li class="hs-row"><a class="hs-ph" href="img/hoso/uavs.jpg" target="_blank" rel="noopener"><img src="img/hoso/uavs.jpg" alt="Giải nhất cuộc thi lập trình quốc tế và khởi nghiệp UAVS Hackatrix Australia" loading="lazy" style="object-position:50% 15%"></a><div class="hs-tx"><b>Giải nhất cuộc thi lập trình quốc tế và khởi nghiệp UAVS Hackatrix Australia</b><span>2021</span></div></li><li class="hs-row"><a class="hs-ph" href="img/hoso/inte.jpg" target="_blank" rel="noopener"><img src="img/hoso/inte.jpg" alt="Giải nhì cuộc thi Khởi nghiệp Công nghệ trong Sinh viên lần thứ nhất" loading="lazy" style="object-position:50% 70%"></a><div class="hs-tx"><b>Giải nhì cuộc thi Khởi nghiệp Công nghệ trong Sinh viên lần thứ nhất</b><span>2021, Đà Nẵng</span></div></li><li class="hs-row"><a class="hs-ph" href="img/hoso/hult.jpg" target="_blank" rel="noopener"><img src="img/hoso/hult.jpg" alt="Giải nhì cuộc thi khởi nghiệp Hult Prize" loading="lazy" style="object-position:50% 70%"></a><div class="hs-tx"><b>Giải nhì cuộc thi khởi nghiệp Hult Prize</b><span>Runner-up</span></div></li><li class="hs-row"><a class="hs-ph" href="img/hoso/runway.jpg" target="_blank" rel="noopener"><img src="img/hoso/runway.jpg" alt="Giải nhất cuộc thi khởi nghiệp Đà Nẵng Startup Runway" loading="lazy" style="object-position:50% 35%"></a><div class="hs-tx"><b>Giải nhất cuộc thi khởi nghiệp Đà Nẵng Startup Runway</b><span>2021, Đà Nẵng</span></div></li><li class="hs-row"><a class="hs-ph" href="img/hoso/bachkhoa.jpg" target="_blank" rel="noopener"><img src="img/hoso/bachkhoa.jpg" alt="Giải nhì Khoa học Công nghệ, Đại học Bách Khoa Đà Nẵng" loading="lazy" style="object-position:50% 30%"></a><div class="hs-tx"><b>Giải nhì Khoa học Công nghệ, Đại học Bách Khoa Đà Nẵng</b><span>Giải báo cáo và giải công nghệ, 2022</span></div></li></ul><h3 class="hs-h">Sản phẩm</h3><ul class="hs-list"><li class="hs-row"><a class="hs-ph" href="img/hoso/sanpham.jpg" target="_blank" rel="noopener"><img src="img/hoso/sanpham.jpg" alt="Các sản phẩm công nghệ thực tế khác" loading="lazy" style="object-position:50% 40%"></a><div class="hs-tx"><b>Các sản phẩm công nghệ thực tế khác</b></div></li></ul><h3 class="hs-h">Học vấn</h3><ul class="hs-list"><li class="hs-row"><a class="hs-ph" href="img/profile.jpg" target="_blank" rel="noopener"><img src="img/profile.jpg" alt="Huy Tim" loading="lazy" style="object-position:50% 25%"></a><div class="hs-tx"><b>Học bổng Erasmus, Khoa học Dữ liệu và Trí tuệ Nhân tạo tại Université Côte d'Azur, Pháp</b></div></li></ul><h3 class="hs-h">Thương mại điện tử</h3><ul class="hs-list"><li class="hs-row nophoto"><div class="hs-tx"><b>Từ 2021: bắt đầu bán hàng thương mại điện tử US đa nền tảng</b><span>Tái cấu trúc hệ thống, chi phí và vận hành</span></div></li><li class="hs-row nophoto"><div class="hs-tx"><b>Hơn 5 năm bán các loại hàng hóa đặc trưng Việt Nam tại US</b><span>Năm 2026: kinh doanh tại thị trường Việt Nam</span></div></li></ul>
+      <a class="l" href="https://portfolio.huytim.com" target="_blank" rel="noopener">portfolio.huytim.com ↗</a></div>
     </div>
-    </div>
+    <div class="fr"><img src="img/profile.jpg" alt="Huy Tim" loading="lazy">
+      <span class="tg t1">HỌC BỔNG<br>ERASMUS</span><span class="tg t2">5+ NĂM<br>BÁN HÀNG MỸ</span><span class="tg t3">DỮ LIỆU THẬT</span><span class="tg t4">VIỆT NAM<br>VÀ MỸ</span><span class="tg t5">5 GIẢI<br>KHỞI NGHIỆP</span></div>
   </div>
-</section>
-
-
-<section class="block" id="chon-nhom">
-  <div class="wrap center">
-    <h2 class="serif">Chọn dịch vụ phù hợp với bạn.</h2>
-    <p class="lead">Hai gói mentor thực chiến cho hai thị trường, hoặc nhắn Huy để được tư vấn chọn gói.</p>
-    <button type="button" class="btn goi-toggle" id="goiToggle" aria-expanded="false" aria-controls="goiPanel"><span class="lb">Xem các gói mentor</span><span class="cv" aria-hidden="true">&#8595;</span></button>
-    <p class="goi-hint" id="goiHint">Bấm để xem nội dung và giá từng gói</p>
-    <div id="goiPanel" hidden>
-    <div class="alert" role="note"><b>Đây không phải khóa học.</b><span>Đây là mentor: theo sát toàn bộ quy trình, bài tập thực chiến, support, và meeting 1 kèm 1 hàng tuần.</span></div>
-    <div class="consult three" style="text-align:left">
-      <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="tag">Mentor thực chiến</span><span class="tag">1 kèm 1</span></div>
-        <h3>Mentor Thực Chiến Việt Nam</h3>
-        <span class="price">Chỉ từ 2.000.000đ</span>
-        <p class="vibe">Muốn <b>bán được hàng thật</b> trên TikTok Shop, Shopee, có người đi cùng thay vì tự mày mò.</p>
-        <p>Bạn nhận: mình ngồi cùng bạn làm thực chiến toàn bộ các khâu, từ khâu đầu tới khi đơn từ sàn được giao thành công cho khách hàng.</p>
-        <p class="stl">Quy trình 6 bước</p><ol class="stp"><li>Bắt keyword ngách, đăng ký TikTok Shop</li><li>Phân tích dữ liệu, tìm nguồn hàng</li><li>Chọn sản phẩm, đặt hàng</li><li>Setup listing lên store</li><li>Chờ hàng về, packing</li><li>Bán hàng, đơn đầu tiên</li></ol>
-        <ul class="inc"><li>Bài tập thực chiến hằng tuần</li><li>Support khi bạn vướng</li><li>Meeting 1 kèm 1 mỗi tuần</li></ul>
-        <p class="scope"><b>Giá cuối tùy phạm vi.</b> Giá tăng theo số sàn, số sản phẩm và thời gian đồng hành. Mình báo giá trong 24 giờ.</p>
-        <span class="go">Điền form, đăng ký →</span>
-      </a>
-      <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="tag">Mentor thực chiến</span><span class="tag">1 kèm 1</span></div>
-        <h3>Mentor Thực Chiến US</h3>
-        <span class="price">Chỉ từ 5.000.000đ</span>
-        <p class="vibe">Muốn <b>bán từ Việt Nam sang Mỹ</b> bằng đa sàn và fulfillment thật, có người đã tự làm đi cùng.</p>
-        <p>Bạn nhận: mình ngồi cùng bạn làm thực chiến toàn bộ các khâu (gồm pháp lý, nhận tiền, đa sàn, fulfillment), từ khâu đầu tới khi đơn từ sàn được giao thành công cho khách hàng.</p>
-        <p class="stl">Quy trình 8 bước</p><ol class="stp"><li>Phân tích keyword và thị trường US</li><li>Tìm nhà cung cấp, sản phẩm, mẫu mã</li><li>Nhập hàng, packing, dán barcode</li><li>Đăng ký LLC, hoàn thiện giấy tờ</li><li>Đăng ký đơn vị fulfillment</li><li>Liên kết logistics gửi hàng sang US</li><li>Đăng ký tài khoản bán, list sản phẩm</li><li>Bán hàng, đơn đầu tiên</li></ol>
-        <ul class="inc"><li>Bài tập thực chiến hằng tuần</li><li>Support khi bạn vướng</li><li>Meeting 1 kèm 1 mỗi tuần</li></ul>
-        <p class="scope"><b>Giá cuối tùy phạm vi.</b> Giá tăng theo số sàn, số sản phẩm và thời gian đồng hành. Mình báo giá trong 24 giờ.</p>
-        <span class="go">Điền form, đăng ký →</span>
-      </a>
-      <a class="card" href="https://zalo.me/0796796492" target="_blank" rel="noopener">
-        <div class="tags"><span class="tag">Miễn phí</span><span class="tag">Qua Zalo</span></div>
-        <h3>Tư Vấn Chọn Gói</h3>
-        <span class="price">Miễn phí</span>
-        <p class="vibe">Chưa chắc nên <b>chọn gói nào</b>, hoặc chưa biết bắt đầu từ đâu?</p>
-        <p>Bạn nhận: mình hỏi nhanh tình hình của bạn và gợi ý gói phù hợp. Không bắt buộc mua.</p>
-        <span class="go">Nhắn Zalo ngay →</span>
-      </a>
+  <details class="pf"><summary>Xem giải thưởng và hành trình của mình</summary>
+    <div class="aws"><a class="aw" href="img/hoso/uavs.jpg" target="_blank" rel="noopener"><img src="img/hoso/uavs.jpg" alt="Giải nhất cuộc thi lập trình quốc tế và khởi nghiệp UAVS Hackatrix Australia" loading="lazy" style="object-position:50% 15%">Giải nhất cuộc thi lập trình quốc tế và khởi nghiệp UAVS Hackatrix Australia<span>2021</span></a><a class="aw" href="img/hoso/inte.jpg" target="_blank" rel="noopener"><img src="img/hoso/inte.jpg" alt="Giải nhì cuộc thi Khởi nghiệp Công nghệ trong Sinh viên lần thứ nhất" loading="lazy" style="object-position:50% 70%">Giải nhì cuộc thi Khởi nghiệp Công nghệ trong Sinh viên lần thứ nhất<span>2021, Đà Nẵng</span></a><a class="aw" href="img/hoso/hult.jpg" target="_blank" rel="noopener"><img src="img/hoso/hult.jpg" alt="Giải nhì cuộc thi khởi nghiệp Hult Prize" loading="lazy" style="object-position:50% 70%">Giải nhì cuộc thi khởi nghiệp Hult Prize<span>Runner-up</span></a><a class="aw" href="img/hoso/runway.jpg" target="_blank" rel="noopener"><img src="img/hoso/runway.jpg" alt="Giải nhất cuộc thi khởi nghiệp Đà Nẵng Startup Runway" loading="lazy" style="object-position:50% 35%">Giải nhất cuộc thi khởi nghiệp Đà Nẵng Startup Runway<span>2021, Đà Nẵng</span></a><a class="aw" href="img/hoso/bachkhoa.jpg" target="_blank" rel="noopener"><img src="img/hoso/bachkhoa.jpg" alt="Giải nhì Khoa học Công nghệ, Đại học Bách Khoa Đà Nẵng" loading="lazy" style="object-position:50% 30%">Giải nhì Khoa học Công nghệ, Đại học Bách Khoa Đà Nẵng<span>Giải báo cáo và giải công nghệ, 2022</span></a><a class="aw" href="img/hoso/sanpham.jpg" target="_blank" rel="noopener"><img src="img/hoso/sanpham.jpg" alt="Các sản phẩm công nghệ thực tế khác" loading="lazy" style="object-position:50% 40%">Các sản phẩm công nghệ thực tế khác</a></div>
+    <div class="path">
+      <div><b>Từ 2021</b><p>Bắt đầu bán hàng thương mại điện tử US đa nền tảng. Tái cấu trúc hệ thống, chi phí và vận hành.</p></div>
+      <div><b>Hơn 5 năm</b><p>Bán các loại hàng hóa đặc trưng Việt Nam tại US.</p></div>
+      <div><b>Erasmus</b><p>Học bổng Khoa học Dữ liệu và Trí tuệ Nhân tạo tại Université Côte d'Azur, Pháp.</p></div>
+      <div><b>Năm 2026</b><p>Kinh doanh tại thị trường Việt Nam.</p></div>
     </div>
-    </div>
+  </details>
+</div></section>
+
+<section class="fbk" id="khach-hang"><div class="wrap">
+  <p class="eye">Vài lời chia sẻ <svg viewBox="0 0 44 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7c11 8 23 9 37 6"/><path d="M33 6l7 7-8 5"/></svg></p>
+  <h2 class="sf">Khách hàng nói gì.</h2>
+  <div class="fbs"><figure class="fb"><blockquote>Mình nhờ anh Huy hỗ trợ toàn bộ quy trình, và hiện tại store của mình đã vận hành ổn.</blockquote><figcaption><b>Khách hàng gói setup</b><span>Được hỗ trợ toàn bộ quy trình mở store</span></figcaption></figure><figure class="fb"><blockquote>Mình nhờ anh Huy nghiên cứu sản phẩm và fulfillment US, mình nhận được rất nhiều thông tin và kiến thức.</blockquote><figcaption><b>Khách hàng bán hàng sang Mỹ</b><span>Nghiên cứu sản phẩm và fulfillment US</span></figcaption></figure><figure class="fb"><blockquote>Mình đang làm Finance và rất phân vân có nên chuyển sang BA hay Data Science. Mình gửi trước danh sách câu hỏi về lộ trình, kỹ năng nhà tuyển dụng cần và chứng chỉ. Anh Huy phân tích kỹ rồi hỗ trợ ngay trong buổi meeting nên mình nắm rõ hướng đi hơn hẳn.</blockquote><figcaption><b>Khách hàng gói tư vấn</b><span>Đang chuyển ngành từ Finance sang Data</span></figcaption></figure><figure class="fb"><blockquote>Anh nhiệt tình thật sự! Ngoài phần trả lời câu hỏi, anh còn chia sẻ thêm blog và kinh nghiệm học tập, làm việc để mình đọc thêm. Cảm ơn anh rất nhiều.</blockquote><figcaption><b>Khách hàng gói tư vấn</b><span>Hỏi về học thuật và định hướng nghề nghiệp</span></figcaption></figure></div>
+</div></section>
+
+<section class="go" id="lien-he"><div class="wrap">
+  <h2 class="sf">Sẵn sàng bắt đầu? <em>Chọn bước tiếp theo</em></h2>
+  <div class="go-g">
+    <div class="gc m"><h3>Mình muốn tự bán được hàng</h3><p>Điền form đăng ký mentor, mình báo giá trong 24 giờ.</p><a class="btn k" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">Đăng ký mentor</a></div>
+    <div class="gc v"><h3>Mình có shop, cần người vận hành</h3><p>Nhắn Zalo gửi link shop hoặc thông tin sản phẩm, mình báo phạm vi và giá trong 24 giờ.</p><a class="btn k" href="https://zalo.me/0796796492" target="_blank" rel="noopener">Nhắn Zalo cho Huy</a></div>
   </div>
-</section>
+  <div class="help"><div><b>Chưa chắc nên chọn gì?</b><p>Mình hỏi nhanh tình hình của bạn và gợi ý gói phù hợp. Không bắt buộc mua.</p></div><div class="c"><a class="ci" href="https://zalo.me/0796796492" target="_blank" rel="noopener"><img src="img/zalo.svg" alt="" width="20" height="20">0796 796 492</a><a class="ci" href="mailto:nguyendinhhuy14052000@gmail.com"><img src="img/gmail.svg" alt="" width="20" height="20">Gmail</a></div></div>
+</div></section>
 
-<section class="block" id="van-hanh">
-  <div class="wrap center">
-    <h2 class="serif">Nhận vận hành shop cho bạn.</h2>
-    <p class="lead">Bạn có shop nhưng chưa có người vận hành, hoặc không đủ thời gian tự làm? Mình nhận vận hành hộ. Chọn thị trường bạn đang bán.</p>
-    <div class="seg" role="tablist" id="vhSeg"><button type="button" class="on" data-vh="vn">Việt Nam</button><button type="button" data-vh="us">Mỹ</button></div>
-    <div class="vhp" id="vh-vn">
-      <div class="card vh">
-        <div class="vh-top">
-          <div>
-            <div class="tags"><span class="tag">Làm hộ vận hành</span></div>
-            <h3>Vận hành gian hàng Việt Nam</h3>
-            <p class="vibe">Đã có shop, muốn <b>giao việc hằng ngày</b> cho người có kinh nghiệm.</p>
-          </div>
-          <div class="vh-logos" aria-label="Các sàn mình vận hành"><img src="img/marketplaces/shopee.webp" alt="Shopee"><img src="img/marketplaces/tiktokshop.png" alt="TikTok Shop"><img src="img/marketplaces/lazada.svg" alt="Lazada"></div>
-        </div>
-        <p class="vh-intro">Mình vận hành gian hàng của bạn trên Shopee, TikTok Shop, Lazada, để bạn tập trung vào nguồn hàng và giao hàng.</p>
-        <div class="vh-price">
-          <div>
-            <span class="price">Chỉ từ 3.500.000đ/tháng</span>
-            <p class="vh-per">Áp dụng cho 1 sàn</p>
-          </div>
-          <a class="btn" href="https://zalo.me/0796796492" target="_blank" rel="noopener">Nhắn Zalo để được tư vấn</a>
-        </div>
-        <p class="scope"><b>Giá cuối tùy từng shop.</b> Mức "chỉ từ" áp dụng cho 1 sàn; giá thực tế phụ thuộc số sản phẩm, số sàn và mức độ vận hành. Mình khảo sát shop và báo giá trong 24 giờ.</p>
-        <div class="vh-cols">
-          <div><p class="stl">Mình làm những gì</p><ul class="inc"><li>Khảo sát hiện trạng shop: listing, ngành hàng, giá, tồn kho, chỉ số shop</li><li>Tối ưu tiêu đề, mô tả, thuộc tính, từ khóa, sắp xếp ảnh</li><li>Đề xuất giá, voucher, combo, chương trình của sàn theo giá vốn và biên lợi nhuận bạn cung cấp</li><li>Quảng cáo cơ bản, theo dõi và chỉnh hằng tuần</li><li>Mẫu trả lời chat, quy trình xử lý đơn hủy, hoàn trả, đánh giá thấp</li><li>Báo cáo định kỳ và họp trao đổi</li></ul></div>
-          <div><p class="stl">Chưa nằm trong phạm vi</p><ul class="inc"><li>Nhập hàng, đóng gói, giao hàng, xử lý đơn thay bạn</li><li>Chụp ảnh, quay video sản phẩm mới, livestream</li><li>Quảng cáo quy mô lớn cần ngân sách và đội riêng</li><li>Kế toán, thuế, hóa đơn</li></ul><p class="scope">Phí sàn, vận chuyển, ngân sách quảng cáo và chi phí nguồn hàng do bạn chịu. Muốn mình làm thêm các việc trên? Nhắn mình, mình báo giá riêng.</p></div>
-          <div><p class="stl">Bạn cần chuẩn bị</p><ul class="inc"><li>Quyền truy cập gian hàng phù hợp (tài khoản đứng tên bạn)</li><li>Giá vốn, tồn kho và báo cáo doanh thu hằng tháng</li><li>Một đầu mối ở shop xử lý hàng, đóng gói, giao hàng</li><li>Phản hồi trong 48 giờ với các việc cần bạn duyệt</li></ul></div>
-        </div>
-        <p class="stl">Bắt đầu thế nào</p>
-        <ol class="stp vh-steps"><li>Nhắn Zalo cho mình, gửi link shop và ngành hàng bạn đang bán.</li><li>Mình rà soát shop, báo phạm vi và giá trong 24 giờ.</li><li>Hai bên chốt phạm vi, ký hợp đồng, mình bắt đầu bằng khảo sát hiện trạng shop.</li></ol>
-      </div>
-    </div>
-    <div class="vhp" id="vh-us" hidden>
-      <div class="card vh">
-        <div class="vh-top">
-          <div>
-            <div class="tags"><span class="tag">Làm hộ vận hành</span></div>
-            <h3>Vận hành gian hàng thị trường Mỹ</h3>
-            <p class="vibe">Bán sang Mỹ, muốn <b>có người vận hành</b> đa sàn và theo dõi fulfillment thật.</p>
-          </div>
-          <div class="vh-logos" aria-label="Các sàn mình vận hành"><img src="img/marketplaces/tiktokshop.png" alt="TikTok Shop"><img src="img/marketplaces/amazon.webp" alt="Amazon"><img src="img/marketplaces/ebay.svg" alt="eBay"><img src="img/marketplaces/walmart.svg" alt="Walmart"><img src="img/marketplaces/shopify-c.png" alt="Shopify"><img src="img/marketplaces/temu.svg" alt="Temu"><img src="img/marketplaces/etsy-c.webp" alt="Etsy"></div>
-        </div>
-        <p class="vh-intro">Mình vận hành gian hàng của bạn trên TikTok Shop, Amazon, eBay, Walmart, Shopify, Temu, Etsy, từ thiết lập tới quảng cáo, creator và theo dõi đơn với kho fulfillment.</p>
-        <div class="vh-price">
-          <div>
-            <span class="price">Chỉ từ 7.000.000đ/tháng</span>
-            <p class="vh-per">Áp dụng cho 1 sàn</p>
-          </div>
-          <a class="btn" href="https://zalo.me/0796796492" target="_blank" rel="noopener">Nhắn Zalo để được tư vấn</a>
-        </div>
-        <p class="scope"><b>Giá cuối tùy từng shop.</b> Mức "chỉ từ" áp dụng cho 1 sàn; giá thực tế phụ thuộc số sàn, số sản phẩm, số đơn và ngân sách quảng cáo. Mình khảo sát shop và báo giá trong 24 giờ.</p>
-        <div class="vh-cols">
-          <div><p class="stl">Mình làm những gì</p><ul class="inc"><li>Thiết lập hoặc chuẩn hóa gian hàng, viết listing chuẩn SEO, tối ưu hình ảnh bạn cung cấp</li><li>Chạy và tối ưu quảng cáo trong ngân sách bạn duyệt</li><li>Tìm, đề xuất và kết nối creator, affiliate, KOC tại Mỹ</li><li>Phân tích, đề xuất sản phẩm theo dữ liệu sàn; đề xuất định dạng và brief quảng cáo</li><li>Theo dõi đồng bộ đơn sang kho fulfillment, tồn kho, cảnh báo nhập hàng trước khi hết</li><li>Xử lý hoàn hủy, khiếu nại theo chính sách sàn, lập hồ sơ kháng nghị</li><li>Đăng ký chiến dịch khuyến mãi của sàn, báo cáo và đối soát định kỳ</li></ul></div>
-          <div><p class="stl">Làm thêm theo nhu cầu</p><ul class="inc"><li>Sản xuất hình ảnh, video gốc; hoa hồng, hàng mẫu gửi creator</li><li>Đăng ký pháp lý sản phẩm (FDA, nhãn mác, sở hữu trí tuệ), xuất nhập khẩu, vận chuyển quốc tế, vận hành kho</li><li>Khiếu nại, đòi bồi thường với kho và đơn vị vận chuyển</li><li>Phần mềm, công cụ bên thứ ba</li></ul><p class="scope">Các phần làm thêm báo giá riêng theo từng shop. Ngân sách quảng cáo, phí kho, giá bán và quyết định sản phẩm do bạn quyết. Gian hàng đứng tên bạn, mình làm việc qua quyền phụ do sàn cho phép.</p></div>
-          <div><p class="stl">Bạn cần chuẩn bị</p><ul class="inc"><li>Sản phẩm dự kiến bán, số sản phẩm và tình trạng giấy tờ (FDA, nhãn mác)</li><li>Các sàn muốn bán, gian hàng đã có hay cần mở mới</li><li>Kho fulfillment tại Mỹ và đơn vị vận chuyển đang dùng (nếu có)</li><li>Ngân sách quảng cáo, creator mỗi tháng và mục tiêu doanh số</li></ul></div>
-        </div>
-        <p class="stl">Bắt đầu thế nào</p>
-        <ol class="stp vh-steps"><li>Nhắn Zalo cho mình, gửi thông tin sản phẩm và các sàn bạn muốn bán.</li><li>Hai bên trao đổi 30 đến 45 phút, mình báo phạm vi và giá trong 24 giờ.</li><li>Chốt phạm vi, ký hợp đồng; gian hàng có thể mở bán sau khoảng 4 tuần thiết lập.</li></ol>
-      </div>
-    </div>
-    <p class="lead" style="margin-top:26px;font-size:.95rem">Mình không cam kết doanh thu hay lợi nhuận cụ thể, kết quả còn phụ thuộc sản phẩm, giá, nguồn hàng và chính sách của sàn. Dịch vụ không thay thế tư vấn pháp lý, thuế, kế toán.</p>
-    <div class="chan two" style="margin-top:18px">
-      <a class="card mini" href="https://zalo.me/0796796492" target="_blank" rel="noopener"><div class="cl"><img src="img/zalo.svg" alt="" width="40" height="40"><div><h3>Liên hệ tư vấn qua Zalo</h3><p>0796 796 492</p></div></div></a>
-      <a class="card mini" href="mailto:nguyendinhhuy14052000@gmail.com"><div class="cl"><img src="img/gmail.svg" alt="" width="40" height="40"><div><h3>Hoặc gửi Gmail</h3><p>nguyendinhhuy14052000@gmail.com</p></div></div></a>
-    </div>
+<footer><div class="wrap">
+  <div class="f-h"><a class="brand" href="#top"><i aria-hidden="true"></i>Huy Tim</a><p class="f-t">Bán hàng bằng <em>dữ liệu thật</em>, không đoán mò.</p></div>
+  <div class="f-c">
+    <div><b>Dịch vụ</b><a href="#mentor">Mentor thực chiến</a><a href="#van-hanh">Vận hành shop</a><a href="#tai-lieu">Tài liệu FREE</a><a href="https://zalo.me/0796796492" target="_blank" rel="noopener">Dịch vụ khác, nhắn Zalo</a></div>
+    <div><b>Liên hệ</b><a href="https://zalo.me/0796796492" target="_blank" rel="noopener">Zalo 0796 796 492</a><a href="mailto:nguyendinhhuy14052000@gmail.com">nguyendinhhuy14052000@gmail.com</a></div>
+    <div><b>Theo dõi</b><a href="https://portfolio.huytim.com" target="_blank" rel="noopener">Portfolio</a><a href="https://www.tiktok.com/@huytimdata" target="_blank" rel="noopener">TikTok</a><a href="https://www.youtube.com/@huytim1405" target="_blank" rel="noopener">YouTube</a><a href="https://www.facebook.com/profile.php?id=100010185792295" target="_blank" rel="noopener">Facebook</a><a href="https://www.threads.com/@dh.timm" target="_blank" rel="noopener">Threads</a><a href="https://medium.com/@HuyTimBlog" target="_blank" rel="noopener">Medium</a></div>
   </div>
-</section>
+  <div class="f-l"><span>© <span id="y"></span> Huy Tim</span><span>Muốn hợp tác, đặt bài, hoặc trao đổi công việc? Nhắn mình qua Zalo hoặc email.</span></div>
+</div></footer>
 
-<section class="block grp" id="du-lieu">
-  <div class="wrap center">
-    <h2 class="serif">Nghiên cứu sản phẩm &amp; dữ liệu.</h2>
-    <p class="lead">Từ báo cáo qua email cho người chưa biết bán gì, tới phân tích toàn diện cho shop đang chạy, hoặc nghiên cứu nhiều sản phẩm cùng lúc.</p>
-    <div class="consult three" style="text-align:left">
-      <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="tag">Tìm ngách</span><span class="tag">Nhận qua email, không meeting</span></div>
-        <h3>Chưa Biết Bán Gì</h3>
-        <span class="price">79.000đ</span>
-        <p class="vibe">Có ý tưởng nhưng chưa biết <b>ngách này có tiềm năng không</b>, đối thủ ra sao.</p>
-        <p>Bạn nhận: báo cáo nghiên cứu ngách qua email, số liệu và khuyến nghị cụ thể theo ý tưởng của bạn.</p>
-        <span class="go">Điền form, nhận báo cáo →</span>
-      </a>
+<div class="mbar"><a class="btn o" href="#mentor">Xem mentor</a><a class="btn k" href="#van-hanh">Xem vận hành</a></div>
 
-      <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="rec">Gợi ý</span><span class="tag">Data toàn diện + Meeting riêng 45p</span><span class="tag">Giá, đối thủ, shop, creator, tồn kho</span></div>
-        <h3>Shop Đang Gặp Vấn Đề</h3>
-        <span class="price">149.000đ</span>
-        <p class="vibe">Giá chưa hợp lý, tăng trưởng chậm, chưa biết chọn <b>creator nào</b>, hoặc sợ hết hàng.</p>
-        <p>Bạn nhận: phân tích toàn diện (giá, đối thủ, sức khỏe shop, creator, tồn kho) + meeting riêng 45 phút.</p>
-        <span class="go">Điền form, chọn gói →</span>
-      </a>
-      <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="tag">Làm 2-3 sản phẩm 1 lần</span><span class="tag">Báo cáo hàng tháng, không họp</span></div>
-        <h3>Nghiên Cứu Nhiều Sản Phẩm &amp; Báo Cáo Hàng Tháng</h3>
-        <span class="price">Chỉ từ 250.000đ</span>
-        <p class="vibe">Cần <b>nhiều hơn 1 gói nghiên cứu</b> cùng lúc, hoặc muốn <b>nhận báo cáo giá/tồn kho định kỳ</b> hàng tháng, không cần họp hay xử lý gì thêm.</p>
-        <p>Ghép 2-3 gói 1 lần: 250.000 - 380.000đ. Chỉ nhận báo cáo định kỳ hàng tháng (không họp): 500.000 - 900.000đ tùy số sản phẩm.</p>
-        <p class="scope"><b>Giá cuối tùy phạm vi.</b> Giá tăng theo số sản phẩm cần nghiên cứu và số tháng theo dõi. Mình báo giá trong 24 giờ.</p>
-        <span class="go">Điền form, nhận báo giá →</span>
-      </a>
-    </div>
-    <p class="note" style="margin-top:22px;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:#555">Điền form để mình biết bạn chọn gói nào, sau đó liên hệ trao đổi phạm vi, báo giá và thời gian.</p>
-  </div>
-</section>
-
-<section class="block grp" id="cong-nghe">
-  <div class="wrap center">
-    <h2 class="serif">Công nghệ &amp; ứng dụng data cho vận hành.</h2>
-    <p class="lead">Không chỉ phân tích, mình còn dựng luôn phần kỹ thuật: dashboard, luồng data tự động và ứng dụng riêng để shop vận hành nhẹ hơn.</p>
-    <div class="consult three" style="text-align:left">
-      <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="tag">Dashboard</span><span class="tag">Looker Studio / Power BI</span></div>
-        <h3>Dashboard Vận Hành</h3>
-        <span class="price">Chỉ từ 990.000đ</span>
-        <p class="vibe">Đang <b>tự tổng hợp số liệu thủ công</b> mỗi ngày từ nhiều sàn, nhiều file.</p>
-        <p>Bạn nhận: dashboard doanh thu, tồn kho, ads, lợi nhuận, cập nhật dữ liệu theo nguồn bạn đang dùng. Kết nối đa sàn phức tạp: báo giá riêng.</p>
-        <p class="scope"><b>Giá cuối tùy phạm vi.</b> Giá tăng theo số nguồn dữ liệu và số sàn cần nối. Mình báo giá trong 24 giờ.</p>
-        <span class="go">Điền form, nhận báo giá →</span>
-      </a>
-      <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="rec">Gợi ý</span><span class="tag">Pipeline dữ liệu</span><span class="tag">Tự động hóa</span></div>
-        <h3>Setup Luồng Data</h3>
-        <span class="price">Chỉ từ 1.490.000đ</span>
-        <p class="vibe">Dữ liệu nằm rải rác trên Shopee, TikTok Shop, Amazon, <b>không có 1 nơi tập trung</b>.</p>
-        <p>Bạn nhận: luồng tự động gom data các sàn về Google Sheets hoặc BigQuery, báo cáo tự cập nhật, không cần copy tay.</p>
-        <p class="scope"><b>Giá cuối tùy phạm vi.</b> Giá tăng theo số sàn, số nguồn dữ liệu và mức độ tự động hóa. Mình báo giá trong 24 giờ.</p>
-        <span class="go">Điền form, nhận báo giá →</span>
-      </a>
-      <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="tag">Tool riêng cho shop</span><span class="tag">Lập trình theo yêu cầu</span></div>
-        <h3>Xây Ứng Dụng Data Riêng</h3>
-        <span class="price">Chỉ từ 4.900.000đ</span>
-        <p class="vibe">Cần <b>công cụ riêng</b> mà phần mềm có sẵn không làm được.</p>
-        <p>Bạn nhận: ứng dụng nội bộ theo đúng quy trình của shop, như tính giá, cảnh báo tồn kho, đối soát đơn, đồng bộ đa sàn.</p>
-        <p class="scope"><b>Giá cuối tùy phạm vi.</b> Giá theo số tính năng và độ phức tạp của quy trình cần làm. Mình báo giá trong 24 giờ.</p>
-        <span class="go">Điền form, nhận báo giá →</span>
-      </a>
-    </div>
-    <p class="note" style="margin-top:22px;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:#555">Cần bảo trì, sửa lỗi, thêm tính năng sau khi hoàn thành: từ 490.000đ/tháng. Điền form để mình liên hệ trao đổi phạm vi và báo giá.</p>
-  </div>
-</section>
-
-<section class="block grp" id="setup">
-  <div class="wrap center">
-    <h2 class="serif">Setup vận hành bán hàng.</h2>
-    <p class="lead">Mình đã tự làm cả hai thị trường. Chọn thị trường bạn muốn bán, rồi chọn gói theo đúng tình trạng của bạn.</p>
-    <div class="seg" role="tablist"><button type="button" class="on" data-m="vn">Việt Nam</button><button type="button" data-m="us">Mỹ</button></div>
-    <div class="mk" id="mk-vn">
-      <p class="lead">Mình đã tự nhập hàng từ Trung Quốc về và setup bán trên TikTok Shop, Shopee.</p>
-      <div class="consult three" style="text-align:left">
-        <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-          <div class="tags"><span class="tag">1 vấn đề cụ thể</span><span class="tag">45 phút</span></div>
-          <h3>VN – Gỡ Vướng Nhanh</h3>
-          <span class="price">99.000đ/buổi</span>
-          <p class="vibe">Đã biết làm, chỉ đang bị <b>vướng đúng 1 chỗ</b>.</p>
-          <p>Bạn nhận: 1 buổi 45 phút giải quyết đúng vấn đề đang gặp.</p>
-          <span class="go">Điền form, đặt lịch →</span>
-        </a>
-        <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-          <div class="tags"><span class="rec">Gợi ý</span><span class="tag">Họp hàng tuần</span><span class="tag">Hỗ trợ nhắn tin liên tục</span></div>
-          <h3>VN – Đồng Hành Mở Rộng</h3>
-          <span class="price">Chỉ từ 690.000đ/tháng</span>
-          <p class="vibe">Đang bán ổn, muốn <b>mở rộng quy mô</b> nhưng cần người đồng hành sát sao.</p>
-          <p>Bạn nhận: họp hàng tuần + nhắn tin hỗ trợ liên tục, mình trực tiếp xử lý vấn đề phát sinh cùng bạn.</p>
-          <p class="scope"><b>Giá cuối tùy phạm vi.</b> Giá tăng theo số buổi họp mỗi tuần và mức hỗ trợ. Mình báo giá trong 24 giờ.</p>
-        <span class="go">Điền form, đăng ký →</span>
-        </a>
-        <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-          <div class="tags"><span class="tag">Làm hộ toàn bộ</span><span class="tag">Nhập hàng TQ + TikTok Shop/Shopee</span></div>
-          <h3>VN – Setup Trọn Gói</h3>
-          <span class="price">Chỉ từ 2.000.000đ</span>
-          <p class="vibe">Có ngân sách, muốn người có kinh nghiệm <b>làm hộ</b>, không muốn tự mày mò.</p>
-          <p>Bạn nhận: mình trực tiếp setup toàn bộ, từ kết nối nguồn hàng Trung Quốc tới cấu hình gian hàng TikTok Shop/Shopee.</p>
-          <p class="scope"><b>Giá cuối tùy phạm vi.</b> Giá tăng theo số sàn, số sản phẩm và phần việc bạn cần mình làm hộ. Mình báo giá trong 24 giờ.</p>
-        <span class="go">Điền form, đặt gói →</span>
-        </a>
-      </div>
-    </div>
-    <div class="mk" id="mk-us" hidden>
-      <p class="lead">5 năm mình trực tiếp đưa hàng từ Việt Nam sang Mỹ, setup đa sàn (Shopify, Amazon, eBay, Faire) và vận hành fulfillment thật.</p>
-      <div class="consult three" style="text-align:left">
-        <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-          <div class="tags"><span class="tag">1 vấn đề cụ thể</span><span class="tag">45 phút</span></div>
-          <h3>US – Gỡ Vướng Nhanh</h3>
-          <span class="price">199.000đ/buổi</span>
-          <p class="vibe">Đã bán ở Mỹ, chỉ đang bị <b>vướng đúng 1 chỗ</b>.</p>
-          <p>Bạn nhận: 1 buổi 45 phút giải quyết đúng vấn đề đang gặp.</p>
-          <span class="go">Điền form, đặt lịch →</span>
-        </a>
-        <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-          <div class="tags"><span class="rec">Gợi ý</span><span class="tag">Họp hàng tuần</span><span class="tag">Hỗ trợ nhắn tin liên tục</span></div>
-          <h3>US – Đồng Hành Mở Rộng</h3>
-          <span class="price">Chỉ từ 1.290.000đ/tháng</span>
-          <p class="vibe">Đang bán ở Mỹ, muốn <b>mở rộng quy mô</b> nhưng cần người đồng hành sát sao.</p>
-          <p>Bạn nhận: họp hàng tuần + nhắn tin hỗ trợ liên tục.</p>
-          <p class="scope"><b>Giá cuối tùy phạm vi.</b> Giá tăng theo số buổi họp mỗi tuần và mức hỗ trợ. Mình báo giá trong 24 giờ.</p>
-        <span class="go">Điền form, đăng ký →</span>
-        </a>
-        <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-          <div class="tags"><span class="tag">Làm hộ toàn bộ</span><span class="tag">Đa sàn + Fulfillment</span></div>
-          <h3>US – Setup Trọn Gói</h3>
-          <span class="price">Chỉ từ 5.000.000đ</span>
-          <p class="vibe">Có ngân sách, muốn người đã tự làm thật việc này <b>setup hộ toàn bộ</b>.</p>
-          <p>Bạn nhận: mình trực tiếp setup toàn bộ đa sàn + cấu hình fulfillment dựa trên kinh nghiệm 5 năm thật đã làm.</p>
-          <p class="scope"><b>Giá cuối tùy phạm vi.</b> Giá tăng theo số sàn, số sản phẩm và phần việc bạn cần mình làm hộ. Mình báo giá trong 24 giờ.</p>
-        <span class="go">Điền form, đặt gói →</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="block grp" id="mentor">
-  <div class="wrap center">
-    <h2 class="serif">Mentor định hướng cho sinh viên &amp; người đi làm.</h2>
-    <p class="lead">Ngoài vận hành shop, mình cũng nhận mentor 1-1 về định hướng nghề nghiệp, chuyển ngành sang Data, dành cho sinh viên và người đi làm.</p>
-    <div class="consult" style="text-align:left">
-      <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="tag">Định hướng nghề nghiệp</span><span class="tag">1 buổi 45 phút</span></div>
-        <h3>Mentor 1 Buổi</h3>
-        <span class="price">149.000đ/buổi</span>
-        <p class="vibe">Sinh viên/người đi làm muốn <b>định hướng chuyển ngành, lộ trình học Data</b>.</p>
-        <p>Bạn nhận: 1 buổi 45 phút giải đáp đúng câu hỏi của bạn, dựa trên kinh nghiệm thật của mình.</p>
-        <span class="go">Điền form, đặt lịch →</span>
-      </a>
-      <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
-        <div class="tags"><span class="rec">Gợi ý</span><span class="tag">Đồng hành 4-5 buổi</span><span class="tag">Roadmap cá nhân hóa</span></div>
-        <h3>Mentor 4-5 Buổi</h3>
-        <span class="price">399.000đ</span>
-        <p class="vibe">Cần <b>đồng hành sát hơn</b> qua nhiều buổi: roadmap học tập, chuẩn bị hồ sơ, luyện phỏng vấn.</p>
-        <p>Bạn nhận: 4-5 buổi 45 phút, mỗi buổi 1 chủ đề cụ thể theo đúng lộ trình cá nhân của bạn.</p>
-        <span class="go">Điền form, đặt lịch →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="block" id="feedback">
-  <div class="wrap center">
-    <h2 class="serif">Khách hàng nói gì.</h2>
-    <p class="lead">Một vài chia sẻ từ những người đã trao đổi và làm việc cùng mình.</p>
-  </div>
-  <div class="marquee" aria-label="Feedback từ khách hàng">
-    <div class="track" id="track">
-      <div class="grp">
-        <figure class="fb"><blockquote>Mình nhờ anh Huy hỗ trợ toàn bộ quy trình, và hiện tại store của mình đã vận hành ổn.</blockquote><figcaption><b>Khách hàng gói setup</b><span>Được hỗ trợ toàn bộ quy trình mở store</span></figcaption></figure>
-        <figure class="fb"><blockquote>Mình nhờ anh Huy nghiên cứu sản phẩm và fulfillment US, mình nhận được rất nhiều thông tin và kiến thức.</blockquote><figcaption><b>Khách hàng bán hàng sang Mỹ</b><span>Nghiên cứu sản phẩm và fulfillment US</span></figcaption></figure>
-        <figure class="fb"><blockquote>Mình mất 2 tháng tự tìm hiểu mà vẫn chưa nắm hết. Sau 1, 2 buổi mentor cùng anh Huy, mình nắm được quy trình và toàn bộ các vấn đề cần triển khai.</blockquote><figcaption><b>Khách hàng gói mentor</b><span>Nắm quy trình chỉ sau 1-2 buổi</span></figcaption></figure>
-        <figure class="fb"><blockquote>Mình đang làm Finance và rất phân vân có nên chuyển sang BA hay Data Science. Mình gửi trước danh sách câu hỏi về lộ trình, kỹ năng nhà tuyển dụng cần và chứng chỉ. Anh Huy phân tích kỹ rồi hỗ trợ ngay trong buổi meeting nên mình nắm rõ hướng đi hơn hẳn.</blockquote><figcaption><b>Khách hàng gói tư vấn</b><span>Đang chuyển ngành từ Finance sang Data</span></figcaption></figure>
-        <figure class="fb"><blockquote>Anh nhiệt tình thật sự! Ngoài phần trả lời câu hỏi, anh còn chia sẻ thêm blog và kinh nghiệm học tập, làm việc để mình đọc thêm. Cảm ơn anh rất nhiều.</blockquote><figcaption><b>Khách hàng gói tư vấn</b><span>Hỏi về học thuật và định hướng nghề nghiệp</span></figcaption></figure>
-        <figure class="fb"><blockquote>Xưởng mình đang xuất khẩu số lượng lớn nhưng muốn bán lẻ. Mình nhờ anh Huy hỗ trợ tìm dữ liệu và insight để bán thử. Hai bên đặt lịch, chuẩn bị bộ câu hỏi trước nên buổi trao đổi đi vào trọng tâm và mình được hỗ trợ rất rõ ràng.</blockquote><figcaption><b>Chủ xưởng sản phẩm thú cưng</b><span>Nghiên cứu dữ liệu để bán lẻ</span></figcaption></figure>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Mục mã ưu đãi công cụ: tạm ẩn. Bỏ hidden và style để hiện lại. -->
-<section class="block" id="uu-dai" hidden style="display:none">
-  <div class="wrap center">
-    <h2 class="serif">Mã ưu đãi công cụ.</h2>
-    <p class="lead">Các công cụ dữ liệu mình dùng để nghiên cứu sản phẩm. Dùng mã bên dưới khi đăng ký để được ưu đãi.</p>
-    <div class="codes" style="text-align:left">
-      <div class="code-card">
-        <div class="tag brand"><img class="brand-ic" src="img/tools/kalodata.png" alt="" loading="lazy">Kalodata</div>
-        <div class="code serif">HUYTIM2000</div>
-        <p>Giảm 10-15%. Phân tích dữ liệu TikTok Shop: nghiên cứu sản phẩm, ngành và cửa hàng. Nhập mã khi thanh toán.</p>
-        <button class="btn copy" type="button" data-code="HUYTIM2000">Sao chép mã</button>
-        <div class="links">
-          <a href="https://www.kalodata.com/pricing" target="_blank" rel="noopener">Bảng giá ↗</a>
-          <a href="https://www.kalodata.com/pilot/share/file?task_id=8b02c7fb3b264bc4b5e276e932249380&tool_call_id=toolu_c71f0a66de5c40c5b08da803" target="_blank" rel="noopener">Cách tìm ngách ↗</a>
-          <a href="https://www.kalodata.com/pilot/share/file?task_id=8b02c7fb3b264bc4b5e276e932249380&tool_call_id=toolu_8dcd7cf0d1674aaca7886ae0" target="_blank" rel="noopener">Ngách trong ngách ↗</a>
-        </div>
-      </div>
-      <div class="code-card">
-        <div class="tag brand"><img class="brand-ic" src="img/tools/fastmoss.png" alt="" loading="lazy">FastMoss</div>
-        <div class="code serif">HT2000</div>
-        <p>Giảm 10-15%. Công cụ phân tích dữ liệu TikTok Shop. Nhập mã khi đăng ký để nhận ưu đãi.</p>
-        <button class="btn copy" type="button" data-code="HT2000">Sao chép mã</button>
-        <div class="links"><a href="https://www.fastmoss.com" target="_blank" rel="noopener">fastmoss.com ↗</a></div>
-      </div>
-      <div class="code-card">
-        <div class="tag brand"><img class="brand-ic" src="img/tools/collanote.jpg" alt="" loading="lazy">CollaNote</div>
-        <div class="code serif">HUYTIM50</div>
-        <p>Giảm 50%. Ứng dụng ghi chú có đánh dấu PDF, công cụ AI và flashcard. Nhập mã khi thanh toán.</p>
-        <button class="btn copy" type="button" data-code="HUYTIM50">Sao chép mã</button>
-        <div class="links"><a href="https://collanote.com" target="_blank" rel="noopener">collanote.com ↗</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="block" id="kenh">
-  <div class="wrap center">
-    <h2 class="serif">Các kênh của mình.</h2>
-    <div class="chan">
-      <a class="card mini" href="https://portfolio.huytim.com" target="_blank" rel="noopener"><img class="lg" src="img/portfolio.png" alt="portfolio" width="40" height="40"><div><h3>/portfolio</h3><p>portfolio.huytim.com</p></div></a>
-      <a class="card mini" href="https://www.tiktok.com/@huytimdata" target="_blank" rel="noopener"><img class="lg" src="img/tiktok-icon.svg" alt="tiktok" width="40" height="40"><div><h3>/tiktok</h3><p>@huytimdata</p></div></a>
-      <a class="card mini" href="https://www.youtube.com/@huytim1405" target="_blank" rel="noopener"><img class="lg" src="img/youtube-icon.svg" alt="youtube" width="40" height="40"><div><h3>/youtube</h3><p>@huytim1405</p></div></a>
-      <a class="card mini" href="https://www.facebook.com/profile.php?id=100010185792295" target="_blank" rel="noopener"><img class="lg" src="img/facebook.svg" alt="facebook" width="40" height="40"><div><h3>/facebook</h3><p>Huy Tim</p></div></a>
-      <a class="card mini" href="https://www.threads.com/@dh.timm" target="_blank" rel="noopener"><img class="lg" src="img/threads-icon.svg" alt="threads" width="40" height="40"><div><h3>/threads</h3><p>@dh.timm</p></div></a>
-      <a class="card mini" href="https://medium.com/@HuyTimBlog" target="_blank" rel="noopener"><img class="lg" src="img/medium-icon.svg" alt="medium" width="40" height="40"><div><h3>/medium</h3><p>@HuyTimBlog</p></div></a>
-    </div>
-  </div>
-</section>
-
-<section class="block" id="hop-tac">
-  <div class="wrap center">
-    <h2 class="serif">Liên hệ hợp tác.</h2>
-    <p class="lead">Muốn hợp tác, đặt bài, hoặc trao đổi công việc? Nhắn mình qua Zalo hoặc email.</p>
-    <div class="chan two">
-      <a class="card mini" href="https://zalo.me/0796796492" target="_blank" rel="noopener"><div class="cl"><img src="img/zalo.svg" alt="" width="40" height="40"><div><h3>Zalo</h3><p>0796 796 492</p></div></div></a>
-      <a class="card mini" href="mailto:nguyendinhhuy14052000@gmail.com"><div class="cl"><img src="img/gmail.svg" alt="" width="40" height="40"><div><h3>Gmail</h3><p>nguyendinhhuy14052000@gmail.com</p></div></div></a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="l">
-    <a href="https://portfolio.huytim.com" target="_blank" rel="noopener">Portfolio</a>
-    <a href="https://zalo.me/0796796492" target="_blank" rel="noopener">Zalo</a>
-    <a href="mailto:nguyendinhhuy14052000@gmail.com">Email</a>
-  </div>
-  © <span id="y"></span> Huy Tim
-</footer>
-
-<script>
-  document.getElementById('y').textContent=new Date().getFullYear();
-  document.querySelectorAll('.copy[data-code]').forEach(b=>b.addEventListener('click',()=>{
-    navigator.clipboard.writeText(b.dataset.code).then(()=>{const t=b.textContent;b.textContent='Đã sao chép!';setTimeout(()=>b.textContent=t,1800)})}));
-  (function(){const t=document.getElementById('track');if(!t)return;const g=t.querySelector('.grp');
-    if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-    let c=g.cloneNode(true);c.setAttribute('aria-hidden','true');t.appendChild(c);
-    // ensure each group is wide enough to cover the viewport, then repeat so the loop is seamless
-    while(g.offsetWidth<innerWidth*1.1){[...g.children].slice(0,3).forEach(n=>{const k=n.cloneNode(true);g.appendChild(k);c.appendChild(k.cloneNode(true))});}
-  })();
-  (function(){const t=document.getElementById('logoTrack');if(!t)return;const g=t.querySelector('.logo-grp');
-    if(matchMedia('(prefers-reduced-motion: reduce)').matches){t.style.animation='none';t.parentElement.style.overflowX='auto';return}
-    const base=[...g.children].map(n=>n.cloneNode(true));
-    function build(){
-      t.querySelectorAll('.logo-grp[aria-hidden]').forEach(x=>x.remove());
-      g.innerHTML='';base.forEach(n=>g.appendChild(n.cloneNode(true)));
-      let guard=0;
-      while(g.offsetWidth<innerWidth*1.2&&guard++<10){base.forEach(n=>{const k=n.cloneNode(true);k.alt='';g.appendChild(k)})}
-      const c=g.cloneNode(true);c.setAttribute('aria-hidden','true');t.appendChild(c);
-      t.style.animationDuration=Math.max(24,Math.round(g.offsetWidth/70))+'s';
-    }
-    build();addEventListener('load',build);
-    let to;addEventListener('resize',function(){clearTimeout(to);to=setTimeout(build,200)});
-  })();
-</script>
-<script>
-document.querySelectorAll('.pick').forEach(function(b){b.addEventListener('click',function(){
-  var id=b.dataset.t,sec=document.getElementById(id),was=sec.classList.contains('open');
-  document.querySelectorAll('section.grp').forEach(function(x){x.classList.remove('open')});
-  document.querySelectorAll('.pick').forEach(function(x){x.classList.remove('on');x.setAttribute('aria-expanded','false')});
-  if(!was){sec.classList.add('open');b.classList.add('on');b.setAttribute('aria-expanded','true');
-    setTimeout(function(){sec.scrollIntoView({behavior:'smooth',block:'start'})},30)}
-})});
-</script>
-<script>
-document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener('click',function(){
-  document.querySelectorAll('.seg button').forEach(function(x){x.classList.toggle('on',x===b)});
-  document.getElementById('mk-vn').hidden=b.dataset.m!=='vn';document.getElementById('mk-us').hidden=b.dataset.m!=='us';
-})});
-</script>
-<script>
-document.querySelectorAll('#vhSeg button').forEach(function(b){b.addEventListener('click',function(){
-  document.querySelectorAll('#vhSeg button').forEach(function(x){x.classList.toggle('on',x===b)});
-  document.getElementById('vh-vn').hidden=b.dataset.vh!=='vn';document.getElementById('vh-us').hidden=b.dataset.vh!=='us';
-})});
-</script>
 <div class="modal" id="docModal" hidden>
   <div class="mbox" role="dialog" aria-modal="true" aria-labelledby="docTitle" tabindex="-1">
     <button type="button" class="mclose" aria-label="Đóng">×</button>
-    <h2 class="serif" id="docTitle">Tài liệu miễn phí.</h2>
+    <h2 class="sf" id="docTitle">Tài liệu miễn phí.</h2>
     <div class="mentor-cta">
       <b>Muốn bán hàng từ con số 0?</b>
       <p>Chọn dịch vụ phù hợp với bạn, mình sẽ giúp bạn setup từ đầu tới cuối cho tới khi ra đơn.</p>
-      <button type="button" class="mgo" data-goto>Chọn dịch vụ phù hợp ↓</button>
+      <button type="button" class="mgo" data-goto>Xem gói mentor ↓</button>
     </div>
     <p class="mlead">Hoặc chọn bộ tài liệu bạn cần:</p>
     <div class="docs" id="docs"></div>
@@ -868,30 +572,32 @@ document.querySelectorAll('#vhSeg button').forEach(function(b){b.addEventListene
 </script>
 <script>
 (function(){
-  var m=document.getElementById('docModal');if(!m)return;var box=m.querySelector('.mbox'),last=null;
+  document.getElementById('y').textContent=new Date().getFullYear();
+  var b=document.getElementById('menuB'),n=document.getElementById('nav');
+  function menu(o){n.classList.toggle('open',o);b.setAttribute('aria-expanded',String(o))}
+  b.addEventListener('click',function(){menu(!n.classList.contains('open'))});
+  n.addEventListener('click',function(e){if(e.target.closest('a'))menu(false)});
+
+  document.querySelectorAll('#mtSeg button').forEach(function(x,_,all){x.addEventListener('click',function(){
+    all.forEach(function(y){var on=y===x;y.classList.toggle('on',on);y.setAttribute('aria-pressed',String(on));document.getElementById('mt-'+y.dataset.k).hidden=!on})
+  })});
+
+  var OT={vn:'Vận hành gian hàng Việt Nam',us:'Vận hành gian hàng thị trường Mỹ'},acs=document.querySelectorAll('.ac');
+  function market(k){acs.forEach(function(a){var on=a.dataset.ac===k,bt=a.querySelector('button');a.classList.toggle('on',on);bt.setAttribute('aria-expanded',String(on));bt.querySelector('i').textContent=on?'–':'+'});
+    ['vn','us'].forEach(function(i){document.getElementById('op-'+i).hidden=i!==k;document.getElementById('st-'+i).hidden=i!==k});
+    document.getElementById('opT').textContent=OT[k]}
+  acs.forEach(function(a){a.querySelector('button').addEventListener('click',function(){market(a.dataset.ac)})});
+
+  var m=document.getElementById('docModal'),box=m.querySelector('.mbox'),last=null;
   function show(){last=document.activeElement;m.hidden=false;document.body.classList.add('mopen');box.focus()}
   function hide(){m.hidden=true;document.body.classList.remove('mopen');if(last&&last.focus)last.focus()}
-  document.querySelectorAll('a[href="#tai-lieu"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();show()})});
+  document.querySelectorAll('a[href="#tai-lieu"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();menu(false);show()})});
   m.querySelector('.mclose').addEventListener('click',hide);
-  m.addEventListener('click',function(e){if(e.target===m)hide()});
+  m.addEventListener('click',function(e){
+    if(e.target===m)return hide();
+    if(e.target.closest('[data-goto]')){e.preventDefault();hide();document.getElementById('mentor').scrollIntoView()}
+  });
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden)hide()});
-  m.addEventListener('click',function(e){var t=e.target.closest('[data-goto]');if(!t)return;e.preventDefault();hide();
-    if(window.openGoi)window.openGoi();var sec=document.getElementById('chon-nhom');if(sec)setTimeout(function(){sec.scrollIntoView({behavior:'smooth',block:'start'})},30)});
-})();
-</script>
-<script>
-(function(){
-  var btn=document.getElementById('goiToggle'),panel=document.getElementById('goiPanel');if(!btn||!panel)return;
-  function set(open){panel.hidden=!open;btn.setAttribute('aria-expanded',String(open));btn.querySelector('.lb').textContent=open?'Ẩn các gói mentor':'Xem các gói mentor';var h=document.getElementById('goiHint');if(h)h.hidden=open}
-  btn.addEventListener('click',function(){set(panel.hidden)});
-  window.openGoi=function(){set(true)};
-  if(location.hash==='#chon-nhom')set(true);
-})();
-</script>
-<script>
-(function(){
-  var b=document.getElementById('hsToggle'),p=document.getElementById('hsPanel');if(!b||!p)return;
-  b.addEventListener('click',function(){var o=p.hidden;p.hidden=!o;b.setAttribute('aria-expanded',String(o));b.querySelector('.lb').textContent=o?'Ẩn hồ sơ khởi nghiệp':'Xem hồ sơ khởi nghiệp của mình'});
 })();
 </script>
 </body>
