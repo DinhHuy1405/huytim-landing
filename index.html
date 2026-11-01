@@ -364,14 +364,17 @@
   @media(max-width:760px){.me-g{grid-template-columns:1fr;gap:26px}.me-ph{max-width:260px}}
 
   /* Hai nút chọn dịch vụ */
-  .dv2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:880px;margin:30px auto 0}
+  .dv2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:1040px;margin:34px auto 0}
   @media(max-width:700px){.dv2{grid-template-columns:1fr}}
-  .dv2 .goi-toggle{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:0;min-width:0;width:100%;font-size:1.05rem;line-height:1.35;padding:18px 22px}
+  .dv2 .goi-toggle{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:0;min-width:0;width:100%;font-size:clamp(1.05rem,1.7vw,1.25rem);font-weight:500;line-height:1.35;padding:26px 26px 28px;min-height:150px}
   .dv2 .goi-toggle .cv{margin-left:0;flex:none}
-  .dv2 .goi-toggle .lb{text-wrap:balance}
+  .dv2 .goi-toggle .lb{flex:1;text-wrap:balance}
+  .dv2 .goi-toggle .lb b{display:block;font-family:Fraunces,serif;font-weight:800;font-size:clamp(1.7rem,3vw,2.3rem);letter-spacing:-.02em;line-height:1.15;margin-bottom:6px}
+  .dv2 .goi-toggle .cv{font-size:1.5rem}
   .dv2 .goi-toggle[aria-expanded="true"]{background:#ffe978}
-  .goi-hint a{font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
-  .goi-hint{margin-top:20px}
+  .dv-z{display:flex;align-items:center;justify-content:center;gap:12px;max-width:1040px;margin:22px auto 0;font-size:clamp(1.02rem,1.7vw,1.2rem);line-height:1.35;padding:18px 22px}
+  .dv-z img{flex:none;border-radius:8px}
+  .dv-z b{font-weight:600;white-space:nowrap;text-decoration:underline;text-underline-offset:3px}
   #van-hanh[hidden]{display:none}
   #van-hanh{padding-top:44px}
 </style>
@@ -431,10 +434,10 @@
   <div class="wrap center">
     <h2 class="serif">Chọn dịch vụ phù hợp với bạn.</h2>
     <div class="dv2">
-      <button type="button" class="btn goi-toggle" id="goiToggle" data-p="goiPanel" aria-expanded="false" aria-controls="goiPanel"><span class="lb">Mentoring thực chiến bán hàng Việt Nam, US</span><span class="cv" aria-hidden="true">&#8595;</span></button>
-      <button type="button" class="btn goi-toggle" id="vhToggle" data-p="van-hanh" aria-expanded="false" aria-controls="van-hanh"><span class="lb">Vận hành và Setup bán hàng Việt Nam và US cho cá nhân và doanh nghiệp</span><span class="cv" aria-hidden="true">&#8595;</span></button>
+      <button type="button" class="btn goi-toggle" id="goiToggle" data-p="goiPanel" aria-expanded="false" aria-controls="goiPanel"><span class="lb"><b>Mentoring thực chiến</b> bán hàng Việt Nam, US</span><span class="cv" aria-hidden="true">&#8595;</span></button>
+      <button type="button" class="btn goi-toggle" id="vhToggle" data-p="van-hanh" aria-expanded="false" aria-controls="van-hanh"><span class="lb"><b>Vận hành và Setup</b> bán hàng Việt Nam và US cho cá nhân và doanh nghiệp</span><span class="cv" aria-hidden="true">&#8595;</span></button>
     </div>
-    <p class="goi-hint">Muốn biết thêm thông tin? <a href="https://zalo.me/0796796492" target="_blank" rel="noopener">Liên hệ Zalo của Huy</a></p>
+    <a class="btn dv-z" href="https://zalo.me/0796796492" target="_blank" rel="noopener"><img src="img/zalo.svg" alt="" width="30" height="30"><span>Muốn biết thêm thông tin? <b>Liên hệ Zalo của Huy</b></span></a>
     <div id="goiPanel" hidden>
     <div class="alert" role="note"><b>Đây không phải khóa học.</b><span>Đây là mentor: theo sát toàn bộ quy trình, bài tập thực chiến, support, và meeting 1 kèm 1 hàng tuần.</span></div>
     <div class="consult three" style="text-align:left">
