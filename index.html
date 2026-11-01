@@ -350,6 +350,18 @@
   .logo-grp img[alt="TikTok Shop"]{height:96px}.logo-grp img[alt="Shopify"]{height:60px}.logo-grp img[alt="AliExpress"]{height:48px}.logo-grp img[alt="Amazon"]{height:54px}.logo-grp img[alt="Taobao"]{height:54px}
   @keyframes ltr{from{transform:translateX(-50%)}to{transform:translateX(0)}}
   @media(prefers-reduced-motion:reduce){.track{animation:none}.marquee{overflow-x:auto}}
+
+  /* Giới thiệu: ảnh trái, chữ phải */
+  .me-g{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:56px;align-items:center;max-width:980px}
+  .me-ph{width:100%;height:auto;aspect-ratio:1;object-fit:cover;object-position:42% 30%;border:2.5px solid var(--ink);border-radius:24px;box-shadow:-6px 6px 0 #111}
+  .me-k{font-family:"JetBrains Mono",monospace;font-size:.8rem;color:#555;margin-bottom:10px}
+  .me-tx h2{font-size:clamp(2.1rem,4.4vw,3.2rem);margin-bottom:18px}
+  .me-tx>p:not(.me-k){font-size:1.08rem;color:#222;margin-bottom:12px}
+  .me-tx p b{font-weight:600;background:#fff2b8;padding:0 4px;border-radius:4px}
+  .me-act{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;margin-top:22px}
+  .me-act .hs-toggle{margin-top:0;font-size:.98rem;padding:13px 22px}
+  .me-l{font-family:"JetBrains Mono",monospace;font-size:.84rem;text-decoration:underline;text-underline-offset:4px}
+  @media(max-width:760px){.me-g{grid-template-columns:1fr;gap:26px}.me-ph{max-width:260px}}
 </style>
 </head>
 <body>
@@ -384,24 +396,22 @@
 </header>
 
 <section class="block" id="ve-minh">
-  <div class="wrap about">
-    <div>
-      <div class="who">
-        <img class="avatar" src="img/profile.jpg" alt="Huy Tim" width="64" height="64">
-        <div><b>Huy Tim</b><span>Dữ liệu &amp; vận hành thương mại điện tử</span></div>
-      </div>
+  <div class="wrap me-g">
+    <img class="me-ph" src="img/profile.jpg" alt="Huy Tim" width="512" height="512">
+    <div class="me-tx">
+      <p class="me-k">Dữ liệu &amp; vận hành thương mại điện tử</p>
       <h2 class="serif">Chào bạn, mình là Huy Tim.</h2>
       <p>Mình là <b>Thạc sĩ Khoa học Dữ liệu và Trí tuệ Nhân tạo</b> tại Université Côte d'Azur (Pháp), học bổng Erasmus.</p>
       <p>Hơn <b>5 năm trực tiếp vận hành thương mại điện tử trên thị trường Hoa Kỳ</b>, tự tay làm sản phẩm, giá bán, quảng cáo và nghiên cứu bằng dữ liệu thật.</p>
-      <div class="chips">
-        <a class="chip" href="https://portfolio.huytim.com" target="_blank" rel="noopener">portfolio.huytim.com ↗</a>
+      <div class="me-act">
+        <button type="button" class="btn light hs-toggle" id="hsToggle" aria-expanded="false" aria-controls="hsPanel"><span class="lb">Xem hồ sơ khởi nghiệp của mình</span><span class="cv" aria-hidden="true">&#8595;</span></button>
+        <a class="me-l" href="https://portfolio.huytim.com" target="_blank" rel="noopener">portfolio.huytim.com ↗</a>
       </div>
-    <button type="button" class="btn light hs-toggle" id="hsToggle" aria-expanded="false" aria-controls="hsPanel"><span class="lb">Xem hồ sơ khởi nghiệp của mình</span><span class="cv" aria-hidden="true">&#8595;</span></button>
-    <div id="hsPanel" class="hs-panel" hidden>
-      <h3 class="hs-h">Giải thưởng khởi nghiệp và công nghệ</h3><ul class="hs-list"><li class="hs-row"><a class="hs-ph" href="img/hoso/uavs.jpg" target="_blank" rel="noopener"><img src="img/hoso/uavs.jpg" alt="Giải nhất cuộc thi lập trình quốc tế và khởi nghiệp UAVS Hackatrix Australia" loading="lazy" style="object-position:50% 15%"></a><div class="hs-tx"><b>Giải nhất cuộc thi lập trình quốc tế và khởi nghiệp UAVS Hackatrix Australia</b><span>2021</span></div></li><li class="hs-row"><a class="hs-ph" href="img/hoso/inte.jpg" target="_blank" rel="noopener"><img src="img/hoso/inte.jpg" alt="Giải nhì cuộc thi Khởi nghiệp Công nghệ trong Sinh viên lần thứ nhất" loading="lazy" style="object-position:50% 70%"></a><div class="hs-tx"><b>Giải nhì cuộc thi Khởi nghiệp Công nghệ trong Sinh viên lần thứ nhất</b><span>2021, Đà Nẵng</span></div></li><li class="hs-row"><a class="hs-ph" href="img/hoso/hult.jpg" target="_blank" rel="noopener"><img src="img/hoso/hult.jpg" alt="Giải nhì cuộc thi khởi nghiệp Hult Prize" loading="lazy" style="object-position:50% 70%"></a><div class="hs-tx"><b>Giải nhì cuộc thi khởi nghiệp Hult Prize</b><span>Runner-up</span></div></li><li class="hs-row"><a class="hs-ph" href="img/hoso/runway.jpg" target="_blank" rel="noopener"><img src="img/hoso/runway.jpg" alt="Giải nhất cuộc thi khởi nghiệp Đà Nẵng Startup Runway" loading="lazy" style="object-position:50% 35%"></a><div class="hs-tx"><b>Giải nhất cuộc thi khởi nghiệp Đà Nẵng Startup Runway</b><span>2021, Đà Nẵng</span></div></li><li class="hs-row"><a class="hs-ph" href="img/hoso/bachkhoa.jpg" target="_blank" rel="noopener"><img src="img/hoso/bachkhoa.jpg" alt="Giải nhì Khoa học Công nghệ, Đại học Bách Khoa Đà Nẵng" loading="lazy" style="object-position:50% 30%"></a><div class="hs-tx"><b>Giải nhì Khoa học Công nghệ, Đại học Bách Khoa Đà Nẵng</b><span>Giải báo cáo và giải công nghệ, 2022</span></div></li></ul><h3 class="hs-h">Sản phẩm</h3><ul class="hs-list"><li class="hs-row"><a class="hs-ph" href="img/hoso/sanpham.jpg" target="_blank" rel="noopener"><img src="img/hoso/sanpham.jpg" alt="Các sản phẩm công nghệ thực tế khác" loading="lazy" style="object-position:50% 40%"></a><div class="hs-tx"><b>Các sản phẩm công nghệ thực tế khác</b></div></li></ul><h3 class="hs-h">Học vấn</h3><ul class="hs-list"><li class="hs-row"><a class="hs-ph" href="img/profile.jpg" target="_blank" rel="noopener"><img src="img/profile.jpg" alt="Huy Tim" loading="lazy" style="object-position:50% 25%"></a><div class="hs-tx"><b>Học bổng Erasmus, Khoa học Dữ liệu và Trí tuệ Nhân tạo tại Université Côte d'Azur, Pháp</b></div></li></ul><h3 class="hs-h">Thương mại điện tử</h3><ul class="hs-list"><li class="hs-row nophoto"><div class="hs-tx"><b>Từ 2021: bắt đầu bán hàng thương mại điện tử US đa nền tảng</b><span>Tái cấu trúc hệ thống, chi phí và vận hành</span></div></li><li class="hs-row nophoto"><div class="hs-tx"><b>Hơn 5 năm bán các loại hàng hóa đặc trưng Việt Nam tại US</b><span>Năm 2026: kinh doanh tại thị trường Việt Nam</span></div></li></ul>
-    </div>
     </div>
   </div>
+  <div class="wrap"><div id="hsPanel" class="hs-panel" hidden>
+      <h3 class="hs-h">Giải thưởng khởi nghiệp và công nghệ</h3><ul class="hs-list"><li class="hs-row"><a class="hs-ph" href="img/hoso/uavs.jpg" target="_blank" rel="noopener"><img src="img/hoso/uavs.jpg" alt="Giải nhất cuộc thi lập trình quốc tế và khởi nghiệp UAVS Hackatrix Australia" loading="lazy" style="object-position:50% 15%"></a><div class="hs-tx"><b>Giải nhất cuộc thi lập trình quốc tế và khởi nghiệp UAVS Hackatrix Australia</b><span>2021</span></div></li><li class="hs-row"><a class="hs-ph" href="img/hoso/inte.jpg" target="_blank" rel="noopener"><img src="img/hoso/inte.jpg" alt="Giải nhì cuộc thi Khởi nghiệp Công nghệ trong Sinh viên lần thứ nhất" loading="lazy" style="object-position:50% 70%"></a><div class="hs-tx"><b>Giải nhì cuộc thi Khởi nghiệp Công nghệ trong Sinh viên lần thứ nhất</b><span>2021, Đà Nẵng</span></div></li><li class="hs-row"><a class="hs-ph" href="img/hoso/hult.jpg" target="_blank" rel="noopener"><img src="img/hoso/hult.jpg" alt="Giải nhì cuộc thi khởi nghiệp Hult Prize" loading="lazy" style="object-position:50% 70%"></a><div class="hs-tx"><b>Giải nhì cuộc thi khởi nghiệp Hult Prize</b><span>Runner-up</span></div></li><li class="hs-row"><a class="hs-ph" href="img/hoso/runway.jpg" target="_blank" rel="noopener"><img src="img/hoso/runway.jpg" alt="Giải nhất cuộc thi khởi nghiệp Đà Nẵng Startup Runway" loading="lazy" style="object-position:50% 35%"></a><div class="hs-tx"><b>Giải nhất cuộc thi khởi nghiệp Đà Nẵng Startup Runway</b><span>2021, Đà Nẵng</span></div></li><li class="hs-row"><a class="hs-ph" href="img/hoso/bachkhoa.jpg" target="_blank" rel="noopener"><img src="img/hoso/bachkhoa.jpg" alt="Giải nhì Khoa học Công nghệ, Đại học Bách Khoa Đà Nẵng" loading="lazy" style="object-position:50% 30%"></a><div class="hs-tx"><b>Giải nhì Khoa học Công nghệ, Đại học Bách Khoa Đà Nẵng</b><span>Giải báo cáo và giải công nghệ, 2022</span></div></li></ul><h3 class="hs-h">Sản phẩm</h3><ul class="hs-list"><li class="hs-row"><a class="hs-ph" href="img/hoso/sanpham.jpg" target="_blank" rel="noopener"><img src="img/hoso/sanpham.jpg" alt="Các sản phẩm công nghệ thực tế khác" loading="lazy" style="object-position:50% 40%"></a><div class="hs-tx"><b>Các sản phẩm công nghệ thực tế khác</b></div></li></ul><h3 class="hs-h">Học vấn</h3><ul class="hs-list"><li class="hs-row"><a class="hs-ph" href="img/profile.jpg" target="_blank" rel="noopener"><img src="img/profile.jpg" alt="Huy Tim" loading="lazy" style="object-position:50% 25%"></a><div class="hs-tx"><b>Học bổng Erasmus, Khoa học Dữ liệu và Trí tuệ Nhân tạo tại Université Côte d'Azur, Pháp</b></div></li></ul><h3 class="hs-h">Thương mại điện tử</h3><ul class="hs-list"><li class="hs-row nophoto"><div class="hs-tx"><b>Từ 2021: bắt đầu bán hàng thương mại điện tử US đa nền tảng</b><span>Tái cấu trúc hệ thống, chi phí và vận hành</span></div></li><li class="hs-row nophoto"><div class="hs-tx"><b>Hơn 5 năm bán các loại hàng hóa đặc trưng Việt Nam tại US</b><span>Năm 2026: kinh doanh tại thị trường Việt Nam</span></div></li></ul>
+    </div></div>
 </section>
 
 
