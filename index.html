@@ -362,6 +362,18 @@
   .me-act .hs-toggle{margin-top:0;font-size:.98rem;padding:13px 22px}
   .me-l{font-family:"JetBrains Mono",monospace;font-size:.84rem;text-decoration:underline;text-underline-offset:4px}
   @media(max-width:760px){.me-g{grid-template-columns:1fr;gap:26px}.me-ph{max-width:260px}}
+
+  /* Hai nút chọn dịch vụ */
+  .dv2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:880px;margin:30px auto 0}
+  @media(max-width:700px){.dv2{grid-template-columns:1fr}}
+  .dv2 .goi-toggle{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:0;min-width:0;width:100%;font-size:1.05rem;line-height:1.35;padding:18px 22px}
+  .dv2 .goi-toggle .cv{margin-left:0;flex:none}
+  .dv2 .goi-toggle .lb{text-wrap:balance}
+  .dv2 .goi-toggle[aria-expanded="true"]{background:#ffe978}
+  .goi-hint a{font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+  .goi-hint{margin-top:20px}
+  #van-hanh[hidden]{display:none}
+  #van-hanh{padding-top:44px}
 </style>
 </head>
 <body>
@@ -418,9 +430,11 @@
 <section class="block" id="chon-nhom">
   <div class="wrap center">
     <h2 class="serif">Chọn dịch vụ phù hợp với bạn.</h2>
-    <p class="lead">Hai gói mentor thực chiến cho hai thị trường, hoặc nhắn Huy để được tư vấn chọn gói.</p>
-    <button type="button" class="btn goi-toggle" id="goiToggle" aria-expanded="false" aria-controls="goiPanel"><span class="lb">Xem các gói mentor</span><span class="cv" aria-hidden="true">&#8595;</span></button>
-    <p class="goi-hint" id="goiHint">Bấm để xem nội dung và giá từng gói</p>
+    <div class="dv2">
+      <button type="button" class="btn goi-toggle" id="goiToggle" data-p="goiPanel" aria-expanded="false" aria-controls="goiPanel"><span class="lb">Mentoring thực chiến bán hàng Việt Nam, US</span><span class="cv" aria-hidden="true">&#8595;</span></button>
+      <button type="button" class="btn goi-toggle" id="vhToggle" data-p="van-hanh" aria-expanded="false" aria-controls="van-hanh"><span class="lb">Vận hành và Setup bán hàng Việt Nam và US cho cá nhân và doanh nghiệp</span><span class="cv" aria-hidden="true">&#8595;</span></button>
+    </div>
+    <p class="goi-hint">Muốn biết thêm thông tin? <a href="https://zalo.me/0796796492" target="_blank" rel="noopener">Liên hệ Zalo của Huy</a></p>
     <div id="goiPanel" hidden>
     <div class="alert" role="note"><b>Đây không phải khóa học.</b><span>Đây là mentor: theo sát toàn bộ quy trình, bài tập thực chiến, support, và meeting 1 kèm 1 hàng tuần.</span></div>
     <div class="consult three" style="text-align:left">
@@ -459,7 +473,7 @@
   </div>
 </section>
 
-<section class="block" id="van-hanh">
+<section class="block" id="van-hanh" hidden>
   <div class="wrap center">
     <h2 class="serif">Nhận vận hành shop cho bạn.</h2>
     <p class="lead">Bạn có shop nhưng chưa có người vận hành, hoặc không đủ thời gian tự làm? Mình nhận vận hành hộ. Chọn thị trường bạn đang bán.</p>
@@ -891,11 +905,15 @@ document.querySelectorAll('#vhSeg button').forEach(function(b){b.addEventListene
 </script>
 <script>
 (function(){
-  var btn=document.getElementById('goiToggle'),panel=document.getElementById('goiPanel');if(!btn||!panel)return;
-  function set(open){panel.hidden=!open;btn.setAttribute('aria-expanded',String(open));btn.querySelector('.lb').textContent=open?'Ẩn các gói mentor':'Xem các gói mentor';var h=document.getElementById('goiHint');if(h)h.hidden=open}
-  btn.addEventListener('click',function(){set(panel.hidden)});
-  window.openGoi=function(){set(true)};
-  if(location.hash==='#chon-nhom')set(true);
+  var bs=[].slice.call(document.querySelectorAll('.dv2 .goi-toggle'));if(!bs.length)return;
+  function show(id,go){
+    bs.forEach(function(b){var on=b.dataset.p===id;document.getElementById(b.dataset.p).hidden=!on;b.setAttribute('aria-expanded',String(on))});
+    if(go&&id)document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  bs.forEach(function(b){b.addEventListener('click',function(){show(b.getAttribute('aria-expanded')==='true'?null:b.dataset.p,true)})});
+  window.openGoi=function(){show('goiPanel')};
+  if(location.hash==='#chon-nhom')show('goiPanel');
+  if(location.hash==='#van-hanh')show('van-hanh',true);
 })();
 </script>
 <script>
