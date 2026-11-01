@@ -350,44 +350,12 @@
   .logo-grp img[alt="TikTok Shop"]{height:96px}.logo-grp img[alt="Shopify"]{height:60px}.logo-grp img[alt="AliExpress"]{height:48px}.logo-grp img[alt="Amazon"]{height:54px}.logo-grp img[alt="Taobao"]{height:54px}
   @keyframes ltr{from{transform:translateX(-50%)}to{transform:translateX(0)}}
   @media(prefers-reduced-motion:reduce){.track{animation:none}.marquee{overflow-x:auto}}
-
-  /* Sắp xếp mới: hai cửa, lời khách cạnh dịch vụ, phạm vi gấp lại */
-  .cb-nav{display:flex;gap:18px;margin-right:auto;margin-left:26px;font-size:.88rem;font-weight:500;color:#e6e6e2}
-  .cb-nav a:hover{color:#fff2b8}
-  @media(max-width:1040px){.cb-nav{display:none}}
-  .doors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:720px;margin:0 auto;text-align:left}
-  @media(max-width:560px){.doors{grid-template-columns:1fr}}
-  .door{display:flex;flex-direction:column;gap:3px;background:#fff;border:2.5px solid var(--ink);border-radius:20px;padding:18px 20px;box-shadow:5px 5px 0 var(--ink);transition:.15s}
-  .door.y{background:#fff2b8}
-  .door:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
-  .door small{font-size:.86rem;color:#26241f}
-  .door b{font-family:Fraunces,serif;font-weight:800;font-size:1.6rem;letter-spacing:-.02em;line-height:1.15}
-  .door span{font-weight:600;font-size:.92rem;margin-top:6px}
-  @media(max-width:1224px){.hero{padding-left:22px;padding-right:22px}}
-  .rely{margin-top:18px;font-size:.88rem;color:var(--muted)}
-  .rely a{font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
-  .doors.next{margin-top:26px}
-  .vh-one{margin-top:16px}
-  .vh-one .inc{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 26px}
-  @media(max-width:700px){.vh-one .inc{grid-template-columns:1fr}}
-  .vh-more{margin-top:18px;border-top:1px dashed #cfcdc6;padding-top:12px}
-  .vh-more summary{cursor:pointer;font-weight:600;font-size:.92rem}
-  .vh-two{display:grid;gap:22px;grid-template-columns:repeat(2,minmax(0,1fr))}
-  @media(max-width:700px){.vh-two{grid-template-columns:1fr}}
-  section.pq-s{padding:44px 0 0}
-  .pq{max-width:860px;margin:0 auto;background:#fff;border:2.5px solid var(--ink);border-radius:20px;padding:24px 28px;box-shadow:-6px 6px 0 #111}
-  .pq blockquote{font-size:clamp(1.25rem,2.6vw,1.65rem);line-height:1.3;margin:12px 0 14px}
-  .pq b{display:block;font-weight:600}
-  .pq figcaption span{font-size:.85rem;color:#555}
-  section#chon-nhom{padding-top:96px}
-  section#feedback{padding-top:96px}
 </style>
 </head>
 <body>
 <div class="contactbar" role="region" aria-label="Nhận tư vấn">
   <div class="cb-in">
     <p class="cb-text"><b>Nhận tư vấn miễn phí</b><span>Nhắn Huy, mình trả lời sớm nhất</span></p>
-    <nav class="cb-nav" aria-label="Điều hướng"><a href="#van-hanh">Vận hành</a><a href="#chon-nhom">Mentor</a><a href="#feedback">Khách hàng</a><a href="#tai-lieu">Tài liệu FREE</a></nav>
     <div class="cb-btns">
       <a class="cb-btn" href="https://zalo.me/0796796492" target="_blank" rel="noopener" aria-label="Nhắn Zalo 0796 796 492"><img src="img/zalo.svg" alt="" width="26" height="26"><span><b>Zalo</b><i>0796 796 492</i></span></a>
       <a class="cb-btn" href="mailto:nguyendinhhuy14052000@gmail.com" aria-label="Gửi Gmail cho Huy Tim"><img src="img/gmail.svg" alt="" width="26" height="26"><span><b>Gmail</b><i>nguyendinhhuy14052000@gmail.com</i></span></a>
@@ -397,12 +365,8 @@
 
 <header class="hero wrap">
   <h1 class="serif">Dùng dữ liệu để vận hành thương mại điện tử, cùng Huy Tim.</h1>
-  <p class="sub">Mình nhận vận hành shop và mentor bán hàng Việt Nam, Mỹ, bằng dữ liệu thật, không đoán mò. Bạn đang cần gì?</p>
-  <div class="doors">
-    <a class="door y" href="#van-hanh"><small>Mình có shop, cần người vận hành</small><b>Vận hành shop</b><span>Chỉ từ 3.500.000đ/tháng →</span></a>
-    <a class="door" href="#chon-nhom"><small>Mình muốn tự bán được hàng</small><b>Mentor 1 kèm 1</b><span>Chỉ từ 2.000.000đ →</span></a>
-  </div>
-  <p class="rely">Tư vấn miễn phí qua Zalo, không bắt buộc mua. Báo giá trong 24 giờ. <a href="#tai-lieu">Hoặc nhận tài liệu FREE</a></p>
+  <p class="sub">Mentor thực chiến bán hàng Việt Nam và Mỹ. Mình ngồi cùng bạn làm từ khâu đầu tới khi đơn đầu tiên được giao cho khách, bằng dữ liệu thật, không đoán mò.</p>
+  <a class="btn" href="#tai-lieu">Nhận tài liệu FREE</a>
   <div class="logo-marquee" aria-label="Các sàn thương mại điện tử">
     <div class="logo-track" id="logoTrack">
       <div class="logo-grp">
@@ -441,76 +405,13 @@
 </section>
 
 
-<section class="block" id="van-hanh">
-  <div class="wrap center">
-    <h2 class="serif">Nhận vận hành shop cho bạn.</h2>
-    <p class="lead">Bạn có shop nhưng chưa có người vận hành, hoặc không đủ thời gian tự làm? Mình nhận vận hành hộ. Chọn thị trường bạn đang bán.</p>
-    <div class="seg" role="tablist" id="vhSeg"><button type="button" class="on" data-vh="vn">Việt Nam</button><button type="button" data-vh="us">Mỹ</button></div>
-    <div class="vhp" id="vh-vn">
-      <div class="card vh">
-        <div class="vh-top">
-          <div>
-            <div class="tags"><span class="tag">Làm hộ vận hành</span></div>
-            <h3>Vận hành gian hàng Việt Nam</h3>
-            <p class="vibe">Đã có shop, muốn <b>giao việc hằng ngày</b> cho người có kinh nghiệm.</p>
-          </div>
-          <div class="vh-logos" aria-label="Các sàn mình vận hành"><img src="img/marketplaces/shopee.webp" alt="Shopee"><img src="img/marketplaces/tiktokshop.png" alt="TikTok Shop"><img src="img/marketplaces/lazada.svg" alt="Lazada"></div>
-        </div>
-        <p class="vh-intro">Mình vận hành gian hàng của bạn trên Shopee, TikTok Shop, Lazada, để bạn tập trung vào nguồn hàng và giao hàng.</p>
-        <div class="vh-price">
-          <div>
-            <span class="price">Chỉ từ 3.500.000đ/tháng</span>
-            <p class="vh-per">Áp dụng cho 1 sàn</p>
-          </div>
-          <a class="btn" href="https://zalo.me/0796796492" target="_blank" rel="noopener">Nhắn Zalo để được tư vấn</a>
-        </div>
-        <p class="scope"><b>Giá cuối tùy từng shop.</b> Mức "chỉ từ" áp dụng cho 1 sàn; giá thực tế phụ thuộc số sản phẩm, số sàn và mức độ vận hành. Mình khảo sát shop và báo giá trong 24 giờ.</p>
-        <div class="vh-one"><div><p class="stl">Mình làm những gì</p><ul class="inc"><li>Khảo sát hiện trạng shop: listing, ngành hàng, giá, tồn kho, chỉ số shop</li><li>Tối ưu tiêu đề, mô tả, thuộc tính, từ khóa, sắp xếp ảnh</li><li>Đề xuất giá, voucher, combo, chương trình của sàn theo giá vốn và biên lợi nhuận bạn cung cấp</li><li>Quảng cáo cơ bản, theo dõi và chỉnh hằng tuần</li><li>Mẫu trả lời chat, quy trình xử lý đơn hủy, hoàn trả, đánh giá thấp</li><li>Báo cáo định kỳ và họp trao đổi</li></ul></div></div>
-        <p class="stl">Bắt đầu thế nào</p>
-        <ol class="stp vh-steps"><li>Nhắn Zalo cho mình, gửi link shop và ngành hàng bạn đang bán.</li><li>Mình rà soát shop, báo phạm vi và giá trong 24 giờ.</li><li>Hai bên chốt phạm vi, ký hợp đồng, mình bắt đầu bằng khảo sát hiện trạng shop.</li></ol>
-        <details class="vh-more"><summary>Xem phạm vi và việc bạn cần chuẩn bị</summary><div class="vh-two"><div><p class="stl">Chưa nằm trong phạm vi</p><ul class="inc"><li>Nhập hàng, đóng gói, giao hàng, xử lý đơn thay bạn</li><li>Chụp ảnh, quay video sản phẩm mới, livestream</li><li>Quảng cáo quy mô lớn cần ngân sách và đội riêng</li><li>Kế toán, thuế, hóa đơn</li></ul><p class="scope">Phí sàn, vận chuyển, ngân sách quảng cáo và chi phí nguồn hàng do bạn chịu. Muốn mình làm thêm các việc trên? Nhắn mình, mình báo giá riêng.</p></div><div><p class="stl">Bạn cần chuẩn bị</p><ul class="inc"><li>Quyền truy cập gian hàng phù hợp (tài khoản đứng tên bạn)</li><li>Giá vốn, tồn kho và báo cáo doanh thu hằng tháng</li><li>Một đầu mối ở shop xử lý hàng, đóng gói, giao hàng</li><li>Phản hồi trong 48 giờ với các việc cần bạn duyệt</li></ul></div></div></details>
-      </div>
-    </div>
-    <div class="vhp" id="vh-us" hidden>
-      <div class="card vh">
-        <div class="vh-top">
-          <div>
-            <div class="tags"><span class="tag">Làm hộ vận hành</span></div>
-            <h3>Vận hành gian hàng thị trường Mỹ</h3>
-            <p class="vibe">Bán sang Mỹ, muốn <b>có người vận hành</b> đa sàn và theo dõi fulfillment thật.</p>
-          </div>
-          <div class="vh-logos" aria-label="Các sàn mình vận hành"><img src="img/marketplaces/tiktokshop.png" alt="TikTok Shop"><img src="img/marketplaces/amazon.webp" alt="Amazon"><img src="img/marketplaces/ebay.svg" alt="eBay"><img src="img/marketplaces/walmart.svg" alt="Walmart"><img src="img/marketplaces/shopify-c.png" alt="Shopify"><img src="img/marketplaces/temu.svg" alt="Temu"><img src="img/marketplaces/etsy-c.webp" alt="Etsy"></div>
-        </div>
-        <p class="vh-intro">Mình vận hành gian hàng của bạn trên TikTok Shop, Amazon, eBay, Walmart, Shopify, Temu, Etsy, từ thiết lập tới quảng cáo, creator và theo dõi đơn với kho fulfillment.</p>
-        <div class="vh-price">
-          <div>
-            <span class="price">Chỉ từ 7.000.000đ/tháng</span>
-            <p class="vh-per">Áp dụng cho 1 sàn</p>
-          </div>
-          <a class="btn" href="https://zalo.me/0796796492" target="_blank" rel="noopener">Nhắn Zalo để được tư vấn</a>
-        </div>
-        <p class="scope"><b>Giá cuối tùy từng shop.</b> Mức "chỉ từ" áp dụng cho 1 sàn; giá thực tế phụ thuộc số sàn, số sản phẩm, số đơn và ngân sách quảng cáo. Mình khảo sát shop và báo giá trong 24 giờ.</p>
-        <div class="vh-one"><div><p class="stl">Mình làm những gì</p><ul class="inc"><li>Thiết lập hoặc chuẩn hóa gian hàng, viết listing chuẩn SEO, tối ưu hình ảnh bạn cung cấp</li><li>Chạy và tối ưu quảng cáo trong ngân sách bạn duyệt</li><li>Tìm, đề xuất và kết nối creator, affiliate, KOC tại Mỹ</li><li>Phân tích, đề xuất sản phẩm theo dữ liệu sàn; đề xuất định dạng và brief quảng cáo</li><li>Theo dõi đồng bộ đơn sang kho fulfillment, tồn kho, cảnh báo nhập hàng trước khi hết</li><li>Xử lý hoàn hủy, khiếu nại theo chính sách sàn, lập hồ sơ kháng nghị</li><li>Đăng ký chiến dịch khuyến mãi của sàn, báo cáo và đối soát định kỳ</li></ul></div></div>
-        <p class="stl">Bắt đầu thế nào</p>
-        <ol class="stp vh-steps"><li>Nhắn Zalo cho mình, gửi thông tin sản phẩm và các sàn bạn muốn bán.</li><li>Hai bên trao đổi 30 đến 45 phút, mình báo phạm vi và giá trong 24 giờ.</li><li>Chốt phạm vi, ký hợp đồng; gian hàng có thể mở bán sau khoảng 4 tuần thiết lập.</li></ol>
-        <details class="vh-more"><summary>Xem phạm vi và việc bạn cần chuẩn bị</summary><div class="vh-two"><div><p class="stl">Làm thêm theo nhu cầu</p><ul class="inc"><li>Sản xuất hình ảnh, video gốc; hoa hồng, hàng mẫu gửi creator</li><li>Đăng ký pháp lý sản phẩm (FDA, nhãn mác, sở hữu trí tuệ), xuất nhập khẩu, vận chuyển quốc tế, vận hành kho</li><li>Khiếu nại, đòi bồi thường với kho và đơn vị vận chuyển</li><li>Phần mềm, công cụ bên thứ ba</li></ul><p class="scope">Các phần làm thêm báo giá riêng theo từng shop. Ngân sách quảng cáo, phí kho, giá bán và quyết định sản phẩm do bạn quyết. Gian hàng đứng tên bạn, mình làm việc qua quyền phụ do sàn cho phép.</p></div><div><p class="stl">Bạn cần chuẩn bị</p><ul class="inc"><li>Sản phẩm dự kiến bán, số sản phẩm và tình trạng giấy tờ (FDA, nhãn mác)</li><li>Các sàn muốn bán, gian hàng đã có hay cần mở mới</li><li>Kho fulfillment tại Mỹ và đơn vị vận chuyển đang dùng (nếu có)</li><li>Ngân sách quảng cáo, creator mỗi tháng và mục tiêu doanh số</li></ul></div></div></details>
-      </div>
-    </div>
-    <p class="lead" style="margin-top:26px;font-size:.95rem">Mình không cam kết doanh thu hay lợi nhuận cụ thể, kết quả còn phụ thuộc sản phẩm, giá, nguồn hàng và chính sách của sàn. Dịch vụ không thay thế tư vấn pháp lý, thuế, kế toán.</p>
-    <div class="chan two" style="margin-top:18px">
-      <a class="card mini" href="https://zalo.me/0796796492" target="_blank" rel="noopener"><div class="cl"><img src="img/zalo.svg" alt="" width="40" height="40"><div><h3>Liên hệ tư vấn qua Zalo</h3><p>0796 796 492</p></div></div></a>
-      <a class="card mini" href="mailto:nguyendinhhuy14052000@gmail.com"><div class="cl"><img src="img/gmail.svg" alt="" width="40" height="40"><div><h3>Hoặc gửi Gmail</h3><p>nguyendinhhuy14052000@gmail.com</p></div></div></a>
-    </div>
-  </div>
-</section>
-
-<section class="block pq-s"><div class="wrap"><figure class="pq"><span class="tag">Doanh nghiệp nói gì</span><blockquote class="serif">Xưởng mình đang xuất khẩu số lượng lớn nhưng muốn bán lẻ. Mình nhờ anh Huy hỗ trợ tìm dữ liệu và insight để bán thử. Hai bên đặt lịch, chuẩn bị bộ câu hỏi trước nên buổi trao đổi đi vào trọng tâm và mình được hỗ trợ rất rõ ràng.</blockquote><figcaption><b>Chủ xưởng sản phẩm thú cưng</b><span>Nghiên cứu dữ liệu để bán lẻ</span></figcaption></figure></div></section>
-
 <section class="block" id="chon-nhom">
   <div class="wrap center">
-    <h2 class="serif">Mentor thực chiến cùng Huy.</h2>
+    <h2 class="serif">Chọn dịch vụ phù hợp với bạn.</h2>
     <p class="lead">Hai gói mentor thực chiến cho hai thị trường, hoặc nhắn Huy để được tư vấn chọn gói.</p>
-    <div id="goiPanel">
+    <button type="button" class="btn goi-toggle" id="goiToggle" aria-expanded="false" aria-controls="goiPanel"><span class="lb">Xem các gói mentor</span><span class="cv" aria-hidden="true">&#8595;</span></button>
+    <p class="goi-hint" id="goiHint">Bấm để xem nội dung và giá từng gói</p>
+    <div id="goiPanel" hidden>
     <div class="alert" role="note"><b>Đây không phải khóa học.</b><span>Đây là mentor: theo sát toàn bộ quy trình, bài tập thực chiến, support, và meeting 1 kèm 1 hàng tuần.</span></div>
     <div class="consult three" style="text-align:left">
       <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener">
@@ -548,7 +449,74 @@
   </div>
 </section>
 
-<section class="block pq-s"><div class="wrap"><figure class="pq"><span class="tag">Học viên nói gì</span><blockquote class="serif">Mình mất 2 tháng tự tìm hiểu mà vẫn chưa nắm hết. Sau 1, 2 buổi mentor cùng anh Huy, mình nắm được quy trình và toàn bộ các vấn đề cần triển khai.</blockquote><figcaption><b>Khách hàng gói mentor</b><span>Nắm quy trình chỉ sau 1-2 buổi</span></figcaption></figure></div></section>
+<section class="block" id="van-hanh">
+  <div class="wrap center">
+    <h2 class="serif">Nhận vận hành shop cho bạn.</h2>
+    <p class="lead">Bạn có shop nhưng chưa có người vận hành, hoặc không đủ thời gian tự làm? Mình nhận vận hành hộ. Chọn thị trường bạn đang bán.</p>
+    <div class="seg" role="tablist" id="vhSeg"><button type="button" class="on" data-vh="vn">Việt Nam</button><button type="button" data-vh="us">Mỹ</button></div>
+    <div class="vhp" id="vh-vn">
+      <div class="card vh">
+        <div class="vh-top">
+          <div>
+            <div class="tags"><span class="tag">Làm hộ vận hành</span></div>
+            <h3>Vận hành gian hàng Việt Nam</h3>
+            <p class="vibe">Đã có shop, muốn <b>giao việc hằng ngày</b> cho người có kinh nghiệm.</p>
+          </div>
+          <div class="vh-logos" aria-label="Các sàn mình vận hành"><img src="img/marketplaces/shopee.webp" alt="Shopee"><img src="img/marketplaces/tiktokshop.png" alt="TikTok Shop"><img src="img/marketplaces/lazada.svg" alt="Lazada"></div>
+        </div>
+        <p class="vh-intro">Mình vận hành gian hàng của bạn trên Shopee, TikTok Shop, Lazada, để bạn tập trung vào nguồn hàng và giao hàng.</p>
+        <div class="vh-price">
+          <div>
+            <span class="price">Chỉ từ 3.500.000đ/tháng</span>
+            <p class="vh-per">Áp dụng cho 1 sàn</p>
+          </div>
+          <a class="btn" href="https://zalo.me/0796796492" target="_blank" rel="noopener">Nhắn Zalo để được tư vấn</a>
+        </div>
+        <p class="scope"><b>Giá cuối tùy từng shop.</b> Mức "chỉ từ" áp dụng cho 1 sàn; giá thực tế phụ thuộc số sản phẩm, số sàn và mức độ vận hành. Mình khảo sát shop và báo giá trong 24 giờ.</p>
+        <div class="vh-cols">
+          <div><p class="stl">Mình làm những gì</p><ul class="inc"><li>Khảo sát hiện trạng shop: listing, ngành hàng, giá, tồn kho, chỉ số shop</li><li>Tối ưu tiêu đề, mô tả, thuộc tính, từ khóa, sắp xếp ảnh</li><li>Đề xuất giá, voucher, combo, chương trình của sàn theo giá vốn và biên lợi nhuận bạn cung cấp</li><li>Quảng cáo cơ bản, theo dõi và chỉnh hằng tuần</li><li>Mẫu trả lời chat, quy trình xử lý đơn hủy, hoàn trả, đánh giá thấp</li><li>Báo cáo định kỳ và họp trao đổi</li></ul></div>
+          <div><p class="stl">Chưa nằm trong phạm vi</p><ul class="inc"><li>Nhập hàng, đóng gói, giao hàng, xử lý đơn thay bạn</li><li>Chụp ảnh, quay video sản phẩm mới, livestream</li><li>Quảng cáo quy mô lớn cần ngân sách và đội riêng</li><li>Kế toán, thuế, hóa đơn</li></ul><p class="scope">Phí sàn, vận chuyển, ngân sách quảng cáo và chi phí nguồn hàng do bạn chịu. Muốn mình làm thêm các việc trên? Nhắn mình, mình báo giá riêng.</p></div>
+          <div><p class="stl">Bạn cần chuẩn bị</p><ul class="inc"><li>Quyền truy cập gian hàng phù hợp (tài khoản đứng tên bạn)</li><li>Giá vốn, tồn kho và báo cáo doanh thu hằng tháng</li><li>Một đầu mối ở shop xử lý hàng, đóng gói, giao hàng</li><li>Phản hồi trong 48 giờ với các việc cần bạn duyệt</li></ul></div>
+        </div>
+        <p class="stl">Bắt đầu thế nào</p>
+        <ol class="stp vh-steps"><li>Nhắn Zalo cho mình, gửi link shop và ngành hàng bạn đang bán.</li><li>Mình rà soát shop, báo phạm vi và giá trong 24 giờ.</li><li>Hai bên chốt phạm vi, ký hợp đồng, mình bắt đầu bằng khảo sát hiện trạng shop.</li></ol>
+      </div>
+    </div>
+    <div class="vhp" id="vh-us" hidden>
+      <div class="card vh">
+        <div class="vh-top">
+          <div>
+            <div class="tags"><span class="tag">Làm hộ vận hành</span></div>
+            <h3>Vận hành gian hàng thị trường Mỹ</h3>
+            <p class="vibe">Bán sang Mỹ, muốn <b>có người vận hành</b> đa sàn và theo dõi fulfillment thật.</p>
+          </div>
+          <div class="vh-logos" aria-label="Các sàn mình vận hành"><img src="img/marketplaces/tiktokshop.png" alt="TikTok Shop"><img src="img/marketplaces/amazon.webp" alt="Amazon"><img src="img/marketplaces/ebay.svg" alt="eBay"><img src="img/marketplaces/walmart.svg" alt="Walmart"><img src="img/marketplaces/shopify-c.png" alt="Shopify"><img src="img/marketplaces/temu.svg" alt="Temu"><img src="img/marketplaces/etsy-c.webp" alt="Etsy"></div>
+        </div>
+        <p class="vh-intro">Mình vận hành gian hàng của bạn trên TikTok Shop, Amazon, eBay, Walmart, Shopify, Temu, Etsy, từ thiết lập tới quảng cáo, creator và theo dõi đơn với kho fulfillment.</p>
+        <div class="vh-price">
+          <div>
+            <span class="price">Chỉ từ 7.000.000đ/tháng</span>
+            <p class="vh-per">Áp dụng cho 1 sàn</p>
+          </div>
+          <a class="btn" href="https://zalo.me/0796796492" target="_blank" rel="noopener">Nhắn Zalo để được tư vấn</a>
+        </div>
+        <p class="scope"><b>Giá cuối tùy từng shop.</b> Mức "chỉ từ" áp dụng cho 1 sàn; giá thực tế phụ thuộc số sàn, số sản phẩm, số đơn và ngân sách quảng cáo. Mình khảo sát shop và báo giá trong 24 giờ.</p>
+        <div class="vh-cols">
+          <div><p class="stl">Mình làm những gì</p><ul class="inc"><li>Thiết lập hoặc chuẩn hóa gian hàng, viết listing chuẩn SEO, tối ưu hình ảnh bạn cung cấp</li><li>Chạy và tối ưu quảng cáo trong ngân sách bạn duyệt</li><li>Tìm, đề xuất và kết nối creator, affiliate, KOC tại Mỹ</li><li>Phân tích, đề xuất sản phẩm theo dữ liệu sàn; đề xuất định dạng và brief quảng cáo</li><li>Theo dõi đồng bộ đơn sang kho fulfillment, tồn kho, cảnh báo nhập hàng trước khi hết</li><li>Xử lý hoàn hủy, khiếu nại theo chính sách sàn, lập hồ sơ kháng nghị</li><li>Đăng ký chiến dịch khuyến mãi của sàn, báo cáo và đối soát định kỳ</li></ul></div>
+          <div><p class="stl">Làm thêm theo nhu cầu</p><ul class="inc"><li>Sản xuất hình ảnh, video gốc; hoa hồng, hàng mẫu gửi creator</li><li>Đăng ký pháp lý sản phẩm (FDA, nhãn mác, sở hữu trí tuệ), xuất nhập khẩu, vận chuyển quốc tế, vận hành kho</li><li>Khiếu nại, đòi bồi thường với kho và đơn vị vận chuyển</li><li>Phần mềm, công cụ bên thứ ba</li></ul><p class="scope">Các phần làm thêm báo giá riêng theo từng shop. Ngân sách quảng cáo, phí kho, giá bán và quyết định sản phẩm do bạn quyết. Gian hàng đứng tên bạn, mình làm việc qua quyền phụ do sàn cho phép.</p></div>
+          <div><p class="stl">Bạn cần chuẩn bị</p><ul class="inc"><li>Sản phẩm dự kiến bán, số sản phẩm và tình trạng giấy tờ (FDA, nhãn mác)</li><li>Các sàn muốn bán, gian hàng đã có hay cần mở mới</li><li>Kho fulfillment tại Mỹ và đơn vị vận chuyển đang dùng (nếu có)</li><li>Ngân sách quảng cáo, creator mỗi tháng và mục tiêu doanh số</li></ul></div>
+        </div>
+        <p class="stl">Bắt đầu thế nào</p>
+        <ol class="stp vh-steps"><li>Nhắn Zalo cho mình, gửi thông tin sản phẩm và các sàn bạn muốn bán.</li><li>Hai bên trao đổi 30 đến 45 phút, mình báo phạm vi và giá trong 24 giờ.</li><li>Chốt phạm vi, ký hợp đồng; gian hàng có thể mở bán sau khoảng 4 tuần thiết lập.</li></ol>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:26px;font-size:.95rem">Mình không cam kết doanh thu hay lợi nhuận cụ thể, kết quả còn phụ thuộc sản phẩm, giá, nguồn hàng và chính sách của sàn. Dịch vụ không thay thế tư vấn pháp lý, thuế, kế toán.</p>
+    <div class="chan two" style="margin-top:18px">
+      <a class="card mini" href="https://zalo.me/0796796492" target="_blank" rel="noopener"><div class="cl"><img src="img/zalo.svg" alt="" width="40" height="40"><div><h3>Liên hệ tư vấn qua Zalo</h3><p>0796 796 492</p></div></div></a>
+      <a class="card mini" href="mailto:nguyendinhhuy14052000@gmail.com"><div class="cl"><img src="img/gmail.svg" alt="" width="40" height="40"><div><h3>Hoặc gửi Gmail</h3><p>nguyendinhhuy14052000@gmail.com</p></div></div></a>
+    </div>
+  </div>
+</section>
 
 <section class="block grp" id="du-lieu">
   <div class="wrap center">
@@ -729,8 +697,10 @@
       <div class="grp">
         <figure class="fb"><blockquote>Mình nhờ anh Huy hỗ trợ toàn bộ quy trình, và hiện tại store của mình đã vận hành ổn.</blockquote><figcaption><b>Khách hàng gói setup</b><span>Được hỗ trợ toàn bộ quy trình mở store</span></figcaption></figure>
         <figure class="fb"><blockquote>Mình nhờ anh Huy nghiên cứu sản phẩm và fulfillment US, mình nhận được rất nhiều thông tin và kiến thức.</blockquote><figcaption><b>Khách hàng bán hàng sang Mỹ</b><span>Nghiên cứu sản phẩm và fulfillment US</span></figcaption></figure>
+        <figure class="fb"><blockquote>Mình mất 2 tháng tự tìm hiểu mà vẫn chưa nắm hết. Sau 1, 2 buổi mentor cùng anh Huy, mình nắm được quy trình và toàn bộ các vấn đề cần triển khai.</blockquote><figcaption><b>Khách hàng gói mentor</b><span>Nắm quy trình chỉ sau 1-2 buổi</span></figcaption></figure>
         <figure class="fb"><blockquote>Mình đang làm Finance và rất phân vân có nên chuyển sang BA hay Data Science. Mình gửi trước danh sách câu hỏi về lộ trình, kỹ năng nhà tuyển dụng cần và chứng chỉ. Anh Huy phân tích kỹ rồi hỗ trợ ngay trong buổi meeting nên mình nắm rõ hướng đi hơn hẳn.</blockquote><figcaption><b>Khách hàng gói tư vấn</b><span>Đang chuyển ngành từ Finance sang Data</span></figcaption></figure>
         <figure class="fb"><blockquote>Anh nhiệt tình thật sự! Ngoài phần trả lời câu hỏi, anh còn chia sẻ thêm blog và kinh nghiệm học tập, làm việc để mình đọc thêm. Cảm ơn anh rất nhiều.</blockquote><figcaption><b>Khách hàng gói tư vấn</b><span>Hỏi về học thuật và định hướng nghề nghiệp</span></figcaption></figure>
+        <figure class="fb"><blockquote>Xưởng mình đang xuất khẩu số lượng lớn nhưng muốn bán lẻ. Mình nhờ anh Huy hỗ trợ tìm dữ liệu và insight để bán thử. Hai bên đặt lịch, chuẩn bị bộ câu hỏi trước nên buổi trao đổi đi vào trọng tâm và mình được hỗ trợ rất rõ ràng.</blockquote><figcaption><b>Chủ xưởng sản phẩm thú cưng</b><span>Nghiên cứu dữ liệu để bán lẻ</span></figcaption></figure>
       </div>
     </div>
   </div>
@@ -771,21 +741,6 @@
   </div>
 </section>
 
-<section class="block" id="hop-tac">
-  <div class="wrap center">
-    <h2 class="serif">Sẵn sàng bắt đầu chưa?</h2>
-    <div class="doors next">
-      <a class="door y" href="https://zalo.me/0796796492" target="_blank" rel="noopener"><small>Mình có shop, cần người vận hành</small><b>Nhắn Zalo cho Huy</b><span>Gửi link shop, nhận phạm vi và giá trong 24 giờ →</span></a>
-      <a class="door" href="https://docs.google.com/forms/d/e/1FAIpQLSdgRXPMNaiXXo0tQ5_DHeKvCanMGW8TkW3YWsXh1RUIeExANg/viewform" target="_blank" rel="noopener"><small>Mình muốn tự bán được hàng</small><b>Đăng ký mentor</b><span>Điền form, mình báo giá trong 24 giờ →</span></a>
-    </div>
-    <p class="lead" style="margin-top:34px">Muốn hợp tác, đặt bài, hoặc trao đổi công việc? Nhắn mình qua Zalo hoặc email.</p>
-    <div class="chan two">
-      <a class="card mini" href="https://zalo.me/0796796492" target="_blank" rel="noopener"><div class="cl"><img src="img/zalo.svg" alt="" width="40" height="40"><div><h3>Zalo</h3><p>0796 796 492</p></div></div></a>
-      <a class="card mini" href="mailto:nguyendinhhuy14052000@gmail.com"><div class="cl"><img src="img/gmail.svg" alt="" width="40" height="40"><div><h3>Gmail</h3><p>nguyendinhhuy14052000@gmail.com</p></div></div></a>
-    </div>
-  </div>
-</section>
-
 <section class="block" id="kenh">
   <div class="wrap center">
     <h2 class="serif">Các kênh của mình.</h2>
@@ -796,6 +751,17 @@
       <a class="card mini" href="https://www.facebook.com/profile.php?id=100010185792295" target="_blank" rel="noopener"><img class="lg" src="img/facebook.svg" alt="facebook" width="40" height="40"><div><h3>/facebook</h3><p>Huy Tim</p></div></a>
       <a class="card mini" href="https://www.threads.com/@dh.timm" target="_blank" rel="noopener"><img class="lg" src="img/threads-icon.svg" alt="threads" width="40" height="40"><div><h3>/threads</h3><p>@dh.timm</p></div></a>
       <a class="card mini" href="https://medium.com/@HuyTimBlog" target="_blank" rel="noopener"><img class="lg" src="img/medium-icon.svg" alt="medium" width="40" height="40"><div><h3>/medium</h3><p>@HuyTimBlog</p></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="hop-tac">
+  <div class="wrap center">
+    <h2 class="serif">Liên hệ hợp tác.</h2>
+    <p class="lead">Muốn hợp tác, đặt bài, hoặc trao đổi công việc? Nhắn mình qua Zalo hoặc email.</p>
+    <div class="chan two">
+      <a class="card mini" href="https://zalo.me/0796796492" target="_blank" rel="noopener"><div class="cl"><img src="img/zalo.svg" alt="" width="40" height="40"><div><h3>Zalo</h3><p>0796 796 492</p></div></div></a>
+      <a class="card mini" href="mailto:nguyendinhhuy14052000@gmail.com"><div class="cl"><img src="img/gmail.svg" alt="" width="40" height="40"><div><h3>Gmail</h3><p>nguyendinhhuy14052000@gmail.com</p></div></div></a>
     </div>
   </div>
 </section>
