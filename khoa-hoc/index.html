@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Khoá mentor bán hàng Việt Nam và Mỹ · Huy Tim</title>
+<meta name="description" content="Hai khoá mentor 1 kèm 1 của Huy Tim: Bán hàng tại Việt Nam (từ chọn ngách đến đơn đầu tiên) và Bán hàng sang Mỹ (từ xưởng Việt Nam đến đơn đầu tiên trên Amazon và TikTok Shop Mỹ).">
+<meta property="og:title" content="Khoá mentor bán hàng Việt Nam và Mỹ · Huy Tim">
+<meta property="og:description" content="Mentor 1 kèm 1 mỗi tuần, lộ trình theo đầu ra từng bước. Đăng ký qua Zalo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,800;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f7f6;--ink:#0b0b0b;--muted:#4a4a48;--soft:#ececea;--y:#fff2b8}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+body{font-family:Inter,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.serif{font-family:Fraunces,Georgia,serif;font-weight:800;letter-spacing:-.01em;line-height:1.15}
+.wrap{max-width:980px;margin:0 auto;padding:0 22px}
+.bar{position:sticky;top:0;z-index:20;background:#0b0b0b;color:#fff}
+.bar-in{max-width:980px;margin:0 auto;padding:10px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.home{font-family:Fraunces,serif;font-weight:800;font-size:1.1rem}
+.home span{font-family:Inter,sans-serif;font-weight:500;font-size:.85rem;color:#bdbdb8;margin-left:8px}
+.zl{display:flex;align-items:center;gap:8px;background:#fff;color:#0b0b0b;border-radius:12px;padding:7px 14px 7px 9px;font-weight:600;font-size:.92rem}
+.zl img{border-radius:6px}
+.tabs{position:sticky;top:56px;z-index:15;background:var(--bg);padding:16px 0 12px}
+.seg{display:flex;gap:6px;background:#efefec;padding:5px;border-radius:999px;max-width:520px;margin:0 auto}
+.seg a{flex:1;text-align:center;font-weight:600;font-size:.95rem;border-radius:999px;padding:10px 14px;color:#555}
+.seg a.on{background:#111;color:#fff}
+.khoa{padding:18px 0 70px}
+.khoa[hidden]{display:none}
+.kh{text-align:center;padding:26px 0 10px}
+.kicker{font-family:"JetBrains Mono",monospace;font-size:.8rem;color:#555}
+.kh h1{font-size:clamp(2.3rem,6vw,3.8rem);margin:10px 0 6px}
+.kh-sub{font-family:Fraunces,serif;font-style:italic;font-size:clamp(1.1rem,2.6vw,1.4rem)}
+.lead{max-width:680px;margin:18px auto 0;font-size:1.08rem;color:#222}
+.pricebox{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px;max-width:720px;margin:26px auto 0;background:var(--y);border:2px solid var(--ink);border-radius:18px;padding:18px 22px;text-align:left}
+.pricebox .lbl{display:block;font-size:.85rem;color:var(--muted)}
+.pricebox b{font-size:clamp(1.7rem,4vw,2.2rem)}
+.btn{display:inline-block;background:var(--ink);color:#fff;font-weight:600;border-radius:14px;padding:14px 24px;transition:.15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.22)}
+.btn.big{font-size:1.05rem;padding:16px 30px}
+section{margin-top:22px}
+.box{background:#fff;border:2.5px solid var(--ink);border-radius:20px;padding:22px 24px}
+.box h2,.sec-h{font-size:clamp(1.35rem,3vw,1.7rem);margin-bottom:12px}
+.sec-h{margin-top:34px}
+.box.muted{background:#f1f1ef}
+.box.note{background:var(--y)}
+.box p{color:#222}
+.two{display:grid;gap:18px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.two .box{margin:0}
+.chk li,.x li,.dot li{position:relative;padding-left:28px;margin:8px 0;line-height:1.5}
+.chk li::before{content:"✓";position:absolute;left:0;top:1px;width:19px;height:19px;border-radius:50%;background:#111;color:#fff;font-size:.7rem;display:grid;place-items:center;font-weight:700}
+.x li::before{content:"×";position:absolute;left:2px;top:-1px;font-weight:700;font-size:1.1rem;color:#555}
+.dot li{padding-left:18px}
+.dot li::before{content:"";position:absolute;left:3px;top:.65em;width:6px;height:6px;border-radius:50%;background:#111}
+.cols{columns:2;column-gap:28px}
+.cols li{break-inside:avoid}
+.steps{display:grid;gap:10px}
+.step,.faq{background:#fff;border:2px solid var(--ink);border-radius:16px}
+.step summary,.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:15px 18px;font-weight:600}
+.step summary::-webkit-details-marker,.faq summary::-webkit-details-marker{display:none}
+.step .n{flex:none;width:34px;height:34px;border-radius:50%;background:var(--y);border:2px solid var(--ink);display:grid;place-items:center;font-family:Fraunces,serif;font-weight:800}
+.step .t{flex:1;font-size:1.05rem}
+.ar{flex:none;margin-left:auto;transition:transform .2s}
+details[open]>summary .ar{transform:rotate(180deg)}
+.sb{padding:0 18px 16px 66px}
+.lam{margin-top:10px;background:var(--y);border-radius:10px;padding:10px 14px}
+.faqs{display:grid;gap:10px}
+.faq p{padding:0 18px 16px;color:#222}
+.cta{text-align:center;margin-top:40px;background:#fff;border:2.5px solid var(--ink);border-radius:22px;padding:30px 22px;box-shadow:-6px 6px 0 #111}
+.cta h2{font-size:clamp(1.8rem,4.5vw,2.4rem);margin-bottom:8px}
+.cta p{margin-bottom:18px;color:#222}
+footer{text-align:center;font-size:.85rem;color:#555;padding:20px 0 40px}
+footer a{font-weight:600;color:#111}
+@media(max-width:700px){.two{grid-template-columns:1fr}.cols{columns:1}.sb{padding-left:18px}.home span{display:none}.pricebox .btn{width:100%;text-align:center}}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in"><a class="home" href="/">← Huy Tim<span>Dữ liệu &amp; vận hành thương mại điện tử</span></a><a class="zl" href="https://zalo.me/0796796492" target="_blank" rel="noopener"><img src="/img/zalo.svg" alt="" width="24" height="24">Đăng ký qua Zalo</a></div></div>
+<nav class="tabs" aria-label="Chọn khoá"><div class="wrap"><div class="seg" role="tablist"><a href="#viet-nam" role="tab" data-k="viet-nam" class="on" aria-selected="true">Bán hàng tại Việt Nam</a><a href="#my" role="tab" data-k="my" aria-selected="false">Bán hàng sang Mỹ</a></div></div></nav>
+<main class="wrap">
+<div class="khoa" id="viet-nam" role="tabpanel">
+  <header class="kh">
+    <p class="kicker">Khoá 1 · Mentor thực chiến 1 kèm 1</p>
+    <h1 class="serif">Bán hàng tại Việt Nam</h1>
+    <p class="kh-sub">Từ chọn ngách đến đơn đầu tiên</p>
+    <p class="lead">Bạn muốn bán trên TikTok Shop và Shopee nhưng chưa biết bán gì, lấy hàng ở đâu, tính giá ra sao. Khoá này đi cùng bạn từng bước, từ một ý tưởng sản phẩm đến đơn hàng đầu tiên, với công cụ thật và số liệu thật.</p>
+    <div class="pricebox"><div><span class="lbl">Học phí gói mentor 1 kèm 1</span><b class="serif">Chỉ từ 2.000.000đ</b></div><a class="btn" href="https://zalo.me/0796796492" target="_blank" rel="noopener">Đăng ký qua Zalo</a></div>
+  </header>
+  <section class="two">
+    <div class="box"><h2 class="serif">Khoá này dành cho ai</h2><ul class="chk"><li>Người mới, chưa từng bán online hoặc mới bán vài đơn lẻ.</li><li>Người đã có shop nhưng chọn sản phẩm theo cảm tính, nhập hàng xong không bán được.</li><li>Người muốn dùng AI (Claude, FastMoss, Kalodata) để chọn sản phẩm bằng số liệu thay vì đoán.</li></ul></div>
+    <div class="box muted"><h2 class="serif">Không hợp với ai</h2><ul class="x"><li>Người tìm cách làm giàu nhanh hoặc cần cam kết doanh thu. Khoá dạy cách làm và đi cùng bạn, không hứa số đơn.</li><li>Người không có thời gian làm bài giữa các buổi. Mỗi bước chỉ xong khi bạn có đầu ra thật.</li></ul></div>
+  </section>
+  <section class="box"><h2 class="serif">Học xong bạn có gì trong tay</h2><ul class="chk cols"><li>Một câu ngách rõ ràng và danh sách sản phẩm đã kiểm bằng số liệu.</li><li>File tính giá tự động cho sản phẩm của bạn: giá vốn, giá bán, lãi mỗi đơn.</li><li>Một nhà cung cấp đã so sánh, lô thử đầu tiên đặt đúng số tiền bạn chấp nhận mất.</li><li>Shop TikTok Shop đã đăng ký, sản phẩm đã đăng bán với mã SKU.</li><li>Quy trình đóng gói, giao hàng và sổ đơn của riêng bạn.</li><li>Đơn hàng đầu tiên và bảng lãi thật sau khi tiền về.</li></ul></section>
+  <section><h2 class="serif sec-h">Lộ trình 6 bước (mỗi bước có video bài giảng, tài liệu và bài tập)</h2><div class="steps"><details class="step" open><summary><span class="n">1</span><span class="t">Chọn ngách và mở shop</span><span class="ar" aria-hidden="true">↓</span></summary><div class="sb"><ul class="dot"><li>Bản đồ 8 bước và nhịp học một tuần.</li><li>Viết ra một ngách bằng công thức: sản phẩm, cho ai, nhu cầu gì.</li><li>Tìm ý tưởng sản phẩm bằng Instagram Reels.</li><li>Cho Claude tự làm trọn một vòng: tìm ý tưởng, kiểm số liệu, tìm nguồn, tính giá và kết luận có nên nhập không.</li><li>Đăng ký TikTok Shop, làm quen Kênh Người Bán Shopee.</li><li>Thư mục Google Drive và quy ước mã sản phẩm, mã lô.</li></ul><p class="lam"><b>Bạn làm:</b> câu ngách, danh sách 10 sản phẩm, shop đã đăng ký.</p></div></details><details class="step"><summary><span class="n">2</span><span class="t">Phân tích số liệu và tìm nguồn hàng</span><span class="ar" aria-hidden="true">↓</span></summary><div class="sb"><ul class="dot"><li>Nối FastMoss vào Claude, hỏi số liệu TikTok Shop bằng tiếng Việt.</li><li>Chọn 5 sản phẩm chính và 5 sản phẩm vệ tinh từ số liệu thật.</li><li>Đối chiếu bằng Kalodata, xem lượt tìm từ khoá trên Shopee.</li><li>Tìm giá nhập trên 1688 bằng từ khoá tiếng Trung.</li><li>Điền file tính giá tự động, đọc tab Kết quả.</li></ul><p class="lam"><b>Bạn làm:</b> bảng số liệu sản phẩm, 1 đến 2 nhà cung cấp, file tính giá đã điền.</p></div></details><details class="step"><summary><span class="n">3</span><span class="t">Chọn sản phẩm và đặt lô thử</span><span class="ar" aria-hidden="true">↓</span></summary><div class="sb"><ul class="dot"><li>Tính số lượng lô thử từ số tiền chấp nhận mất, gán mã lô.</li><li>Đặt hàng và gộp kiện trên 1688.</li></ul><p class="lam"><b>Bạn làm:</b> lô thử đã đặt, mã lô, thư mục lô.</p></div></details><details class="step"><summary><span class="n">4</span><span class="t">Đăng bán (listing)</span><span class="ar" aria-hidden="true">↓</span></summary><div class="sb"><ul class="dot"><li>Cấu trúc mã SKU, ảnh, tiêu đề, mô tả, chính sách shop.</li></ul><p class="lam"><b>Bạn làm:</b> sản phẩm đăng bán đầy đủ.</p></div></details><details class="step"><summary><span class="n">5</span><span class="t">Nhận hàng, đóng gói, vận chuyển</span><span class="ar" aria-hidden="true">↓</span></summary><div class="sb"><ul class="dot"><li>Nhận hàng về và kiểm lô.</li><li>Chọn đơn vị vận chuyển, đóng thử một kiện, tính chi phí đóng gói mỗi đơn.</li></ul><p class="lam"><b>Bạn làm:</b> biên bản kiểm lô, quy trình đóng gói một ngày.</p></div></details><details class="step"><summary><span class="n">6</span><span class="t">Đơn đầu tiên và lãi thật</span><span class="ar" aria-hidden="true">↓</span></summary><div class="sb"><ul class="dot"><li>Xử lý một đơn từ A đến Z, sổ đơn, đơn COD, khi có sự cố.</li><li>Kéo đơn đầu tiên: khuyến mãi, voucher, KOL, Live, quảng cáo.</li><li>Đối soát tiền về, tính lãi thật theo lô, quyết định giữ, đổi hay tăng lô.</li></ul><p class="lam"><b>Bạn làm:</b> sổ đơn, bảng lãi thật, quyết định lô tiếp theo.</p></div></details></div></section>
+  <section class="box"><h2 class="serif">Mình hỗ trợ gì</h2><ul class="chk"><li>Buổi họp 1 kèm 1 mỗi tuần qua Google Meet: xem bài bạn nộp, gỡ chỗ đang vướng, làm cùng bạn trên màn hình, giao việc tuần sau.</li><li>Thư viện 21 video bài giảng quay trên màn hình công cụ thật (Instagram, FastMoss, Kalodata, 1688, TikTok Shop, Kênh Người Bán Shopee, Google Sheets). Xem lại bất cứ lúc nào.</li><li>Tài liệu PDF và bài tập cho từng video, bảng mẫu Google Sheets, file tính giá tự động.</li><li>Bộ câu lệnh Claude dùng ngay: tìm ý tưởng, kiểm số liệu, tìm nguồn, tính giá.</li><li>Trang học viên riêng: xem lộ trình, nộp bài, nhận nhận xét, xem lại nội dung từng buổi họp.</li><li>Hỏi bất cứ khi nào có câu hỏi, mentor sắp xếp trả lời.</li><li>Có sẵn kho và hệ thống vận chuyển đơn, mentor hướng dẫn bạn dùng.</li><li>Báo cáo phân tích sản phẩm bằng FastMoss khi bạn chốt ngách.</li></ul></section>
+  <section class="two">
+    <div class="box"><h2 class="serif">Công cụ dùng trong khoá</h2><p>Claude (có Claude in Chrome), FastMoss, Kalodata, 1688, TikTok Shop, Shopee, Google Drive và Google Sheets. Buổi đầu mentor hướng dẫn cài đặt và kết nối.</p></div>
+    <div class="box"><h2 class="serif">Hình thức</h2><p>Online. Mỗi tuần 1 buổi họp 1 kèm 1, theo đầy đủ hệ thống chương trình bám đầu ra từng bước, để bạn tự vận hành và bán hàng. Giữa các buổi bạn xem video, làm bài và nộp trên trang học viên.</p></div>
+  </section>
+  <section class="box note"><h2 class="serif">Cam kết rõ ràng</h2><ul class="dot"><li>Khoá không hứa doanh thu, lợi nhuận hay thời gian ra đơn. Kết quả phụ thuộc sản phẩm, vốn và mức độ bạn làm bài.</li><li>Số liệu trong bài giảng lấy từ công cụ thật; chỗ nào là ước tính đều ghi rõ số giả định.</li><li>Thuế, giấy phép: bạn hỏi kế toán hoặc cơ quan có thẩm quyền, mentor hướng dẫn cách hỏi và ghi lại.</li></ul></section>
+  <section><h2 class="serif sec-h">Câu hỏi thường gặp</h2><div class="faqs"><details class="faq"><summary>Chưa có vốn nhiều có học được không?<span class="ar" aria-hidden="true">↓</span></summary><p>Được. Lô thử tính theo số tiền bạn chấp nhận mất, không đặt hàng lớn ngay.</p></details><details class="faq"><summary>Chưa biết dùng AI có theo được không?<span class="ar" aria-hidden="true">↓</span></summary><p>Được. Video quay từng thao tác, có câu lệnh mẫu để dán.</p></details><details class="faq"><summary>Có cần biết tiếng Trung để nhập 1688 không?<span class="ar" aria-hidden="true">↓</span></summary><p>Không. Claude dịch từ khoá và đọc trang giúp bạn.</p></details><details class="faq"><summary>Bỏ lỡ một buổi thì sao?<span class="ar" aria-hidden="true">↓</span></summary><p>Video bài giảng và nội dung buổi họp nằm trên trang học viên, xem lại được.</p></details><details class="faq"><summary>Có câu hỏi ngoài buổi họp thì sao?<span class="ar" aria-hidden="true">↓</span></summary><p>Hỏi bất cứ khi nào, mentor sắp xếp trả lời.</p></details></div></section>
+  <section class="cta"><h2 class="serif">Sẵn sàng bắt đầu?</h2><p>Gói mentor 1 kèm 1 chỉ từ 2.000.000đ. Nhắn Huy qua Zalo để đăng ký.</p><a class="btn big" href="https://zalo.me/0796796492" target="_blank" rel="noopener">Đăng ký qua Zalo.</a></section>
+</div>
+<div class="khoa" id="my" role="tabpanel" hidden>
+  <header class="kh">
+    <p class="kicker">Khoá 2 · Mentor thực chiến 1 kèm 1</p>
+    <h1 class="serif">Bán hàng sang Mỹ</h1>
+    <p class="kh-sub">Từ xưởng Việt Nam đến đơn đầu tiên trên Amazon và TikTok Shop Mỹ</p>
+    <p class="lead">Bạn có sản phẩm hoặc xưởng ở Việt Nam và muốn bán lẻ ở Mỹ. Đường đi dài hơn bán trong nước: chọn sản phẩm cho người Mỹ, tính giá đô la, bao bì, vận chuyển, kho, gian hàng. Khoá này đi cùng bạn qua từng chặng, làm bằng công cụ thật.</p>
+    <div class="pricebox"><div><span class="lbl">Học phí gói mentor 1 kèm 1</span><b class="serif">Chỉ từ 5.000.000đ</b></div><a class="btn" href="https://zalo.me/0796796492" target="_blank" rel="noopener">Đăng ký qua Zalo</a></div>
+  </header>
+  <section class="two">
+    <div class="box"><h2 class="serif">Khoá này dành cho ai</h2><ul class="chk"><li>Chủ xưởng, người bán Việt Nam muốn đưa hàng sang Amazon hoặc TikTok Shop Mỹ.</li><li>Người đã bán trong nước, muốn mở thêm thị trường Mỹ.</li><li>Người có nguồn hàng Việt Nam (thủ công, tự nhiên, đồ gia dụng) và cần biết hàng nào bán được ở Mỹ.</li></ul></div>
+    <div class="box muted"><h2 class="serif">Không hợp với ai</h2><ul class="x"><li>Người cần cam kết doanh thu hoặc muốn làm trọn gói không tham gia.</li><li>Người cần tư vấn pháp lý, thuế chuyên sâu. Khoá hướng dẫn cách làm việc với đơn vị chuyên môn, không thay họ.</li></ul></div>
+  </section>
+  <section class="box"><h2 class="serif">Học xong bạn có gì trong tay</h2><ul class="chk cols"><li>Sản phẩm đã kiểm nhu cầu ở Mỹ bằng FastMoss, Kalodata và Amazon.</li><li>Xưởng đã chấm điểm, mẫu đã kiểm.</li><li>Bảng giá bán thấp nhất ở Mỹ: giá vốn, phí sàn, phí kho, quảng cáo, lãi mỗi đơn.</li><li>Bao bì, nhãn, mã vạch đúng yêu cầu; lô thử đã chốt.</li><li>Phương án vận chuyển và kho ở Mỹ đã so sánh.</li><li>Gian hàng và listing; đơn đầu tiên và bảng đối soát tiền về.</li></ul></section>
+  <section><h2 class="serif sec-h">Lộ trình 8 bước</h2><div class="steps"><details class="step" open><summary><span class="n">1</span><span class="t">Chọn sản phẩm cho thị trường Mỹ</span><span class="ar" aria-hidden="true">↓</span></summary><div class="sb"><ul class="dot"><li>Bản đồ 5 chặng từ xưởng Việt Nam tới khách Mỹ.</li><li>Chọn sản phẩm cho Mỹ: xem đối thủ, đánh giá 1 đến 3 sao trên Amazon.</li><li>Cho Claude tự làm trọn một vòng: kiểm TikTok Shop Mỹ và Amazon, đọc catalog và bảng giá xưởng, tính giá đô la và kết luận.</li><li>Dùng FastMoss trong Claude và đối chiếu Kalodata cho thị trường Mỹ.</li></ul><p class="lam"><b>Bạn làm:</b> 1 đến 3 sản phẩm đã kiểm số liệu.</p></div></details><details class="step"><summary><span class="n">2</span><span class="t">Chọn xưởng và lấy mẫu</span><span class="ar" aria-hidden="true">↓</span></summary><div class="sb"><ul class="dot"><li>So sánh và chấm điểm xưởng, tin xin mẫu, kiểm mẫu.</li></ul><p class="lam"><b>Bạn làm:</b> bảng chấm điểm xưởng, mẫu đạt.</p></div></details><details class="step"><summary><span class="n">3</span><span class="t">Giá bán, bao bì, nhãn, lô thử</span><span class="ar" aria-hidden="true">↓</span></summary><div class="sb"><ul class="dot"><li>Tính giá bán thấp nhất ở Mỹ bằng file tính giá.</li><li>Bao bì và nhãn: thông tin bắt buộc, mã UPC, làm nhãn trên Canva cùng Claude.</li><li>Tạo skill cho shop của bạn: lưu bảng màu, bố cục để mọi bao bì cùng một kiểu.</li><li>Chốt lô thử và gửi tin đặt lô.</li></ul><p class="lam"><b>Bạn làm:</b> bảng giá, bao bì đã duyệt, lô thử đã đặt.</p></div></details><details class="step"><summary><span class="n">4</span><span class="t">Pháp nhân và giấy tờ</span><span class="ar" aria-hidden="true">↓</span></summary><div class="sb"><ul class="dot"><li>Mentor đi cùng bạn liệt kê giấy tờ cần có và câu hỏi cho đơn vị chuyên môn. Phần pháp lý, thuế do kế toán hoặc cơ quan có thẩm quyền trả lời.</li></ul></div></details><details class="step"><summary><span class="n">5</span><span class="t">Kho ở Mỹ (fulfillment)</span><span class="ar" aria-hidden="true">↓</span></summary><div class="sb"><ul class="dot"><li>Kho riêng và kho nền tảng (Amazon FBA, TikTok Shop FBT) vận hành thế nào, lợi hại, ba đường đi của hàng.</li></ul><p class="lam"><b>Bạn làm:</b> bảng so sánh chi phí kho bằng cùng một lô.</p></div></details><details class="step"><summary><span class="n">6</span><span class="t">Đưa hàng sang Mỹ</span><span class="ar" aria-hidden="true">↓</span></summary><div class="sb"><ul class="dot"><li>Đường biển, đường bay, báo giá trọn gói, tra mã HTS, chứng từ.</li></ul><p class="lam"><b>Bạn làm:</b> bảng so báo giá vận chuyển.</p></div></details><details class="step"><summary><span class="n">7</span><span class="t">Gian hàng và listing</span><span class="ar" aria-hidden="true">↓</span></summary><div class="sb"><ul class="dot"><li>Gian hàng trên sàn Mỹ, tiêu đề, ảnh, mô tả theo cách người Mỹ đọc.</li></ul><p class="lam"><b>Bạn làm:</b> listing hoàn chỉnh.</p></div></details><details class="step"><summary><span class="n">8</span><span class="t">Đơn đầu tiên và payout</span><span class="ar" aria-hidden="true">↓</span></summary><div class="sb"><ul class="dot"><li>Xử lý đơn, đối soát tiền về, tính lãi thật theo lô.</li></ul><p class="lam"><b>Bạn làm:</b> bảng đối soát và quyết định lô tiếp theo.</p></div></details></div></section>
+  <section class="box"><h2 class="serif">Mình hỗ trợ gì</h2><ul class="chk"><li>Buổi họp 1 kèm 1 mỗi tuần; các bảng trong tài liệu làm ngay trong buổi, mentor ngồi cạnh.</li><li>Thư viện 15 video bài giảng quay trên công cụ thật (FastMoss, Kalodata, Amazon, 1688, Canva, GS1 US, hts.usitc.gov, Google Sheets).</li><li>Tài liệu PDF, bảng mẫu Google Sheets, file tính giá cho thị trường Mỹ.</li><li>Bộ câu lệnh Claude và tài liệu tạo skill làm nhãn bao bì trên Canva.</li><li>Trang học viên riêng theo dõi 8 bước, nộp bài, xem lại buổi họp.</li><li>Hỏi bất cứ khi nào có câu hỏi, mentor sắp xếp trả lời.</li><li>Có sẵn kho fulfillment ở Mỹ và hệ thống vận chuyển đơn: phần mềm kho kết nối các sàn và tự giao đơn.</li></ul></section>
+  <section class="two">
+    <div class="box"><h2 class="serif">Công cụ dùng trong khoá</h2><p>Claude (có Claude in Chrome), FastMoss, Kalodata, Amazon, 1688, Canva, Google Drive và Google Sheets.</p></div>
+    <div class="box"><h2 class="serif">Hình thức</h2><p>Online. Mỗi tuần 1 buổi họp 1 kèm 1, theo đầy đủ hệ thống chương trình bám đầu ra từng bước, để bạn tự vận hành và bán hàng.</p></div>
+  </section>
+  <section class="box note"><h2 class="serif">Cam kết rõ ràng</h2><ul class="dot"><li>Khoá không hứa doanh thu, lợi nhuận hay thời gian ra đơn.</li><li>Phí sàn, phí kho, phí vận chuyển luôn lấy bảng phí hiện hành; số trong bài giảng ghi rõ số giả định.</li><li>Khoá không tư vấn pháp lý hay thuế. Phần pháp nhân, thuế nhập khẩu, kiểm dịch: bạn hỏi đơn vị chuyên môn, mentor giúp bạn chuẩn bị câu hỏi.</li></ul></section>
+  <section><h2 class="serif sec-h">Câu hỏi thường gặp</h2><div class="faqs"><details class="faq"><summary>Chưa có công ty ở Mỹ có học được không?<span class="ar" aria-hidden="true">↓</span></summary><p>Được. Bước 4 hướng dẫn bạn chuẩn bị và hỏi đúng người; các bước chọn sản phẩm, xưởng, giá làm song song.</p></details><details class="faq"><summary>Có cần tiếng Anh giỏi không?<span class="ar" aria-hidden="true">↓</span></summary><p>Không bắt buộc. Claude hỗ trợ đọc trang Amazon, viết listing tiếng Anh.</p></details><details class="faq"><summary>Nên bán Amazon hay TikTok Shop Mỹ?<span class="ar" aria-hidden="true">↓</span></summary><p>Tuỳ sản phẩm. Khoá dạy cách kiểm số liệu cả hai sàn trước khi chọn.</p></details><details class="faq"><summary>Vốn lô thử khoảng bao nhiêu?<span class="ar" aria-hidden="true">↓</span></summary><p>Tính theo số tiền bạn chấp nhận mất và mức số lượng tối thiểu của xưởng; bước 3 làm cùng bạn.</p></details><details class="faq"><summary>Đã học khoá Việt Nam có cần học lại phần chọn sản phẩm không?<span class="ar" aria-hidden="true">↓</span></summary><p>Phần công cụ (FastMoss, Kalodata, file tính giá) giống nhau; khoá Mỹ đi tiếp phần riêng của thị trường Mỹ.</p></details></div></section>
+  <section class="cta"><h2 class="serif">Sẵn sàng bắt đầu?</h2><p>Gói mentor 1 kèm 1 chỉ từ 5.000.000đ. Nhắn Huy qua Zalo để đăng ký.</p><a class="btn big" href="https://zalo.me/0796796492" target="_blank" rel="noopener">Đăng ký qua Zalo.</a></section>
+</div>
+</main>
+<footer><a href="/">huytim.com</a> · Zalo 0796 796 492 · nguyendinhhuy14052000@gmail.com</footer>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.seg a'));
+  function show(k,scroll){
+    if(k!=='viet-nam'&&k!=='my')k='viet-nam';
+    tabs.forEach(function(a){var on=a.dataset.k===k;a.classList.toggle('on',on);a.setAttribute('aria-selected',String(on))});
+    ['viet-nam','my'].forEach(function(id){document.getElementById(id).hidden=id!==k});
+    if(scroll)window.scrollTo(0,0);
+  }
+  tabs.forEach(function(a){a.addEventListener('click',function(ev){ev.preventDefault();history.replaceState(null,'','#'+a.dataset.k);show(a.dataset.k,true)})});
+  show(location.hash.slice(1));
+  addEventListener('hashchange',function(){show(location.hash.slice(1),true)});
+})();
+</script>
+</body>
+</html>
