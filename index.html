@@ -381,6 +381,9 @@
   .kh-acts{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:auto;padding-top:18px}
   .kh-acts .btn{font-size:.95rem;padding:12px 20px;border-radius:12px}
   .kh-acts .go{margin-top:0}
+  .khv{margin:14px 0 4px}
+  .khv video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#111;border:2.5px solid var(--ink);border-radius:14px;box-shadow:-4px 4px 0 #111}
+  .khv figcaption{font-size:.82rem;opacity:.7;margin-top:8px}
 </style>
 </head>
 <body>
@@ -448,6 +451,7 @@
         <div class="tags"><span class="tag">Mentor thực chiến</span><span class="tag">1 kèm 1</span><span class="tag">Mỗi tuần 1 buổi</span></div>
         <h3>Mentor Thực Chiến Việt Nam</h3>
         <span class="price">Chỉ từ 2.000.000đ</span>
+        <figure class="khv"><video src="video/gioi-thieu-mentor-vn.mp4" poster="video/gioi-thieu-mentor-vn.jpg" controls playsinline preload="none" width="1280" height="720" aria-label="Video Huy giới thiệu khoá mentor bán hàng tại Việt Nam"><track kind="subtitles" srclang="vi" label="Tiếng Việt" src="video/gioi-thieu-mentor-vn.vtt"></video><figcaption>Huy giới thiệu khoá, khoảng 2 phút 20 giây</figcaption></figure>
         <p class="vibe">Bán hàng tại Việt Nam: <b>từ chọn ngách đến đơn đầu tiên</b> trên TikTok Shop và Shopee.</p>
         <p>Hình thức: online, mỗi tuần 1 buổi họp 1 kèm 1, theo đầy đủ hệ thống chương trình bám đầu ra từng bước, để bạn tự vận hành và bán hàng.</p>
         <p class="stl">Lộ trình 6 bước</p><ol class="stp"><li>Chọn ngách và mở shop</li><li>Phân tích số liệu và tìm nguồn hàng</li><li>Chọn sản phẩm và đặt lô thử</li><li>Đăng bán (listing)</li><li>Nhận hàng, đóng gói, vận chuyển</li><li>Đơn đầu tiên và lãi thật</li></ol>
@@ -459,6 +463,7 @@
         <div class="tags"><span class="tag">Mentor thực chiến</span><span class="tag">1 kèm 1</span><span class="tag">Mỗi tuần 1 buổi</span></div>
         <h3>Mentor Thực Chiến US</h3>
         <span class="price">Chỉ từ 5.000.000đ</span>
+        <figure class="khv"><video src="video/gioi-thieu-mentor-my.mp4" poster="video/gioi-thieu-mentor-my.jpg" controls playsinline preload="none" width="1280" height="720" aria-label="Video Huy giới thiệu khoá mentor bán hàng sang Mỹ"><track kind="subtitles" srclang="vi" label="Tiếng Việt" src="video/gioi-thieu-mentor-my.vtt"></video><figcaption>Huy giới thiệu khoá, khoảng 2 phút 20 giây</figcaption></figure>
         <p class="vibe">Bán hàng sang Mỹ: <b>từ xưởng Việt Nam đến đơn đầu tiên</b> trên các trang thương mại điện tử US.</p>
         <p>Hình thức: online, mỗi tuần 1 buổi họp 1 kèm 1, theo đầy đủ hệ thống chương trình bám đầu ra từng bước, để bạn tự vận hành và bán hàng.</p>
         <p class="stl">Lộ trình 8 bước</p><ol class="stp"><li>Chọn sản phẩm cho thị trường Mỹ</li><li>Chọn xưởng và lấy mẫu</li><li>Giá bán, bao bì, nhãn, lô thử</li><li>Pháp nhân và giấy tờ</li><li>Kho ở Mỹ (fulfillment)</li><li>Đưa hàng sang Mỹ</li><li>Gian hàng và listing</li><li>Đơn đầu tiên và payout</li></ol>
@@ -928,5 +933,6 @@ document.querySelectorAll('#vhSeg button').forEach(function(b){b.addEventListene
   b.addEventListener('click',function(){var o=p.hidden;p.hidden=!o;b.setAttribute('aria-expanded',String(o));b.querySelector('.lb').textContent=o?'Ẩn hồ sơ khởi nghiệp':'Xem hồ sơ khởi nghiệp của mình'});
 })();
 </script>
+<script>document.addEventListener('play',function(e){document.querySelectorAll('video').forEach(function(x){if(x!==e.target)x.pause()})},true);</script>
 </body>
 </html>
