@@ -514,6 +514,15 @@
   .partners img[alt="SuperShip"],.partners img[alt="Dola AI"]{height:40px}
   @media(max-width:1000px){.partners{grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 24px;max-width:640px}}
   @media(max-width:520px){.partners{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 18px}.partners img{height:28px}.partners img[alt="Kalodata"]{height:21px}.partners img[alt="SuperShip"],.partners img[alt="Dola AI"]{height:32px}}
+  /* Số học viên */
+  .hv-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);max-width:760px;margin:36px auto 0;text-align:left}
+  .hv-col{background:var(--card);padding:22px 26px}
+  .hv-h{font-size:.85rem;font-weight:600;color:var(--gold-t);letter-spacing:.04em;text-transform:uppercase;margin-bottom:12px}
+  .hv-row{display:flex;gap:36px}
+  .hv-row b{display:block;font:700 clamp(2.2rem,5vw,3rem)/1 Montserrat,sans-serif;color:var(--ink)}
+  .hv-row span{display:block;margin-top:6px;font-size:.9rem;color:var(--muted)}
+  .hv-note{margin-top:12px;font-size:.82rem;color:var(--muted)}
+  @media(max-width:560px){.hv-stats{grid-template-columns:1fr}.hv-col{padding:18px 20px}}
 </style>
 </head>
 <body>
@@ -792,6 +801,17 @@
   <div class="wrap center">
     <h2 class="serif">Khách hàng nói gì.</h2>
     <p class="lead">Một vài chia sẻ từ những người đã trao đổi và làm việc cùng mình.</p>
+    <div class="hv-stats" aria-label="Số học viên mentor">
+      <div class="hv-col">
+        <p class="hv-h">Đang học</p>
+        <div class="hv-row"><div><b>5</b><span>Việt Nam</span></div><div><b>5</b><span>Mỹ</span></div></div>
+      </div>
+      <div class="hv-col">
+        <p class="hv-h">Đã tốt nghiệp</p>
+        <div class="hv-row"><div><b>21</b><span>Việt Nam</span></div><div><b>7</b><span>Mỹ</span></div></div>
+      </div>
+    </div>
+    <p class="hv-note">Học viên mentor 1 kèm 1, cập nhật 16/11/2026.</p>
   </div>
   <div class="marquee" aria-label="Feedback từ khách hàng">
     <div class="track" id="track">
