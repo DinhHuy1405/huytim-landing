@@ -523,6 +523,14 @@
   .hv-row span{display:block;margin-top:6px;font-size:.9rem;color:var(--muted)}
   .hv-note{margin-top:12px;font-size:.82rem;color:var(--muted)}
   @media(max-width:560px){.hv-stats{grid-template-columns:1fr}.hv-col{padding:18px 20px}}
+  /* Đồng hồ số học viên */
+  .hv-row{gap:28px;flex-wrap:wrap}
+  .hv-row b.odo{display:flex;gap:5px;height:auto;font:700 clamp(2.4rem,6vw,3.4rem)/1 Montserrat,sans-serif}
+  .hv-row .odo span{margin:0;font-size:1em;color:inherit}
+  .hv-row .odo .dg{display:block;height:1.3em;overflow:hidden;background:#0E0E0E;color:#D4A862;border-radius:4px;min-width:.9em;text-align:center;box-shadow:inset 0 -1px 0 rgba(255,255,255,.06)}
+  .hv-row .odo .dg i{display:block;font-style:normal;transition:transform 1.8s cubic-bezier(.2,.8,.2,1)}
+  .hv-row .odo .dg i span{display:block;height:1.3em;line-height:1.3em;padding:0 .14em}
+  .hv-row .odo + span{margin-top:10px}
 </style>
 </head>
 <body>
@@ -799,31 +807,18 @@
 
 <section class="block lt alt" id="feedback">
   <div class="wrap center">
-    <h2 class="serif">Khách hàng nói gì.</h2>
-    <p class="lead">Một vài chia sẻ từ những người đã trao đổi và làm việc cùng mình.</p>
+    <h2 class="serif">Học viên mentor.</h2>
     <div class="hv-stats" aria-label="Số học viên mentor">
       <div class="hv-col">
         <p class="hv-h">Đang học</p>
-        <div class="hv-row"><div><b>5</b><span>Việt Nam</span></div><div><b>5</b><span>Mỹ</span></div></div>
+        <div class="hv-row"><div><b class="odo" data-n="5">5</b><span>Việt Nam</span></div><div><b class="odo" data-n="5">5</b><span>Mỹ</span></div></div>
       </div>
       <div class="hv-col">
         <p class="hv-h">Đã tốt nghiệp</p>
-        <div class="hv-row"><div><b>21</b><span>Việt Nam</span></div><div><b>7</b><span>Mỹ</span></div></div>
+        <div class="hv-row"><div><b class="odo" data-n="21">21</b><span>Việt Nam</span></div><div><b class="odo" data-n="7">7</b><span>Mỹ</span></div></div>
       </div>
     </div>
     <p class="hv-note">Học viên mentor 1 kèm 1, cập nhật 16/11/2026.</p>
-  </div>
-  <div class="marquee" aria-label="Feedback từ khách hàng">
-    <div class="track" id="track">
-      <div class="grp">
-        <figure class="fb"><blockquote>Mình nhờ anh Huy hỗ trợ toàn bộ quy trình, và hiện tại store của mình đã vận hành ổn.</blockquote><figcaption><b>Khách hàng gói setup</b><span>Được hỗ trợ toàn bộ quy trình mở store</span></figcaption></figure>
-        <figure class="fb"><blockquote>Mình nhờ anh Huy nghiên cứu sản phẩm và fulfillment US, mình nhận được rất nhiều thông tin và kiến thức.</blockquote><figcaption><b>Khách hàng bán hàng sang Mỹ</b><span>Nghiên cứu sản phẩm và fulfillment US</span></figcaption></figure>
-        <figure class="fb"><blockquote>Mình mất 2 tháng tự tìm hiểu mà vẫn chưa nắm hết. Sau 1, 2 buổi mentor cùng anh Huy, mình nắm được quy trình và toàn bộ các vấn đề cần triển khai.</blockquote><figcaption><b>Khách hàng gói mentor</b><span>Nắm quy trình chỉ sau 1-2 buổi</span></figcaption></figure>
-        <figure class="fb"><blockquote>Mình đang làm Finance và rất phân vân có nên chuyển sang BA hay Data Science. Mình gửi trước danh sách câu hỏi về lộ trình, kỹ năng nhà tuyển dụng cần và chứng chỉ. Anh Huy phân tích kỹ rồi hỗ trợ ngay trong buổi meeting nên mình nắm rõ hướng đi hơn hẳn.</blockquote><figcaption><b>Khách hàng gói tư vấn</b><span>Đang chuyển ngành từ Finance sang Data</span></figcaption></figure>
-        <figure class="fb"><blockquote>Anh nhiệt tình thật sự! Ngoài phần trả lời câu hỏi, anh còn chia sẻ thêm blog và kinh nghiệm học tập, làm việc để mình đọc thêm. Cảm ơn anh rất nhiều.</blockquote><figcaption><b>Khách hàng gói tư vấn</b><span>Hỏi về học thuật và định hướng nghề nghiệp</span></figcaption></figure>
-        <figure class="fb"><blockquote>Xưởng mình đang xuất khẩu số lượng lớn nhưng muốn bán lẻ. Mình nhờ anh Huy hỗ trợ tìm dữ liệu và insight để bán thử. Hai bên đặt lịch, chuẩn bị bộ câu hỏi trước nên buổi trao đổi đi vào trọng tâm và mình được hỗ trợ rất rõ ràng.</blockquote><figcaption><b>Chủ xưởng sản phẩm thú cưng</b><span>Nghiên cứu dữ liệu để bán lẻ</span></figcaption></figure>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1022,5 +1017,25 @@ document.querySelectorAll('#vhSeg button').forEach(function(b){b.addEventListene
 })();
 </script>
 <script>document.addEventListener('play',function(e){document.querySelectorAll('video').forEach(function(x){if(x!==e.target)x.pause()})},true);</script>
+<script>
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.odo'));if(!els.length)return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  els.forEach(function(el){
+    var n=String(el.dataset.n);el.setAttribute('aria-label',n);el.textContent='';
+    n.split('').forEach(function(d){
+      var w=document.createElement('span');w.className='dg';w.setAttribute('aria-hidden','true');
+      var col=document.createElement('i');
+      for(var r=0;r<2;r++)for(var k=0;k<10;k++){var c=document.createElement('span');c.textContent=k;col.appendChild(c)}
+      w.appendChild(col);el.appendChild(w);w._t=10+Number(d);
+    });
+  });
+  function run(){els.forEach(function(el,i){[].forEach.call(el.querySelectorAll('.dg'),function(w,j){
+    var col=w.firstChild;col.style.transitionDelay=(i*.12+j*.08)+'s';col.style.transform='translateY(-'+(w._t*1.3)+'em)';})})}
+  var box=document.querySelector('.hv-stats'),done=false;
+  function check(){if(done)return;var r=box.getBoundingClientRect();if(r.top<innerHeight*.85&&r.bottom>0){done=true;removeEventListener('scroll',check);removeEventListener('resize',check);setTimeout(run,60)}}
+  addEventListener('scroll',check,{passive:true});addEventListener('resize',check);check();
+})();
+</script>
 </body>
 </html>
