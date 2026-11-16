@@ -506,6 +506,14 @@
   .doc input{border:1px solid #CFC9BC;border-radius:4px}
   .doc .ok{background:var(--gold);border:1px solid var(--gold);border-radius:4px}
   .mlead,.doc p.d,.mnote{color:#5F5B53}
+  /* Brand đã hợp tác */
+  .partners{list-style:none;display:grid;grid-template-columns:repeat(6,auto);justify-content:center;align-items:center;gap:34px 48px;max-width:1120px;margin:40px auto 0}
+  .partners li{display:flex;justify-content:center}
+  .partners img{display:block;height:34px;width:auto;max-width:100%}
+  .partners img[alt="Kalodata"]{height:26px}
+  .partners img[alt="SuperShip"],.partners img[alt="Dola AI"]{height:40px}
+  @media(max-width:1000px){.partners{grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 24px;max-width:640px}}
+  @media(max-width:520px){.partners{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 18px}.partners img{height:28px}.partners img[alt="Kalodata"]{height:21px}.partners img[alt="SuperShip"],.partners img[alt="Dola AI"]{height:32px}}
 </style>
 </head>
 <body>
@@ -780,7 +788,7 @@
   </div>
 </section>
 
-<section class="block lt" id="feedback">
+<section class="block lt alt" id="feedback">
   <div class="wrap center">
     <h2 class="serif">Khách hàng nói gì.</h2>
     <p class="lead">Một vài chia sẻ từ những người đã trao đổi và làm việc cùng mình.</p>
@@ -796,6 +804,20 @@
         <figure class="fb"><blockquote>Xưởng mình đang xuất khẩu số lượng lớn nhưng muốn bán lẻ. Mình nhờ anh Huy hỗ trợ tìm dữ liệu và insight để bán thử. Hai bên đặt lịch, chuẩn bị bộ câu hỏi trước nên buổi trao đổi đi vào trọng tâm và mình được hỗ trợ rất rõ ràng.</blockquote><figcaption><b>Chủ xưởng sản phẩm thú cưng</b><span>Nghiên cứu dữ liệu để bán lẻ</span></figcaption></figure>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="block lt" id="doi-tac">
+  <div class="wrap center">
+    <h2 class="serif">Các brand đã hợp tác.</h2>
+    <ul class="partners">
+      <li><img src="img/partners/fastmoss.png" alt="FastMoss" loading="lazy" height="120"></li>
+      <li><img src="img/partners/kalodata.png" alt="Kalodata" loading="lazy" height="120"></li>
+      <li><img src="img/partners/supership.png" alt="SuperShip" loading="lazy" height="120"></li>
+      <li><img src="img/partners/collanote.png" alt="CollaNote" loading="lazy" height="120"></li>
+      <li><img src="img/partners/dola.png" alt="Dola AI" loading="lazy" height="120"></li>
+      <li><img src="img/partners/bigseller.png" alt="BigSeller" loading="lazy" height="120"></li>
+    </ul>
   </div>
 </section>
 
